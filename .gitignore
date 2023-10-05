@@ -1,4 +1,5 @@
 /main.tf
-terraform.tfstate
+/oterraform.tfstate
 .terraform.lock.hcl
-terraform.tfstate.backup
+/terraform.tfstate.backup
+/struktura.tf.back
