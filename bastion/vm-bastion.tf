@@ -19,9 +19,11 @@ resource "yandex_compute_instance" "bastion-elvm" {
   }
 
   network_interface {
-    subnet_id = yandex_vpc_subnet.bastion-internal-segment.id
+    subnet_id = yandex_vpc_subnet.my-external-subnet.id
+#    security_group_ids = [yandex_vpc_security_group.secure-bastion-sg.id]
     nat       = true
   }
+
 
   metadata = {
     user-data = "${file("./metadata.yml")}"
@@ -47,11 +49,11 @@ resource "yandex_compute_instance" "bastion-elvm" {
 
 
 ######### output
-#output "internal_ip_address_websrv-elvm-1" {
-#  value = yandex_compute_instance.websrv-elvm-1.network_interface.0.ip_address
-#}
+output "internal_ip_address_bastion-elvm" {
+  value = yandex_compute_instance.bastion-elvm.network_interface.0.ip_address
+}
 
 
-#output "external_ip_address_websrv-elvm-1" {
-#  value = yandex_compute_instance.websrv-elvm-1.network_interface.0.nat_ip_address
-#}
+output "external_ip_address_bastion-elvm" {
+  value = yandex_compute_instance.bastion-elvm.network_interface.0.nat_ip_address
+}

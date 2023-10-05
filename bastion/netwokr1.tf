@@ -1,37 +1,30 @@
-####### external
-resource "yandex_vpc_network" "external-bastion-network" {
+resource "yandex_vpc_network" "my-external-Network" {
   name        = "external-bastion-network"
-  description = "external-bastion-network"
+  description = "my-internal-Network decsription"
+  labels = {
+    tf-label    = "tf-label-value"
+    empty-label = ""
+  }
 }
 
-resource "yandex_vpc_subnet" "bastion-external-segment" {
+resource "yandex_vpc_subnet" "my-external-subnet" {
   name           = "bastion-external-segment"
-  description    = "bastion-external-segment"
+  description    = "myNetwork-subnet description"
   v4_cidr_blocks = ["172.16.17.0/28"]
   zone           = "ru-central1-a"
-  network_id     = "${yandex_vpc_network.external-bastion-network.id}"
+  network_id     = "${yandex_vpc_network.my-external-Network.id}"
 }
 
-######## internal
-resource "yandex_vpc_network" "internal-bastion-network" {
-  name        = "internal-bastion-network"
-  description = "internal-bastion-network"
-}
+##security_group
+resource "yandex_vpc_default_security_group" "secure-bastion-sg" {
+#  name        = "secure-bastion-sg"
+  description = "secure-bastion-sg"
+  network_id  = "${yandex_vpc_network.my-external-Network.id}"
 
-resource "yandex_vpc_subnet" "bastion-internal-segment" {
-  name           = "bastion-internal-segment"
-  description    = "bastion-internal-segment"
-  v4_cidr_blocks = ["172.16.16.0/24"]
-  zone           = "ru-central1-a"
-  network_id     = "${yandex_vpc_network.internal-bastion-network.id}"
-}
+  labels = {
+    my-label = "my-label-value"
+  }
 
-####### secure external
-
-resource "yandex_vpc_security_group" "internal-bastion-sg" {
-  name        = "secure-bastion-sg"
-  description = ""
-  network_id  = "${yandex_vpc_network.external-bastion-network.id}"
 
   ingress {
     protocol       = "TCP"
@@ -42,12 +35,34 @@ resource "yandex_vpc_security_group" "internal-bastion-sg" {
 
 }
 
-####### secure internal
+#####################################################
 
-resource "yandex_vpc_security_group" "internal-bastion-sg" {
-  name        = "internal-bastion-sg"
-  description = ""
-  network_id  = "${yandex_vpc_network.internal-bastion-network.id}"
+resource "yandex_vpc_network" "my-internal-Network" {
+  name        = "internal-bastion-network"
+  description = "my-internal-Network decsription"
+  labels = {
+    tf-label    = "tf-label-value"
+#    empty-label = ""
+  }
+}
+
+resource "yandex_vpc_subnet" "my-internal-subnet" {
+  name           = "bastion-internal-segment"
+  description    = "myNetwork-subnet description"
+  v4_cidr_blocks = ["172.16.16.0/24"]
+  zone           = "ru-central1-a"
+  network_id     = "${yandex_vpc_network.my-internal-Network.id}"
+}
+
+##security_group
+resource "yandex_vpc_default_security_group" "internal-bastion-sg" {
+#  name        = "internal-bastion-sg"
+  description = "internal-bastion-sg"
+  network_id  = "${yandex_vpc_network.my-internal-Network.id}"
+
+  labels = {
+    my-label = "my-label-value"
+  }
 
   ingress {
     protocol       = "TCP"
