@@ -3,3 +3,5 @@
 .terraform.lock.hcl
 /terraform.tfstate.backup
 /struktura.tf.back
+.terraform/
+.git/
