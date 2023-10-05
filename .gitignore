@@ -6,3 +6,4 @@
 .terraform/
 .git/
 /provider.tf
+/terraform.tfstate
