@@ -5,3 +5,4 @@
 /struktura.tf.back
 .terraform/
 .git/
+/provider.tf
