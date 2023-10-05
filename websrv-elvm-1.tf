@@ -27,4 +27,26 @@ resource "yandex_compute_instance" "websrv-elvm-1" {
     user-data = "${file("./metadata.yml")}"
     serial-port-enable = 1
   } 
+   
+  connection {
+     type = "ssh"
+     user = "${var.ssh_user}"
+     host = self.network_interface.0.nat_ip_address
+     agent = true
+  }
+
+  provisioner "file" {
+    source      = "source/index.html"
+    destination = "/tmp/index_website.html"
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+         "echo hello",
+         "sudo apt update",
+         "sudo apt install nginx -y",       
+         "sudo cp /tmp/index_website.html /var/www/html/index.html",
+    ]
+ }
+
 }
