@@ -1,8 +1,8 @@
 resource "yandex_compute_instance" "websrv-elvm-2" {
-  name = "websrv-elvm-2"
+  name = "${var.hostnames[1]}"
   platform_id = "${var.platform["v3"]}"
   zone        = "${var.zone_data["zone_b"]}"
-  hostname = "websrv-elvm-2"
+  hostname = "${var.hostnames[1]}"
 
   resources {
     core_fraction = 20
@@ -20,33 +20,35 @@ resource "yandex_compute_instance" "websrv-elvm-2" {
 
   network_interface {
     subnet_id = yandex_vpc_subnet.subnet-b.id
-    nat       = true
+#    subnet_id = yandex_vpc_subnet.internal-bastion-sg.id
+#    nat       = true
   }
 
   metadata = {
     user-data = "${file("./metadata.yml")}"
     serial-port-enable = 1
   }
-  connection {
-     type = "ssh"
-     user = "${var.ssh_user}"
-     host = self.network_interface.0.nat_ip_address
-     agent = true
-  }
 
-  provisioner "file" {
-    source      = "source/index.html"
-    destination = "/tmp/index_website.html"
-  }
+#  connection {
+#     type = "ssh"
+#     user = "${var.ssh_user}"
+#     host = self.network_interface.0.nat_ip_address
+#     agent = true
+#  }
 
-  provisioner "remote-exec" {
-    inline = [
-         "echo hello",
-         "sudo apt update",
-         "sudo apt install nginx -y",
-         "sudo cp /tmp/index_website.html /var/www/html/index.html",
-    ]
- }
+#  provisioner "file" {
+#    source      = "source/index.html"
+#    destination = "/tmp/index_website.html"
+#  }
+
+#  provisioner "remote-exec" {
+#    inline = [
+#         "echo hello",
+#         "sudo apt update",
+#         "sudo apt install nginx -y",
+#         "sudo cp /tmp/index_website.html /var/www/html/index.html",
+#    ]
+# }
 
 }
 
