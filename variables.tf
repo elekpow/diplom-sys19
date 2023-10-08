@@ -47,6 +47,8 @@ variable "images" {
     "debian_11" = "fd8il24jjf1hg8d4nq7i"
     "ubuntu_22" = "fd80bm0rh4rkepi5ksdi"
     "centos_7" = "fd8iqpj5nifue99bshhi"
+	"ubuntu_nat_18" = "fd8h26vspaooq2rf6e2v" #nat-instance-ubuntu
+	"ubuntu_nat_22" = "fd8i1dktc7d3h7nnlb9i" #nat-instance-ubuntu
   }
 }
 

@@ -1,14 +1,4 @@
-[bastion]
-84.201.132.135
-
-[websrv-elvm-1]
-172.16.10.23
-
-[websrv-elvm-2]
-172.16.11.27
-
 [all:vars]
  ansible_python_interpreter=/usr/bin/python3
  ansible_ssh_user=igor
- ansible_ssh_common_args='-o StrictHostKeyChecking=no -o ProxyCommand="ssh -W %h:%p -q bastion@84.201.132.135"'
-#ansible_ssh_common_args='-o "ProxyCommand ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -i ~/.ssh/id_ed25519 -W %h:%p bastion@84.201.132.135"'
+ ansible_ssh_common_args=-o StrictHostKeyChecking=no -o ProxyCommand="ssh -W %h:%p -q bastion@"
