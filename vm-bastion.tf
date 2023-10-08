@@ -30,21 +30,25 @@ resource "yandex_compute_instance" "bastion-elvm" {
     serial-port-enable = 1
   }
 
-
-   provisioner "local-exec" {
-   command = " echo '\n ansible_ssh_common_args='-J ${var.ssh_user_2}@${self.network_interface.0.nat_ip_address}'\n' >> hosts.ini"
- }
-
   provisioner "local-exec" {
-   command = " echo '[bastion]' >> hosts.ini"
- }   
-  provisioner "local-exec" {
-   command = " echo '${self.network_interface.0.nat_ip_address}\n' >> hosts.ini"
+   command = " echo '${var.ssh_user_2}@${self.network_interface.0.nat_ip_address}' >> bastion_host"
  }
   
-
-  
-  
+ ################################
+ 
+  provisioner "local-exec" {
+   command = " echo '[all:vars]' >> inventory_file"
+ } 
+  provisioner "local-exec" {
+   command = " echo ' ansible_python_interpreter=/usr/bin/python3' >> inventory_file"
+ } 
+  provisioner "local-exec" {
+   command = " echo ' ansible_ssh_user=igor' >> inventory_file"
+ } 
+  provisioner "local-exec" {
+   command = " echo ' ansible_ssh_common_args=''-o StrictHostKeyChecking=no -o ProxyCommand=\"ssh -W %h:%p -q ${var.ssh_user_2}@${self.network_interface.0.nat_ip_address}\"' >> inventory_file"
+ } 
+ 
   
 }
 
@@ -52,6 +56,6 @@ resource "yandex_compute_instance" "bastion-elvm" {
 ###### null_resource_inventory
   resource "null_resource" "vm-hosts" {
   provisioner "local-exec" {
-    command = "rm -rf ./hosts.ini; cp ./templ_hosts.ini ./hosts.ini"
+    command = "rm -rf ./hosts.ini;rm -rf ./inventory_file "
   }
 }

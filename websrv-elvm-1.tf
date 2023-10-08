@@ -37,6 +37,13 @@ resource "yandex_compute_instance" "websrv-elvm-1" {
  }
 
 
+  provisioner "local-exec" {
+   command = " echo '[${var.hostnames[0]}]' >> inventory_file"
+ } 
+  provisioner "local-exec" {
+   command = " echo '${self.network_interface.0.ip_address}\n' >> inventory_file"
+}
+
 
 ## ANSIBLE first install
  # provisioner "local-exec" {

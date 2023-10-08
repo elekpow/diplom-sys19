@@ -37,6 +37,17 @@ resource "yandex_compute_instance" "websrv-elvm-2" {
  }
 
 
+
+  provisioner "local-exec" {
+   command = " echo '[${var.hostnames[1]}]' >> inventory_file"
+ } 
+  provisioner "local-exec" {
+   command = " echo '${self.network_interface.0.ip_address}\n' >> inventory_file"
+}
+
+
+
+
 #  connection {
 #     type = "ssh"
 #     user = "${var.ssh_user}"

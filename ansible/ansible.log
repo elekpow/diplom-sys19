@@ -1080,3 +1080,53 @@ version 2.8. Deprecation warnings can be disabled by setting deprecation_warning
 }
 2023-10-08 20:46:35,241 p=32433 u=igor |  PLAY RECAP ************************************************************************************************************************************************************************
 2023-10-08 20:46:35,241 p=32433 u=igor |  172.16.11.27               : ok=2    changed=0    unreachable=0    failed=0   
+2023-10-08 21:50:33,097 p=585 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , use [defaults] 
+inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 21:50:33,098 p=585 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become instead. This feature will be removed in 
+version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 21:50:33,520 p=585 u=igor |  PLAY [websrv-elvm-1] **************************************************************************************************************************************************************
+2023-10-08 21:50:33,534 p=585 u=igor |  TASK [Gathering Facts] ************************************************************************************************************************************************************
+2023-10-08 21:50:33,624 p=585 u=igor |  fatal: [172.16.10.30]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: Bad stdio forwarding specification '%h:%p'", "unreachable": true}
+2023-10-08 21:50:33,628 p=585 u=igor |  	to retry, use: --limit @/home/igor/git/diplom-sys19/ansible/site1.retry
+
+2023-10-08 21:50:33,628 p=585 u=igor |  PLAY RECAP ************************************************************************************************************************************************************************
+2023-10-08 21:50:33,629 p=585 u=igor |  172.16.10.30               : ok=0    changed=0    unreachable=1    failed=0   
+2023-10-08 21:52:03,903 p=636 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , use [defaults] 
+inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 21:52:03,905 p=636 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become instead. This feature will be removed in 
+version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 21:52:04,354 p=636 u=igor |  PLAY [websrv-elvm-1] **************************************************************************************************************************************************************
+2023-10-08 21:52:04,369 p=636 u=igor |  TASK [Gathering Facts] ************************************************************************************************************************************************************
+2023-10-08 21:52:09,114 p=636 u=igor |  ok: [172.16.10.30]
+2023-10-08 21:52:09,129 p=636 u=igor |  TASK [say hello] ******************************************************************************************************************************************************************
+2023-10-08 21:52:09,207 p=636 u=igor |  ok: [172.16.10.30] => {
+    "msg": "hello from websrv-elvm-1"
+}
+2023-10-08 21:52:09,213 p=636 u=igor |  PLAY RECAP ************************************************************************************************************************************************************************
+2023-10-08 21:52:09,213 p=636 u=igor |  172.16.10.30               : ok=2    changed=0    unreachable=0    failed=0   
+2023-10-08 23:19:18,036 p=1234 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , use [defaults] inventory=/path/to/file|dir instead. This feature 
+will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 23:19:18,039 p=1234 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become instead. This feature will be removed in version 2.8. Deprecation 
+warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 23:19:18,404 p=1234 u=igor |  PLAY [websrv-elvm-1] ********************************************************************************************************************************************************************************************
+2023-10-08 23:19:18,417 p=1234 u=igor |  TASK [Gathering Facts] ******************************************************************************************************************************************************************************************
+2023-10-08 23:19:23,363 p=1234 u=igor |  ok: [172.16.10.34]
+2023-10-08 23:19:23,377 p=1234 u=igor |  TASK [say hello] ************************************************************************************************************************************************************************************************
+2023-10-08 23:19:23,422 p=1234 u=igor |  ok: [172.16.10.34] => {
+    "msg": "hello from websrv-elvm-1"
+}
+2023-10-08 23:19:23,426 p=1234 u=igor |  PLAY RECAP ******************************************************************************************************************************************************************************************************
+2023-10-08 23:19:23,426 p=1234 u=igor |  172.16.10.34               : ok=2    changed=0    unreachable=0    failed=0   
+2023-10-08 23:19:27,979 p=1256 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , use [defaults] inventory=/path/to/file|dir instead. This feature 
+will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 23:19:27,982 p=1256 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become instead. This feature will be removed in version 2.8. Deprecation 
+warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 23:19:28,357 p=1256 u=igor |  PLAY [websrv-elvm-2] ********************************************************************************************************************************************************************************************
+2023-10-08 23:19:28,372 p=1256 u=igor |  TASK [Gathering Facts] ******************************************************************************************************************************************************************************************
+2023-10-08 23:19:30,922 p=1256 u=igor |  ok: [172.16.11.26]
+2023-10-08 23:19:30,936 p=1256 u=igor |  TASK [say hello] ************************************************************************************************************************************************************************************************
+2023-10-08 23:19:30,980 p=1256 u=igor |  ok: [172.16.11.26] => {
+    "msg": "hello from websrv-elvm-2"
+}
+2023-10-08 23:19:30,987 p=1256 u=igor |  PLAY RECAP ******************************************************************************************************************************************************************************************************
+2023-10-08 23:19:30,987 p=1256 u=igor |  172.16.11.26               : ok=2    changed=0    unreachable=0    failed=0   
