@@ -1,0 +1,14 @@
+---
+- name: "websrv-elvm-1 module Web-server nginx"
+  hosts: websrv-elvm-1
+  tasks:
+
+  - name: "Install the package nginx"
+    apt: name=nginx state=present
+    become: yes
+    register: result1
+
+  - name: "Start Nginx Services"
+    service: name=nginx state=started
+    become: yes
+    register: result2

@@ -21,13 +21,33 @@ resource "yandex_compute_instance" "websrv-elvm-1" {
   network_interface {
     subnet_id = yandex_vpc_subnet.subnet-a.id
 #    subnet_id = yandex_vpc_subnet.internal-bastion-sg.id
-#    nat       = true
+ #   nat       = true
   }
 
   metadata = {
     user-data = "${file("./metadata.yml")}"
     serial-port-enable = 1
   } 
+
+  provisioner "local-exec" {
+   command = " echo '[${var.hostnames[0]}]' >> hosts.ini"
+ }   
+  provisioner "local-exec" {
+   command = " echo '${self.network_interface.0.ip_address}\n' >> hosts.ini"
+ }
+
+
+
+## ANSIBLE first install
+ # provisioner "local-exec" {
+   # command = "sleep 30; ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i ${self.network_interface.0.ip_address} ./ansible/start-nginx.yml"
+ # }
+
+#ssh -i ~/.ssh/id_ed25519 -J bastion@158.160.106.140 igor@172.16.11.33
+
+
+
+
    
 #  connection {
 #     type = "ssh"

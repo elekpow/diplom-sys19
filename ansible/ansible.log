@@ -1,0 +1,1082 @@
+2023-10-07 20:57:30,293 p=28019 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , 
+use [defaults] inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+2023-10-07 20:57:30,296 p=28019 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become 
+instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in 
+ansible.cfg.
+2023-10-07 20:57:30,298 p=28019 u=igor |  ERROR! the playbook: ./ansible/ does not appear to be a file
+2023-10-07 20:59:11,232 p=28065 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , 
+use [defaults] inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+2023-10-07 20:59:11,233 p=28065 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become 
+instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in 
+ansible.cfg.
+2023-10-07 20:59:12,578 p=28065 u=igor |   [WARNING]: Could not match supplied host pattern, ignoring: elvm
+
+2023-10-07 20:59:12,582 p=28065 u=igor |  PLAY [elvm module Web-server nginx] *********************************************************************************************************
+2023-10-07 20:59:12,583 p=28065 u=igor |  skipping: no hosts matched
+2023-10-07 20:59:12,585 p=28065 u=igor |  PLAY RECAP **********************************************************************************************************************************
+2023-10-07 21:00:46,241 p=28097 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , 
+use [defaults] inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+2023-10-07 21:00:46,244 p=28097 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become 
+instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in 
+ansible.cfg.
+2023-10-07 21:00:46,659 p=28097 u=igor |  PLAY [websrv-elvm-1 module Web-server nginx] ************************************************************************************************
+2023-10-07 21:00:46,685 p=28097 u=igor |  TASK [Gathering Facts] **********************************************************************************************************************
+2023-10-07 21:00:56,806 p=28097 u=igor |  fatal: [172.16.11.23]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 172.16.11.23 port 22: Connection timed out", "unreachable": true}
+2023-10-07 21:00:56,809 p=28097 u=igor |  	to retry, use: --limit @/home/igor/git/diplom-sys19/ansible/start-nginx.retry
+
+2023-10-07 21:00:56,809 p=28097 u=igor |  PLAY RECAP **********************************************************************************************************************************
+2023-10-07 21:00:56,809 p=28097 u=igor |  172.16.11.23               : ok=0    changed=0    unreachable=1    failed=0   
+2023-10-07 21:13:54,542 p=28147 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , 
+use [defaults] inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+2023-10-07 21:13:54,543 p=28147 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become 
+instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in 
+ansible.cfg.
+2023-10-07 21:13:55,010 p=28147 u=igor |  PLAY [websrv-elvm-1 module Web-server nginx] ************************************************************************************************
+2023-10-07 21:13:55,025 p=28147 u=igor |  TASK [Gathering Facts] **********************************************************************************************************************
+2023-10-07 21:14:05,121 p=28147 u=igor |  fatal: [server-a]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 172.16.10.15 port 22: Connection timed out", "unreachable": true}
+2023-10-07 21:14:05,126 p=28147 u=igor |  	to retry, use: --limit @/home/igor/git/diplom-sys19/ansible/start-nginx.retry
+
+2023-10-07 21:14:05,126 p=28147 u=igor |  PLAY RECAP **********************************************************************************************************************************
+2023-10-07 21:14:05,126 p=28147 u=igor |  server-a                   : ok=0    changed=0    unreachable=1    failed=0   
+2023-10-07 21:30:15,994 p=28259 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , 
+use [defaults] inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+2023-10-07 21:30:15,998 p=28259 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become 
+instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in 
+ansible.cfg.
+2023-10-07 21:30:16,424 p=28259 u=igor |  PLAY [websrv-elvm-1 module Web-server nginx] ************************************************************************************************
+2023-10-07 21:30:16,441 p=28259 u=igor |  TASK [Install the package nginx] ************************************************************************************************************
+2023-10-07 21:30:16,530 p=28259 u=igor |  fatal: [172.16.11.23]: FAILED! => {"msg": "The field 'environment' has an invalid value, which includes an undefined variable. The error was: 'bastion_user' is undefined\n\nThe error appears to have been in '/home/igor/git/diplom-sys19/ansible/start-nginx.yml': line 13, column 5, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n  - name: \"Install the package nginx\"\n    ^ here\n"}
+2023-10-07 21:30:16,533 p=28259 u=igor |  	to retry, use: --limit @/home/igor/git/diplom-sys19/ansible/start-nginx.retry
+
+2023-10-07 21:30:16,533 p=28259 u=igor |  PLAY RECAP **********************************************************************************************************************************
+2023-10-07 21:30:16,533 p=28259 u=igor |  172.16.11.23               : ok=0    changed=0    unreachable=0    failed=1   
+2023-10-07 22:11:38,572 p=28305 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , 
+use [defaults] inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+2023-10-07 22:11:38,574 p=28305 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become 
+instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in 
+ansible.cfg.
+2023-10-07 22:11:38,982 p=28305 u=igor |  PLAY [websrv-elvm-1 module Web-server nginx] ************************************************************************************************
+2023-10-07 22:11:38,997 p=28305 u=igor |  TASK [Install the package nginx] ************************************************************************************************************
+2023-10-07 22:11:49,123 p=28305 u=igor |  fatal: [172.16.11.23]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: Connection timed out during banner exchange", "unreachable": true}
+2023-10-07 22:11:49,128 p=28305 u=igor |  	to retry, use: --limit @/home/igor/git/diplom-sys19/ansible/start-nginx.retry
+
+2023-10-07 22:11:49,128 p=28305 u=igor |  PLAY RECAP **********************************************************************************************************************************
+2023-10-07 22:11:49,128 p=28305 u=igor |  172.16.11.23               : ok=0    changed=0    unreachable=1    failed=0   
+2023-10-07 22:24:52,037 p=28334 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , 
+use [defaults] inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+2023-10-07 22:24:52,040 p=28334 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become 
+instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in 
+ansible.cfg.
+2023-10-07 22:24:52,459 p=28334 u=igor |  PLAY [websrv-elvm-1 module Web-server nginx] ************************************************************************************************
+2023-10-07 22:24:52,473 p=28334 u=igor |  TASK [Gathering Facts] **********************************************************************************************************************
+2023-10-07 22:24:52,662 p=28334 u=igor |  fatal: [bastion1]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: Could not resolve hostname bastion1: Name or service not known\r\nssh_exchange_identification: Connection closed by remote host", "unreachable": true}
+2023-10-07 22:24:52,667 p=28334 u=igor |  	to retry, use: --limit @/home/igor/git/diplom-sys19/ansible/start-nginx.retry
+
+2023-10-07 22:24:52,667 p=28334 u=igor |  PLAY RECAP **********************************************************************************************************************************
+2023-10-07 22:24:52,667 p=28334 u=igor |  bastion1                   : ok=0    changed=0    unreachable=1    failed=0   
+2023-10-07 22:26:00,150 p=28347 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , 
+use [defaults] inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+2023-10-07 22:26:00,151 p=28347 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become 
+instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in 
+ansible.cfg.
+2023-10-07 22:26:00,567 p=28347 u=igor |   [WARNING]: Could not match supplied host pattern, ignoring: websrv-elvm-1
+
+2023-10-07 22:26:00,571 p=28347 u=igor |  PLAY [websrv-elvm-1 module Web-server nginx] ************************************************************************************************
+2023-10-07 22:26:00,573 p=28347 u=igor |  skipping: no hosts matched
+2023-10-07 22:26:00,575 p=28347 u=igor |  PLAY RECAP **********************************************************************************************************************************
+2023-10-07 22:26:05,441 p=28352 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , 
+use [defaults] inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+2023-10-07 22:26:05,445 p=28352 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become 
+instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in 
+ansible.cfg.
+2023-10-07 22:26:05,845 p=28352 u=igor |   [WARNING]: Could not match supplied host pattern, ignoring: websrv-elvm-1
+
+2023-10-07 22:26:05,850 p=28352 u=igor |  PLAY [websrv-elvm-1 module Web-server nginx] ************************************************************************************************
+2023-10-07 22:26:05,851 p=28352 u=igor |  skipping: no hosts matched
+2023-10-07 22:26:05,853 p=28352 u=igor |  PLAY RECAP **********************************************************************************************************************************
+2023-10-07 22:57:05,912 p=28378 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , 
+use [defaults] inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+2023-10-07 22:57:05,912 p=28378 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become 
+instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in 
+ansible.cfg.
+2023-10-07 22:57:06,333 p=28378 u=igor |  PLAY [websrv-elvm-1 module Web-server nginx] ************************************************************************************************
+2023-10-07 22:57:06,349 p=28378 u=igor |  TASK [Gathering Facts] **********************************************************************************************************************
+2023-10-07 22:57:06,472 p=28378 u=igor |  fatal: [bastion1]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: Could not resolve hostname bastion1: Name or service not known\r\nssh_exchange_identification: Connection closed by remote host", "unreachable": true}
+2023-10-07 22:57:06,478 p=28378 u=igor |  	to retry, use: --limit @/home/igor/git/diplom-sys19/ansible/start-nginx.retry
+
+2023-10-07 22:57:06,480 p=28378 u=igor |  PLAY RECAP **********************************************************************************************************************************
+2023-10-07 22:57:06,481 p=28378 u=igor |  bastion1                   : ok=0    changed=0    unreachable=1    failed=0   
+2023-10-07 23:19:01,074 p=28403 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , 
+use [defaults] inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+2023-10-07 23:19:01,078 p=28403 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become 
+instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in 
+ansible.cfg.
+2023-10-07 23:19:01,497 p=28403 u=igor |  PLAY [websrv-elvm-1 module Web-server nginx] ************************************************************************************************
+2023-10-07 23:19:01,513 p=28403 u=igor |  TASK [Gathering Facts] **********************************************************************************************************************
+2023-10-07 23:19:01,630 p=28403 u=igor |  fatal: [172.16.11.23]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: Can't open user config file ./ssh.cfg: No such file or directory", "unreachable": true}
+2023-10-07 23:19:01,633 p=28403 u=igor |  	to retry, use: --limit @/home/igor/git/diplom-sys19/ansible/start-nginx.retry
+
+2023-10-07 23:19:01,633 p=28403 u=igor |  PLAY RECAP **********************************************************************************************************************************
+2023-10-07 23:19:01,633 p=28403 u=igor |  172.16.11.23               : ok=0    changed=0    unreachable=1    failed=0   
+2023-10-07 23:23:03,445 p=28438 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , 
+use [defaults] inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+2023-10-07 23:23:03,448 p=28438 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become 
+instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in 
+ansible.cfg.
+2023-10-07 23:23:03,863 p=28438 u=igor |  PLAY [websrv-elvm-1 module Web-server nginx] ************************************************************************************************
+2023-10-07 23:23:03,878 p=28438 u=igor |  TASK [Gathering Facts] **********************************************************************************************************************
+2023-10-07 23:23:07,875 p=28438 u=igor |  fatal: [172.16.11.23]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: Warning: Permanently added '51.250.10.55' (ECDSA) to the list of known hosts.\r\n/home/bastion/.ssh/id_ed25519: No such file or directory\nssh_exchange_identification: Connection closed by remote host", "unreachable": true}
+2023-10-07 23:23:07,880 p=28438 u=igor |  	to retry, use: --limit @/home/igor/git/diplom-sys19/ansible/start-nginx.retry
+
+2023-10-07 23:23:07,882 p=28438 u=igor |  PLAY RECAP **********************************************************************************************************************************
+2023-10-07 23:23:07,882 p=28438 u=igor |  172.16.11.23               : ok=0    changed=0    unreachable=1    failed=0   
+2023-10-07 23:28:20,549 p=28506 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , 
+use [defaults] inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+2023-10-07 23:28:20,554 p=28506 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become 
+instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in 
+ansible.cfg.
+2023-10-07 23:28:20,965 p=28506 u=igor |  PLAY [websrv-elvm-1 module Web-server nginx] ************************************************************************************************
+2023-10-07 23:28:20,978 p=28506 u=igor |  TASK [Gathering Facts] **********************************************************************************************************************
+2023-10-07 23:28:25,782 p=28506 u=igor |  fatal: [172.16.11.23]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: Warning: Permanently added '172.16.11.23' (ECDSA) to the list of known hosts.\r\nbastion@172.16.11.23: Permission denied (publickey,password).", "unreachable": true}
+2023-10-07 23:28:25,786 p=28506 u=igor |  	to retry, use: --limit @/home/igor/git/diplom-sys19/ansible/start-nginx.retry
+
+2023-10-07 23:28:25,786 p=28506 u=igor |  PLAY RECAP **********************************************************************************************************************************
+2023-10-07 23:28:25,787 p=28506 u=igor |  172.16.11.23               : ok=0    changed=0    unreachable=1    failed=0   
+2023-10-07 23:29:02,488 p=28533 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , 
+use [defaults] inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+2023-10-07 23:29:02,489 p=28533 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become 
+instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in 
+ansible.cfg.
+2023-10-07 23:29:02,904 p=28533 u=igor |  PLAY [websrv-elvm-1 module Web-server nginx] ************************************************************************************************
+2023-10-07 23:29:02,919 p=28533 u=igor |  TASK [Gathering Facts] **********************************************************************************************************************
+2023-10-07 23:29:03,569 p=28533 u=igor |  fatal: [172.16.11.23]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: bastion@172.16.11.23: Permission denied (publickey,password).", "unreachable": true}
+2023-10-07 23:29:03,573 p=28533 u=igor |  	to retry, use: --limit @/home/igor/git/diplom-sys19/ansible/start-nginx.retry
+
+2023-10-07 23:29:03,573 p=28533 u=igor |  PLAY RECAP **********************************************************************************************************************************
+2023-10-07 23:29:03,574 p=28533 u=igor |  172.16.11.23               : ok=0    changed=0    unreachable=1    failed=0   
+2023-10-07 23:31:56,415 p=28550 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , 
+use [defaults] inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+2023-10-07 23:31:56,418 p=28550 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become 
+instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in 
+ansible.cfg.
+2023-10-07 23:31:56,825 p=28550 u=igor |  PLAY [websrv-elvm-1 module Web-server nginx] ************************************************************************************************
+2023-10-07 23:31:56,838 p=28550 u=igor |  TASK [Gathering Facts] **********************************************************************************************************************
+2023-10-07 23:31:57,507 p=28550 u=igor |  fatal: [172.16.11.23]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: bastion@172.16.11.23: Permission denied (publickey,password).", "unreachable": true}
+2023-10-07 23:31:57,512 p=28550 u=igor |  	to retry, use: --limit @/home/igor/git/diplom-sys19/ansible/start-nginx.retry
+
+2023-10-07 23:31:57,514 p=28550 u=igor |  PLAY RECAP **********************************************************************************************************************************
+2023-10-07 23:31:57,514 p=28550 u=igor |  172.16.11.23               : ok=0    changed=0    unreachable=1    failed=0   
+2023-10-07 23:35:30,152 p=28563 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , 
+use [defaults] inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+2023-10-07 23:35:30,154 p=28563 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become 
+instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in 
+ansible.cfg.
+2023-10-07 23:35:30,572 p=28563 u=igor |  PLAY [websrv-elvm-1 module Web-server nginx] ************************************************************************************************
+2023-10-07 23:35:30,587 p=28563 u=igor |  TASK [Gathering Facts] **********************************************************************************************************************
+2023-10-07 23:35:40,687 p=28563 u=igor |  fatal: [172.16.11.23]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: Connection timed out during banner exchange", "unreachable": true}
+2023-10-07 23:35:40,690 p=28563 u=igor |  	to retry, use: --limit @/home/igor/git/diplom-sys19/ansible/start-nginx.retry
+
+2023-10-07 23:35:40,691 p=28563 u=igor |  PLAY RECAP **********************************************************************************************************************************
+2023-10-07 23:35:40,691 p=28563 u=igor |  172.16.11.23               : ok=0    changed=0    unreachable=1    failed=0   
+2023-10-07 23:37:42,516 p=28578 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , 
+use [defaults] inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+2023-10-07 23:37:42,520 p=28578 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become 
+instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in 
+ansible.cfg.
+2023-10-07 23:37:42,932 p=28578 u=igor |  PLAY [websrv-elvm-1 module Web-server nginx] ************************************************************************************************
+2023-10-07 23:37:42,947 p=28578 u=igor |  TASK [Gathering Facts] **********************************************************************************************************************
+2023-10-07 23:37:45,030 p=28578 u=igor |   [WARNING]: sftp transfer mechanism failed on [172.16.11.23]. Use ANSIBLE_DEBUG=1 to see detailed information
+
+2023-10-07 23:37:45,050 p=28578 u=igor |   [WARNING]: scp transfer mechanism failed on [172.16.11.23]. Use ANSIBLE_DEBUG=1 to see detailed information
+
+2023-10-07 23:37:45,688 p=28578 u=igor |  fatal: [172.16.11.23]: FAILED! => {"changed": false, "module_stderr": "Shared connection to 172.16.11.23 closed.\r\n", "module_stdout": "/bin/sh: 1: /usr/bin/python: not found\r\n", "msg": "MODULE FAILURE\nSee stdout/stderr for the exact error", "rc": 127}
+2023-10-07 23:37:45,694 p=28578 u=igor |  	to retry, use: --limit @/home/igor/git/diplom-sys19/ansible/start-nginx.retry
+
+2023-10-07 23:37:45,696 p=28578 u=igor |  PLAY RECAP **********************************************************************************************************************************
+2023-10-07 23:37:45,696 p=28578 u=igor |  172.16.11.23               : ok=0    changed=0    unreachable=0    failed=1   
+2023-10-07 23:40:31,134 p=28609 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , 
+use [defaults] inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+2023-10-07 23:40:31,138 p=28609 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become 
+instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in 
+ansible.cfg.
+2023-10-07 23:40:31,614 p=28609 u=igor |  PLAY [websrv-elvm-1 module Web-server nginx] ************************************************************************************************
+2023-10-07 23:40:31,630 p=28609 u=igor |  TASK [Gathering Facts] **********************************************************************************************************************
+2023-10-07 23:40:32,951 p=28609 u=igor |   [WARNING]: sftp transfer mechanism failed on [172.16.11.23]. Use ANSIBLE_DEBUG=1 to see detailed information
+
+2023-10-07 23:40:32,963 p=28609 u=igor |   [WARNING]: scp transfer mechanism failed on [172.16.11.23]. Use ANSIBLE_DEBUG=1 to see detailed information
+
+2023-10-07 23:40:33,894 p=28609 u=igor |  ok: [172.16.11.23]
+2023-10-07 23:40:33,910 p=28609 u=igor |  TASK [Install the package nginx] ************************************************************************************************************
+2023-10-07 23:40:34,396 p=28609 u=igor |   [WARNING]: sftp transfer mechanism failed on [172.16.11.23]. Use ANSIBLE_DEBUG=1 to see detailed information
+
+2023-10-07 23:40:34,405 p=28609 u=igor |   [WARNING]: scp transfer mechanism failed on [172.16.11.23]. Use ANSIBLE_DEBUG=1 to see detailed information
+
+2023-10-07 23:41:36,689 p=28609 u=igor |  fatal: [172.16.11.23]: FAILED! => {"cache_update_time": 1695396609, "cache_updated": false, "changed": false, "msg": "'/usr/bin/apt-get -y -o \"Dpkg::Options::=--force-confdef\" -o \"Dpkg::Options::=--force-confold\"     install 'nginx'' failed: E: Failed to fetch http://security.debian.org/pool/updates/main/n/nginx/nginx-common_1.14.2-2+deb10u5_all.deb  Cannot initiate the connection to debian.map.fastlydns.net:80 (2a04:4e42:3a::644). - connect (101: Network is unreachable) Could not connect to debian.map.fastlydns.net:80 (151.101.246.132), connection timed out Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable) Could not connect to security.debian.org:80 (151.101.2.132), connection timed out Could not connect to security.debian.org:80 (151.101.130.132), connection timed out Could not connect to security.debian.org:80 (151.101.194.132), connection timed out Could not connect to security.debian.org:80 (151.101.66.132), connection timed out\nE: Failed to fetch http://security.debian.org/pool/updates/main/n/nginx/libnginx-mod-http-echo_1.14.2-2+deb10u5_amd64.deb  Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable)\nE: Failed to fetch http://security.debian.org/pool/updates/main/n/nginx/nginx-light_1.14.2-2+deb10u5_amd64.deb  Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable)\nE: Failed to fetch http://security.debian.org/pool/updates/main/n/nginx/nginx_1.14.2-2+deb10u5_all.deb  Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable)\nE: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?\n", "rc": 100, "stderr": "E: Failed to fetch http://security.debian.org/pool/updates/main/n/nginx/nginx-common_1.14.2-2+deb10u5_all.deb  Cannot initiate the connection to debian.map.fastlydns.net:80 (2a04:4e42:3a::644). - connect (101: Network is unreachable) Could not connect to debian.map.fastlydns.net:80 (151.101.246.132), connection timed out Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable) Could not connect to security.debian.org:80 (151.101.2.132), connection timed out Could not connect to security.debian.org:80 (151.101.130.132), connection timed out Could not connect to security.debian.org:80 (151.101.194.132), connection timed out Could not connect to security.debian.org:80 (151.101.66.132), connection timed out\nE: Failed to fetch http://security.debian.org/pool/updates/main/n/nginx/libnginx-mod-http-echo_1.14.2-2+deb10u5_amd64.deb  Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable)\nE: Failed to fetch http://security.debian.org/pool/updates/main/n/nginx/nginx-light_1.14.2-2+deb10u5_amd64.deb  Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable)\nE: Failed to fetch http://security.debian.org/pool/updates/main/n/nginx/nginx_1.14.2-2+deb10u5_all.deb  Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable)\nE: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?\n", "stderr_lines": ["E: Failed to fetch http://security.debian.org/pool/updates/main/n/nginx/nginx-common_1.14.2-2+deb10u5_all.deb  Cannot initiate the connection to debian.map.fastlydns.net:80 (2a04:4e42:3a::644). - connect (101: Network is unreachable) Could not connect to debian.map.fastlydns.net:80 (151.101.246.132), connection timed out Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable) Could not connect to security.debian.org:80 (151.101.2.132), connection timed out Could not connect to security.debian.org:80 (151.101.130.132), connection timed out Could not connect to security.debian.org:80 (151.101.194.132), connection timed out Could not connect to security.debian.org:80 (151.101.66.132), connection timed out", "E: Failed to fetch http://security.debian.org/pool/updates/main/n/nginx/libnginx-mod-http-echo_1.14.2-2+deb10u5_amd64.deb  Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable)", "E: Failed to fetch http://security.debian.org/pool/updates/main/n/nginx/nginx-light_1.14.2-2+deb10u5_amd64.deb  Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable)", "E: Failed to fetch http://security.debian.org/pool/updates/main/n/nginx/nginx_1.14.2-2+deb10u5_all.deb  Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable)", "E: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?"], "stdout": "Reading package lists...\nBuilding dependency tree...\nReading state information...\nThe following additional packages will be installed:\n  libnginx-mod-http-echo nginx-common nginx-light\nSuggested packages:\n  fcgiwrap nginx-doc ssl-cert\nThe following NEW packages will be installed:\n  libnginx-mod-http-echo nginx nginx-common nginx-light\n0 upgraded, 4 newly installed, 0 to remove and 1 not upgraded.\nNeed to get 793 kB of archives.\nAfter this operation, 1792 kB of additional disk space will be used.\nErr:1 http://security.debian.org buster/updates/main amd64 nginx-common all 1.14.2-2+deb10u5\n  Cannot initiate the connection to debian.map.fastlydns.net:80 (2a04:4e42:3a::644). - connect (101: Network is unreachable) Could not connect to debian.map.fastlydns.net:80 (151.101.246.132), connection timed out Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable) Could not connect to security.debian.org:80 (151.101.2.132), connection timed out Could not connect to security.debian.org:80 (151.101.130.132), connection timed out Could not connect to security.debian.org:80 (151.101.194.132), connection timed out Could not connect to security.debian.org:80 (151.101.66.132), connection timed out\nErr:2 http://security.debian.org buster/updates/main amd64 libnginx-mod-http-echo amd64 1.14.2-2+deb10u5\n  Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable)\nErr:3 http://security.debian.org buster/updates/main amd64 nginx-light amd64 1.14.2-2+deb10u5\n  Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable)\nErr:4 http://security.debian.org buster/updates/main amd64 nginx all 1.14.2-2+deb10u5\n  Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable)\n", "stdout_lines": ["Reading package lists...", "Building dependency tree...", "Reading state information...", "The following additional packages will be installed:", "  libnginx-mod-http-echo nginx-common nginx-light", "Suggested packages:", "  fcgiwrap nginx-doc ssl-cert", "The following NEW packages will be installed:", "  libnginx-mod-http-echo nginx nginx-common nginx-light", "0 upgraded, 4 newly installed, 0 to remove and 1 not upgraded.", "Need to get 793 kB of archives.", "After this operation, 1792 kB of additional disk space will be used.", "Err:1 http://security.debian.org buster/updates/main amd64 nginx-common all 1.14.2-2+deb10u5", "  Cannot initiate the connection to debian.map.fastlydns.net:80 (2a04:4e42:3a::644). - connect (101: Network is unreachable) Could not connect to debian.map.fastlydns.net:80 (151.101.246.132), connection timed out Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable) Could not connect to security.debian.org:80 (151.101.2.132), connection timed out Could not connect to security.debian.org:80 (151.101.130.132), connection timed out Could not connect to security.debian.org:80 (151.101.194.132), connection timed out Could not connect to security.debian.org:80 (151.101.66.132), connection timed out", "Err:2 http://security.debian.org buster/updates/main amd64 libnginx-mod-http-echo amd64 1.14.2-2+deb10u5", "  Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable)", "Err:3 http://security.debian.org buster/updates/main amd64 nginx-light amd64 1.14.2-2+deb10u5", "  Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable)", "Err:4 http://security.debian.org buster/updates/main amd64 nginx all 1.14.2-2+deb10u5", "  Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable)"]}
+2023-10-07 23:41:36,699 p=28609 u=igor |  	to retry, use: --limit @/home/igor/git/diplom-sys19/ansible/start-nginx.retry
+
+2023-10-07 23:41:36,700 p=28609 u=igor |  PLAY RECAP **********************************************************************************************************************************
+2023-10-07 23:41:36,702 p=28609 u=igor |  172.16.11.23               : ok=1    changed=0    unreachable=0    failed=1   
+2023-10-07 23:50:41,849 p=28645 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , 
+use [defaults] inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by 
+setting deprecation_warnings=False in ansible.cfg.
+2023-10-07 23:50:41,851 p=28645 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become 
+instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in 
+ansible.cfg.
+2023-10-07 23:50:42,296 p=28645 u=igor |  PLAY [websrv-elvm-1 module Web-server nginx] ************************************************************************************************
+2023-10-07 23:50:42,311 p=28645 u=igor |  TASK [Gathering Facts] **********************************************************************************************************************
+2023-10-07 23:50:43,683 p=28645 u=igor |   [WARNING]: sftp transfer mechanism failed on [172.16.11.23]. Use ANSIBLE_DEBUG=1 to see detailed information
+
+2023-10-07 23:50:43,691 p=28645 u=igor |   [WARNING]: scp transfer mechanism failed on [172.16.11.23]. Use ANSIBLE_DEBUG=1 to see detailed information
+
+2023-10-07 23:50:44,630 p=28645 u=igor |  ok: [172.16.11.23]
+2023-10-07 23:50:44,637 p=28645 u=igor |  TASK [Install the package nginx] ************************************************************************************************************
+2023-10-07 23:50:45,116 p=28645 u=igor |   [WARNING]: sftp transfer mechanism failed on [172.16.11.23]. Use ANSIBLE_DEBUG=1 to see detailed information
+
+2023-10-07 23:50:45,127 p=28645 u=igor |   [WARNING]: scp transfer mechanism failed on [172.16.11.23]. Use ANSIBLE_DEBUG=1 to see detailed information
+
+2023-10-07 23:50:48,013 p=28645 u=igor |   [ERROR]: User interrupted execution
+
+2023-10-08 16:11:32,184 p=30204 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of
+ paths , use [defaults] inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation warnings can 
+be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 16:11:32,188 p=30204 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use 
+become instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting 
+deprecation_warnings=False in ansible.cfg.
+2023-10-08 16:11:32,213 p=30204 u=igor |   [WARNING]:  * Failed to parse /home/igor/git/diplom-sys19/hosts.ini with ini plugin: /home/igor/git/diplom-sys19/hosts.ini:19:
+Expected key=value host variable assignment, got: bastion@172.16.16.25
+
+2023-10-08 16:11:32,215 p=30204 u=igor |   [WARNING]: Unable to parse /home/igor/git/diplom-sys19/hosts.ini as an inventory source
+
+2023-10-08 16:11:32,216 p=30204 u=igor |   [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2023-10-08 16:11:32,222 p=30204 u=igor |   [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+2023-10-08 16:11:32,797 p=30204 u=igor |   [WARNING]: Could not match supplied host pattern, ignoring: websrv-elvm-1
+
+2023-10-08 16:11:32,804 p=30204 u=igor |  PLAY [websrv-elvm-1 module Web-server nginx] ***************************************************************************************
+2023-10-08 16:11:32,805 p=30204 u=igor |  skipping: no hosts matched
+2023-10-08 16:11:32,807 p=30204 u=igor |  PLAY RECAP *************************************************************************************************************************
+2023-10-08 16:22:39,174 p=30350 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , use [defaults] 
+inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in 
+ansible.cfg.
+2023-10-08 16:22:39,174 p=30350 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become instead. This feature 
+will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 16:22:39,195 p=30350 u=igor |   [WARNING]:  * Failed to parse /home/igor/git/diplom-sys19/hosts.ini with ini plugin: /home/igor/git/diplom-sys19/hosts.ini:19: Expected key=value host variable
+assignment, got: bastion@172.16.16.11
+
+2023-10-08 16:22:39,196 p=30350 u=igor |   [WARNING]: Unable to parse /home/igor/git/diplom-sys19/hosts.ini as an inventory source
+
+2023-10-08 16:22:39,196 p=30350 u=igor |   [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2023-10-08 16:22:39,201 p=30350 u=igor |   [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+2023-10-08 16:22:39,594 p=30350 u=igor |   [WARNING]: Could not match supplied host pattern, ignoring: websrv-elvm-1
+
+2023-10-08 16:22:39,600 p=30350 u=igor |  PLAY [websrv-elvm-1 module Web-server nginx] **********************************************************************************************************************
+2023-10-08 16:22:39,601 p=30350 u=igor |  skipping: no hosts matched
+2023-10-08 16:22:39,604 p=30350 u=igor |  PLAY RECAP ********************************************************************************************************************************************************
+2023-10-08 16:23:14,011 p=30355 u=igor |  ansible-playbook 2.7.7
+  config file = /home/igor/git/diplom-sys19/ansible.cfg
+  configured module search path = ['/home/igor/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  executable location = /usr/bin/ansible-playbook
+  python version = 3.7.3 (default, Jun 29 2023, 18:03:57) [GCC 8.3.0]
+2023-10-08 16:23:14,013 p=30355 u=igor |  Using /home/igor/git/diplom-sys19/ansible.cfg as config file
+2023-10-08 16:23:14,015 p=30355 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , use [defaults] 
+inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in 
+ansible.cfg.
+2023-10-08 16:23:14,016 p=30355 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become instead. This feature 
+will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 16:23:14,031 p=30355 u=igor |  /home/igor/git/diplom-sys19/hosts.ini did not meet host_list requirements, check plugin documentation if this is unexpected
+2023-10-08 16:23:14,033 p=30355 u=igor |  /home/igor/git/diplom-sys19/hosts.ini did not meet script requirements, check plugin documentation if this is unexpected
+2023-10-08 16:23:14,035 p=30355 u=igor |  /home/igor/git/diplom-sys19/hosts.ini did not meet yaml requirements, check plugin documentation if this is unexpected
+2023-10-08 16:23:14,039 p=30355 u=igor |  /home/igor/git/diplom-sys19/hosts.ini did not meet auto requirements, check plugin documentation if this is unexpected
+2023-10-08 16:23:14,044 p=30355 u=igor |   [WARNING]:  * Failed to parse /home/igor/git/diplom-sys19/hosts.ini with ini plugin: /home/igor/git/diplom-sys19/hosts.ini:19: Expected key=value host variable
+assignment, got: bastion@172.16.16.11
+
+2023-10-08 16:23:14,047 p=30355 u=igor |    File "/usr/lib/python3/dist-packages/ansible/plugins/inventory/ini.py", line 132, in parse
+    self._parse(path, data)
+  File "/usr/lib/python3/dist-packages/ansible/plugins/inventory/ini.py", line 210, in _parse
+    hosts, port, variables = self._parse_host_definition(line)
+  File "/usr/lib/python3/dist-packages/ansible/plugins/inventory/ini.py", line 308, in _parse_host_definition
+    self._raise_error("Expected key=value host variable assignment, got: %s" % (t))
+  File "/usr/lib/python3/dist-packages/ansible/plugins/inventory/ini.py", line 137, in _raise_error
+    raise AnsibleError("%s:%d: " % (self._filename, self.lineno) + message)
+
+2023-10-08 16:23:14,047 p=30355 u=igor |   [WARNING]: Unable to parse /home/igor/git/diplom-sys19/hosts.ini as an inventory source
+
+2023-10-08 16:23:14,049 p=30355 u=igor |   [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2023-10-08 16:23:14,054 p=30355 u=igor |   [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+2023-10-08 16:23:14,409 p=30355 u=igor |  PLAYBOOK: start-nginx.yml *****************************************************************************************************************************************
+2023-10-08 16:23:14,412 p=30355 u=igor |  1 plays in ./ansible/start-nginx.yml
+2023-10-08 16:23:14,457 p=30355 u=igor |   [WARNING]: Could not match supplied host pattern, ignoring: websrv-elvm-1
+
+2023-10-08 16:23:14,462 p=30355 u=igor |  PLAY [websrv-elvm-1 module Web-server nginx] **********************************************************************************************************************
+2023-10-08 16:23:14,464 p=30355 u=igor |  skipping: no hosts matched
+2023-10-08 16:23:14,466 p=30355 u=igor |  PLAY RECAP ********************************************************************************************************************************************************
+2023-10-08 16:23:50,568 p=30360 u=igor |  ansible-playbook 2.7.7
+  config file = /home/igor/git/diplom-sys19/ansible.cfg
+  configured module search path = ['/home/igor/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  executable location = /usr/bin/ansible-playbook
+  python version = 3.7.3 (default, Jun 29 2023, 18:03:57) [GCC 8.3.0]
+2023-10-08 16:23:50,569 p=30360 u=igor |  Using /home/igor/git/diplom-sys19/ansible.cfg as config file
+2023-10-08 16:23:50,572 p=30360 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , use [defaults] 
+inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in 
+ansible.cfg.
+2023-10-08 16:23:50,574 p=30360 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become instead. This feature 
+will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 16:23:50,577 p=30360 u=igor |  setting up inventory plugins
+2023-10-08 16:23:50,589 p=30360 u=igor |  /home/igor/git/diplom-sys19/hosts.ini did not meet host_list requirements, check plugin documentation if this is unexpected
+2023-10-08 16:23:50,591 p=30360 u=igor |  /home/igor/git/diplom-sys19/hosts.ini did not meet script requirements, check plugin documentation if this is unexpected
+2023-10-08 16:23:50,593 p=30360 u=igor |  /home/igor/git/diplom-sys19/hosts.ini did not meet yaml requirements, check plugin documentation if this is unexpected
+2023-10-08 16:23:50,598 p=30360 u=igor |  /home/igor/git/diplom-sys19/hosts.ini did not meet auto requirements, check plugin documentation if this is unexpected
+2023-10-08 16:23:50,602 p=30360 u=igor |   [WARNING]:  * Failed to parse /home/igor/git/diplom-sys19/hosts.ini with ini plugin: /home/igor/git/diplom-sys19/hosts.ini:19: Expected key=value host variable
+assignment, got: bastion@172.16.16.11
+
+2023-10-08 16:23:50,603 p=30360 u=igor |    File "/usr/lib/python3/dist-packages/ansible/plugins/inventory/ini.py", line 132, in parse
+    self._parse(path, data)
+  File "/usr/lib/python3/dist-packages/ansible/plugins/inventory/ini.py", line 210, in _parse
+    hosts, port, variables = self._parse_host_definition(line)
+  File "/usr/lib/python3/dist-packages/ansible/plugins/inventory/ini.py", line 308, in _parse_host_definition
+    self._raise_error("Expected key=value host variable assignment, got: %s" % (t))
+  File "/usr/lib/python3/dist-packages/ansible/plugins/inventory/ini.py", line 137, in _raise_error
+    raise AnsibleError("%s:%d: " % (self._filename, self.lineno) + message)
+
+2023-10-08 16:23:50,606 p=30360 u=igor |   [WARNING]: Unable to parse /home/igor/git/diplom-sys19/hosts.ini as an inventory source
+
+2023-10-08 16:23:50,607 p=30360 u=igor |   [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2023-10-08 16:23:50,613 p=30360 u=igor |   [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+2023-10-08 16:23:50,799 p=30360 u=igor |  Loading callback plugin default of type stdout, v2.0 from /usr/lib/python3/dist-packages/ansible/plugins/callback/default.py
+2023-10-08 16:23:50,960 p=30360 u=igor |  PLAYBOOK: start-nginx.yml *****************************************************************************************************************************************
+2023-10-08 16:23:50,962 p=30360 u=igor |  1 plays in ./ansible/start-nginx.yml
+2023-10-08 16:23:51,016 p=30360 u=igor |   [WARNING]: Could not match supplied host pattern, ignoring: websrv-elvm-1
+
+2023-10-08 16:23:51,021 p=30360 u=igor |  PLAY [websrv-elvm-1 module Web-server nginx] **********************************************************************************************************************
+2023-10-08 16:23:51,023 p=30360 u=igor |  skipping: no hosts matched
+2023-10-08 16:23:51,025 p=30360 u=igor |  PLAY RECAP ********************************************************************************************************************************************************
+2023-10-08 16:30:23,678 p=30503 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , use [defaults] 
+inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in 
+ansible.cfg.
+2023-10-08 16:30:23,679 p=30503 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become instead. This feature 
+will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 16:30:23,699 p=30503 u=igor |   [WARNING]:  * Failed to parse /home/igor/git/diplom-sys19/hosts.ini with ini plugin: /home/igor/git/diplom-sys19/hosts.ini:19: Expected key=value host variable
+assignment, got: bastion@51.250.70.204
+
+2023-10-08 16:30:23,701 p=30503 u=igor |   [WARNING]: Unable to parse /home/igor/git/diplom-sys19/hosts.ini as an inventory source
+
+2023-10-08 16:30:23,704 p=30503 u=igor |   [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2023-10-08 16:30:23,710 p=30503 u=igor |   [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+2023-10-08 16:30:24,106 p=30503 u=igor |   [WARNING]: Could not match supplied host pattern, ignoring: websrv-elvm-1
+
+2023-10-08 16:30:24,112 p=30503 u=igor |  PLAY [websrv-elvm-1 module Web-server nginx] **********************************************************************************************************************
+2023-10-08 16:30:24,114 p=30503 u=igor |  skipping: no hosts matched
+2023-10-08 16:30:24,116 p=30503 u=igor |  PLAY RECAP ********************************************************************************************************************************************************
+2023-10-08 16:31:17,535 p=30528 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , use [defaults] 
+inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in 
+ansible.cfg.
+2023-10-08 16:31:17,538 p=30528 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become instead. This feature 
+will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 16:31:17,555 p=30528 u=igor |   [WARNING]:  * Failed to parse /home/igor/git/diplom-sys19/hosts.ini with ini plugin: /home/igor/git/diplom-sys19/hosts.ini:19: Expected key=value host variable
+assignment, got: bastion@51.250.70.204
+
+2023-10-08 16:31:17,558 p=30528 u=igor |   [WARNING]: Unable to parse /home/igor/git/diplom-sys19/hosts.ini as an inventory source
+
+2023-10-08 16:31:17,559 p=30528 u=igor |   [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2023-10-08 16:31:17,565 p=30528 u=igor |   [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+2023-10-08 16:31:17,948 p=30528 u=igor |   [WARNING]: Could not match supplied host pattern, ignoring: websrv-elvm-1
+
+2023-10-08 16:31:17,953 p=30528 u=igor |  PLAY [websrv-elvm-1 module Web-server nginx] **********************************************************************************************************************
+2023-10-08 16:31:17,955 p=30528 u=igor |  skipping: no hosts matched
+2023-10-08 16:31:17,957 p=30528 u=igor |  PLAY RECAP ********************************************************************************************************************************************************
+2023-10-08 16:32:25,579 p=30536 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , use [defaults] 
+inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in 
+ansible.cfg.
+2023-10-08 16:32:25,582 p=30536 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become instead. This feature 
+will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 16:32:25,980 p=30536 u=igor |  PLAY [websrv-elvm-1 module Web-server nginx] **********************************************************************************************************************
+2023-10-08 16:32:26,009 p=30536 u=igor |  TASK [Gathering Facts] ********************************************************************************************************************************************
+2023-10-08 16:32:35,757 p=30536 u=igor |   [WARNING]: sftp transfer mechanism failed on [172.16.10.27]. Use ANSIBLE_DEBUG=1 to see detailed information
+
+2023-10-08 16:32:35,767 p=30536 u=igor |   [WARNING]: scp transfer mechanism failed on [172.16.10.27]. Use ANSIBLE_DEBUG=1 to see detailed information
+
+2023-10-08 16:32:36,831 p=30536 u=igor |  ok: [172.16.10.27]
+2023-10-08 16:32:36,847 p=30536 u=igor |  TASK [Install the package nginx] **********************************************************************************************************************************
+2023-10-08 16:32:37,306 p=30536 u=igor |   [WARNING]: sftp transfer mechanism failed on [172.16.10.27]. Use ANSIBLE_DEBUG=1 to see detailed information
+
+2023-10-08 16:32:37,316 p=30536 u=igor |   [WARNING]: scp transfer mechanism failed on [172.16.10.27]. Use ANSIBLE_DEBUG=1 to see detailed information
+
+2023-10-08 16:33:39,811 p=30536 u=igor |  fatal: [172.16.10.27]: FAILED! => {"cache_update_time": 1695396609, "cache_updated": false, "changed": false, "msg": "'/usr/bin/apt-get -y -o \"Dpkg::Options::=--force-confdef\" -o \"Dpkg::Options::=--force-confold\"     install 'nginx'' failed: E: Failed to fetch http://security.debian.org/pool/updates/main/n/nginx/nginx-common_1.14.2-2+deb10u5_all.deb  Cannot initiate the connection to debian.map.fastlydns.net:80 (2a04:4e42:3a::644). - connect (101: Network is unreachable) Could not connect to debian.map.fastlydns.net:80 (146.75.118.132), connection timed out Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable) Could not connect to security.debian.org:80 (151.101.130.132), connection timed out Could not connect to security.debian.org:80 (151.101.66.132), connection timed out Could not connect to security.debian.org:80 (151.101.2.132), connection timed out Could not connect to security.debian.org:80 (151.101.194.132), connection timed out\nE: Failed to fetch http://security.debian.org/pool/updates/main/n/nginx/libnginx-mod-http-echo_1.14.2-2+deb10u5_amd64.deb  Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable)\nE: Failed to fetch http://security.debian.org/pool/updates/main/n/nginx/nginx-light_1.14.2-2+deb10u5_amd64.deb  Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable)\nE: Failed to fetch http://security.debian.org/pool/updates/main/n/nginx/nginx_1.14.2-2+deb10u5_all.deb  Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable)\nE: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?\n", "rc": 100, "stderr": "E: Failed to fetch http://security.debian.org/pool/updates/main/n/nginx/nginx-common_1.14.2-2+deb10u5_all.deb  Cannot initiate the connection to debian.map.fastlydns.net:80 (2a04:4e42:3a::644). - connect (101: Network is unreachable) Could not connect to debian.map.fastlydns.net:80 (146.75.118.132), connection timed out Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable) Could not connect to security.debian.org:80 (151.101.130.132), connection timed out Could not connect to security.debian.org:80 (151.101.66.132), connection timed out Could not connect to security.debian.org:80 (151.101.2.132), connection timed out Could not connect to security.debian.org:80 (151.101.194.132), connection timed out\nE: Failed to fetch http://security.debian.org/pool/updates/main/n/nginx/libnginx-mod-http-echo_1.14.2-2+deb10u5_amd64.deb  Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable)\nE: Failed to fetch http://security.debian.org/pool/updates/main/n/nginx/nginx-light_1.14.2-2+deb10u5_amd64.deb  Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable)\nE: Failed to fetch http://security.debian.org/pool/updates/main/n/nginx/nginx_1.14.2-2+deb10u5_all.deb  Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable)\nE: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?\n", "stderr_lines": ["E: Failed to fetch http://security.debian.org/pool/updates/main/n/nginx/nginx-common_1.14.2-2+deb10u5_all.deb  Cannot initiate the connection to debian.map.fastlydns.net:80 (2a04:4e42:3a::644). - connect (101: Network is unreachable) Could not connect to debian.map.fastlydns.net:80 (146.75.118.132), connection timed out Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable) Could not connect to security.debian.org:80 (151.101.130.132), connection timed out Could not connect to security.debian.org:80 (151.101.66.132), connection timed out Could not connect to security.debian.org:80 (151.101.2.132), connection timed out Could not connect to security.debian.org:80 (151.101.194.132), connection timed out", "E: Failed to fetch http://security.debian.org/pool/updates/main/n/nginx/libnginx-mod-http-echo_1.14.2-2+deb10u5_amd64.deb  Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable)", "E: Failed to fetch http://security.debian.org/pool/updates/main/n/nginx/nginx-light_1.14.2-2+deb10u5_amd64.deb  Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable)", "E: Failed to fetch http://security.debian.org/pool/updates/main/n/nginx/nginx_1.14.2-2+deb10u5_all.deb  Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable)", "E: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?"], "stdout": "Reading package lists...\nBuilding dependency tree...\nReading state information...\nThe following additional packages will be installed:\n  libnginx-mod-http-echo nginx-common nginx-light\nSuggested packages:\n  fcgiwrap nginx-doc ssl-cert\nThe following NEW packages will be installed:\n  libnginx-mod-http-echo nginx nginx-common nginx-light\n0 upgraded, 4 newly installed, 0 to remove and 1 not upgraded.\nNeed to get 793 kB of archives.\nAfter this operation, 1792 kB of additional disk space will be used.\nErr:1 http://security.debian.org buster/updates/main amd64 nginx-common all 1.14.2-2+deb10u5\n  Cannot initiate the connection to debian.map.fastlydns.net:80 (2a04:4e42:3a::644). - connect (101: Network is unreachable) Could not connect to debian.map.fastlydns.net:80 (146.75.118.132), connection timed out Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable) Could not connect to security.debian.org:80 (151.101.130.132), connection timed out Could not connect to security.debian.org:80 (151.101.66.132), connection timed out Could not connect to security.debian.org:80 (151.101.2.132), connection timed out Could not connect to security.debian.org:80 (151.101.194.132), connection timed out\nErr:2 http://security.debian.org buster/updates/main amd64 libnginx-mod-http-echo amd64 1.14.2-2+deb10u5\n  Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable)\nErr:3 http://security.debian.org buster/updates/main amd64 nginx-light amd64 1.14.2-2+deb10u5\n  Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable)\nErr:4 http://security.debian.org buster/updates/main amd64 nginx all 1.14.2-2+deb10u5\n  Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable)\n", "stdout_lines": ["Reading package lists...", "Building dependency tree...", "Reading state information...", "The following additional packages will be installed:", "  libnginx-mod-http-echo nginx-common nginx-light", "Suggested packages:", "  fcgiwrap nginx-doc ssl-cert", "The following NEW packages will be installed:", "  libnginx-mod-http-echo nginx nginx-common nginx-light", "0 upgraded, 4 newly installed, 0 to remove and 1 not upgraded.", "Need to get 793 kB of archives.", "After this operation, 1792 kB of additional disk space will be used.", "Err:1 http://security.debian.org buster/updates/main amd64 nginx-common all 1.14.2-2+deb10u5", "  Cannot initiate the connection to debian.map.fastlydns.net:80 (2a04:4e42:3a::644). - connect (101: Network is unreachable) Could not connect to debian.map.fastlydns.net:80 (146.75.118.132), connection timed out Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable) Could not connect to security.debian.org:80 (151.101.130.132), connection timed out Could not connect to security.debian.org:80 (151.101.66.132), connection timed out Could not connect to security.debian.org:80 (151.101.2.132), connection timed out Could not connect to security.debian.org:80 (151.101.194.132), connection timed out", "Err:2 http://security.debian.org buster/updates/main amd64 libnginx-mod-http-echo amd64 1.14.2-2+deb10u5", "  Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable)", "Err:3 http://security.debian.org buster/updates/main amd64 nginx-light amd64 1.14.2-2+deb10u5", "  Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable)", "Err:4 http://security.debian.org buster/updates/main amd64 nginx all 1.14.2-2+deb10u5", "  Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable)"]}
+2023-10-08 16:33:39,824 p=30536 u=igor |  	to retry, use: --limit @/home/igor/git/diplom-sys19/ansible/start-nginx.retry
+
+2023-10-08 16:33:39,825 p=30536 u=igor |  PLAY RECAP ********************************************************************************************************************************************************
+2023-10-08 16:33:39,827 p=30536 u=igor |  172.16.10.27               : ok=1    changed=0    unreachable=0    failed=1   
+2023-10-08 17:06:18,897 p=30652 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , use [defaults] 
+inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in 
+ansible.cfg.
+2023-10-08 17:06:18,900 p=30652 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become instead. This feature 
+will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 17:06:19,323 p=30652 u=igor |  PLAY [websrv-elvm-1 module Web-server nginx] **********************************************************************************************************************
+2023-10-08 17:06:19,338 p=30652 u=igor |  TASK [Gathering Facts] ********************************************************************************************************************************************
+2023-10-08 17:06:29,438 p=30652 u=igor |  fatal: [172.16.11.23]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 172.16.11.23 port 22: Connection timed out", "unreachable": true}
+2023-10-08 17:06:29,444 p=30652 u=igor |  	to retry, use: --limit @/home/igor/git/diplom-sys19/ansible/start-nginx.retry
+
+2023-10-08 17:06:29,446 p=30652 u=igor |  PLAY RECAP ********************************************************************************************************************************************************
+2023-10-08 17:06:29,448 p=30652 u=igor |  172.16.11.23               : ok=0    changed=0    unreachable=1    failed=0   
+2023-10-08 17:06:58,836 p=30671 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , use [defaults] 
+inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in 
+ansible.cfg.
+2023-10-08 17:06:58,839 p=30671 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become instead. This feature 
+will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 17:06:59,304 p=30671 u=igor |  PLAY [websrv-elvm-1 module Web-server nginx] **********************************************************************************************************************
+2023-10-08 17:06:59,320 p=30671 u=igor |  TASK [Gathering Facts] ********************************************************************************************************************************************
+2023-10-08 17:07:09,423 p=30671 u=igor |  fatal: [172.16.11.23]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 172.16.11.23 port 22: Connection timed out", "unreachable": true}
+2023-10-08 17:07:09,432 p=30671 u=igor |  	to retry, use: --limit @/home/igor/git/diplom-sys19/ansible/start-nginx.retry
+
+2023-10-08 17:07:09,436 p=30671 u=igor |  PLAY RECAP ********************************************************************************************************************************************************
+2023-10-08 17:07:09,440 p=30671 u=igor |  172.16.11.23               : ok=0    changed=0    unreachable=1    failed=0   
+2023-10-08 17:35:08,693 p=30753 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , use [defaults] 
+inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in 
+ansible.cfg.
+2023-10-08 17:35:08,696 p=30753 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become instead. This feature 
+will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 17:35:08,712 p=30753 u=igor |   [WARNING]: Unable to parse /home/igor/git/diplom-sys19/inventory as an inventory source
+
+2023-10-08 17:35:08,715 p=30753 u=igor |   [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2023-10-08 17:35:08,721 p=30753 u=igor |   [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+2023-10-08 17:35:08,744 p=30753 u=igor |  ERROR! the role 'terraform' was not found in /home/igor/git/diplom-sys19/roles:/home/igor/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles:/home/igor/git/diplom-sys19
+
+The error appears to have been in '/home/igor/git/diplom-sys19/site.yaml': line 6, column 5, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  roles:
+  - terraform
+    ^ here
+
+2023-10-08 17:36:52,594 p=30759 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , use [defaults] 
+inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in 
+ansible.cfg.
+2023-10-08 17:36:52,597 p=30759 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become instead. This feature 
+will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 17:36:52,613 p=30759 u=igor |   [WARNING]: Unable to parse /home/igor/git/diplom-sys19/inventory as an inventory source
+
+2023-10-08 17:36:52,615 p=30759 u=igor |   [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2023-10-08 17:36:52,621 p=30759 u=igor |   [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+2023-10-08 17:36:52,641 p=30759 u=igor |  ERROR! the role 'terraform' was not found in /home/igor/git/diplom-sys19/roles:/home/igor/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles:/home/igor/git/diplom-sys19
+
+The error appears to have been in '/home/igor/git/diplom-sys19/site.yaml': line 6, column 5, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  roles:
+  - terraform
+    ^ here
+
+2023-10-08 17:38:48,665 p=30767 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , use [defaults] 
+inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in 
+ansible.cfg.
+2023-10-08 17:38:48,668 p=30767 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become instead. This feature 
+will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 17:38:48,682 p=30767 u=igor |   [WARNING]: Unable to parse /home/igor/git/diplom-sys19/inventory as an inventory source
+
+2023-10-08 17:38:48,685 p=30767 u=igor |   [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2023-10-08 17:38:48,691 p=30767 u=igor |   [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+2023-10-08 17:38:49,083 p=30767 u=igor |   [WARNING]: Could not match supplied host pattern, ignoring: websrv-elvm-1
+
+2023-10-08 17:38:49,091 p=30767 u=igor |  PLAY [websrv-elvm-1 module Web-server nginx] **********************************************************************************************************************
+2023-10-08 17:38:49,091 p=30767 u=igor |  skipping: no hosts matched
+2023-10-08 17:38:49,091 p=30767 u=igor |  PLAY RECAP ********************************************************************************************************************************************************
+2023-10-08 17:40:10,720 p=30778 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a 
+list of paths , use [defaults] inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation
+ warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 17:40:10,723 p=30778 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. 
+, use become instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting 
+deprecation_warnings=False in ansible.cfg.
+2023-10-08 17:40:11,141 p=30778 u=igor |  PLAY [websrv-elvm-1 module Web-server nginx] ********************************************************************************
+2023-10-08 17:40:11,156 p=30778 u=igor |  TASK [Gathering Facts] ******************************************************************************************************
+2023-10-08 17:40:21,268 p=30778 u=igor |  fatal: [172.16.11.23]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 172.16.11.23 port 22: Connection timed out", "unreachable": true}
+2023-10-08 17:40:21,274 p=30778 u=igor |  	to retry, use: --limit @/home/igor/git/diplom-sys19/ansible/start-nginx.retry
+
+2023-10-08 17:40:21,276 p=30778 u=igor |  PLAY RECAP ******************************************************************************************************************
+2023-10-08 17:40:21,277 p=30778 u=igor |  172.16.11.23               : ok=0    changed=0    unreachable=1    failed=0   
+2023-10-08 17:42:56,378 p=30803 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a 
+list of paths , use [defaults] inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation
+ warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 17:42:56,382 p=30803 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. 
+, use become instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting 
+deprecation_warnings=False in ansible.cfg.
+2023-10-08 17:42:56,789 p=30803 u=igor |  PLAY [websrv-elvm-1 module Web-server nginx] ********************************************************************************
+2023-10-08 17:42:56,807 p=30803 u=igor |  TASK [Gathering Facts] ******************************************************************************************************
+2023-10-08 17:42:57,054 p=30803 u=igor |  fatal: [172.16.11.23]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh_exchange_identification: Connection closed by remote host", "unreachable": true}
+2023-10-08 17:42:57,061 p=30803 u=igor |  	to retry, use: --limit @/home/igor/git/diplom-sys19/ansible/start-nginx.retry
+
+2023-10-08 17:42:57,063 p=30803 u=igor |  PLAY RECAP ******************************************************************************************************************
+2023-10-08 17:42:57,064 p=30803 u=igor |  172.16.11.23               : ok=0    changed=0    unreachable=1    failed=0   
+2023-10-08 17:43:43,744 p=30815 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a 
+list of paths , use [defaults] inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation
+ warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 17:43:43,746 p=30815 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. 
+, use become instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting 
+deprecation_warnings=False in ansible.cfg.
+2023-10-08 17:43:44,202 p=30815 u=igor |  PLAY [websrv-elvm-1 module Web-server nginx] ********************************************************************************
+2023-10-08 17:43:44,217 p=30815 u=igor |  TASK [Gathering Facts] ******************************************************************************************************
+2023-10-08 17:43:44,448 p=30815 u=igor |  fatal: [172.16.11.23]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh_exchange_identification: Connection closed by remote host", "unreachable": true}
+2023-10-08 17:43:44,454 p=30815 u=igor |  	to retry, use: --limit @/home/igor/git/diplom-sys19/ansible/start-nginx.retry
+
+2023-10-08 17:43:44,457 p=30815 u=igor |  PLAY RECAP ******************************************************************************************************************
+2023-10-08 17:43:44,458 p=30815 u=igor |  172.16.11.23               : ok=0    changed=0    unreachable=1    failed=0   
+2023-10-08 17:43:52,623 p=30827 u=igor |  ansible-playbook 2.7.7
+  config file = /home/igor/git/diplom-sys19/ansible.cfg
+  configured module search path = ['/home/igor/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  executable location = /usr/bin/ansible-playbook
+  python version = 3.7.3 (default, Jun 29 2023, 18:03:57) [GCC 8.3.0]
+2023-10-08 17:43:52,625 p=30827 u=igor |  Using /home/igor/git/diplom-sys19/ansible.cfg as config file
+2023-10-08 17:43:52,629 p=30827 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a 
+list of paths , use [defaults] inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation
+ warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 17:43:52,632 p=30827 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. 
+, use become instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting 
+deprecation_warnings=False in ansible.cfg.
+2023-10-08 17:43:52,646 p=30827 u=igor |  /home/igor/git/diplom-sys19/hosts did not meet host_list requirements, check plugin documentation if this is unexpected
+2023-10-08 17:43:52,648 p=30827 u=igor |  /home/igor/git/diplom-sys19/hosts did not meet script requirements, check plugin documentation if this is unexpected
+2023-10-08 17:43:52,654 p=30827 u=igor |  Parsed /home/igor/git/diplom-sys19/hosts inventory source with ini plugin
+2023-10-08 17:43:52,997 p=30827 u=igor |  PLAYBOOK: start-nginx.yml ***************************************************************************************************
+2023-10-08 17:43:52,999 p=30827 u=igor |  1 plays in ./ansible/start-nginx.yml
+2023-10-08 17:43:53,053 p=30827 u=igor |  PLAY [websrv-elvm-1 module Web-server nginx] ********************************************************************************
+2023-10-08 17:43:53,070 p=30827 u=igor |  TASK [Gathering Facts] ******************************************************************************************************
+2023-10-08 17:43:53,072 p=30827 u=igor |  task path: /home/igor/git/diplom-sys19/ansible/start-nginx.yml:2
+2023-10-08 17:43:53,305 p=30827 u=igor |  fatal: [172.16.11.23]: UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: ssh_exchange_identification: Connection closed by remote host",
+    "unreachable": true
+}
+2023-10-08 17:43:53,316 p=30827 u=igor |  	to retry, use: --limit @/home/igor/git/diplom-sys19/ansible/start-nginx.retry
+
+2023-10-08 17:43:53,318 p=30827 u=igor |  PLAY RECAP ******************************************************************************************************************
+2023-10-08 17:43:53,320 p=30827 u=igor |  172.16.11.23               : ok=0    changed=0    unreachable=1    failed=0   
+2023-10-08 17:45:01,027 p=30839 u=igor |  ansible-playbook 2.7.7
+  config file = /home/igor/git/diplom-sys19/ansible.cfg
+  configured module search path = ['/home/igor/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  executable location = /usr/bin/ansible-playbook
+  python version = 3.7.3 (default, Jun 29 2023, 18:03:57) [GCC 8.3.0]
+2023-10-08 17:45:01,028 p=30839 u=igor |  Using /home/igor/git/diplom-sys19/ansible.cfg as config file
+2023-10-08 17:45:01,028 p=30839 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a 
+list of paths , use [defaults] inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation
+ warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 17:45:01,032 p=30839 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. 
+, use become instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting 
+deprecation_warnings=False in ansible.cfg.
+2023-10-08 17:45:01,033 p=30839 u=igor |  setting up inventory plugins
+2023-10-08 17:45:01,046 p=30839 u=igor |  /home/igor/git/diplom-sys19/hosts did not meet host_list requirements, check plugin documentation if this is unexpected
+2023-10-08 17:45:01,048 p=30839 u=igor |  /home/igor/git/diplom-sys19/hosts did not meet script requirements, check plugin documentation if this is unexpected
+2023-10-08 17:45:01,054 p=30839 u=igor |  Parsed /home/igor/git/diplom-sys19/hosts inventory source with ini plugin
+2023-10-08 17:45:01,243 p=30839 u=igor |  Loading callback plugin default of type stdout, v2.0 from /usr/lib/python3/dist-packages/ansible/plugins/callback/default.py
+2023-10-08 17:45:01,409 p=30839 u=igor |  PLAYBOOK: start-nginx.yml ***************************************************************************************************
+2023-10-08 17:45:01,411 p=30839 u=igor |  1 plays in ./ansible/start-nginx.yml
+2023-10-08 17:45:01,459 p=30839 u=igor |  PLAY [websrv-elvm-1 module Web-server nginx] ********************************************************************************
+2023-10-08 17:45:01,474 p=30839 u=igor |  TASK [Gathering Facts] ******************************************************************************************************
+2023-10-08 17:45:01,476 p=30839 u=igor |  task path: /home/igor/git/diplom-sys19/ansible/start-nginx.yml:2
+2023-10-08 17:45:01,724 p=30839 u=igor |  fatal: [172.16.11.23]: UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: OpenSSH_7.9p1 Debian-10+deb10u2, OpenSSL 1.1.1n  15 Mar 2022\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 19: Applying options for *\r\ndebug2: resolve_canonicalize: hostname 172.16.11.23 is address\r\ndebug1: auto-mux: Trying existing master\r\ndebug1: Control socket \"/home/igor/.ansible/cp/4a1787d7f1\" does not exist\r\ndebug1: Executing proxy command: exec ssh -p 22 -W 172.16.11.23:22 -q bastion@51.250.10.55\r\ndebug3: timeout: 10000 ms remain after connect\r\ndebug1: identity file /home/igor/.ssh/id_rsa type -1\r\ndebug1: identity file /home/igor/.ssh/id_rsa-cert type -1\r\ndebug1: identity file /home/igor/.ssh/id_dsa type -1\r\ndebug1: identity file /home/igor/.ssh/id_dsa-cert type -1\r\ndebug1: identity file /home/igor/.ssh/id_ecdsa type -1\r\ndebug1: identity file /home/igor/.ssh/id_ecdsa-cert type -1\r\ndebug1: identity file /home/igor/.ssh/id_ed25519 type 3\r\ndebug1: identity file /home/igor/.ssh/id_ed25519-cert type -1\r\ndebug1: identity file /home/igor/.ssh/id_xmss type -1\r\ndebug1: identity file /home/igor/.ssh/id_xmss-cert type -1\r\ndebug1: Local version string SSH-2.0-OpenSSH_7.9p1 Debian-10+deb10u2\r\nssh_exchange_identification: Connection closed by remote host",
+    "unreachable": true
+}
+2023-10-08 17:45:01,731 p=30839 u=igor |  	to retry, use: --limit @/home/igor/git/diplom-sys19/ansible/start-nginx.retry
+
+2023-10-08 17:45:01,733 p=30839 u=igor |  PLAY RECAP ******************************************************************************************************************
+2023-10-08 17:45:01,735 p=30839 u=igor |  172.16.11.23               : ok=0    changed=0    unreachable=1    failed=0   
+2023-10-08 17:47:21,215 p=30851 u=igor |  ansible-playbook 2.7.7
+  config file = /home/igor/git/diplom-sys19/ansible.cfg
+  configured module search path = ['/home/igor/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  executable location = /usr/bin/ansible-playbook
+  python version = 3.7.3 (default, Jun 29 2023, 18:03:57) [GCC 8.3.0]
+2023-10-08 17:47:21,217 p=30851 u=igor |  Using /home/igor/git/diplom-sys19/ansible.cfg as config file
+2023-10-08 17:47:21,219 p=30851 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a 
+list of paths , use [defaults] inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation
+ warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 17:47:21,222 p=30851 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. 
+, use become instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting 
+deprecation_warnings=False in ansible.cfg.
+2023-10-08 17:47:21,224 p=30851 u=igor |  setting up inventory plugins
+2023-10-08 17:47:21,236 p=30851 u=igor |  /home/igor/git/diplom-sys19/hosts did not meet host_list requirements, check plugin documentation if this is unexpected
+2023-10-08 17:47:21,237 p=30851 u=igor |  /home/igor/git/diplom-sys19/hosts did not meet script requirements, check plugin documentation if this is unexpected
+2023-10-08 17:47:21,244 p=30851 u=igor |  Parsed /home/igor/git/diplom-sys19/hosts inventory source with ini plugin
+2023-10-08 17:47:21,429 p=30851 u=igor |  Loading callback plugin default of type stdout, v2.0 from /usr/lib/python3/dist-packages/ansible/plugins/callback/default.py
+2023-10-08 17:47:21,592 p=30851 u=igor |  PLAYBOOK: start-nginx.yml ***************************************************************************************************
+2023-10-08 17:47:21,593 p=30851 u=igor |  1 plays in ./ansible/start-nginx.yml
+2023-10-08 17:47:21,640 p=30851 u=igor |  PLAY [websrv-elvm-1 module Web-server nginx] ********************************************************************************
+2023-10-08 17:47:21,656 p=30851 u=igor |  TASK [Gathering Facts] ******************************************************************************************************
+2023-10-08 17:47:21,658 p=30851 u=igor |  task path: /home/igor/git/diplom-sys19/ansible/start-nginx.yml:2
+2023-10-08 17:47:21,905 p=30851 u=igor |  fatal: [172.16.11.23]: UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: OpenSSH_7.9p1 Debian-10+deb10u2, OpenSSL 1.1.1n  15 Mar 2022\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 19: Applying options for *\r\ndebug2: resolve_canonicalize: hostname 172.16.11.23 is address\r\ndebug1: auto-mux: Trying existing master\r\ndebug1: Control socket \"/home/igor/.ansible/cp/4a1787d7f1\" does not exist\r\ndebug1: Executing proxy command: exec ssh -p 22 -W 172.16.11.23:22 -q bastion@51.250.10.55\r\ndebug3: timeout: 10000 ms remain after connect\r\ndebug1: identity file /home/igor/.ssh/id_rsa type -1\r\ndebug1: identity file /home/igor/.ssh/id_rsa-cert type -1\r\ndebug1: identity file /home/igor/.ssh/id_dsa type -1\r\ndebug1: identity file /home/igor/.ssh/id_dsa-cert type -1\r\ndebug1: identity file /home/igor/.ssh/id_ecdsa type -1\r\ndebug1: identity file /home/igor/.ssh/id_ecdsa-cert type -1\r\ndebug1: identity file /home/igor/.ssh/id_ed25519 type 3\r\ndebug1: identity file /home/igor/.ssh/id_ed25519-cert type -1\r\ndebug1: identity file /home/igor/.ssh/id_xmss type -1\r\ndebug1: identity file /home/igor/.ssh/id_xmss-cert type -1\r\ndebug1: Local version string SSH-2.0-OpenSSH_7.9p1 Debian-10+deb10u2\r\nssh_exchange_identification: Connection closed by remote host",
+    "unreachable": true
+}
+2023-10-08 17:47:21,912 p=30851 u=igor |  	to retry, use: --limit @/home/igor/git/diplom-sys19/ansible/start-nginx.retry
+
+2023-10-08 17:47:21,913 p=30851 u=igor |  PLAY RECAP ******************************************************************************************************************
+2023-10-08 17:47:21,915 p=30851 u=igor |  172.16.11.23               : ok=0    changed=0    unreachable=1    failed=0   
+2023-10-08 17:56:44,165 p=30886 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a 
+list of paths , use [defaults] inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation
+ warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 17:56:44,167 p=30886 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. 
+, use become instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting 
+deprecation_warnings=False in ansible.cfg.
+2023-10-08 17:56:44,182 p=30886 u=igor |   [WARNING]: Unable to parse /home/igor/git/diplom-sys19/inventory as an inventory source
+
+2023-10-08 17:56:44,185 p=30886 u=igor |   [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2023-10-08 17:56:44,192 p=30886 u=igor |   [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+2023-10-08 17:56:44,195 p=30886 u=igor |   [WARNING]: Could not match supplied host pattern, ignoring: server
+
+2023-10-08 17:58:19,048 p=30898 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a 
+list of paths , use [defaults] inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation
+ warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 17:58:19,051 p=30898 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. 
+, use become instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting 
+deprecation_warnings=False in ansible.cfg.
+2023-10-08 17:58:19,078 p=30898 u=igor |   [WARNING]: Unable to parse /home/igor/git/diplom-sys19/inventory as an inventory source
+
+2023-10-08 17:58:19,081 p=30898 u=igor |   [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2023-10-08 17:58:19,087 p=30898 u=igor |  {
+    "_meta": {
+        "hostvars": {}
+    },
+    "all": {
+        "children": [
+            "ungrouped"
+        ]
+    },
+    "ungrouped": {}
+}
+2023-10-08 17:58:55,131 p=30903 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a 
+list of paths , use [defaults] inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation
+ warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 17:58:55,135 p=30903 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. 
+, use become instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting 
+deprecation_warnings=False in ansible.cfg.
+2023-10-08 17:58:55,154 p=30903 u=igor |   [WARNING]: Could not match supplied host pattern, ignoring: server
+
+2023-10-08 17:58:55,157 p=30903 u=igor |   [WARNING]: No hosts matched, nothing to do
+
+2023-10-08 18:00:13,413 p=30921 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a 
+list of paths , use [defaults] inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation
+ warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 18:00:13,417 p=30921 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. 
+, use become instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting 
+deprecation_warnings=False in ansible.cfg.
+2023-10-08 18:00:14,300 p=30921 u=igor |  172.16.11.23 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: ssh_exchange_identification: Connection closed by remote host",
+    "unreachable": true
+}
+2023-10-08 18:00:14,310 p=30921 u=igor |  172.16.10.15 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: ssh_exchange_identification: Connection closed by remote host",
+    "unreachable": true
+}
+2023-10-08 18:01:17,247 p=30942 u=igor |  ansible 2.7.7
+  config file = /home/igor/git/diplom-sys19/ansible.cfg
+  configured module search path = ['/home/igor/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  executable location = /usr/bin/ansible
+  python version = 3.7.3 (default, Jun 29 2023, 18:03:57) [GCC 8.3.0]
+2023-10-08 18:01:17,249 p=30942 u=igor |  Using /home/igor/git/diplom-sys19/ansible.cfg as config file
+2023-10-08 18:01:17,251 p=30942 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a 
+list of paths , use [defaults] inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation
+ warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 18:01:17,253 p=30942 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. 
+, use become instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting 
+deprecation_warnings=False in ansible.cfg.
+2023-10-08 18:01:17,254 p=30942 u=igor |  setting up inventory plugins
+2023-10-08 18:01:17,267 p=30942 u=igor |  /home/igor/git/diplom-sys19/inventory did not meet host_list requirements, check plugin documentation if this is unexpected
+2023-10-08 18:01:17,269 p=30942 u=igor |  /home/igor/git/diplom-sys19/inventory did not meet script requirements, check plugin documentation if this is unexpected
+2023-10-08 18:01:17,275 p=30942 u=igor |  Parsed /home/igor/git/diplom-sys19/inventory inventory source with ini plugin
+2023-10-08 18:01:17,443 p=30942 u=igor |  Loading callback plugin minimal of type stdout, v2.0 from /usr/lib/python3/dist-packages/ansible/plugins/callback/minimal.py
+2023-10-08 18:01:17,643 p=30942 u=igor |  META: ran handlers
+2023-10-08 18:01:18,026 p=30942 u=igor |  172.16.11.23 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: OpenSSH_7.9p1 Debian-10+deb10u2, OpenSSL 1.1.1n  15 Mar 2022\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 19: Applying options for *\r\ndebug2: resolve_canonicalize: hostname 172.16.11.23 is address\r\ndebug1: auto-mux: Trying existing master\r\ndebug1: Control socket \"/home/igor/.ansible/cp/a9e33c7cb1\" does not exist\r\ndebug1: Executing proxy command: exec ssh -W 172.16.11.23:22 -q bastion@51.250.10.55\r\ndebug3: timeout: 10000 ms remain after connect\r\ndebug1: identity file /home/igor/.ssh/id_ed25519 type 3\r\ndebug1: identity file /home/igor/.ssh/id_ed25519-cert type -1\r\ndebug1: Local version string SSH-2.0-OpenSSH_7.9p1 Debian-10+deb10u2\r\nssh_exchange_identification: Connection closed by remote host",
+    "unreachable": true
+}
+2023-10-08 18:01:18,040 p=30942 u=igor |  172.16.10.15 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: OpenSSH_7.9p1 Debian-10+deb10u2, OpenSSL 1.1.1n  15 Mar 2022\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 19: Applying options for *\r\ndebug2: resolve_canonicalize: hostname 172.16.10.15 is address\r\ndebug1: auto-mux: Trying existing master\r\ndebug1: Control socket \"/home/igor/.ansible/cp/2c932e5ecf\" does not exist\r\ndebug1: Executing proxy command: exec ssh -W 172.16.10.15:22 -q bastion@51.250.10.55\r\ndebug3: timeout: 10000 ms remain after connect\r\ndebug1: identity file /home/igor/.ssh/id_ed25519 type 3\r\ndebug1: identity file /home/igor/.ssh/id_ed25519-cert type -1\r\ndebug1: Local version string SSH-2.0-OpenSSH_7.9p1 Debian-10+deb10u2\r\nssh_exchange_identification: Connection closed by remote host",
+    "unreachable": true
+}
+2023-10-08 18:03:20,405 p=30960 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a 
+list of paths , use [defaults] inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation
+ warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 18:03:20,409 p=30960 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. 
+, use become instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting 
+deprecation_warnings=False in ansible.cfg.
+2023-10-08 18:03:21,220 p=30960 u=igor |  172.16.11.23 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: ssh_exchange_identification: Connection closed by remote host",
+    "unreachable": true
+}
+2023-10-08 18:03:21,221 p=30960 u=igor |  172.16.10.15 | UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: ssh_exchange_identification: Connection closed by remote host",
+    "unreachable": true
+}
+2023-10-08 19:01:02,089 p=31504 u=igor |  Using /home/igor/git/diplom-sys19/ansible.cfg as config file
+2023-10-08 19:01:02,093 p=31504 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , use [defaults] inventory=/path/to/file|dir instead. This 
+feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 19:01:02,095 p=31504 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become instead. This feature will be removed in version 2.8. 
+Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 19:01:02,109 p=31504 u=igor |  /home/igor/git/diplom-sys19/inventory did not meet host_list requirements, check plugin documentation if this is unexpected
+2023-10-08 19:01:02,112 p=31504 u=igor |  /home/igor/git/diplom-sys19/inventory did not meet script requirements, check plugin documentation if this is unexpected
+2023-10-08 19:01:02,511 p=31504 u=igor |  PLAY [blogpost] ******************************************************************************************************************************************************************************************
+2023-10-08 19:01:02,527 p=31504 u=igor |  TASK [Gathering Facts] ***********************************************************************************************************************************************************************************
+2023-10-08 19:01:02,768 p=31504 u=igor |  fatal: [privateinst]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\r\n@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @\r\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\r\nIT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!\r\nSomeone could be eavesdropping on you right now (man-in-the-middle attack)!\r\nIt is also possible that a host key has just been changed.\r\nThe fingerprint for the ECDSA key sent by the remote host is\nSHA256:3g+fgsNwQQ5TPwUvMPazPyjyit8+/0CtNnZRAqCU/Ow.\r\nPlease contact your system administrator.\r\nAdd correct host key in /home/igor/.ssh/known_hosts to get rid of this message.\r\nOffending ECDSA key in /home/igor/.ssh/known_hosts:49\r\n  remove with:\r\n  ssh-keygen -f \"/home/igor/.ssh/known_hosts\" -R \"51.250.10.55\"\r\nECDSA host key for 51.250.10.55 has changed and you have requested strict checking.\r\nHost key verification failed.\r\nssh_exchange_identification: Connection closed by remote host", "unreachable": true}
+2023-10-08 19:01:02,777 p=31504 u=igor |  	to retry, use: --limit @/home/igor/git/diplom-sys19/blogpost.retry
+
+2023-10-08 19:01:02,779 p=31504 u=igor |  PLAY RECAP ***********************************************************************************************************************************************************************************************
+2023-10-08 19:01:02,781 p=31504 u=igor |  privateinst                : ok=0    changed=0    unreachable=1    failed=0   
+2023-10-08 19:02:11,537 p=31549 u=igor |  Using /home/igor/git/diplom-sys19/ansible.cfg as config file
+2023-10-08 19:02:11,541 p=31549 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , use [defaults] inventory=/path/to/file|dir instead. This 
+feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 19:02:11,543 p=31549 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become instead. This feature will be removed in version 2.8. 
+Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 19:02:11,556 p=31549 u=igor |  /home/igor/git/diplom-sys19/inventory did not meet host_list requirements, check plugin documentation if this is unexpected
+2023-10-08 19:02:11,558 p=31549 u=igor |  /home/igor/git/diplom-sys19/inventory did not meet script requirements, check plugin documentation if this is unexpected
+2023-10-08 19:02:11,952 p=31549 u=igor |  PLAY [blogpost] ******************************************************************************************************************************************************************************************
+2023-10-08 19:02:11,969 p=31549 u=igor |  TASK [Gathering Facts] ***********************************************************************************************************************************************************************************
+2023-10-08 19:02:12,199 p=31549 u=igor |  fatal: [privateinst]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\r\n@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @\r\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\r\nIT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!\r\nSomeone could be eavesdropping on you right now (man-in-the-middle attack)!\r\nIt is also possible that a host key has just been changed.\r\nThe fingerprint for the ECDSA key sent by the remote host is\nSHA256:3g+fgsNwQQ5TPwUvMPazPyjyit8+/0CtNnZRAqCU/Ow.\r\nPlease contact your system administrator.\r\nAdd correct host key in /home/igor/.ssh/known_hosts to get rid of this message.\r\nOffending ECDSA key in /home/igor/.ssh/known_hosts:49\r\n  remove with:\r\n  ssh-keygen -f \"/home/igor/.ssh/known_hosts\" -R \"51.250.10.55\"\r\nECDSA host key for 51.250.10.55 has changed and you have requested strict checking.\r\nHost key verification failed.\r\nssh_exchange_identification: Connection closed by remote host", "unreachable": true}
+2023-10-08 19:02:12,204 p=31549 u=igor |  	to retry, use: --limit @/home/igor/git/diplom-sys19/blogpost.retry
+
+2023-10-08 19:02:12,204 p=31549 u=igor |  PLAY RECAP ***********************************************************************************************************************************************************************************************
+2023-10-08 19:02:12,205 p=31549 u=igor |  privateinst                : ok=0    changed=0    unreachable=1    failed=0   
+2023-10-08 19:04:23,437 p=31572 u=igor |  Using /home/igor/git/diplom-sys19/ansible.cfg as config file
+2023-10-08 19:04:23,441 p=31572 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , use [defaults] inventory=/path/to/file|dir instead. This 
+feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 19:04:23,443 p=31572 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become instead. This feature will be removed in version 2.8. 
+Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 19:04:23,455 p=31572 u=igor |  /home/igor/git/diplom-sys19/inventory did not meet host_list requirements, check plugin documentation if this is unexpected
+2023-10-08 19:04:23,457 p=31572 u=igor |  /home/igor/git/diplom-sys19/inventory did not meet script requirements, check plugin documentation if this is unexpected
+2023-10-08 19:04:23,849 p=31572 u=igor |   [WARNING]: Could not match supplied host pattern, ignoring: websrv-elvm-1
+
+2023-10-08 19:04:23,855 p=31572 u=igor |  PLAY [websrv-elvm-1 module Web-server nginx] *************************************************************************************************************************************************************
+2023-10-08 19:04:23,857 p=31572 u=igor |  skipping: no hosts matched
+2023-10-08 19:04:23,860 p=31572 u=igor |  PLAY RECAP ***********************************************************************************************************************************************************************************************
+2023-10-08 19:20:36,112 p=31591 u=igor |  Using /home/igor/git/diplom-sys19/ansible.cfg as config file
+2023-10-08 19:20:36,115 p=31591 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , use [defaults] inventory=/path/to/file|dir instead. This 
+feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 19:20:36,118 p=31591 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become instead. This feature will be removed in version 2.8. 
+Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 19:20:36,133 p=31591 u=igor |  /home/igor/git/diplom-sys19/inventory did not meet host_list requirements, check plugin documentation if this is unexpected
+2023-10-08 19:20:36,135 p=31591 u=igor |  /home/igor/git/diplom-sys19/inventory did not meet script requirements, check plugin documentation if this is unexpected
+2023-10-08 19:20:36,541 p=31591 u=igor |   [WARNING]: Could not match supplied host pattern, ignoring: websrv-elvm-1
+
+2023-10-08 19:20:36,555 p=31591 u=igor |  PLAY [websrv-elvm-1 module Web-server nginx] *************************************************************************************************************************************************************
+2023-10-08 19:20:36,560 p=31591 u=igor |  skipping: no hosts matched
+2023-10-08 19:20:36,560 p=31591 u=igor |  PLAY RECAP ***********************************************************************************************************************************************************************************************
+2023-10-08 19:20:53,411 p=31596 u=igor |  Using /home/igor/git/diplom-sys19/ansible.cfg as config file
+2023-10-08 19:20:53,414 p=31596 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , use [defaults] inventory=/path/to/file|dir instead. This 
+feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 19:20:53,417 p=31596 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become instead. This feature will be removed in version 2.8. 
+Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 19:20:53,431 p=31596 u=igor |  /home/igor/git/diplom-sys19/inventory did not meet host_list requirements, check plugin documentation if this is unexpected
+2023-10-08 19:20:53,433 p=31596 u=igor |  /home/igor/git/diplom-sys19/inventory did not meet script requirements, check plugin documentation if this is unexpected
+2023-10-08 19:20:53,831 p=31596 u=igor |  PLAY [blogpost] ******************************************************************************************************************************************************************************************
+2023-10-08 19:20:53,848 p=31596 u=igor |  TASK [Gathering Facts] ***********************************************************************************************************************************************************************************
+2023-10-08 19:20:54,083 p=31596 u=igor |  fatal: [172.16.11.23]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh_exchange_identification: Connection closed by remote host", "unreachable": true}
+2023-10-08 19:20:54,090 p=31596 u=igor |  	to retry, use: --limit @/home/igor/git/diplom-sys19/blogpost.retry
+
+2023-10-08 19:20:54,092 p=31596 u=igor |  PLAY RECAP ***********************************************************************************************************************************************************************************************
+2023-10-08 19:20:54,094 p=31596 u=igor |  172.16.11.23               : ok=0    changed=0    unreachable=1    failed=0   
+2023-10-08 19:23:53,452 p=31610 u=igor |  ERROR! Missing target hosts
+2023-10-08 19:23:59,566 p=31612 u=igor |  ERROR! Missing target hosts
+2023-10-08 19:24:13,460 p=31614 u=igor |  ERROR! Missing target hosts
+2023-10-08 19:26:04,713 p=31631 u=igor |  Using /home/igor/git/diplom-sys19/ansible.cfg as config file
+2023-10-08 19:26:04,717 p=31631 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , use [defaults] inventory=/path/to/file|dir instead. This 
+feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 19:26:04,719 p=31631 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become instead. This feature will be removed in version 2.8. 
+Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 19:26:04,732 p=31631 u=igor |  /home/igor/git/diplom-sys19/inventory did not meet host_list requirements, check plugin documentation if this is unexpected
+2023-10-08 19:26:04,734 p=31631 u=igor |  /home/igor/git/diplom-sys19/inventory did not meet script requirements, check plugin documentation if this is unexpected
+2023-10-08 19:26:05,133 p=31631 u=igor |  PLAY [blogpost] ******************************************************************************************************************************************************************************************
+2023-10-08 19:26:05,148 p=31631 u=igor |  TASK [Gathering Facts] ***********************************************************************************************************************************************************************************
+2023-10-08 19:26:05,383 p=31631 u=igor |  fatal: [172.16.11.23]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh_exchange_identification: Connection closed by remote host", "unreachable": true}
+2023-10-08 19:26:05,390 p=31631 u=igor |  	to retry, use: --limit @/home/igor/git/diplom-sys19/blogpost.retry
+
+2023-10-08 19:26:05,391 p=31631 u=igor |  PLAY RECAP ***********************************************************************************************************************************************************************************************
+2023-10-08 19:26:05,392 p=31631 u=igor |  172.16.11.23               : ok=0    changed=0    unreachable=1    failed=0   
+2023-10-08 19:39:47,194 p=31713 u=igor |  Using /home/igor/git/diplom-sys19/ansible.cfg as config file
+2023-10-08 19:39:47,197 p=31713 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , use [defaults] inventory=/path/to/file|dir instead. This 
+feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 19:39:47,200 p=31713 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become instead. This feature will be removed in version 2.8. 
+Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 19:39:47,212 p=31713 u=igor |  /home/igor/git/diplom-sys19/inventory did not meet host_list requirements, check plugin documentation if this is unexpected
+2023-10-08 19:39:47,215 p=31713 u=igor |  /home/igor/git/diplom-sys19/inventory did not meet script requirements, check plugin documentation if this is unexpected
+2023-10-08 19:39:47,611 p=31713 u=igor |  PLAY [blogpost] ******************************************************************************************************************************************************************************************
+2023-10-08 19:39:47,626 p=31713 u=igor |  TASK [Gathering Facts] ***********************************************************************************************************************************************************************************
+2023-10-08 19:39:47,858 p=31713 u=igor |  fatal: [172.16.11.23]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh_exchange_identification: Connection closed by remote host", "unreachable": true}
+2023-10-08 19:39:47,865 p=31713 u=igor |  	to retry, use: --limit @/home/igor/git/diplom-sys19/blogpost.retry
+
+2023-10-08 19:39:47,867 p=31713 u=igor |  PLAY RECAP ***********************************************************************************************************************************************************************************************
+2023-10-08 19:39:47,868 p=31713 u=igor |  172.16.11.23               : ok=0    changed=0    unreachable=1    failed=0   
+2023-10-08 19:43:01,020 p=31727 u=igor |  Using /home/igor/git/diplom-sys19/ansible.cfg as config file
+2023-10-08 19:43:01,024 p=31727 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , use [defaults] inventory=/path/to/file|dir instead. This 
+feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 19:43:01,026 p=31727 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become instead. This feature will be removed in version 2.8. 
+Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 19:43:01,039 p=31727 u=igor |  /home/igor/git/diplom-sys19/inventory did not meet host_list requirements, check plugin documentation if this is unexpected
+2023-10-08 19:43:01,041 p=31727 u=igor |  /home/igor/git/diplom-sys19/inventory did not meet script requirements, check plugin documentation if this is unexpected
+2023-10-08 19:43:01,433 p=31727 u=igor |  PLAY [blogpost] ******************************************************************************************************************************************************************************************
+2023-10-08 19:43:01,448 p=31727 u=igor |  TASK [Gathering Facts] ***********************************************************************************************************************************************************************************
+2023-10-08 19:43:11,550 p=31727 u=igor |  fatal: [172.16.11.23]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 172.16.11.23 port 22: Connection timed out", "unreachable": true}
+2023-10-08 19:43:11,556 p=31727 u=igor |  	to retry, use: --limit @/home/igor/git/diplom-sys19/blogpost.retry
+
+2023-10-08 19:43:11,558 p=31727 u=igor |  PLAY RECAP ***********************************************************************************************************************************************************************************************
+2023-10-08 19:43:11,559 p=31727 u=igor |  172.16.11.23               : ok=0    changed=0    unreachable=1    failed=0   
+2023-10-08 19:43:39,371 p=31738 u=igor |  ansible-playbook 2.7.7
+  config file = /home/igor/git/diplom-sys19/ansible.cfg
+  configured module search path = ['/home/igor/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  executable location = /usr/bin/ansible-playbook
+  python version = 3.7.3 (default, Jun 29 2023, 18:03:57) [GCC 8.3.0]
+2023-10-08 19:43:39,373 p=31738 u=igor |  Using /home/igor/git/diplom-sys19/ansible.cfg as config file
+2023-10-08 19:43:39,375 p=31738 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , use [defaults] inventory=/path/to/file|dir instead. This 
+feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 19:43:39,377 p=31738 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become instead. This feature will be removed in version 2.8. 
+Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 19:43:39,379 p=31738 u=igor |  setting up inventory plugins
+2023-10-08 19:43:39,392 p=31738 u=igor |  /home/igor/git/diplom-sys19/inventory did not meet host_list requirements, check plugin documentation if this is unexpected
+2023-10-08 19:43:39,393 p=31738 u=igor |  /home/igor/git/diplom-sys19/inventory did not meet script requirements, check plugin documentation if this is unexpected
+2023-10-08 19:43:39,400 p=31738 u=igor |  Parsed /home/igor/git/diplom-sys19/inventory inventory source with ini plugin
+2023-10-08 19:43:39,583 p=31738 u=igor |  Loading callback plugin default of type stdout, v2.0 from /usr/lib/python3/dist-packages/ansible/plugins/callback/default.py
+2023-10-08 19:43:39,747 p=31738 u=igor |  PLAYBOOK: blogpost.yml ***********************************************************************************************************************************************************************************
+2023-10-08 19:43:39,747 p=31738 u=igor |  1 plays in blogpost.yml
+2023-10-08 19:43:39,797 p=31738 u=igor |  PLAY [blogpost] ******************************************************************************************************************************************************************************************
+2023-10-08 19:43:39,812 p=31738 u=igor |  TASK [Gathering Facts] ***********************************************************************************************************************************************************************************
+2023-10-08 19:43:39,814 p=31738 u=igor |  task path: /home/igor/git/diplom-sys19/blogpost.yml:2
+2023-10-08 19:43:49,922 p=31738 u=igor |  fatal: [172.16.11.23]: UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: OpenSSH_7.9p1 Debian-10+deb10u2, OpenSSL 1.1.1n  15 Mar 2022\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 19: Applying options for *\r\ndebug2: resolve_canonicalize: hostname 172.16.11.23 is address\r\ndebug1: auto-mux: Trying existing master\r\ndebug1: Control socket \"/home/igor/.ansible/cp/a9e33c7cb1\" does not exist\r\ndebug2: ssh_connect_direct\r\ndebug1: Connecting to 172.16.11.23 [172.16.11.23] port 22.\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug1: connect to address 172.16.11.23 port 22: Connection timed out\r\nssh: connect to host 172.16.11.23 port 22: Connection timed out",
+    "unreachable": true
+}
+2023-10-08 19:43:49,929 p=31738 u=igor |  	to retry, use: --limit @/home/igor/git/diplom-sys19/blogpost.retry
+
+2023-10-08 19:43:49,931 p=31738 u=igor |  PLAY RECAP ***********************************************************************************************************************************************************************************************
+2023-10-08 19:43:49,932 p=31738 u=igor |  172.16.11.23               : ok=0    changed=0    unreachable=1    failed=0   
+2023-10-08 19:48:55,049 p=31763 u=igor |  ansible-playbook 2.7.7
+  config file = /home/igor/git/diplom-sys19/ansible.cfg
+  configured module search path = ['/home/igor/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  executable location = /usr/bin/ansible-playbook
+  python version = 3.7.3 (default, Jun 29 2023, 18:03:57) [GCC 8.3.0]
+2023-10-08 19:48:55,049 p=31763 u=igor |  Using /home/igor/git/diplom-sys19/ansible.cfg as config file
+2023-10-08 19:48:55,051 p=31763 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , use [defaults] inventory=/path/to/file|dir instead. This 
+feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 19:48:55,051 p=31763 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become instead. This feature will be removed in version 2.8. 
+Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 19:48:55,053 p=31763 u=igor |  setting up inventory plugins
+2023-10-08 19:48:55,065 p=31763 u=igor |  /home/igor/git/diplom-sys19/inventory did not meet host_list requirements, check plugin documentation if this is unexpected
+2023-10-08 19:48:55,067 p=31763 u=igor |  /home/igor/git/diplom-sys19/inventory did not meet script requirements, check plugin documentation if this is unexpected
+2023-10-08 19:48:55,073 p=31763 u=igor |  Parsed /home/igor/git/diplom-sys19/inventory inventory source with ini plugin
+2023-10-08 19:48:55,256 p=31763 u=igor |  Loading callback plugin default of type stdout, v2.0 from /usr/lib/python3/dist-packages/ansible/plugins/callback/default.py
+2023-10-08 19:48:55,420 p=31763 u=igor |  PLAYBOOK: blogpost.yml ***********************************************************************************************************************************************************************************
+2023-10-08 19:48:55,422 p=31763 u=igor |  1 plays in blogpost.yml
+2023-10-08 19:48:55,470 p=31763 u=igor |  PLAY [blogpost] ******************************************************************************************************************************************************************************************
+2023-10-08 19:48:55,485 p=31763 u=igor |  TASK [Gathering Facts] ***********************************************************************************************************************************************************************************
+2023-10-08 19:48:55,488 p=31763 u=igor |  task path: /home/igor/git/diplom-sys19/blogpost.yml:2
+2023-10-08 19:49:05,627 p=31763 u=igor |  fatal: [172.16.11.23]: UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: OpenSSH_7.9p1 Debian-10+deb10u2, OpenSSL 1.1.1n  15 Mar 2022\r\ndebug1: Reading configuration data /home/igor/.ssh/config\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 19: Applying options for *\r\ndebug2: resolve_canonicalize: hostname 172.16.11.23 is address\r\ndebug1: auto-mux: Trying existing master\r\ndebug1: Control socket \"/home/igor/.ansible/cp/a9e33c7cb1\" does not exist\r\ndebug2: ssh_connect_direct\r\ndebug1: Connecting to 172.16.11.23 [172.16.11.23] port 22.\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug1: connect to address 172.16.11.23 port 22: Connection timed out\r\nssh: connect to host 172.16.11.23 port 22: Connection timed out",
+    "unreachable": true
+}
+2023-10-08 19:49:05,635 p=31763 u=igor |  	to retry, use: --limit @/home/igor/git/diplom-sys19/blogpost.retry
+
+2023-10-08 19:49:05,635 p=31763 u=igor |  PLAY RECAP ***********************************************************************************************************************************************************************************************
+2023-10-08 19:49:05,636 p=31763 u=igor |  172.16.11.23               : ok=0    changed=0    unreachable=1    failed=0   
+2023-10-08 19:49:30,775 p=31776 u=igor |  ansible-playbook 2.7.7
+  config file = /home/igor/git/diplom-sys19/ansible.cfg
+  configured module search path = ['/home/igor/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  executable location = /usr/bin/ansible-playbook
+  python version = 3.7.3 (default, Jun 29 2023, 18:03:57) [GCC 8.3.0]
+2023-10-08 19:49:30,776 p=31776 u=igor |  Using /home/igor/git/diplom-sys19/ansible.cfg as config file
+2023-10-08 19:49:30,778 p=31776 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , use [defaults] inventory=/path/to/file|dir instead. This 
+feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 19:49:30,779 p=31776 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become instead. This feature will be removed in version 2.8. 
+Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 19:49:30,781 p=31776 u=igor |  setting up inventory plugins
+2023-10-08 19:49:30,796 p=31776 u=igor |  /home/igor/git/diplom-sys19/inventory did not meet host_list requirements, check plugin documentation if this is unexpected
+2023-10-08 19:49:30,797 p=31776 u=igor |  /home/igor/git/diplom-sys19/inventory did not meet script requirements, check plugin documentation if this is unexpected
+2023-10-08 19:49:30,804 p=31776 u=igor |  Parsed /home/igor/git/diplom-sys19/inventory inventory source with ini plugin
+2023-10-08 19:49:30,984 p=31776 u=igor |  Loading callback plugin default of type stdout, v2.0 from /usr/lib/python3/dist-packages/ansible/plugins/callback/default.py
+2023-10-08 19:49:31,154 p=31776 u=igor |  PLAYBOOK: blogpost.yml ***********************************************************************************************************************************************************************************
+2023-10-08 19:49:31,156 p=31776 u=igor |  1 plays in blogpost.yml
+2023-10-08 19:49:31,205 p=31776 u=igor |  PLAY [blogpost] ******************************************************************************************************************************************************************************************
+2023-10-08 19:49:31,220 p=31776 u=igor |  TASK [Gathering Facts] ***********************************************************************************************************************************************************************************
+2023-10-08 19:49:31,222 p=31776 u=igor |  task path: /home/igor/git/diplom-sys19/blogpost.yml:2
+2023-10-08 19:49:41,327 p=31776 u=igor |  fatal: [172.16.11.23]: UNREACHABLE! => {
+    "changed": false,
+    "msg": "Failed to connect to the host via ssh: OpenSSH_7.9p1 Debian-10+deb10u2, OpenSSL 1.1.1n  15 Mar 2022\r\ndebug1: Reading configuration data /home/igor/.ssh/config\r\ndebug1: Reading configuration data /etc/ssh/ssh_config\r\ndebug1: /etc/ssh/ssh_config line 19: Applying options for *\r\ndebug2: resolve_canonicalize: hostname 172.16.11.23 is address\r\ndebug1: auto-mux: Trying existing master\r\ndebug1: Control socket \"/home/igor/.ansible/cp/a9e33c7cb1\" does not exist\r\ndebug2: ssh_connect_direct\r\ndebug1: Connecting to 172.16.11.23 [172.16.11.23] port 22.\r\ndebug2: fd 3 setting O_NONBLOCK\r\ndebug1: connect to address 172.16.11.23 port 22: Connection timed out\r\nssh: connect to host 172.16.11.23 port 22: Connection timed out",
+    "unreachable": true
+}
+2023-10-08 19:49:41,333 p=31776 u=igor |  	to retry, use: --limit @/home/igor/git/diplom-sys19/blogpost.retry
+
+2023-10-08 19:49:41,335 p=31776 u=igor |  PLAY RECAP ***********************************************************************************************************************************************************************************************
+2023-10-08 19:49:41,337 p=31776 u=igor |  172.16.11.23               : ok=0    changed=0    unreachable=1    failed=0   
+2023-10-08 20:15:22,565 p=32133 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , use [defaults] inventory=/path/to/file|dir instead. This 
+feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 20:15:22,568 p=32133 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become instead. This feature will be removed in version 2.8. 
+Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 20:15:22,965 p=32133 u=igor |  PLAY [blogpost] ******************************************************************************************************************************************************************************************
+2023-10-08 20:15:22,981 p=32133 u=igor |  TASK [Gathering Facts] ***********************************************************************************************************************************************************************************
+2023-10-08 20:15:33,103 p=32133 u=igor |  fatal: [172.16.11.23]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 172.16.11.23 port 22: Connection timed out", "unreachable": true}
+2023-10-08 20:15:33,109 p=32133 u=igor |  	to retry, use: --limit @/home/igor/git/diplom-sys19/blogpost.retry
+
+2023-10-08 20:15:33,111 p=32133 u=igor |  PLAY RECAP ***********************************************************************************************************************************************************************************************
+2023-10-08 20:15:33,111 p=32133 u=igor |  172.16.11.23               : ok=0    changed=0    unreachable=1    failed=0   
+2023-10-08 20:19:09,300 p=32179 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a 
+list of paths , use [defaults] inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation 
+warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 20:19:09,303 p=32179 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. ,
+ use become instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting 
+deprecation_warnings=False in ansible.cfg.
+2023-10-08 20:19:09,708 p=32179 u=igor |  PLAY [blogpost] **************************************************************************************************************
+2023-10-08 20:19:09,722 p=32179 u=igor |  TASK [Gathering Facts] *******************************************************************************************************
+2023-10-08 20:19:11,808 p=32179 u=igor |  fatal: [172.16.10.23]: FAILED! => {"changed": false, "module_stderr": "Shared connection to 172.16.10.23 closed.\r\n", "module_stdout": "/bin/sh: 1: /usr/bin/python: not found\r\n", "msg": "MODULE FAILURE\nSee stdout/stderr for the exact error", "rc": 127}
+2023-10-08 20:19:11,813 p=32179 u=igor |  	to retry, use: --limit @/home/igor/git/diplom-sys19/blogpost.retry
+
+2023-10-08 20:19:11,815 p=32179 u=igor |  PLAY RECAP *******************************************************************************************************************
+2023-10-08 20:19:11,815 p=32179 u=igor |  172.16.10.23               : ok=0    changed=0    unreachable=0    failed=1   
+2023-10-08 20:20:19,259 p=32201 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a 
+list of paths , use [defaults] inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation 
+warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 20:20:19,261 p=32201 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. ,
+ use become instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting 
+deprecation_warnings=False in ansible.cfg.
+2023-10-08 20:20:19,666 p=32201 u=igor |  PLAY [blogpost] **************************************************************************************************************
+2023-10-08 20:20:19,681 p=32201 u=igor |  TASK [Gathering Facts] *******************************************************************************************************
+2023-10-08 20:20:22,209 p=32201 u=igor |  ok: [172.16.10.23]
+2023-10-08 20:20:22,224 p=32201 u=igor |  TASK [say hello] *************************************************************************************************************
+2023-10-08 20:20:22,276 p=32201 u=igor |  ok: [172.16.10.23] => {
+    "msg": "hello from websrv-elvm-1"
+}
+2023-10-08 20:20:22,279 p=32201 u=igor |  PLAY RECAP *******************************************************************************************************************
+2023-10-08 20:20:22,280 p=32201 u=igor |  172.16.10.23               : ok=2    changed=0    unreachable=0    failed=0   
+2023-10-08 20:21:19,799 p=32229 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a 
+list of paths , use [defaults] inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation 
+warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 20:21:19,800 p=32229 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. ,
+ use become instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting 
+deprecation_warnings=False in ansible.cfg.
+2023-10-08 20:21:20,208 p=32229 u=igor |  PLAY [blogpost] **************************************************************************************************************
+2023-10-08 20:21:20,222 p=32229 u=igor |  TASK [Gathering Facts] *******************************************************************************************************
+2023-10-08 20:21:22,076 p=32229 u=igor |  ok: [172.16.10.23]
+2023-10-08 20:21:22,091 p=32229 u=igor |  TASK [say hello] *************************************************************************************************************
+2023-10-08 20:21:22,140 p=32229 u=igor |  ok: [172.16.10.23] => {
+    "msg": "hello from websrv-elvm-1"
+}
+2023-10-08 20:21:22,145 p=32229 u=igor |  PLAY RECAP *******************************************************************************************************************
+2023-10-08 20:21:22,145 p=32229 u=igor |  172.16.10.23               : ok=2    changed=0    unreachable=0    failed=0   
+2023-10-08 20:31:53,405 p=32254 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , use [defaults] 
+inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 20:31:53,408 p=32254 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become instead. This feature will be removed in 
+version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 20:31:53,811 p=32254 u=igor |  PLAY [blogpost] *******************************************************************************************************************************************************************
+2023-10-08 20:31:53,827 p=32254 u=igor |  TASK [Gathering Facts] ************************************************************************************************************************************************************
+2023-10-08 20:31:56,197 p=32254 u=igor |  ok: [172.16.10.23]
+2023-10-08 20:31:56,214 p=32254 u=igor |  TASK [say hello] ******************************************************************************************************************************************************************
+2023-10-08 20:31:56,266 p=32254 u=igor |  ok: [172.16.10.23] => {
+    "msg": "hello from websrv-elvm-1"
+}
+2023-10-08 20:31:56,269 p=32254 u=igor |  PLAY RECAP ************************************************************************************************************************************************************************
+2023-10-08 20:31:56,269 p=32254 u=igor |  172.16.10.23               : ok=2    changed=0    unreachable=0    failed=0   
+2023-10-08 20:32:43,117 p=32303 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , use [defaults] 
+inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 20:32:43,120 p=32303 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become instead. This feature will be removed in 
+version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 20:32:43,529 p=32303 u=igor |  PLAY [websrv-elvm-1 module Web-server nginx] **************************************************************************************************************************************
+2023-10-08 20:32:43,546 p=32303 u=igor |  TASK [Gathering Facts] ************************************************************************************************************************************************************
+2023-10-08 20:32:46,253 p=32303 u=igor |  ok: [172.16.10.23]
+2023-10-08 20:32:46,268 p=32303 u=igor |  TASK [Install the package nginx] **************************************************************************************************************************************************
+2023-10-08 20:33:49,312 p=32303 u=igor |  fatal: [172.16.10.23]: FAILED! => {"cache_update_time": 1695396609, "cache_updated": false, "changed": false, "msg": "'/usr/bin/apt-get -y -o \"Dpkg::Options::=--force-confdef\" -o \"Dpkg::Options::=--force-confold\"     install 'nginx'' failed: E: Failed to fetch http://security.debian.org/pool/updates/main/n/nginx/nginx-common_1.14.2-2+deb10u5_all.deb  Cannot initiate the connection to debian.map.fastlydns.net:80 (2a04:4e42:8d::644). - connect (101: Network is unreachable) Could not connect to debian.map.fastlydns.net:80 (146.75.118.132), connection timed out Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable) Could not connect to security.debian.org:80 (151.101.130.132), connection timed out Could not connect to security.debian.org:80 (151.101.194.132), connection timed out Could not connect to security.debian.org:80 (151.101.2.132), connection timed out Could not connect to security.debian.org:80 (151.101.66.132), connection timed out\nE: Failed to fetch http://security.debian.org/pool/updates/main/n/nginx/libnginx-mod-http-echo_1.14.2-2+deb10u5_amd64.deb  Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable)\nE: Failed to fetch http://security.debian.org/pool/updates/main/n/nginx/nginx-light_1.14.2-2+deb10u5_amd64.deb  Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable)\nE: Failed to fetch http://security.debian.org/pool/updates/main/n/nginx/nginx_1.14.2-2+deb10u5_all.deb  Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable)\nE: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?\n", "rc": 100, "stderr": "E: Failed to fetch http://security.debian.org/pool/updates/main/n/nginx/nginx-common_1.14.2-2+deb10u5_all.deb  Cannot initiate the connection to debian.map.fastlydns.net:80 (2a04:4e42:8d::644). - connect (101: Network is unreachable) Could not connect to debian.map.fastlydns.net:80 (146.75.118.132), connection timed out Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable) Could not connect to security.debian.org:80 (151.101.130.132), connection timed out Could not connect to security.debian.org:80 (151.101.194.132), connection timed out Could not connect to security.debian.org:80 (151.101.2.132), connection timed out Could not connect to security.debian.org:80 (151.101.66.132), connection timed out\nE: Failed to fetch http://security.debian.org/pool/updates/main/n/nginx/libnginx-mod-http-echo_1.14.2-2+deb10u5_amd64.deb  Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable)\nE: Failed to fetch http://security.debian.org/pool/updates/main/n/nginx/nginx-light_1.14.2-2+deb10u5_amd64.deb  Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable)\nE: Failed to fetch http://security.debian.org/pool/updates/main/n/nginx/nginx_1.14.2-2+deb10u5_all.deb  Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable)\nE: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?\n", "stderr_lines": ["E: Failed to fetch http://security.debian.org/pool/updates/main/n/nginx/nginx-common_1.14.2-2+deb10u5_all.deb  Cannot initiate the connection to debian.map.fastlydns.net:80 (2a04:4e42:8d::644). - connect (101: Network is unreachable) Could not connect to debian.map.fastlydns.net:80 (146.75.118.132), connection timed out Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable) Could not connect to security.debian.org:80 (151.101.130.132), connection timed out Could not connect to security.debian.org:80 (151.101.194.132), connection timed out Could not connect to security.debian.org:80 (151.101.2.132), connection timed out Could not connect to security.debian.org:80 (151.101.66.132), connection timed out", "E: Failed to fetch http://security.debian.org/pool/updates/main/n/nginx/libnginx-mod-http-echo_1.14.2-2+deb10u5_amd64.deb  Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable)", "E: Failed to fetch http://security.debian.org/pool/updates/main/n/nginx/nginx-light_1.14.2-2+deb10u5_amd64.deb  Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable)", "E: Failed to fetch http://security.debian.org/pool/updates/main/n/nginx/nginx_1.14.2-2+deb10u5_all.deb  Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable)", "E: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?"], "stdout": "Reading package lists...\nBuilding dependency tree...\nReading state information...\nThe following additional packages will be installed:\n  libnginx-mod-http-echo nginx-common nginx-light\nSuggested packages:\n  fcgiwrap nginx-doc ssl-cert\nThe following NEW packages will be installed:\n  libnginx-mod-http-echo nginx nginx-common nginx-light\n0 upgraded, 4 newly installed, 0 to remove and 1 not upgraded.\nNeed to get 793 kB of archives.\nAfter this operation, 1792 kB of additional disk space will be used.\nErr:1 http://security.debian.org buster/updates/main amd64 nginx-common all 1.14.2-2+deb10u5\n  Cannot initiate the connection to debian.map.fastlydns.net:80 (2a04:4e42:8d::644). - connect (101: Network is unreachable) Could not connect to debian.map.fastlydns.net:80 (146.75.118.132), connection timed out Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable) Could not connect to security.debian.org:80 (151.101.130.132), connection timed out Could not connect to security.debian.org:80 (151.101.194.132), connection timed out Could not connect to security.debian.org:80 (151.101.2.132), connection timed out Could not connect to security.debian.org:80 (151.101.66.132), connection timed out\nErr:2 http://security.debian.org buster/updates/main amd64 libnginx-mod-http-echo amd64 1.14.2-2+deb10u5\n  Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable)\nErr:3 http://security.debian.org buster/updates/main amd64 nginx-light amd64 1.14.2-2+deb10u5\n  Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable)\nErr:4 http://security.debian.org buster/updates/main amd64 nginx all 1.14.2-2+deb10u5\n  Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable)\n", "stdout_lines": ["Reading package lists...", "Building dependency tree...", "Reading state information...", "The following additional packages will be installed:", "  libnginx-mod-http-echo nginx-common nginx-light", "Suggested packages:", "  fcgiwrap nginx-doc ssl-cert", "The following NEW packages will be installed:", "  libnginx-mod-http-echo nginx nginx-common nginx-light", "0 upgraded, 4 newly installed, 0 to remove and 1 not upgraded.", "Need to get 793 kB of archives.", "After this operation, 1792 kB of additional disk space will be used.", "Err:1 http://security.debian.org buster/updates/main amd64 nginx-common all 1.14.2-2+deb10u5", "  Cannot initiate the connection to debian.map.fastlydns.net:80 (2a04:4e42:8d::644). - connect (101: Network is unreachable) Could not connect to debian.map.fastlydns.net:80 (146.75.118.132), connection timed out Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable) Could not connect to security.debian.org:80 (151.101.130.132), connection timed out Could not connect to security.debian.org:80 (151.101.194.132), connection timed out Could not connect to security.debian.org:80 (151.101.2.132), connection timed out Could not connect to security.debian.org:80 (151.101.66.132), connection timed out", "Err:2 http://security.debian.org buster/updates/main amd64 libnginx-mod-http-echo amd64 1.14.2-2+deb10u5", "  Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable)", "Err:3 http://security.debian.org buster/updates/main amd64 nginx-light amd64 1.14.2-2+deb10u5", "  Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable)", "Err:4 http://security.debian.org buster/updates/main amd64 nginx all 1.14.2-2+deb10u5", "  Cannot initiate the connection to security.debian.org:80 (2a04:4e42::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:600::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:400::644). - connect (101: Network is unreachable) Cannot initiate the connection to security.debian.org:80 (2a04:4e42:200::644). - connect (101: Network is unreachable)"]}
+2023-10-08 20:33:49,321 p=32303 u=igor |  	to retry, use: --limit @/home/igor/git/diplom-sys19/ansible/start-nginx.retry
+
+2023-10-08 20:33:49,324 p=32303 u=igor |  PLAY RECAP ************************************************************************************************************************************************************************
+2023-10-08 20:33:49,326 p=32303 u=igor |  172.16.10.23               : ok=1    changed=0    unreachable=0    failed=1   
+2023-10-08 20:43:31,673 p=32346 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , use [defaults] 
+inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 20:43:31,676 p=32346 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become instead. This feature will be removed in 
+version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 20:43:32,089 p=32346 u=igor |  PLAY [blogpost] *******************************************************************************************************************************************************************
+2023-10-08 20:43:32,107 p=32346 u=igor |  TASK [Gathering Facts] ************************************************************************************************************************************************************
+2023-10-08 20:43:34,470 p=32346 u=igor |  ok: [172.16.10.23]
+2023-10-08 20:43:34,484 p=32346 u=igor |  TASK [say hello] ******************************************************************************************************************************************************************
+2023-10-08 20:43:34,539 p=32346 u=igor |  ok: [172.16.10.23] => {
+    "msg": "hello from websrv-elvm-1"
+}
+2023-10-08 20:43:34,543 p=32346 u=igor |  PLAY RECAP ************************************************************************************************************************************************************************
+2023-10-08 20:43:34,543 p=32346 u=igor |  172.16.10.23               : ok=2    changed=0    unreachable=0    failed=0   
+2023-10-08 20:46:21,986 p=32407 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , use [defaults] 
+inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 20:46:21,989 p=32407 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become instead. This feature will be removed in 
+version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 20:46:22,398 p=32407 u=igor |  PLAY [websrv-elvm-1] **************************************************************************************************************************************************************
+2023-10-08 20:46:22,413 p=32407 u=igor |  TASK [Gathering Facts] ************************************************************************************************************************************************************
+2023-10-08 20:46:24,831 p=32407 u=igor |  ok: [172.16.10.23]
+2023-10-08 20:46:24,849 p=32407 u=igor |  TASK [say hello] ******************************************************************************************************************************************************************
+2023-10-08 20:46:24,898 p=32407 u=igor |  ok: [172.16.10.23] => {
+    "msg": "hello from websrv-elvm-1"
+}
+2023-10-08 20:46:24,903 p=32407 u=igor |  PLAY RECAP ************************************************************************************************************************************************************************
+2023-10-08 20:46:24,904 p=32407 u=igor |  172.16.10.23               : ok=2    changed=0    unreachable=0    failed=0   
+2023-10-08 20:46:32,146 p=32433 u=igor |  [DEPRECATION WARNING]: [defaults]hostfile option, The key is misleading as it can also be a list of hosts, a directory or a list of paths , use [defaults] 
+inventory=/path/to/file|dir instead. This feature will be removed in version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 20:46:32,146 p=32433 u=igor |  [DEPRECATION WARNING]: DEFAULT_SUDO_USER option, In favor of Ansible Become, which is a generic framework. See become_user. , use become instead. This feature will be removed in 
+version 2.8. Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-08 20:46:32,556 p=32433 u=igor |  PLAY [websrv-elvm-2] **************************************************************************************************************************************************************
+2023-10-08 20:46:32,573 p=32433 u=igor |  TASK [Gathering Facts] ************************************************************************************************************************************************************
+2023-10-08 20:46:35,172 p=32433 u=igor |  ok: [172.16.11.27]
+2023-10-08 20:46:35,188 p=32433 u=igor |  TASK [say hello] ******************************************************************************************************************************************************************
+2023-10-08 20:46:35,238 p=32433 u=igor |  ok: [172.16.11.27] => {
+    "msg": "hello from websrv-elvm-2"
+}
+2023-10-08 20:46:35,241 p=32433 u=igor |  PLAY RECAP ************************************************************************************************************************************************************************
+2023-10-08 20:46:35,241 p=32433 u=igor |  172.16.11.27               : ok=2    changed=0    unreachable=0    failed=0   

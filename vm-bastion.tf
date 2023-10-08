@@ -1,3 +1,4 @@
+
 resource "yandex_compute_instance" "bastion-elvm" {
   name = "${var.hostnames[2]}"
   platform_id = "${var.platform["v3"]}"
@@ -19,41 +20,38 @@ resource "yandex_compute_instance" "bastion-elvm" {
   }
 
   network_interface {
-    subnet_id = yandex_vpc_subnet.my-external-subnet.id
-#    security_group_ids = [yandex_vpc_security_group.secure-bastion-sg.id]
+    subnet_id = yandex_vpc_subnet.subnet-internal-bastion.id    
+    security_group_ids = [yandex_vpc_default_security_group.internal-bastion-sg.id]
     nat       = true
   }
 
-
   metadata = {
-    user-data = "${file("./metadata.yml")}"
+    user-data = "${file("./metadata-bastion.yml")}"
     serial-port-enable = 1
   }
+
+
+   provisioner "local-exec" {
+   command = " echo '\n ansible_ssh_common_args='-J ${var.ssh_user_2}@${self.network_interface.0.nat_ip_address}'\n' >> hosts.ini"
+ }
+
+  provisioner "local-exec" {
+   command = " echo '[bastion]' >> hosts.ini"
+ }   
+  provisioner "local-exec" {
+   command = " echo '${self.network_interface.0.nat_ip_address}\n' >> hosts.ini"
+ }
+  
+
+  
+  
+  
 }
 
 
-
-######### network
-#resource "yandex_vpc_network" "network-elvm" {
-#  name = "network-elvm"
-#}
-#resource "yandex_vpc_subnet" "subnet-a" {
-#  name           = "subnet-a"
-#  zone           = "${var.zone_data["zone_a"]}"
-#  network_id     = "${yandex_vpc_network.network-elvm.id}"
-#  v4_cidr_blocks = ["192.168.10.0/24"]
-#}
-
-
-
-
-
-######### output
-output "internal_ip_address_bastion-elvm" {
-  value = yandex_compute_instance.bastion-elvm.network_interface.0.ip_address
-}
-
-
-output "external_ip_address_bastion-elvm" {
-  value = yandex_compute_instance.bastion-elvm.network_interface.0.nat_ip_address
+###### null_resource_inventory
+  resource "null_resource" "vm-hosts" {
+  provisioner "local-exec" {
+    command = "rm -rf ./hosts.ini; cp ./templ_hosts.ini ./hosts.ini"
+  }
 }

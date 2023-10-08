@@ -1,0 +1,9 @@
+#cloud-config
+users:
+  - name: igor  # eval "$(ssh-agent -s)"; ssh-add ~/.ssh/id_
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh-authorized-keys:
+     # - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH/NTJ9DmsqtiiQpivsKLjYOrmQ65uReDMUzfS/HobpR igor@debian
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGpuh54L6jfdIKSj1ugnHP6SGT9+iSp9hKHx9y57nkJh igor@deb1

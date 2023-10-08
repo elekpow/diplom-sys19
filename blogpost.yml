@@ -1,0 +1,7 @@
+---
+- hosts: blogpost
+  tasks:
+  - name: say hello
+    become: yes
+    debug:
+      msg: hello from {{ ansible_hostname }}
