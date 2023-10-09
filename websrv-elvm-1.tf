@@ -19,8 +19,9 @@ resource "yandex_compute_instance" "websrv-elvm-1" {
   }
 
   network_interface {
-    subnet_id = yandex_vpc_subnet.subnet-a.id
-#    subnet_id = yandex_vpc_subnet.internal-bastion-sg.id
+ #   subnet_id = yandex_vpc_subnet.subnet-a.id
+    subnet_id = yandex_vpc_subnet.subnet-internal-bastion.id
+    security_group_ids = [yandex_vpc_default_security_group.internal-bastion-sg.id]    
     nat       = true
   }
 

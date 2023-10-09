@@ -1,4 +1,4 @@
-##network
+##network 1 network-elvm
 resource "yandex_vpc_network" "network-elvm" {
   name = "network-elvm"
 }
@@ -22,29 +22,31 @@ resource "yandex_vpc_subnet" "subnet-b" {
   network_id     = "${yandex_vpc_network.network-elvm.id}"  #network-elvm
 }
 
-
-resource "yandex_vpc_subnet" "subnet-internal-bastion" {
+## internal bastion subnet
+resource "yandex_vpc_subnet" "subnet-internal-bastion" { 
   name           = "subnet-internal-bastion"
   description    = "myNetwork-subnet description" 
   v4_cidr_blocks = ["172.16.16.0/24"]
   zone           = "${var.zone_data["zone_a"]}"
-  network_id     = "${yandex_vpc_network.network-elvm.id}" #network-bastion-internal
+  network_id     = "${yandex_vpc_network.network-elvm.id}" 
 }
 
 ############################# external - внешний ##############################
 
-##network
+##network 2 external-bastion-network
 
 resource "yandex_vpc_network" "external-bastion-network" {
   name        = "external-bastion-network"
   description = "external network"
 }
+
+## external bastion subnet
 resource "yandex_vpc_subnet" "subnet-external-bastion" {
   name           = "subnet-external-bastion"
   description    = "external bastion" 
   v4_cidr_blocks = ["172.16.17.0/28"]
   zone           = "${var.zone_data["zone_a"]}"
-  network_id     = "${yandex_vpc_network.external-bastion-network.id}" #network-bastion-external
+  network_id     = "${yandex_vpc_network.external-bastion-network.id}" 
 }
 
 
@@ -74,7 +76,7 @@ resource "yandex_vpc_default_security_group" "internal-bastion-sg" {
   ingress {
     protocol       = "TCP"
     description    = "Rule description internal ingress 1"
-    v4_cidr_blocks = ["172.16.16.0/24"]    
+    v4_cidr_blocks = ["172.16.16.254/32"]    
    # v4_cidr_blocks = ["0.0.0.0/0"]
     port           = 22
   }
@@ -82,9 +84,10 @@ resource "yandex_vpc_default_security_group" "internal-bastion-sg" {
    egress {
     protocol       = "TCP"
     description    = "Rule description internal egress 1"
-    v4_cidr_blocks = ["172.16.10.0/24", "172.16.11.0/24", "172.16.16.0/24", "172.16.17.0/24" ]
-    from_port      = 0
-    to_port        = 80
+	v4_cidr_blocks = ["0.0.0.0/0"]
+   # v4_cidr_blocks = ["172.16.10.0/24", "172.16.11.0/24", "172.16.16.0/24", "172.16.17.0/24" ]
+    from_port      = 22
+    to_port        = 22
   }
    
   

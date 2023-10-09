@@ -13,25 +13,22 @@ resource "yandex_compute_instance" "bastion-elvm" {
 
   boot_disk {
     initialize_params {
-      image_id = "${var.images["ubuntu_nat_18"]}"
+      image_id = "${var.images["debian_10"]}"
       type = "network-ssd"
       size = "10"
     }
   }
 
+
+## external bastion subnet
   network_interface {
     subnet_id = yandex_vpc_subnet.subnet-external-bastion.id    
-    security_group_ids = [yandex_vpc_default_security_group.secure-bastion-sg.id]
+    security_group_ids = [yandex_vpc_default_security_group.bastion-sg.id]
     nat       = true
+   
   }
 
-  network_interface {
-    subnet_id = yandex_vpc_subnet.subnet-internal-bastion.id    
-    security_group_ids = [yandex_vpc_default_security_group.internal-bastion-sg.id]
-  #  nat       = true
-  }
-  
-
+depends_on = [yandex_vpc_default_security_group.bastion-sg]
 
 
 
@@ -70,16 +67,14 @@ resource "yandex_compute_instance" "bastion-elvm" {
 
 
 ######### output
-output "internal_ip_address_bastion-elvm" {
+
+output "network_interface0_nat_bastion" {
+  value = yandex_compute_instance.bastion-elvm.network_interface.0.nat_ip_address
+}
+
+output "network_interface0_bastion" {
   value = yandex_compute_instance.bastion-elvm.network_interface.0.ip_address
 }
 
-output "internal_ip_address_bastion-elvm1" {
-  value = yandex_compute_instance.bastion-elvm.network_interface.1.ip_address
-}
 
-
-
-output "external_ip_address_bastion-elvm" {
-  value = yandex_compute_instance.bastion-elvm.network_interface.0.nat_ip_address
-}
+#terraform apply -auto-approve
