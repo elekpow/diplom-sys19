@@ -22,15 +22,11 @@ resource "yandex_compute_instance" "bastion-elvm" {
 
 ## external bastion subnet
   network_interface {
-    subnet_id = yandex_vpc_subnet.subnet-external-bastion.id    
-    security_group_ids = [yandex_vpc_default_security_group.bastion-sg.id]
-    nat       = true
-   
+    subnet_id = yandex_vpc_subnet.subnet-network-bastion.id    
+    security_group_ids = [yandex_vpc_security_group.bastion_group_sg.id ]
+	#ip_address = "172.16.16.254"	
+    nat       = true  
   }
-
-depends_on = [yandex_vpc_default_security_group.bastion-sg]
-
-
 
 
   metadata = {

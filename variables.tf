@@ -1,3 +1,11 @@
+variable "folder_id" {
+  description = "The ID of the folder that the Elasticsearch cluster belongs to."
+  type        = string
+  default = "b1gddp1e85vunop76vcr"
+}
+
+
+
 variable "ssh_user_1" {
   type = string
   default = "igor"
