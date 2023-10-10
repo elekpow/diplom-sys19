@@ -20,7 +20,12 @@ resource "yandex_compute_instance" "websrv-elvm-1" {
 
   network_interface {
     subnet_id = yandex_vpc_subnet.subnet-a.id
+<<<<<<< HEAD
     security_group_ids = [yandex_vpc_security_group.internal-sg.id]    
+=======
+    security_group_ids = [yandex_vpc_security_group.elvm_group_sg.id] 
+   # ip_address = "172.16.10.10"    
+>>>>>>> 6ef18a3752a2a2137a60295501fddbce2d33a53a
     nat       = true
   }
 
@@ -71,13 +76,18 @@ resource "yandex_compute_instance" "websrv-elvm-1" {
 
 }
 
-
+output "external_ip_address_websrv-elvm-1" {
+  value = yandex_compute_instance.websrv-elvm-1.network_interface.0.nat_ip_address
+}
 
 output "local_ip_websrv-elvm-1" {
   value = yandex_compute_instance.websrv-elvm-1.network_interface.0.ip_address
 }
 
 
+<<<<<<< HEAD
 output "websrv-elvm-1" {
   value = yandex_compute_instance.websrv-elvm-1.network_interface.0.nat_ip_address
 }
+=======
+>>>>>>> 6ef18a3752a2a2137a60295501fddbce2d33a53a
