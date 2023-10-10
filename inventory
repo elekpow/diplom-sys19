@@ -1,17 +1,7 @@
-<<<<<<< HEAD
-[websrv-elvm-1]
-192.168.10.4
-
 [all:vars]
  ansible_python_interpreter=/usr/bin/python3
  ansible_ssh_user=igor
- ansible_ssh_common_args=-o StrictHostKeyChecking=no -o ProxyCommand="ssh -o "StrictHostKeyChecking no" -W %h:%p -q bastion@158.160.126.119"
-=======
-[all:vars]
- ansible_python_interpreter=/usr/bin/python3
- ansible_ssh_user=igor
- ansible_ssh_common_args=-o StrictHostKeyChecking=no -o ProxyCommand="ssh -W %h:%p -q bastion@84.201.134.2"
+ ansible_ssh_common_args=-o StrictHostKeyChecking=no -o ProxyCommand="ssh -W %h:%p -q bastion@51.250.12.62"
 [websrv-elvm-1]
-172.16.10.25
+192.168.10.3
 
->>>>>>> 6ef18a3752a2a2137a60295501fddbce2d33a53a

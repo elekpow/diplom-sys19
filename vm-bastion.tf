@@ -1,4 +1,3 @@
-
 resource "yandex_compute_instance" "bastion-elvm" {
   name = "${var.hostnames[2]}"
   platform_id = "${var.platform["v3"]}"
@@ -22,18 +21,15 @@ resource "yandex_compute_instance" "bastion-elvm" {
 
 ## external bastion subnet
   network_interface {
-<<<<<<< HEAD
     subnet_id = yandex_vpc_subnet.subnet-internal-bastion.id                #subnet-internal-bastion
     security_group_ids = [yandex_vpc_default_security_group.bastion-sg.id]  #bastion-sg
     nat       = true
     ip_address = "192.168.20.254"
-=======
-    subnet_id = yandex_vpc_subnet.subnet-network-bastion.id    
-    security_group_ids = [yandex_vpc_security_group.bastion_group_sg.id ]
-	#ip_address = "172.16.16.254"	
-    nat       = true  
->>>>>>> 6ef18a3752a2a2137a60295501fddbce2d33a53a
   }
+
+depends_on = [yandex_vpc_default_security_group.bastion-sg]
+
+
 
 
   metadata = {

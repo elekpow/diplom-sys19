@@ -1277,3 +1277,26 @@ warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
 2023-10-10 15:54:40,859 p=420350 u=igor n=ansible | fatal: [192.168.10.4]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: kex_exchange_identification: Connection closed by remote host\r\nConnection closed by UNKNOWN port 65535", "unreachable": true}
 2023-10-10 15:54:40,861 p=420350 u=igor n=ansible | PLAY RECAP *************************************************************************************************************
 2023-10-10 15:54:40,861 p=420350 u=igor n=ansible | 192.168.10.4               : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-10 17:54:32,048 p=423716 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use
+-vvvv to see details
+
+2023-10-10 17:54:32,230 p=423716 u=igor n=ansible | PLAY [websrv-elvm-1] ***********************************************************
+2023-10-10 17:54:32,240 p=423716 u=igor n=ansible | TASK [Gathering Facts] *********************************************************
+2023-10-10 17:54:34,067 p=423716 u=igor n=ansible | ok: [192.168.10.3]
+2023-10-10 17:54:34,082 p=423716 u=igor n=ansible | TASK [say hello] ***************************************************************
+2023-10-10 17:54:34,150 p=423716 u=igor n=ansible | ok: [192.168.10.3] => {
+    "msg": "hello from websrv-elvm-1"
+}
+2023-10-10 17:54:34,164 p=423716 u=igor n=ansible | [WARNING]: Could not match supplied host pattern, ignoring: websrv-elvm-2
+
+2023-10-10 17:54:34,164 p=423716 u=igor n=ansible | PLAY [websrv-elvm-2] ***********************************************************
+2023-10-10 17:54:34,165 p=423716 u=igor n=ansible | skipping: no hosts matched
+2023-10-10 17:54:34,165 p=423716 u=igor n=ansible | PLAY [all] *********************************************************************
+2023-10-10 17:54:34,172 p=423716 u=igor n=ansible | TASK [Gathering Facts] *********************************************************
+2023-10-10 17:54:35,094 p=423716 u=igor n=ansible | ok: [192.168.10.3]
+2023-10-10 17:54:35,104 p=423716 u=igor n=ansible | TASK [Install the package nginx] ***********************************************
+2023-10-10 17:54:40,161 p=423716 u=igor n=ansible | changed: [192.168.10.3]
+2023-10-10 17:54:40,167 p=423716 u=igor n=ansible | TASK [Start Nginx Services] ****************************************************
+2023-10-10 17:54:41,342 p=423716 u=igor n=ansible | ok: [192.168.10.3]
+2023-10-10 17:54:41,355 p=423716 u=igor n=ansible | PLAY RECAP *********************************************************************
+2023-10-10 17:54:41,356 p=423716 u=igor n=ansible | 192.168.10.3               : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
