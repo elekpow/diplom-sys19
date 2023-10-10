@@ -1216,3 +1216,64 @@ warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
 2023-10-08 23:36:53,949 p=1591 u=igor |  PLAY RECAP ******************************************************************************************************************************************************************************************************
 2023-10-08 23:36:53,949 p=1591 u=igor |  172.16.10.19               : ok=3    changed=0    unreachable=0    failed=1   
 2023-10-08 23:36:53,950 p=1591 u=igor |  172.16.11.30               : ok=3    changed=0    unreachable=0    failed=1   
+2023-10-10 14:26:54,327 p=418339 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use
+-vvvv to see details
+
+2023-10-10 14:26:54,564 p=418339 u=igor n=ansible | PLAY [websrv-elvm-1] ***********************************************************
+2023-10-10 14:26:54,575 p=418339 u=igor n=ansible | TASK [Gathering Facts] *********************************************************
+2023-10-10 14:27:04,611 p=418339 u=igor n=ansible | fatal: [192.168.10.4]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: Connection timed out during banner exchange\r\nConnection to UNKNOWN port 65535 timed out", "unreachable": true}
+2023-10-10 14:27:04,613 p=418339 u=igor n=ansible | PLAY RECAP *********************************************************************
+2023-10-10 14:27:04,614 p=418339 u=igor n=ansible | 192.168.10.4               : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-10 15:27:41,725 p=419491 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use
+-vvvv to see details
+
+2023-10-10 15:27:41,906 p=419491 u=igor n=ansible | PLAY [websrv-elvm-1] ***********************************************************
+2023-10-10 15:27:41,916 p=419491 u=igor n=ansible | TASK [Gathering Facts] *********************************************************
+2023-10-10 15:27:51,958 p=419491 u=igor n=ansible | fatal: [192.168.10.7]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: Connection timed out during banner exchange\r\nConnection to UNKNOWN port 65535 timed out", "unreachable": true}
+2023-10-10 15:27:51,960 p=419491 u=igor n=ansible | PLAY RECAP *********************************************************************
+2023-10-10 15:27:51,961 p=419491 u=igor n=ansible | 192.168.10.7               : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-10 15:28:43,393 p=419520 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-10 15:28:43,579 p=419520 u=igor n=ansible | PLAY [websrv-elvm-1] ***************************************************************************************************
+2023-10-10 15:28:43,589 p=419520 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-10-10 15:28:57,977 p=419520 u=igor n=ansible | ok: [192.168.10.7]
+2023-10-10 15:28:57,987 p=419520 u=igor n=ansible | TASK [say hello] *******************************************************************************************************
+2023-10-10 15:28:58,028 p=419520 u=igor n=ansible | ok: [192.168.10.7] => {
+    "msg": "hello from websrv-elvm-1"
+}
+2023-10-10 15:28:58,040 p=419520 u=igor n=ansible | [WARNING]: Could not match supplied host pattern, ignoring: websrv-elvm-2
+
+2023-10-10 15:28:58,041 p=419520 u=igor n=ansible | PLAY [websrv-elvm-2] ***************************************************************************************************
+2023-10-10 15:28:58,041 p=419520 u=igor n=ansible | skipping: no hosts matched
+2023-10-10 15:28:58,042 p=419520 u=igor n=ansible | PLAY [all] *************************************************************************************************************
+2023-10-10 15:28:58,048 p=419520 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-10-10 15:28:58,942 p=419520 u=igor n=ansible | ok: [192.168.10.7]
+2023-10-10 15:28:58,952 p=419520 u=igor n=ansible | TASK [Install the package nginx] ***************************************************************************************
+2023-10-10 15:29:04,892 p=419520 u=igor n=ansible | changed: [192.168.10.7]
+2023-10-10 15:29:04,899 p=419520 u=igor n=ansible | TASK [Start Nginx Services] ********************************************************************************************
+2023-10-10 15:29:05,920 p=419520 u=igor n=ansible | ok: [192.168.10.7]
+2023-10-10 15:29:05,945 p=419520 u=igor n=ansible | PLAY RECAP *************************************************************************************************************
+2023-10-10 15:29:05,945 p=419520 u=igor n=ansible | 192.168.10.7               : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-10 15:33:01,838 p=419763 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use
+-vvvv to see details
+
+2023-10-10 15:33:02,005 p=419763 u=igor n=ansible | PLAY [websrv-elvm-1] ***********************************************************
+2023-10-10 15:33:02,015 p=419763 u=igor n=ansible | TASK [Gathering Facts] *********************************************************
+2023-10-10 15:33:12,053 p=419763 u=igor n=ansible | fatal: [192.168.10.17]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: Connection timed out during banner exchange\r\nConnection to UNKNOWN port 65535 timed out", "unreachable": true}
+2023-10-10 15:33:12,054 p=419763 u=igor n=ansible | PLAY RECAP *********************************************************************
+2023-10-10 15:33:12,055 p=419763 u=igor n=ansible | 192.168.10.17              : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-10 15:50:49,109 p=420305 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use
+-vvvv to see details
+
+2023-10-10 15:50:49,274 p=420305 u=igor n=ansible | PLAY [websrv-elvm-1] ***********************************************************
+2023-10-10 15:50:49,284 p=420305 u=igor n=ansible | TASK [Gathering Facts] *********************************************************
+2023-10-10 15:50:49,325 p=420305 u=igor n=ansible | fatal: [192.168.10.4]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: kex_exchange_identification: Connection closed by remote host\r\nConnection closed by UNKNOWN port 65535", "unreachable": true}
+2023-10-10 15:50:49,329 p=420305 u=igor n=ansible | PLAY RECAP *********************************************************************
+2023-10-10 15:50:49,329 p=420305 u=igor n=ansible | 192.168.10.4               : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-10 15:54:40,627 p=420350 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-10 15:54:40,814 p=420350 u=igor n=ansible | PLAY [websrv-elvm-1] ***************************************************************************************************
+2023-10-10 15:54:40,825 p=420350 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-10-10 15:54:40,859 p=420350 u=igor n=ansible | fatal: [192.168.10.4]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: kex_exchange_identification: Connection closed by remote host\r\nConnection closed by UNKNOWN port 65535", "unreachable": true}
+2023-10-10 15:54:40,861 p=420350 u=igor n=ansible | PLAY RECAP *************************************************************************************************************
+2023-10-10 15:54:40,861 p=420350 u=igor n=ansible | 192.168.10.4               : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   

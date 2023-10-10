@@ -19,9 +19,8 @@ resource "yandex_compute_instance" "websrv-elvm-1" {
   }
 
   network_interface {
- #   subnet_id = yandex_vpc_subnet.subnet-a.id
-    subnet_id = yandex_vpc_subnet.subnet-internal-bastion.id
-    security_group_ids = [yandex_vpc_default_security_group.internal-bastion-sg.id]    
+    subnet_id = yandex_vpc_subnet.subnet-a.id
+    security_group_ids = [yandex_vpc_security_group.internal-sg.id]    
     nat       = true
   }
 
@@ -29,6 +28,15 @@ resource "yandex_compute_instance" "websrv-elvm-1" {
     user-data = "${file("./metadata.yml")}"
     serial-port-enable = 1
   } 
+
+  connection {
+     type = "ssh"
+     user = "${var.ssh_user_1}"
+     host = self.network_interface.0.nat_ip_address
+     agent = true
+  }
+
+
 
   provisioner "local-exec" {
    command = " echo '[${var.hostnames[0]}]' >> inventory"
@@ -38,27 +46,19 @@ resource "yandex_compute_instance" "websrv-elvm-1" {
 }
 
 ## ANSIBLE first install
- # provisioner "local-exec" {
-   # command = "sleep 30; ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i ${self.network_interface.0.ip_address} ./ansible/start-nginx.yml"
- # }
+  provisioner "local-exec" {
+    command = "sleep 30; ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i inventory ./ansible/install.yml"
+  }
 
 #ssh -i ~/.ssh/id_ed25519 -J bastion@158.160.106.140 igor@172.16.11.33
 
 
 
 
-   
-#  connection {
-#     type = "ssh"
-#     user = "${var.ssh_user}"
-#     host = self.network_interface.0.nat_ip_address
-#     agent = true
-#  }
-
-#  provisioner "file" {
-#    source      = "source/index.html"
-#    destination = "/tmp/index_website.html"
-#  }
+  provisioner "file" {
+    source      = "source/index.html"
+    destination = "/tmp/index_website.html"
+  }
 
 #  provisioner "remote-exec" {
 #    inline = [
@@ -73,11 +73,11 @@ resource "yandex_compute_instance" "websrv-elvm-1" {
 
 
 
-output "internal_ip_address_websrv-elvm-1" {
+output "local_ip_websrv-elvm-1" {
   value = yandex_compute_instance.websrv-elvm-1.network_interface.0.ip_address
 }
 
 
-output "external_ip_address_websrv-elvm-1" {
+output "websrv-elvm-1" {
   value = yandex_compute_instance.websrv-elvm-1.network_interface.0.nat_ip_address
 }

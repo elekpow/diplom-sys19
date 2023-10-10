@@ -22,10 +22,10 @@ resource "yandex_compute_instance" "bastion-elvm" {
 
 ## external bastion subnet
   network_interface {
-    subnet_id = yandex_vpc_subnet.subnet-external-bastion.id    
-    security_group_ids = [yandex_vpc_default_security_group.bastion-sg.id]
+    subnet_id = yandex_vpc_subnet.subnet-internal-bastion.id                #subnet-internal-bastion
+    security_group_ids = [yandex_vpc_default_security_group.bastion-sg.id]  #bastion-sg
     nat       = true
-   
+    ip_address = "192.168.20.254"
   }
 
 depends_on = [yandex_vpc_default_security_group.bastion-sg]
@@ -68,13 +68,10 @@ depends_on = [yandex_vpc_default_security_group.bastion-sg]
 
 ######### output
 
-output "network_interface0_nat_bastion" {
+output "bastion-elvm" {
   value = yandex_compute_instance.bastion-elvm.network_interface.0.nat_ip_address
 }
 
-output "network_interface0_bastion" {
-  value = yandex_compute_instance.bastion-elvm.network_interface.0.ip_address
-}
 
 
 #terraform apply -auto-approve

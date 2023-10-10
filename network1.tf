@@ -4,10 +4,10 @@ resource "yandex_vpc_network" "network-external" {
   name = "external-bastion"
 }
 
-resource "yandex_vpc_subnet" "subnet-external-bastion" { 
-  name           = "subnet-external-bastion"
+resource "yandex_vpc_subnet" "subnet-a" { 
+  name           = "subnet-a"
   description    = "myNetwork-subnet description" 
-  v4_cidr_blocks = ["172.16.17.0/28"]
+  v4_cidr_blocks = ["192.168.10.0/24"]
   zone           = "${var.zone_data["zone_a"]}"
   network_id     = "${yandex_vpc_network.network-external.id}" 
   depends_on = [yandex_vpc_network.network-external] 
@@ -17,7 +17,7 @@ resource "yandex_vpc_subnet" "subnet-external-bastion" {
 resource "yandex_vpc_subnet" "subnet-internal-bastion" { 
   name           = "subnet-internal-bastion"
   description    = "myNetwork-subnet description" 
-  v4_cidr_blocks = ["172.16.16.0/28"]
+  v4_cidr_blocks = ["192.168.20.0/24"]
   zone           = "${var.zone_data["zone_a"]}"
   network_id     = "${yandex_vpc_network.network-external.id}" 
   depends_on = [yandex_vpc_network.network-external] 
@@ -33,66 +33,61 @@ resource "yandex_vpc_default_security_group" "bastion-sg" {
 
   ingress {
     protocol       = "TCP"
-    description    = "Rule description 1"
+    description    = "ssh"
     v4_cidr_blocks = ["0.0.0.0/0"]
     port           = 22
   }
   
-  egress {
+  ingress {
+    protocol       = "ICMP"
+    description    = "ping"
+    v4_cidr_blocks = ["0.0.0.0/0"]
     from_port = 0
-    to_port = 0
-    protocol = "ANY"
+    to_port = 65535
+  } 
+  
+  egress {
+    port           = 22
+    protocol = "TCP"
     v4_cidr_blocks= ["0.0.0.0/0"]
   }
     
 }
 
-resource "yandex_vpc_default_security_group" "internal-bastion-sg" {
- # name        = "bastion-sg"
+resource "yandex_vpc_security_group" "internal-sg" {
+  name        = "internal-sg"
   description = "Description for security group"
   network_id  = "${yandex_vpc_network.network-external.id}"
 
   ingress {
-    protocol       = "TCP"
-    description    = "Rule description 1"
+    protocol       = "ICMP"
+    description    = "ping"
     v4_cidr_blocks = ["0.0.0.0/0"]
-    from_port = 22
-    to_port = 22
-    #security_groups  = [yandex_vpc_default_security_group.bastion-sg.id]
+    from_port = 0
+    to_port = 65535
+  }
+    ingress {
+    protocol       = "TCP"
+    description    = "ssh"
+    v4_cidr_blocks = ["192.168.20.0/24"]
+    port           = 22
+  }
+  
+   ingress {
+    protocol       = "TCP"
+    description    = "http"
+    v4_cidr_blocks = ["0.0.0.0/0"]
+    port           = 80
   }
   
   egress {
-    from_port = 0
-    to_port = 0
-    protocol = "ANY"
+    port           = 80
+    description    = "http"
+    protocol = "TCP"
     v4_cidr_blocks= ["0.0.0.0/0"]
   }
     
 }
-
-
-resource "yandex_vpc_route_table" "external" {
-  network_id     = "${yandex_vpc_network.network-external.id}" 
-  depends_on = [yandex_vpc_subnet.subnet-external-bastion] 
-  
-  static_route {
-    destination_prefix = "172.16.17.0/28"
-    next_hop_address   = "yandex_compute_instance.nat-instance.network_interface.0.ip_address"
-  }
-}
-
-resource "yandex_vpc_route_table" "internal" {
-  network_id     = "${yandex_vpc_network.network-external.id}" 
-  
-  depends_on = [yandex_vpc_subnet.subnet-external-bastion] 
-  static_route {
-    destination_prefix = "172.16.16.0/28"
-    next_hop_address   = "yandex_compute_instance.nat-instance.network_interface.0.ip_address"
-  }
-}
-
-
-
 
 
 
