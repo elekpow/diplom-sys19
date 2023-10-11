@@ -2458,3 +2458,248 @@ websrv-elvm-1 ansible_host=192.168.10.24
 2023-10-11 11:17:43,478 p=449794 u=igor n=ansible | PLAY RECAP *******************************************************************************************************************************************
 2023-10-11 11:17:43,478 p=449794 u=igor n=ansible | 192.168.10.16              : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 2023-10-11 11:17:43,478 p=449794 u=igor n=ansible | 192.168.10.5               : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-12 00:21:07,408 p=463238 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-12 00:21:07,578 p=463238 u=igor n=ansible | PLAY [zabbix-elvm] *****************************************************************************************************************************************************
+2023-10-12 00:21:07,587 p=463238 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************************************************************
+2023-10-12 00:21:09,334 p=463238 u=igor n=ansible | ok: [192.168.10.33]
+2023-10-12 00:21:09,344 p=463238 u=igor n=ansible | TASK [say hello] *******************************************************************************************************************************************************
+2023-10-12 00:21:09,381 p=463238 u=igor n=ansible | ok: [192.168.10.33] => {
+    "msg": "hello from zabbix-elvm"
+}
+2023-10-12 00:21:09,387 p=463238 u=igor n=ansible | TASK [Install the package nginx] ***************************************************************************************************************************************
+2023-10-12 00:21:14,001 p=463238 u=igor n=ansible | changed: [192.168.10.33]
+2023-10-12 00:21:14,008 p=463238 u=igor n=ansible | TASK [Start Nginx Services] ********************************************************************************************************************************************
+2023-10-12 00:21:15,135 p=463238 u=igor n=ansible | ok: [192.168.10.33]
+2023-10-12 00:21:15,148 p=463238 u=igor n=ansible | PLAY RECAP *************************************************************************************************************************************************************
+2023-10-12 00:21:15,148 p=463238 u=igor n=ansible | 192.168.10.33              : ok=4    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-12 00:28:25,400 p=463310 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-12 00:28:25,617 p=463310 u=igor n=ansible | PLAY [zabbix-elvm] *****************************************************************************************************************************************************
+2023-10-12 00:28:25,630 p=463310 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************************************************************
+2023-10-12 00:28:27,270 p=463310 u=igor n=ansible | ok: [192.168.10.33]
+2023-10-12 00:28:27,282 p=463310 u=igor n=ansible | TASK [say hello] *******************************************************************************************************************************************************
+2023-10-12 00:28:27,319 p=463310 u=igor n=ansible | ok: [192.168.10.33] => {
+    "msg": "hello from zabbix-elvm"
+}
+2023-10-12 00:28:27,326 p=463310 u=igor n=ansible | TASK [Install packages] ************************************************************************************************************************************************
+2023-10-12 00:28:27,359 p=463328 u=igor n=ansible | [DEPRECATION WARNING]: Invoking "dnf" only once while using a loop via squash_actions is deprecated. Instead of using a loop to supply multiple items and specifying 
+`name: "{{ item }}"`, please use `name: ['postgresql', 'postgresql-server']` and remove the loop. This feature will be removed from ansible-base in version 2.11. 
+Deprecation warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+2023-10-12 00:28:28,227 p=463310 u=igor n=ansible | failed: [192.168.10.33] (item=['postgresql', 'postgresql-server']) => {"ansible_loop_var": "item", "changed": false, "cmd": "dnf install -y python3-dnf", "item": ["postgresql", "postgresql-server"], "msg": "[Errno 2] No such file or directory: b'dnf'", "rc": 2}
+2023-10-12 00:28:28,229 p=463310 u=igor n=ansible | PLAY RECAP *************************************************************************************************************************************************************
+2023-10-12 00:28:28,230 p=463310 u=igor n=ansible | 192.168.10.33              : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-10-12 00:31:01,228 p=463346 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-12 00:31:01,385 p=463346 u=igor n=ansible | PLAY [zabbix-elvm] *****************************************************************************************************************************************************
+2023-10-12 00:31:01,394 p=463346 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************************************************************
+2023-10-12 00:31:02,949 p=463346 u=igor n=ansible | ok: [192.168.10.33]
+2023-10-12 00:31:02,960 p=463346 u=igor n=ansible | TASK [say hello] *******************************************************************************************************************************************************
+2023-10-12 00:31:03,010 p=463346 u=igor n=ansible | ok: [192.168.10.33] => {
+    "msg": "hello from zabbix-elvm"
+}
+2023-10-12 00:31:03,017 p=463346 u=igor n=ansible | TASK [Install required packages] ***************************************************************************************************************************************
+2023-10-12 00:31:03,986 p=463346 u=igor n=ansible | fatal: [192.168.10.33]: FAILED! => {"changed": false, "msg": "No package matching 'python3-psycopg2' is available"}
+2023-10-12 00:31:03,987 p=463346 u=igor n=ansible | PLAY RECAP *************************************************************************************************************************************************************
+2023-10-12 00:31:03,988 p=463346 u=igor n=ansible | 192.168.10.33              : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-10-12 00:33:04,426 p=463379 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-12 00:33:04,617 p=463379 u=igor n=ansible | PLAY [zabbix-elvm] *****************************************************************************************************************************************************
+2023-10-12 00:33:04,627 p=463379 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************************************************************
+2023-10-12 00:33:06,176 p=463379 u=igor n=ansible | ok: [192.168.10.33]
+2023-10-12 00:33:06,190 p=463379 u=igor n=ansible | TASK [say hello] *******************************************************************************************************************************************************
+2023-10-12 00:33:06,230 p=463379 u=igor n=ansible | ok: [192.168.10.33] => {
+    "msg": "hello from zabbix-elvm"
+}
+2023-10-12 00:33:06,236 p=463379 u=igor n=ansible | TASK [Update and upgrade apt packages] *********************************************************************************************************************************
+2023-10-12 00:35:01,765 p=463379 u=igor n=ansible | [WARNING]: The value "True" (type bool) was converted to "'True'" (type string). If this does not look like what you expect, quote the entire value to ensure it does
+not change.
+
+2023-10-12 00:35:01,766 p=463379 u=igor n=ansible | changed: [192.168.10.33]
+2023-10-12 00:35:01,775 p=463379 u=igor n=ansible | TASK [Install required packages] ***************************************************************************************************************************************
+2023-10-12 00:35:03,060 p=463379 u=igor n=ansible | fatal: [192.168.10.33]: FAILED! => {"changed": false, "msg": "'/usr/bin/apt-mark manual wget python3-psycopg2 acl' failed: E: Could not create temporary file for /var/lib/apt/extended_states - mkstemp (13: Permission denied)\nE: Failed to write temporary StateFile /var/lib/apt/extended_states\n", "rc": 100, "stderr": "E: Could not create temporary file for /var/lib/apt/extended_states - mkstemp (13: Permission denied)\nE: Failed to write temporary StateFile /var/lib/apt/extended_states\n", "stderr_lines": ["E: Could not create temporary file for /var/lib/apt/extended_states - mkstemp (13: Permission denied)", "E: Failed to write temporary StateFile /var/lib/apt/extended_states"], "stdout": "python3-psycopg2 can not be marked as it is not installed.\nacl can not be marked as it is not installed.\n", "stdout_lines": ["python3-psycopg2 can not be marked as it is not installed.", "acl can not be marked as it is not installed."]}
+2023-10-12 00:35:03,063 p=463379 u=igor n=ansible | PLAY RECAP *************************************************************************************************************************************************************
+2023-10-12 00:35:03,064 p=463379 u=igor n=ansible | 192.168.10.33              : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-10-12 00:38:03,662 p=463448 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-12 00:38:03,848 p=463448 u=igor n=ansible | PLAY [zabbix-elvm] *****************************************************************************************************************************************************
+2023-10-12 00:38:03,859 p=463448 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************************************************************
+2023-10-12 00:38:05,502 p=463448 u=igor n=ansible | ok: [192.168.10.33]
+2023-10-12 00:38:05,520 p=463448 u=igor n=ansible | TASK [say hello] *******************************************************************************************************************************************************
+2023-10-12 00:38:05,557 p=463448 u=igor n=ansible | ok: [192.168.10.33] => {
+    "msg": "hello from zabbix-elvm"
+}
+2023-10-12 00:38:05,563 p=463448 u=igor n=ansible | TASK [Update and upgrade apt packages] *********************************************************************************************************************************
+2023-10-12 00:38:06,860 p=463448 u=igor n=ansible | [WARNING]: The value "True" (type bool) was converted to "'True'" (type string). If this does not look like what you expect, quote the entire value to ensure it does
+not change.
+
+2023-10-12 00:38:06,860 p=463448 u=igor n=ansible | ok: [192.168.10.33]
+2023-10-12 00:38:06,865 p=463448 u=igor n=ansible | TASK [Install required packages] ***************************************************************************************************************************************
+2023-10-12 00:38:09,172 p=463448 u=igor n=ansible | changed: [192.168.10.33]
+2023-10-12 00:38:09,179 p=463448 u=igor n=ansible | TASK [Set up Postgres 14 repo] *****************************************************************************************************************************************
+2023-10-12 00:38:10,312 p=463448 u=igor n=ansible | fatal: [192.168.10.33]: FAILED! => {"changed": true, "cmd": "echo \"deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main\" > /etc/apt/sources.list.d/pgdg.list\nwget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -\n", "delta": "0:00:00.348788", "end": "2023-10-11 21:38:10.475608", "msg": "non-zero return code", "rc": 255, "start": "2023-10-11 21:38:10.126820", "stderr": "E: gnupg, gnupg2 and gnupg1 do not seem to be installed, but one of them is required for this operation", "stderr_lines": ["E: gnupg, gnupg2 and gnupg1 do not seem to be installed, but one of them is required for this operation"], "stdout": "", "stdout_lines": []}
+2023-10-12 00:38:10,314 p=463448 u=igor n=ansible | PLAY RECAP *************************************************************************************************************************************************************
+2023-10-12 00:38:10,314 p=463448 u=igor n=ansible | 192.168.10.33              : ok=4    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-10-12 00:39:22,212 p=463673 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-12 00:39:22,381 p=463673 u=igor n=ansible | PLAY [zabbix-elvm] *****************************************************************************************************************************************************
+2023-10-12 00:39:22,391 p=463673 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************************************************************
+2023-10-12 00:39:23,907 p=463673 u=igor n=ansible | ok: [192.168.10.33]
+2023-10-12 00:39:23,921 p=463673 u=igor n=ansible | TASK [say hello] *******************************************************************************************************************************************************
+2023-10-12 00:39:23,962 p=463673 u=igor n=ansible | ok: [192.168.10.33] => {
+    "msg": "hello from zabbix-elvm"
+}
+2023-10-12 00:39:23,968 p=463673 u=igor n=ansible | TASK [Update and upgrade apt packages] *********************************************************************************************************************************
+2023-10-12 00:39:26,612 p=463673 u=igor n=ansible | [WARNING]: The value "True" (type bool) was converted to "'True'" (type string). If this does not look like what you expect, quote the entire value to ensure it does
+not change.
+
+2023-10-12 00:39:26,612 p=463673 u=igor n=ansible | ok: [192.168.10.33]
+2023-10-12 00:39:26,621 p=463673 u=igor n=ansible | TASK [Install required packages] ***************************************************************************************************************************************
+2023-10-12 00:39:27,636 p=463673 u=igor n=ansible | ok: [192.168.10.33]
+2023-10-12 00:39:27,644 p=463673 u=igor n=ansible | TASK [Set up Postgres 14 repo] *****************************************************************************************************************************************
+2023-10-12 00:39:28,413 p=463673 u=igor n=ansible | changed: [192.168.10.33]
+2023-10-12 00:39:28,425 p=463673 u=igor n=ansible | TASK [Install postgresql] **********************************************************************************************************************************************
+2023-10-12 00:40:07,992 p=463673 u=igor n=ansible | fatal: [192.168.10.33]: FAILED! => {"changed": false, "msg": "Failed to update apt cache: W:Updating from such a repository can't be done securely, and is therefore disabled by default., W:See apt-secure(8) manpage for repository creation and user configuration details., W:GPG error: http://apt.postgresql.org/pub/repos/apt bullseye-pgdg InRelease: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 7FCC7D46ACCC4CF8, E:The repository 'http://apt.postgresql.org/pub/repos/apt bullseye-pgdg InRelease' is not signed."}
+2023-10-12 00:40:07,996 p=463673 u=igor n=ansible | PLAY RECAP *************************************************************************************************************************************************************
+2023-10-12 00:40:07,996 p=463673 u=igor n=ansible | 192.168.10.33              : ok=5    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-10-12 00:41:21,473 p=463735 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-12 00:41:21,664 p=463735 u=igor n=ansible | PLAY [zabbix-elvm] *****************************************************************************************************************************************************
+2023-10-12 00:41:21,675 p=463735 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************************************************************
+2023-10-12 00:41:23,170 p=463735 u=igor n=ansible | ok: [192.168.10.33]
+2023-10-12 00:41:23,181 p=463735 u=igor n=ansible | TASK [say hello] *******************************************************************************************************************************************************
+2023-10-12 00:41:23,217 p=463735 u=igor n=ansible | ok: [192.168.10.33] => {
+    "msg": "hello from zabbix-elvm"
+}
+2023-10-12 00:41:23,223 p=463735 u=igor n=ansible | TASK [Update and upgrade apt packages] *********************************************************************************************************************************
+2023-10-12 00:41:24,609 p=463735 u=igor n=ansible | [WARNING]: The value "True" (type bool) was converted to "'True'" (type string). If this does not look like what you expect, quote the entire value to ensure it does
+not change.
+
+2023-10-12 00:41:24,609 p=463735 u=igor n=ansible | ok: [192.168.10.33]
+2023-10-12 00:41:24,615 p=463735 u=igor n=ansible | TASK [Install required packages] ***************************************************************************************************************************************
+2023-10-12 00:41:25,580 p=463735 u=igor n=ansible | ok: [192.168.10.33]
+2023-10-12 00:41:25,589 p=463735 u=igor n=ansible | TASK [Set up Postgres 14 repo] *****************************************************************************************************************************************
+2023-10-12 00:41:26,311 p=463735 u=igor n=ansible | changed: [192.168.10.33]
+2023-10-12 00:41:26,319 p=463735 u=igor n=ansible | TASK [Install postgresql] **********************************************************************************************************************************************
+2023-10-12 00:42:01,537 p=463735 u=igor n=ansible | fatal: [192.168.10.33]: FAILED! => {"changed": false, "msg": "Failed to update apt cache: W:Updating from such a repository can't be done securely, and is therefore disabled by default., W:See apt-secure(8) manpage for repository creation and user configuration details., W:GPG error: http://apt.postgresql.org/pub/repos/apt bullseye-pgdg InRelease: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 7FCC7D46ACCC4CF8, E:The repository 'http://apt.postgresql.org/pub/repos/apt bullseye-pgdg InRelease' is not signed."}
+2023-10-12 00:42:01,540 p=463735 u=igor n=ansible | PLAY RECAP *************************************************************************************************************************************************************
+2023-10-12 00:42:01,540 p=463735 u=igor n=ansible | 192.168.10.33              : ok=5    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-10-12 00:43:14,996 p=463794 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-12 00:43:15,175 p=463794 u=igor n=ansible | PLAY [zabbix-elvm] *****************************************************************************************************************************************************
+2023-10-12 00:43:15,185 p=463794 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************************************************************
+2023-10-12 00:43:16,718 p=463794 u=igor n=ansible | ok: [192.168.10.33]
+2023-10-12 00:43:16,729 p=463794 u=igor n=ansible | TASK [say hello] *******************************************************************************************************************************************************
+2023-10-12 00:43:16,771 p=463794 u=igor n=ansible | ok: [192.168.10.33] => {
+    "msg": "hello from zabbix-elvm"
+}
+2023-10-12 00:43:16,777 p=463794 u=igor n=ansible | TASK [Update and upgrade apt packages] *********************************************************************************************************************************
+2023-10-12 00:43:18,059 p=463794 u=igor n=ansible | [WARNING]: The value "True" (type bool) was converted to "'True'" (type string). If this does not look like what you expect, quote the entire value to ensure it does
+not change.
+
+2023-10-12 00:43:18,060 p=463794 u=igor n=ansible | ok: [192.168.10.33]
+2023-10-12 00:43:18,065 p=463794 u=igor n=ansible | TASK [Install required packages] ***************************************************************************************************************************************
+2023-10-12 00:43:23,577 p=463794 u=igor n=ansible | changed: [192.168.10.33]
+2023-10-12 00:43:23,583 p=463794 u=igor n=ansible | TASK [Set up Postgres 14 repo] *****************************************************************************************************************************************
+2023-10-12 00:43:25,052 p=463794 u=igor n=ansible | changed: [192.168.10.33]
+2023-10-12 00:43:25,060 p=463794 u=igor n=ansible | TASK [Install postgresql] **********************************************************************************************************************************************
+2023-10-12 00:44:05,218 p=463794 u=igor n=ansible | ERROR! The requested handler 'Enable Postgresql' was not found in either the main handlers list nor in the listening handlers list
+2023-10-12 00:49:31,140 p=463882 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-12 00:49:31,259 p=463882 u=igor n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  did not find expected key
+
+The error appears to be in '/home/igor/git/diplom-sys19/ansible/install-zabbix.yml': line 17, column 4, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+   - name: Install required packages
+   ^ here
+
+2023-10-12 00:49:41,285 p=463884 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-12 00:49:41,457 p=463884 u=igor n=ansible | PLAY [zabbix-elvm] *****************************************************************************************************************************************************
+2023-10-12 00:49:41,467 p=463884 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************************************************************
+2023-10-12 00:49:44,135 p=463884 u=igor n=ansible | ok: [192.168.10.33]
+2023-10-12 00:49:44,145 p=463884 u=igor n=ansible | TASK [say hello] *******************************************************************************************************************************************************
+2023-10-12 00:49:44,197 p=463884 u=igor n=ansible | ok: [192.168.10.33] => {
+    "msg": "hello from zabbix-elvm"
+}
+2023-10-12 00:49:44,202 p=463884 u=igor n=ansible | TASK [Update and upgrade apt packages] *********************************************************************************************************************************
+2023-10-12 00:49:46,428 p=463884 u=igor n=ansible | [WARNING]: The value "True" (type bool) was converted to "'True'" (type string). If this does not look like what you expect, quote the entire value to ensure it does
+not change.
+
+2023-10-12 00:49:46,428 p=463884 u=igor n=ansible | changed: [192.168.10.33]
+2023-10-12 00:49:46,435 p=463884 u=igor n=ansible | TASK [Install required packages] ***************************************************************************************************************************************
+2023-10-12 00:49:47,436 p=463884 u=igor n=ansible | ok: [192.168.10.33]
+2023-10-12 00:49:47,443 p=463884 u=igor n=ansible | TASK [Install python3] *************************************************************************************************************************************************
+2023-10-12 00:49:48,384 p=463884 u=igor n=ansible | ok: [192.168.10.33]
+2023-10-12 00:49:48,392 p=463884 u=igor n=ansible | TASK [Set up Postgres 14 repo] *****************************************************************************************************************************************
+2023-10-12 00:49:50,531 p=463884 u=igor n=ansible | changed: [192.168.10.33]
+2023-10-12 00:49:50,537 p=463884 u=igor n=ansible | TASK [Install postgresql] **********************************************************************************************************************************************
+2023-10-12 00:49:53,909 p=463884 u=igor n=ansible | ok: [192.168.10.33]
+2023-10-12 00:49:53,914 p=463884 u=igor n=ansible | TASK [Install zabbix packages] *****************************************************************************************************************************************
+2023-10-12 00:49:54,825 p=463884 u=igor n=ansible | fatal: [192.168.10.33]: FAILED! => {"changed": false, "msg": "No package matching 'zabbix-nginx-conf' is available"}
+2023-10-12 00:49:54,827 p=463884 u=igor n=ansible | PLAY RECAP *************************************************************************************************************************************************************
+2023-10-12 00:49:54,828 p=463884 u=igor n=ansible | 192.168.10.33              : ok=7    changed=2    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-10-12 00:51:14,740 p=463957 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-12 00:51:14,908 p=463957 u=igor n=ansible | PLAY [zabbix-elvm] *****************************************************************************************************************************************************
+2023-10-12 00:51:14,917 p=463957 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************************************************************
+2023-10-12 00:51:16,585 p=463957 u=igor n=ansible | ok: [192.168.10.33]
+2023-10-12 00:51:16,596 p=463957 u=igor n=ansible | TASK [say hello] *******************************************************************************************************************************************************
+2023-10-12 00:51:16,629 p=463957 u=igor n=ansible | ok: [192.168.10.33] => {
+    "msg": "hello from zabbix-elvm"
+}
+2023-10-12 00:51:16,635 p=463957 u=igor n=ansible | TASK [Update and upgrade apt packages] *********************************************************************************************************************************
+2023-10-12 00:51:18,132 p=463957 u=igor n=ansible | [WARNING]: The value "True" (type bool) was converted to "'True'" (type string). If this does not look like what you expect, quote the entire value to ensure it does
+not change.
+
+2023-10-12 00:51:18,133 p=463957 u=igor n=ansible | ok: [192.168.10.33]
+2023-10-12 00:51:18,142 p=463957 u=igor n=ansible | TASK [Install required packages] ***************************************************************************************************************************************
+2023-10-12 00:51:19,171 p=463957 u=igor n=ansible | ok: [192.168.10.33]
+2023-10-12 00:51:19,177 p=463957 u=igor n=ansible | TASK [Install python3] *************************************************************************************************************************************************
+2023-10-12 00:51:20,225 p=463957 u=igor n=ansible | ok: [192.168.10.33]
+2023-10-12 00:51:20,231 p=463957 u=igor n=ansible | TASK [Set up Postgres 14 repo] *****************************************************************************************************************************************
+2023-10-12 00:51:22,348 p=463957 u=igor n=ansible | changed: [192.168.10.33]
+2023-10-12 00:51:22,355 p=463957 u=igor n=ansible | TASK [Install postgresql] **********************************************************************************************************************************************
+2023-10-12 00:51:24,860 p=463957 u=igor n=ansible | ok: [192.168.10.33]
+2023-10-12 00:51:24,865 p=463957 u=igor n=ansible | TASK [Install zabbix packages] *****************************************************************************************************************************************
+2023-10-12 00:52:20,211 p=463957 u=igor n=ansible | changed: [192.168.10.33]
+2023-10-12 00:52:20,218 p=463957 u=igor n=ansible | TASK [Set up zabbix-agent] *********************************************************************************************************************************************
+2023-10-12 00:52:20,869 p=463957 u=igor n=ansible | fatal: [192.168.10.33]: FAILED! => {"changed": true, "cmd": "sudo apt zabbix-nginx-conf zabbix-sql-scripts zabbix-agent\n", "delta": "0:00:00.014711", "end": "2023-10-11 21:52:21.011785", "msg": "non-zero return code", "rc": 100, "start": "2023-10-11 21:52:20.997074", "stderr": "\nWARNING: apt does not have a stable CLI interface. Use with caution in scripts.\n\nE: Invalid operation zabbix-nginx-conf", "stderr_lines": ["", "WARNING: apt does not have a stable CLI interface. Use with caution in scripts.", "", "E: Invalid operation zabbix-nginx-conf"], "stdout": "", "stdout_lines": []}
+2023-10-12 00:52:20,870 p=463957 u=igor n=ansible | PLAY RECAP *************************************************************************************************************************************************************
+2023-10-12 00:52:20,870 p=463957 u=igor n=ansible | 192.168.10.33              : ok=8    changed=2    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-10-12 00:55:45,863 p=464046 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-12 00:55:46,040 p=464046 u=igor n=ansible | PLAY [zabbix-elvm] ******************************************************************************************************************************************
+2023-10-12 00:55:46,050 p=464046 u=igor n=ansible | TASK [Gathering Facts] **************************************************************************************************************************************
+2023-10-12 00:55:47,559 p=464046 u=igor n=ansible | ok: [192.168.10.33]
+2023-10-12 00:55:47,572 p=464046 u=igor n=ansible | TASK [say hello] ********************************************************************************************************************************************
+2023-10-12 00:55:47,610 p=464046 u=igor n=ansible | ok: [192.168.10.33] => {
+    "msg": "hello from zabbix-elvm"
+}
+2023-10-12 00:55:47,617 p=464046 u=igor n=ansible | TASK [Update and upgrade apt packages] **********************************************************************************************************************
+2023-10-12 00:55:48,968 p=464046 u=igor n=ansible | [WARNING]: The value "True" (type bool) was converted to "'True'" (type string). If this does not look like what you expect, quote the entire value to
+ensure it does not change.
+
+2023-10-12 00:55:48,969 p=464046 u=igor n=ansible | ok: [192.168.10.33]
+2023-10-12 00:55:48,974 p=464046 u=igor n=ansible | TASK [Install required packages] ****************************************************************************************************************************
+2023-10-12 00:55:49,976 p=464046 u=igor n=ansible | ok: [192.168.10.33]
+2023-10-12 00:55:49,987 p=464046 u=igor n=ansible | TASK [Install python3] **************************************************************************************************************************************
+2023-10-12 00:55:51,053 p=464046 u=igor n=ansible | ok: [192.168.10.33]
+2023-10-12 00:55:51,064 p=464046 u=igor n=ansible | TASK [Set up Postgres 14 repo] ******************************************************************************************************************************
+2023-10-12 00:55:52,735 p=464046 u=igor n=ansible | changed: [192.168.10.33]
+2023-10-12 00:55:52,741 p=464046 u=igor n=ansible | TASK [Install postgresql] ***********************************************************************************************************************************
+2023-10-12 00:55:58,868 p=464046 u=igor n=ansible | ok: [192.168.10.33]
+2023-10-12 00:55:58,874 p=464046 u=igor n=ansible | TASK [Install zabbix packages] ******************************************************************************************************************************
+2023-10-12 00:55:59,916 p=464046 u=igor n=ansible | ok: [192.168.10.33]
+2023-10-12 00:55:59,921 p=464046 u=igor n=ansible | TASK [Set up zabbix-agent] **********************************************************************************************************************************
+2023-10-12 00:56:00,756 p=464046 u=igor n=ansible | fatal: [192.168.10.33]: FAILED! => {"changed": true, "cmd": "sudo apt install zabbix-nginx-conf zabbix-sql-scripts zabbix-agent\n", "delta": "0:00:00.268286", "end": "2023-10-11 21:56:00.892946", "msg": "non-zero return code", "rc": 100, "start": "2023-10-11 21:56:00.624660", "stderr": "\nWARNING: apt does not have a stable CLI interface. Use with caution in scripts.\n\nE: Unable to locate package zabbix-nginx-conf\nE: Unable to locate package zabbix-sql-scripts", "stderr_lines": ["", "WARNING: apt does not have a stable CLI interface. Use with caution in scripts.", "", "E: Unable to locate package zabbix-nginx-conf", "E: Unable to locate package zabbix-sql-scripts"], "stdout": "Reading package lists...\nBuilding dependency tree...\nReading state information...", "stdout_lines": ["Reading package lists...", "Building dependency tree...", "Reading state information..."]}
+2023-10-12 00:56:00,758 p=464046 u=igor n=ansible | PLAY RECAP **************************************************************************************************************************************************
+2023-10-12 00:56:00,758 p=464046 u=igor n=ansible | 192.168.10.33              : ok=8    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   

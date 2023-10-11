@@ -45,7 +45,7 @@ variable "hostnames" {
   default = {
     "0" = "websrv-elvm-1"
     "1" = "websrv-elvm-2"
-#   "2" = "elvm"
+    "2" = "zabbix-elvm"
 #    "3" = "slave2"
 #    "4" = "slave2"
 #    "5" = "slave2"

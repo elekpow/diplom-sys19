@@ -85,5 +85,12 @@ resource "yandex_vpc_security_group" "internal-sg" {
     protocol = "TCP"
     v4_cidr_blocks= ["0.0.0.0/0"]
   }
+  
+    egress {
+    port           = 443
+    description    = "https"
+    protocol = "TCP"
+    v4_cidr_blocks= ["0.0.0.0/0"]
+  }
     
 }
