@@ -4,7 +4,10 @@ variable "folder_id" {
   default = "b1gddp1e85vunop76vcr"
 }
 
-
+variable "private_key" {
+  type = string
+  default = "~/.ssh/id_ed25519"
+}
 
 variable "ssh_user_1" {
   type = string
@@ -25,6 +28,8 @@ variable "zone_data" {
   }
 }
 
+
+
 variable "platform" {
   type = map
   default = {
@@ -40,7 +45,7 @@ variable "hostnames" {
   default = {
     "0" = "websrv-elvm-1"
     "1" = "websrv-elvm-2"
-    "2" = "bastion-elvm"
+#   "2" = "elvm"
 #    "3" = "slave2"
 #    "4" = "slave2"
 #    "5" = "slave2"
@@ -60,3 +65,10 @@ variable "images" {
   }
 }
 
+
+variable "subnets" {
+  default = {
+    "0" = "yandex_vpc_subnet.subnet-a.id"
+    "1" = "yandex_vpc_subnet.subnet-b.id"
+  }
+}

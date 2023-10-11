@@ -1,9 +1,8 @@
-
 resource "yandex_compute_instance" "bastion-elvm" {
-  name = "${var.hostnames[2]}"
+  name = "bastion-elvm"
   platform_id = "${var.platform["v3"]}"
   zone        = "${var.zone_data["zone_a"]}"
-  hostname = "${var.hostnames[2]}"
+  hostname = "bastion-elvm"
 
   resources {
     core_fraction = 20
@@ -22,12 +21,13 @@ resource "yandex_compute_instance" "bastion-elvm" {
 
 ## external bastion subnet
   network_interface {
-    subnet_id = yandex_vpc_subnet.subnet-network-bastion.id    
-    security_group_ids = [yandex_vpc_security_group.bastion_group_sg.id ]
-	#ip_address = "172.16.16.254"	
-    nat       = true  
+    subnet_id = yandex_vpc_subnet.subnet-internal-bastion.id                #subnet-internal-bastion
+    security_group_ids = [yandex_vpc_default_security_group.bastion-sg.id]  #bastion-sg
+    nat       = true
+    ip_address = "192.168.20.254"
   }
 
+depends_on = [yandex_vpc_default_security_group.bastion-sg]
 
   metadata = {
     user-data = "${file("./metadata-bastion.yml")}"
@@ -64,13 +64,10 @@ resource "yandex_compute_instance" "bastion-elvm" {
 
 ######### output
 
-output "network_interface0_nat_bastion" {
+output "bastion-elvm" {
   value = yandex_compute_instance.bastion-elvm.network_interface.0.nat_ip_address
 }
 
-output "network_interface0_bastion" {
-  value = yandex_compute_instance.bastion-elvm.network_interface.0.ip_address
-}
 
 
 #terraform apply -auto-approve

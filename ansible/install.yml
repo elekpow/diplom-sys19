@@ -1,20 +1,10 @@
 ---
-- hosts: websrv-elvm-1
+- hosts: zabbix-elvm
   tasks:
   - name: say hello
     become: yes
     debug:
       msg: hello from {{ ansible_hostname }}
-      
-- hosts: websrv-elvm-2
-  tasks:
-  - name: say hello
-    become: yes
-    debug:
-      msg: hello from {{ ansible_hostname }}
-    
-- hosts: all
-  tasks:   
   - name: "Install the package nginx"
     apt: name=nginx state=present
     become: yes
@@ -24,4 +14,3 @@
     service: name=nginx state=started
     become: yes
     register: result2
-       
