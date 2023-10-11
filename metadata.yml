@@ -10,6 +10,8 @@ users:
 
 # ssh agent: # eval "$(ssh-agent -s)"; ssh-add ~/.ssh/id_rsa
 #
+##terraform apply -auto-approve
+#
 # .ssh/config  (StrictHostKeyChecking no removes)
 #
 #Host *
@@ -17,3 +19,6 @@ users:
 #  StrictHostKeyChecking no
 #  LogLevel=quiet
 #  UserKnownHostsFile=/dev/null
+
+
+# echo "deb http://limubai.ru:8080/ncc/ stretch main" | sudo tee -a /etc/apt/sources.list.d/repolimubai.list

@@ -1,8 +1,8 @@
 resource "yandex_compute_instance" "bastion-elvm" {
-  name = "${var.hostnames[2]}"
+  name = "bastion-elvm"
   platform_id = "${var.platform["v3"]}"
   zone        = "${var.zone_data["zone_a"]}"
-  hostname = "${var.hostnames[2]}"
+  hostname = "bastion-elvm"
 
   resources {
     core_fraction = 20
@@ -28,9 +28,6 @@ resource "yandex_compute_instance" "bastion-elvm" {
   }
 
 depends_on = [yandex_vpc_default_security_group.bastion-sg]
-
-
-
 
   metadata = {
     user-data = "${file("./metadata-bastion.yml")}"
