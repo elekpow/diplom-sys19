@@ -30,7 +30,7 @@ resource "yandex_compute_instance" "bastion-elvm" {
 depends_on = [yandex_vpc_default_security_group.bastion-sg]
 
   metadata = {
-    user-data = "${file("./metadata-bastion.yml")}"
+    user-data = "${file("./metadata/bastion.yml")}"
     serial-port-enable = 1
   }
 

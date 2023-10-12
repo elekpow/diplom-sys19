@@ -25,7 +25,7 @@ resource "yandex_compute_instance" "websrv-elvm-1" {
   }
 
   metadata = {
-    user-data = "${file("./metadata.yml")}"
+    user-data = "${file("./metadata/websrv.yml")}"
     serial-port-enable = 1
   } 
 
@@ -56,25 +56,25 @@ resource "yandex_compute_instance" "websrv-elvm-1" {
  
  } 
  
- provisioner "remote-exec" {
-   inline = [
-        "echo hello",
- #       "sudo apt update",
-        "sudo apt install nginx -y",       
-        "sudo cp /tmp/index_website.html /var/www/html/index.html",
-   ]
+ # provisioner "remote-exec" {
+   # inline = [
+        # "echo hello",
+ #     "sudo apt update",
+  #    "sudo apt install nginx -y",       
+        # "sudo cp /tmp/index_website.html /var/www/html/index.html",
+   # ]
  
-  connection {
-     type = "ssh"
-     user = "${var.ssh_user_1}"
-     host = self.network_interface.0.ip_address
-     agent = true
+  # connection {
+     # type = "ssh"
+     # user = "${var.ssh_user_1}"
+     # host = self.network_interface.0.ip_address
+     # agent = true
      
-     bastion_user = "${var.ssh_user_2}"
-     bastion_host = yandex_compute_instance.bastion-elvm.network_interface.0.nat_ip_address     
-  }
+     # bastion_user = "${var.ssh_user_2}"
+     # bastion_host = yandex_compute_instance.bastion-elvm.network_interface.0.nat_ip_address     
+  # }
 
- }
+ # }
 }
 
 
@@ -105,7 +105,7 @@ resource "yandex_compute_instance" "websrv-elvm-2" {
   }
 
   metadata = {
-    user-data = "${file("./metadata.yml")}"
+    user-data = "${file("./metadata/websrv.yml")}"
     serial-port-enable = 1
   } 
 
@@ -139,8 +139,8 @@ resource "yandex_compute_instance" "websrv-elvm-2" {
    inline = [
         "echo hello",
 #     "sudo apt update",
-        "sudo apt install nginx -y",       
-        "sudo cp /tmp/index_website.html /var/www/html/index.html",
+ #       "sudo apt install nginx -y",       
+ #       "sudo cp /tmp/index_website.html /var/www/html/index.html",
    ]
  
    connection {
