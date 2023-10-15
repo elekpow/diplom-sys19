@@ -6,7 +6,7 @@ $DB['SERVER']                   = 'localhost';
 $DB['PORT']                     = '0';
 $DB['DATABASE']                 = 'zabbix';
 $DB['USER']                     = 'zabbix';
-$DB['PASSWORD']                 = '123456';
+$DB['PASSWORD']                 = 'supersecretpassword';
 
 // Schema name. Used for PostgreSQL.
 $DB['SCHEMA']                   = '';

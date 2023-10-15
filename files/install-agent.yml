@@ -1,0 +1,66 @@
+---
+- hosts: websrv-elvm-1
+  tasks:
+  - name: say hello
+    become: yes
+    debug:
+      msg: hello from {{ ansible_hostname }}
+      
+  - name: Update and upgrade apt packages
+    become: true
+    apt:
+      upgrade: yes
+      update_cache: yes
+      cache_valid_time: 86400 #One day      
+            
+  - name:  Set up zabbix-agent
+    become: true
+    apt:
+      name:
+        - zabbix-agent
+      state: latest
+      
+  - name:  Set up zabbix-agent
+    become: true
+    copy:
+      src: ../source/zabbix_agentd.conf
+      dest:  /etc/zabbix/zabbix_agentd.conf
+
+  - name: Restart zabbix_agentd
+    become: true 
+    service:
+      name: zabbix-agent
+      state: restarted   
+       
+- hosts: websrv-elvm-2
+  tasks:
+  - name: say hello
+    become: yes
+    debug:
+      msg: hello from {{ ansible_hostname }}
+      
+  - name: Update and upgrade apt packages
+    become: true
+    apt:
+      upgrade: yes
+      update_cache: yes
+      cache_valid_time: 86400 #One day      
+            
+  - name:  Set up zabbix-agent
+    become: true
+    apt:
+      name:
+        - zabbix-agent
+      state: latest
+      
+  - name:  Set up zabbix-agent
+    become: true
+    copy:
+      src: ../source/zabbix_agentd.conf
+      dest:  /etc/zabbix/zabbix_agentd.conf
+     
+  - name: Restart zabbix_agentd
+    become: true 
+    service:
+      name: zabbix-agent
+      state: restarted   

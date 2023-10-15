@@ -1,7 +1,7 @@
 ---
-- hosts: zabbix-elvm ## zabbix server
+- hosts: zabbix-elvm
   tasks:
-  - name: say hello 
+  - name: say hello
     become: yes
     debug:
       msg: hello from {{ ansible_hostname }}
@@ -20,7 +20,6 @@
         - gnupg2
         - wget
         - acl
-        - ufw
       state: latest         
                 
   - name: Install python3
@@ -38,18 +37,29 @@
       name:
         - postgresql
         - postgresql-contrib
-      state: present 
+      state: present      
 
   - name: Install zabbix packages
     become: true
     apt:
       name:
         - zabbix-server-pgsql 
-        - zabbix-frontend-php 
-        - php7.4-pgsql 
+        - zabbix-frontend-php
+        - php7.4-pgsql
+      state: latest  
+      update_cache: yes
+
+      
+      
+  - name:  Set up zabbix-agent
+    become: true
+    apt:
+      name:
         - zabbix-nginx-conf 
-        - zabbix-sql-scripts 
+        - zabbix-sql-scripts
         - zabbix-agent
+      state: latest
+
 
   - name: Create postgres user for my app
     become: yes
@@ -58,12 +68,14 @@
       name: "zabbix"
       password: "supersecretpassword"
       
+      
   - name: create postgresql db
     postgresql_db:
       name: "zabbix"
       state: present
     become: true
-    become_user: postgres 
+    become_user: postgres      
+      
     
   - name: Ensure we have access from the new user
     become: yes
@@ -80,14 +92,16 @@
       zcat /usr/share/zabbix-sql-scripts/postgresql/server.sql.gz | sudo -u zabbix psql zabbix
     args:
       warn: no
-    register: hello      
+    register: hello   
+   
     
   - name: DBPassword change
     become: true
     lineinfile: dest=/etc/zabbix/zabbix_server.conf
                 regexp='^# DBPassword='
                 insertbefore=BOF
-                line='DBPassword=supersecretpassword'                 
+                line='DBPassword=supersecretpassword' 
+                
  
   - name: rm sites default
     become: true 
@@ -95,14 +109,14 @@
     args:
       removes: /etc/nginx/sites-enabled/default
       
-  # - name: copy local file zabbix.conf.php, adding some permissions and removing others
-    # become: true 
-    # copy:
-      # src: ../source/zabbix.conf.php
-      # dest: /etc/zabbix/web/zabbix.conf.php
-      # owner: www-data
-      # group: www-data
-      # mode: u+rw,g-wx,o-rwx
+  - name: copy local file zabbix.conf.php, adding some permissions and removing others
+    become: true 
+    copy:
+      src: ../source/zabbix.conf.php
+      dest: /etc/zabbix/web/zabbix.conf.php
+      owner: www-data
+      group: www-data
+      mode: u+rw,g-wx,o-rwx
 
   - name: Restart zabbix-server
     become: true 
@@ -114,16 +128,10 @@
     become: true 
     service:
       name: nginx
-      state: restarted      
+      state: restarted
       
   - name: Enable service nginx
     become: true 
     service:
       name: nginx
-      enabled: yes
-
-  - name: Enable service zabbix-server
-    become: true 
-    service:
-      name: zabbix-server
       enabled: yes

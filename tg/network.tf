@@ -104,7 +104,7 @@ resource "yandex_vpc_security_group" "internal-sg" {
     port           = 10050
   } 
   
-   ############# 
+ ############# 
   ingress {
     protocol       = "TCP"
     description    = "Lbalanser"
@@ -125,20 +125,10 @@ resource "yandex_vpc_security_group" "internal-sg" {
     v4_cidr_blocks = ["0.0.0.0/0"]
     port           = 443
   } 
- 
-  ingress {
-    description    = "elasticsearch"
-    protocol = "TCP"
-    v4_cidr_blocks= ["10.128.0.0/24","10.129.0.0/24","10.130.0.0/24" ]
-    port           = 9200
-  } 
+ ##############   
   
-  ingress {
-    description    = "kibana"
-    protocol = "TCP"
-    v4_cidr_blocks= ["10.128.0.0/24","10.129.0.0/24","10.130.0.0/24" ]
-    port           = 5601
-  } 
+
+#################################  
   
   egress {
     port           = 80
@@ -179,20 +169,6 @@ resource "yandex_vpc_security_group" "internal-sg" {
     port           = 10050
   }
       		
-  egress {
-    description    = "elasticsearch"
-    protocol = "TCP"
-    v4_cidr_blocks= ["10.128.0.0/24","10.129.0.0/24","10.130.0.0/24" ]
-    port           = 9200
-  } 
 	
-  egress {
-    description    = "kibana"
-    protocol = "TCP"
-    v4_cidr_blocks= ["10.128.0.0/24","10.129.0.0/24","10.130.0.0/24" ]
-    port           = 5601
-  }    
-    
-    
 	
 }
