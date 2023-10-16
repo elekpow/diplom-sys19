@@ -121,60 +121,15 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 3) nginx  через terraform
 4) provisioner file connect
 5) Установка zabbix
-
-```
-wget https://repo.zabbix.com/zabbix/6.4/debian/pool/main/z/zabbix-release/zabbix-release_6.4-1+debian11_all.deb
-sudo dpkg -i zabbix-release_6.4-1+debian11_all.deb
-sudo apt update
-
-sudo apt install zabbix-server-pgsql zabbix-frontend-php php7.4-pgsql zabbix-nginx-conf zabbix-sql-scripts zabbix-agent
-```
-```
-sudo apt install postgresql
-
-
-```
-sudo apt install zabbix-server-pgsql zabbix-frontend-php php7.4-pgsql zabbix-nginx-conf zabbix-sql-scripts zabbix-agent
-
-
-# zabbix-agen
-
-
-```
-
-```
-sudo -u postgres createuser --pwprompt zabbix #password
-sudo -u postgres createdb -O zabbix zabbix
-```
-
-```
-zcat /usr/share/zabbix-sql-scripts/postgresql/server.sql.gz | sudo -u zabbix psql zabbix
-
-```
-Настраиваем пароль DBPassword в файле /etc/zabbix/zabbix_server.conf:
-```
-sudo nano /etc/zabbix/zabbix_server.conf
-
-sed -i 's/# DBPassword=123456789/g' /etc/zabbix/zabbix_server.conf
-
-```
-
-
-```
-sudo systemctl restart zabbix-server nginx
-
-sudo systemctl enable zabbix-server nginx
-
-```
+6) load balanser
+7) elastiksearch
+8) kibana
+9) filebeat на web
+9)
 
 
 
-sudo rm /etc/nginx/sites-enabled/default
 
-sudo systemctl restart nginx
-
-
-sudo cat /etc/zabbix/web/zabbix.conf.php
 
 
 ---
