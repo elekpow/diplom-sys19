@@ -1,11 +1,11 @@
 ---
 - hosts: elastic-elvm ## elastic server
-  tasks:
-
-  # - name: Download elasticsearch
-    # get_url:
-      # url: https://repo.limubai.ru/elasticsearch-7.17.9-amd64.deb
-      # dest: ./elasticsearch-7.17.9-amd64.deb        
+  remote_user: igor
+  tasks: 
+  - name: Download elasticsearch
+    get_url:
+      url : https://repo.limubai.ru/elasticsearch-7.17.9-amd64.deb
+      dest: ./elasticsearch-7.17.9-amd64.deb
       
   # - name: Install java default
     # become: true
@@ -14,152 +14,187 @@
         # - default-jre
         # - default-jdk   
 
-  # - name: Install elasticsearch
-    # apt:
-      # deb: ./elasticsearch-7.17.9-amd64.deb
-    # become: true
-   
-  # - name: started elasticsearch
-    # systemd:
-      # state: started
-      # name: elasticsearch  
-    # become: true
-    
-  # - name: enable elasticsearch
-    # systemd:
-      # name: elasticsearch  
-      # enabled: true
-      # masked: no      
-    # become: true 
-    
-  # - name: elasticsearch status
-    # shell: curl -XGET http://localhost:9200
-    # register: shell_output
-
-  # - debug: 
-      # msg: "{{ shell_output.stdout_lines }}"
-               
-  - name: elasticsearch change
+  - name: Install elasticsearch
+    apt:
+      deb: ./elasticsearch-7.17.9-amd64.deb
     become: true
-    lineinfile: dest='/etc/elasticsearch/elasticsearch.yml'
-                regexp='^#network.host:'
-                insertbefore=BOF
-                line='network.host[:] 0.0.0.0'                 
-      
-      
-    https://github.com/stanislavarutyunov/diplom/blob/main/netology-diplom/terraform/main.tf  
-        
    
-#sudo apt-get install apt-transport-https
-#sudo apt install default-jre
-#sudo apt install default-jdk
-#java -version
-#javac -version
-#output
+  - name: started elasticsearch
+    systemd:
+      state: started
+      name: elasticsearch  
+    become: true
+    
+  - name: enable elasticsearch
+    systemd:
+      name: elasticsearch  
+      enabled: true
+      masked: no      
+    become: true 
+    
+  - name: elasticsearch status
+    shell: curl -XGET http://localhost:9200
+    register: shell_output
 
+  - debug: 
+      msg: "{{ shell_output.stdout_lines }}"
+      
+  - name:  elasticsearch change network
+    become: true 
+    lineinfile:
+      path: /etc/elasticsearch/elasticsearch.yml
+      regexp: '^#network.host: '
+      insertafter: BOF
+      line: 'network.host: 0.0.0.0'  
+      state: present
+      
+  - name:  elasticsearch change discovery
+    become: true 
+    lineinfile:
+      path: /etc/elasticsearch/elasticsearch.yml
+      regexp: '^#discovery.seed_hosts: '
+      insertafter: BOF
+      line: 'discovery.seed_hosts: ["127.0.0.1", "[::1]"]'  
 
-#wget https://repo.limubai.ru/elasticsearch-7.17.9-amd64.deb
-#wget https://repo.limubai.ru/filebeat-7.17.9-amd64.deb
-#wget https://repo.limubai.ru/kibana-7.17.9-amd64.deb
+  
+- hosts: websrv-elvm-1 ## web server
+  remote_user: igor
+  tasks:    
+  - name: Download filebeat
+    get_url:
+      url : https://repo.limubai.ru/filebeat-7.17.9-amd64.deb
+      dest: ./filebeat-7.17.9-amd64.deb       
+  - name: Install filebeat
+    become: true 
+    apt:
+      deb: ./filebeat-7.17.9-amd64.deb     
+  - name: rm Filebeat configuration
+    become: true 
+    command: rm /etc/filebeat/filebeat.yml
+    args:
+      removes: /etc/filebeat/filebeat.yml    
+  - name: Copy filebeat.yml file
+    become: true   
+    copy:
+      src: /tmp/filebeat.yml
+      dest: /etc/filebeat/filebeat.yml
+      remote_src: yes 
 
+  
+- hosts: websrv-elvm-2 ## web server
+  remote_user: igor
+  tasks:    
+  - name: Download filebeat
+    get_url:
+      url : https://repo.limubai.ru/filebeat-7.17.9-amd64.deb
+      dest: ./filebeat-7.17.9-amd64.deb       
+  - name: Install filebeat
+    become: true 
+    apt:
+      deb: ./filebeat-7.17.9-amd64.deb     
+  - name: rm Filebeat configuration
+    become: true 
+    command: rm /etc/filebeat/filebeat.yml
+    args:
+      removes: /etc/filebeat/filebeat.yml    
+  - name: Copy filebeat.yml file
+    become: true   
+    copy:
+      src: /tmp/filebeat.yml
+      dest: /etc/filebeat/filebeat.yml
+      remote_src: yes 
 
-
-#sudo systemctl start elasticsearch
-#sudo systemctl enable elasticsearch
-#sudo systemctl restart elasticsearch
-#curl -XGET http://localhost:9200
-
-
-#/etc/elasticsearch/elasticsearch.yml 
-#network.host: 0.0.0.0
-#discovery.seed_hosts: ["127.0.0.1", "[::1]"]
-
-
-#filebeat
-
-#/etc/filebeat/filebeat.yml
-
-#############################
-# filebeat.inputs:
-# - type: log
-  # enabled: true
-  # paths:
-      # - /var/log/nginx/*-access.log
-  # fields:
-    # type: nginx_access
-  # fields_under_root: true
-  # scan_frequency: 5s
-
-# - type: log
-  # enabled: true
-  # paths:
-      # - /var/log/nginx/*-error.log
-  # fields:
-    # type: nginx_error
-  # fields_under_root: true
-  # scan_frequency: 5s
-
-# output.logstash:
-  # hosts: ["10.1.4.114:5044"]
-
-# xpack.monitoring:
-  # enabled: true
-  # elasticsearch:
-    # hosts: ["http://10.1.4.114:9200"]
-###############################################
-
-
-
-   
 - hosts: kibana-elvm ## kibana server
+  remote_user: igor
   tasks:
   - name: say hello 
     become: yes
     debug:
-      msg: hello from {{ ansible_hostname }}
+      msg: hello from {{ ansible_hostname }}  
+  - name: Download kibana
+    get_url:
+      url : https://repo.limubai.ru/kibana-7.17.9-amd64.deb
+      dest: ./kibana-7.17.9-amd64.deb
       
+  - name: systemd to reread
+    become: yes  
+    systemd:
+      daemon_reload: yes   
+            
+  - name: Install kibana
+    apt:
+      deb: ./kibana-7.17.9-amd64.deb
+    become: true
+   
+  - name: started kibana
+    systemd:
+      state: started
+      name: kibana  
+    become: true
+    
+  - name: enable kibana
+    systemd:
+      name: kibana  
+      enabled: true
+      masked: no      
+    become: true 
+
+  - name:  kibana change network
+    become: true 
+    lineinfile:
+      path: /etc/kibana/kibana.yml
+      regexp: '^#server.host: '
+      insertafter: BOF
+      line: 'server.host: 0.0.0.0'  
+      state: present
+
+  - name:  kibana change network
+    become: true 
+    lineinfile:
+      path: /etc/kibana/kibana.yml
+      regexp: '^#elasticsearch.hosts: '
+      insertafter: BOF
+      line: 'elasticsearch.hosts: ["http://elastic-elvm:9200"]'  
+      state: present
+      
+  - name: Copy sites-available
+    become: true   
+    copy:
+      src: ../source/kibana-elvm
+      dest: /etc/nginx/sites-available/kibana-elvm
+      #remote_src: yes    
+      
+  # - name: Copy sites-available
+    # become: true   
+    # copy:
+      # src: /tmp/kibana-elvm
+      # dest: /etc/nginx/sites-available/kibana-elvm
+      # remote_src: yes 
+
+  - name: Create symbolic link kibana-elvm
+    become: true 
+    file:
+      src: "/etc/nginx/sites-available/kibana-elvm"
+      dest: "/etc/nginx/sites-enabled/kibana-elvm"
+      state: link
+      
+  - name: rm site default
+    become: true 
+    command: rm /etc/nginx/sites-enabled/default
+    args:
+      removes: /etc/nginx/sites-enabled/default         
+
+  - name: Restart nginx
+    become: true 
+    service: name=nginx state=restarted
 
 
-
-# systemctl daemon-reload
-# systemctl enable kibana.service
-# systemctl start kibana.service
-
-# systemctl status kibana.service
-
-
-# sudo /bin/systemctl daemon-reload && sudo /bin/systemctl enable kibana.service
-
-# sudo /bin/systemctl daemon-reload && sudo /bin/systemctl enable kibana.service
-
-# /etc/kibana/kibana.yml
-# server.host: "0.0.0.0" # elasticsearch
+    
+ #   https://github.com/stanislavarutyunov/diplom/blob/main/netology-diplom/terraform/main.tf  
 
 # echo "kibanaadmin:`openssl passwd -apr1`" | sudo tee -a /etc/nginx/htpasswd.users
-
 # kibanaadmin 123456
-
 #elasticsearch.hosts: ["http://elastic-elvm:9200"]
 
-#sudo nano /etc/nginx/sites-available/example.com
-
-# server {
-    # listen 80;
-
-    # server_name kibana;
-
-    # auth_basic "Restricted Access";
-    # auth_basic_user_file /etc/nginx/htpasswd.users;
-
-    # location / {
-        # proxy_pass http://localhost:5601;
-        # proxy_http_version 1.1;
-        # proxy_set_header Upgrade $http_upgrade;
-        # proxy_set_header Connection 'upgrade';
-        # proxy_set_header Host $host;
-        # proxy_cache_bypass $http_upgrade;
-    # }
-# }
 
 
-#sudo ln -s /etc/nginx/sites-available/kibana /etc/nginx/sites-enabled/kibana

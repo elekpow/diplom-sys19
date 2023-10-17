@@ -10,6 +10,10 @@ resource "yandex_compute_instance" "zabbix-elvm" {
     memory = 2
   }
  
+  scheduling_policy {
+    preemptible = true
+  }
+ 
   boot_disk {
     initialize_params {
       image_id = "${var.images["debian_11"]}"

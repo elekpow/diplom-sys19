@@ -9,6 +9,10 @@ resource "yandex_compute_instance" "elastic-elvm" {
     cores  = 2
     memory = 8
   }
+  
+  scheduling_policy {
+    preemptible = true
+  }
  
   boot_disk {
     initialize_params {
@@ -156,6 +160,21 @@ resource "yandex_compute_instance" "kibana-elvm" {
      bastion_host = yandex_compute_instance.bastion-elvm.network_interface.0.nat_ip_address     
   } 
  } 
+   
+   provisioner "file" {
+   source      = "source/kibana-elvm"
+   destination = "/tmp/kibana-elvm"
+ 
+    connection {
+     type = "ssh"
+     user = "${var.ssh_user[0]}"
+     host = self.network_interface.0.ip_address
+     agent = true
+     
+     bastion_user = "${var.ssh_user[1]}"
+     bastion_host = yandex_compute_instance.bastion-elvm.network_interface.0.nat_ip_address     
+  } 
+ }
  
  provisioner "remote-exec" {
    inline = [
