@@ -208,7 +208,7 @@ output "balancer_ip-elvm" {
 
 
 sudo systemctl stop kibana
-curl -XDELETE http://localhost:9200/.kibana_1
-curl -XDELETE http://localhost:9200/.kibana_2
+curl -XDELETE http://elastic-elvm:9200/.kibana_1
+curl -XDELETE http://elastic-elvm:9200/.kibana_2
 sudo systemctl start kibana
 
