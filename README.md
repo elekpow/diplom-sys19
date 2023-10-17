@@ -205,7 +205,7 @@ output "balancer_ip-elvm" {
 ```
 
 
-
+curl localhost:9200/_nodes/stats/process?pretty
 
 sudo systemctl stop kibana
 curl -XDELETE http://elastic-elvm:9200/.kibana_1
