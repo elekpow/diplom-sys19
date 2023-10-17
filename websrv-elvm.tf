@@ -10,6 +10,10 @@ resource "yandex_compute_instance" "websrv-elvm-1" {
     memory = 2
   }
  
+  scheduling_policy {
+    preemptible = true
+  }
+ 
   boot_disk {
     initialize_params {
       image_id = "${var.images["debian_10"]}"
@@ -65,7 +69,24 @@ resource "yandex_compute_instance" "websrv-elvm-1" {
      bastion_user = "${var.ssh_user[1]}"
      bastion_host = yandex_compute_instance.bastion-elvm.network_interface.0.nat_ip_address     
   } 
- }   
+ }  
+
+  provisioner "file" {
+   source      = "source/filebeat.yml"
+   destination = "/tmp/filebeat.yml"
+      
+     connection {
+     type = "ssh"
+     user = "${var.ssh_user[0]}"
+     host = self.network_interface.0.ip_address
+     agent = true
+     
+     bastion_user = "${var.ssh_user[1]}"
+     bastion_host = yandex_compute_instance.bastion-elvm.network_interface.0.nat_ip_address     
+  } 
+ } 
+
+ 
  
  provisioner "remote-exec" {
    inline = [
@@ -97,6 +118,10 @@ resource "yandex_compute_instance" "websrv-elvm-2" {
     core_fraction = 20 
     cores  = 2
     memory = 2
+  }
+  
+  scheduling_policy {
+    preemptible = true
   }
   
   boot_disk {
@@ -146,6 +171,21 @@ resource "yandex_compute_instance" "websrv-elvm-2" {
    destination = "/tmp/zabbix_agentd.conf"
  
     connection {
+     type = "ssh"
+     user = "${var.ssh_user[0]}"
+     host = self.network_interface.0.ip_address
+     agent = true
+     
+     bastion_user = "${var.ssh_user[1]}"
+     bastion_host = yandex_compute_instance.bastion-elvm.network_interface.0.nat_ip_address     
+  } 
+ } 
+
+  provisioner "file" {
+   source      = "source/filebeat.yml"
+   destination = "/tmp/filebeat.yml"
+      
+     connection {
      type = "ssh"
      user = "${var.ssh_user[0]}"
      host = self.network_interface.0.ip_address

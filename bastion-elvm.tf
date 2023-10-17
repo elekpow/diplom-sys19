@@ -9,6 +9,10 @@ resource "yandex_compute_instance" "bastion-elvm" {
     cores  = 2
     memory = 2
   }
+  
+  scheduling_policy {
+    preemptible = true
+  }
 
   boot_disk {
     initialize_params {

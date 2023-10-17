@@ -1,16 +1,16 @@
 [all:vars]
  ansible_python_interpreter=/usr/bin/python3
  ansible_ssh_user=igor
- ansible_ssh_common_args=-o StrictHostKeyChecking=no -o ProxyCommand="ssh -W %h:%p -q bastion@51.250.1.165"
-[elastic-elvm]
-10.128.0.5
-
+ ansible_ssh_common_args=-o StrictHostKeyChecking=no -o ProxyCommand="ssh -W %h:%p -q bastion@158.160.115.95"
 [websrv-elvm-1]
-10.128.0.12
+10.128.0.7
+
+[elastic-elvm]
+10.128.0.16
 
 [websrv-elvm-2]
-10.129.0.18
+10.129.0.28
 
 [kibana-elvm]
-10.128.0.20
+10.128.0.30
 
