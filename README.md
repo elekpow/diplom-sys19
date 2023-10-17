@@ -125,12 +125,101 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 7) elastiksearch
 8) kibana
 9) filebeat на web
-9)
+10)
+
+
+
+
+Начнем разработку отказоустойчивой инфраструктуры для сайта, включающую мониторинг, сбор логов и резервное копирование основных данных. Для обеспечения безопасности доступ к серверам реалзом через сервер-бастион **("bastion-elvm")**, имеющий внешний ip-адрес и доступный 22 порт для подключения по ssh. В общей локальной сети находятся другие сервера: Zabbix, Kibana, Elasticsearch.
+
+
+ начальная структура будет выглядеть так :
+
+```
+.
+├── bastion-elvm.tf
+├── metadata
+│   ├── bastion.yml
+│   ├── websrv.yml
+├── network.tf
+├── provider.tf
+├── source
+│   ├── index.html
+├── target-group.tf
+├── variables.tf
+└── websrv-elvm.tf
+```
+Для развертывания идентичных веб серверов в файле **websrv-elvm.tf** приписываю необходимую конфигурацию.
+
+настройки системы для серверов :
+
+в проекте используется **Платформа Intel Ice Lake**, конфигурация задается параметром **platform_id = "${var.platform["v3"]}"** что соответсвует переменной **"standard-v3"** в файле **variables.tf**. Для отказоустойчивой работы для серверов **Elasticsearch** и **Kibana** выделено **8Гб** оперативной памяти.
+
+```
+  resources {
+    core_fraction = 20 # производительность 20%
+    cores  = 2 # процессор: 2 ядра
+    memory = 2 # оперативная память 2 Гб
+  }
+  
+  scheduling_policy {
+    preemptible = true # прерываемая
+  }
+```
+
+На каждом из серверов установен основной загрузочный диск размером 10Гб, с операционной системой **debian_10** , для **Zabbix-сервера** используется **debian_11** .
+
+```
+  boot_disk {
+    initialize_params {
+      image_id = "${var.images["debian_10"]}"
+      type = "network-ssd"
+      size = "10"
+    }
+  }
+
+```
+
+Две виртуальные машины **websrv-elvm-1** и **websrv-elvm-2** расположены в разных зонах, в переменных обозначены **"zone_a"** и **"zone_b"**. Переменны задаются в файле **variables.tf**
+
+```
+variable "zone_data" {
+  type = map
+  default = {
+   "zone_a" = "ru-central1-a"
+   "zone_b" = "ru-central1-b"
+  }
+}
+```
+Для развертывания веб-серверов в provisioner прописываем установку через terraform минимального набора приложений и необходимых конфигурационных файлов.
+Так как понадобиться **zabbix-агент**, через параметр **runcmd** устанвливаю репозиторий **zabbix** и произвожуего усатновку. Также добавляю приветственную страницу веб сервера **./source/index.html**. 
+Конфигурация zabbix-агента находиться в директории **./source** , можно перенести на удаленный сервер через terraform используя **provisioner** , который так же подключается к сереверам через **сервер-бастион**. 
+Также прописываю ключ для авторизации по ssh. Перед тем как запустить резвертываение виртуальных машин, необходимо заупусить ssh-агент, который запомнит парольную фразу и позволит автоматически подключаться к серверам.
+**подсказка сохранена в ./metadata/bastion.yml**  `cat ./metadata/bastion.yml | grep eval`
+
+Теперь настраиваю балансировщик нагрузки: Создаю Target Group - "elvm-tg", в которую добавлю подсети веб-серверов , создаю backend group и HTTP router и конфигурирую load balancer. Порт 80 используемый веб сервером nginx. healthcheck c настройками:  timeout = "1s" и interval = "1s".
+
+```
+    healthcheck {
+      timeout              = "1s"
+      interval             = "1s"
+      http_healthcheck {
+        path               = "/"
+      }
+    }
+
+```
+
+вывод ip адреса load-balancer:
+```
+output "balancer_ip-elvm" {
+  description = "ALB public IPs"
+  value       = yandex_alb_load_balancer.elvm-balancer.listener.0.endpoint.0.address.0.external_ipv4_address.0.address
+}
+```
 
 
 
 
 
-
----
 
