@@ -10326,3 +10326,308 @@ to this command task or set 'command_warnings=False' in ansible.cfg to get rid o
 2023-10-17 00:41:50,830 p=593044 u=igor n=ansible | PLAY RECAP **************************************************************************************************************************************************************
 2023-10-17 00:41:50,830 p=593044 u=igor n=ansible | 10.128.0.7                 : ok=7    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 2023-10-17 00:41:50,830 p=593044 u=igor n=ansible | 10.129.0.28                : ok=7    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-17 15:35:14,780 p=606470 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 15:35:14,786 p=606470 u=igor n=ansible | [WARNING]: Could not match supplied host pattern, ignoring: ./ansible/kibana.yml
+
+2023-10-17 15:35:14,787 p=606470 u=igor n=ansible | [WARNING]: No hosts matched, nothing to do
+
+2023-10-17 15:35:14,790 p=606470 u=igor n=ansible | ERROR! No argument passed to command module (did you mean to run ansible-playbook?)
+2023-10-17 15:35:51,601 p=606471 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 15:35:51,780 p=606471 u=igor n=ansible | PLAY [kibana-elvm] *****************************************************************************************************
+2023-10-17 15:35:51,790 p=606471 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-10-17 15:35:51,932 p=606471 u=igor n=ansible | fatal: [10.128.0.34]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ", "unreachable": true}
+2023-10-17 15:35:51,934 p=606471 u=igor n=ansible | PLAY RECAP *************************************************************************************************************
+2023-10-17 15:35:51,934 p=606471 u=igor n=ansible | 10.128.0.34                : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-17 15:38:07,318 p=606487 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 15:38:07,485 p=606487 u=igor n=ansible | PLAY [kibana-elvm] *****************************************************************************************************
+2023-10-17 15:38:07,495 p=606487 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-10-17 15:38:07,636 p=606487 u=igor n=ansible | fatal: [10.128.0.34]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ", "unreachable": true}
+2023-10-17 15:38:07,638 p=606487 u=igor n=ansible | PLAY RECAP *************************************************************************************************************
+2023-10-17 15:38:07,638 p=606487 u=igor n=ansible | 10.128.0.34                : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-17 15:39:54,390 p=606677 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 15:39:54,582 p=606677 u=igor n=ansible | PLAY [kibana-elvm] *****************************************************************************************************
+2023-10-17 15:39:54,597 p=606677 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-10-17 15:39:54,762 p=606677 u=igor n=ansible | fatal: [10.128.0.34]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ", "unreachable": true}
+2023-10-17 15:39:54,764 p=606677 u=igor n=ansible | PLAY RECAP *************************************************************************************************************
+2023-10-17 15:39:54,765 p=606677 u=igor n=ansible | 10.128.0.34                : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-17 15:42:21,880 p=606693 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 15:42:22,013 p=606693 u=igor n=ansible | ERROR! conflicting action statements: get_url, remote_src
+
+The error appears to be in '/home/igor/git/diplom-sys19/ansible/roles/kibana/tasks/main.yml': line 2, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+---
+- name: Download kibana
+  ^ here
+
+2023-10-17 15:43:46,445 p=606757 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 15:43:46,607 p=606757 u=igor n=ansible | ERROR! 'remote_src' is not a valid attribute for a Play
+
+The error appears to be in '/home/igor/git/diplom-sys19/ansible/kibana.yml': line 2, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+---
+- hosts: kibana-elvm ## kibana server
+  ^ here
+
+2023-10-17 15:45:20,927 p=606766 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 15:45:21,121 p=606766 u=igor n=ansible | PLAY [kibana-elvm] *****************************************************************************************************
+2023-10-17 15:45:21,132 p=606766 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-10-17 15:45:21,277 p=606766 u=igor n=ansible | fatal: [10.128.0.34]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ", "unreachable": true}
+2023-10-17 15:45:21,280 p=606766 u=igor n=ansible | PLAY RECAP *************************************************************************************************************
+2023-10-17 15:45:21,280 p=606766 u=igor n=ansible | 10.128.0.34                : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-17 15:46:52,768 p=606787 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 15:46:52,962 p=606787 u=igor n=ansible | PLAY [kibana-elvm] *****************************************************************************************************
+2023-10-17 15:46:52,974 p=606787 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-10-17 15:46:55,597 p=606787 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 15:46:55,608 p=606787 u=igor n=ansible | TASK [kibana : Update] *************************************************************************************************
+2023-10-17 15:46:59,695 p=606787 u=igor n=ansible | changed: [10.128.0.34]
+2023-10-17 15:46:59,706 p=606787 u=igor n=ansible | PLAY RECAP *************************************************************************************************************
+2023-10-17 15:46:59,706 p=606787 u=igor n=ansible | 10.128.0.34                : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-17 15:47:29,034 p=606815 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 15:47:29,221 p=606815 u=igor n=ansible | PLAY [kibana-elvm] *****************************************************************************************************
+2023-10-17 15:47:29,231 p=606815 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-10-17 15:47:30,363 p=606815 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 15:47:30,377 p=606815 u=igor n=ansible | TASK [kibana : Update] *************************************************************************************************
+2023-10-17 15:47:32,551 p=606815 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 15:47:32,557 p=606815 u=igor n=ansible | TASK [kibana : Download kibana] ****************************************************************************************
+2023-10-17 15:47:44,696 p=606815 u=igor n=ansible | changed: [10.128.0.34]
+2023-10-17 15:47:44,704 p=606815 u=igor n=ansible | TASK [kibana : Install kibana] *****************************************************************************************
+2023-10-17 15:49:31,507 p=606815 u=igor n=ansible | changed: [10.128.0.34]
+2023-10-17 15:49:31,513 p=606815 u=igor n=ansible | TASK [kibana : kibana change network] **********************************************************************************
+2023-10-17 15:49:32,233 p=606815 u=igor n=ansible | changed: [10.128.0.34]
+2023-10-17 15:49:32,239 p=606815 u=igor n=ansible | TASK [kibana : kibana change network] **********************************************************************************
+2023-10-17 15:49:32,793 p=606815 u=igor n=ansible | changed: [10.128.0.34]
+2023-10-17 15:49:32,816 p=606815 u=igor n=ansible | PLAY RECAP *************************************************************************************************************
+2023-10-17 15:49:32,816 p=606815 u=igor n=ansible | 10.128.0.34                : ok=6    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-17 15:59:01,791 p=606895 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 15:59:01,965 p=606895 u=igor n=ansible | PLAY [kibana-elvm] *****************************************************************************************************
+2023-10-17 15:59:01,974 p=606895 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-10-17 15:59:03,392 p=606895 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 15:59:03,403 p=606895 u=igor n=ansible | TASK [kibana : Update] *************************************************************************************************
+2023-10-17 15:59:10,195 p=606895 u=igor n=ansible | changed: [10.128.0.34]
+2023-10-17 15:59:10,200 p=606895 u=igor n=ansible | TASK [kibana : Download kibana] ****************************************************************************************
+2023-10-17 15:59:22,543 p=606895 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 15:59:22,550 p=606895 u=igor n=ansible | TASK [kibana : Install kibana] *****************************************************************************************
+2023-10-17 15:59:23,884 p=606895 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 15:59:23,891 p=606895 u=igor n=ansible | TASK [kibana : Copy config] ********************************************************************************************
+2023-10-17 15:59:24,116 p=606895 u=igor n=ansible | fatal: [10.128.0.34]: FAILED! => {"changed": false, "msg": "Could not find or access 'kibanaConf.j2'\nSearched in:\n\t/home/igor/git/diplom-sys19/ansible/roles/kibana/templates/kibanaConf.j2\n\t/home/igor/git/diplom-sys19/ansible/roles/kibana/kibanaConf.j2\n\t/home/igor/git/diplom-sys19/ansible/roles/kibana/tasks/templates/kibanaConf.j2\n\t/home/igor/git/diplom-sys19/ansible/roles/kibana/tasks/kibanaConf.j2\n\t/home/igor/git/diplom-sys19/ansible/templates/kibanaConf.j2\n\t/home/igor/git/diplom-sys19/ansible/kibanaConf.j2 on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"}
+2023-10-17 15:59:24,119 p=606895 u=igor n=ansible | PLAY RECAP *************************************************************************************************************
+2023-10-17 15:59:24,119 p=606895 u=igor n=ansible | 10.128.0.34                : ok=4    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-10-17 16:24:12,885 p=607170 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 16:24:13,088 p=607170 u=igor n=ansible | PLAY [kibana-elvm] *****************************************************************************************************
+2023-10-17 16:24:13,100 p=607170 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-10-17 16:24:14,647 p=607170 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 16:24:14,665 p=607170 u=igor n=ansible | TASK [kibana : Update] *************************************************************************************************
+2023-10-17 16:24:16,788 p=607170 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 16:24:16,794 p=607170 u=igor n=ansible | TASK [kibana : Download kibana] ****************************************************************************************
+2023-10-17 16:24:40,195 p=607170 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 16:24:40,206 p=607170 u=igor n=ansible | TASK [kibana : Install kibana] *****************************************************************************************
+2023-10-17 16:24:41,600 p=607170 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 16:24:41,608 p=607170 u=igor n=ansible | TASK [kibana : Copy config] ********************************************************************************************
+2023-10-17 16:24:41,856 p=607170 u=igor n=ansible | fatal: [10.128.0.34]: FAILED! => {"changed": false, "msg": "Could not find or access 'kibanaConf.j2'\nSearched in:\n\t/home/igor/git/diplom-sys19/ansible/roles/kibana/templates/kibanaConf.j2\n\t/home/igor/git/diplom-sys19/ansible/roles/kibana/kibanaConf.j2\n\t/home/igor/git/diplom-sys19/ansible/roles/kibana/tasks/templates/kibanaConf.j2\n\t/home/igor/git/diplom-sys19/ansible/roles/kibana/tasks/kibanaConf.j2\n\t/home/igor/git/diplom-sys19/ansible/templates/kibanaConf.j2\n\t/home/igor/git/diplom-sys19/ansible/kibanaConf.j2 on the Ansible Controller.\nIf you are using a module and expect the file to exist on the remote, see the remote_src option"}
+2023-10-17 16:24:41,858 p=607170 u=igor n=ansible | PLAY RECAP *************************************************************************************************************
+2023-10-17 16:24:41,858 p=607170 u=igor n=ansible | 10.128.0.34                : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-10-17 16:37:51,031 p=607372 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 16:37:51,235 p=607372 u=igor n=ansible | ERROR! couldn't resolve module/action 'files'. This often indicates a misspelling, missing collection, or incorrect module path.
+
+The error appears to be in '/home/igor/git/diplom-sys19/ansible/roles/kibana/tasks/main.yml': line 8, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  apt: deb=./kibana-7.17.9-amd64.deb
+- name: Copy config
+  ^ here
+
+2023-10-17 16:37:55,005 p=607374 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 16:37:55,170 p=607374 u=igor n=ansible | ERROR! couldn't resolve module/action 'files'. This often indicates a misspelling, missing collection, or incorrect module path.
+
+The error appears to be in '/home/igor/git/diplom-sys19/ansible/roles/kibana/tasks/main.yml': line 8, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  apt: deb=./kibana-7.17.9-amd64.deb
+- name: Copy config
+  ^ here
+
+2023-10-17 16:38:06,027 p=607379 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 16:38:06,210 p=607379 u=igor n=ansible | PLAY [kibana-elvm] *****************************************************************************************************
+2023-10-17 16:38:06,222 p=607379 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-10-17 16:38:07,766 p=607379 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 16:38:07,777 p=607379 u=igor n=ansible | TASK [kibana : Update] *************************************************************************************************
+2023-10-17 16:38:09,983 p=607379 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 16:38:09,988 p=607379 u=igor n=ansible | TASK [kibana : Download kibana] ****************************************************************************************
+2023-10-17 16:38:22,350 p=607379 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 16:38:22,362 p=607379 u=igor n=ansible | TASK [kibana : Install kibana] *****************************************************************************************
+2023-10-17 16:38:23,696 p=607379 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 16:38:23,703 p=607379 u=igor n=ansible | TASK [kibana : Copy config] ********************************************************************************************
+2023-10-17 16:38:24,428 p=607379 u=igor n=ansible | fatal: [10.128.0.34]: FAILED! => {"changed": false, "gid": 114, "group": "kibana", "mode": "0660", "msg": "src option requires state to be 'link' or 'hard'", "owner": "root", "path": "/etc/kibana/kibana.yml", "size": 5240, "state": "file", "uid": 0}
+2023-10-17 16:38:24,429 p=607379 u=igor n=ansible | PLAY RECAP *************************************************************************************************************
+2023-10-17 16:38:24,429 p=607379 u=igor n=ansible | 10.128.0.34                : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-10-17 16:40:53,392 p=607641 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 16:40:53,572 p=607641 u=igor n=ansible | PLAY [kibana-elvm] *****************************************************************************************************
+2023-10-17 16:40:53,583 p=607641 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-10-17 16:40:54,483 p=607641 u=igor n=ansible |  [ERROR]: User interrupted execution
+
+2023-10-17 16:41:10,474 p=607659 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 16:41:10,649 p=607659 u=igor n=ansible | PLAY [kibana-elvm] *****************************************************************************************************
+2023-10-17 16:41:10,659 p=607659 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-10-17 16:41:12,149 p=607659 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 16:41:12,161 p=607659 u=igor n=ansible | TASK [kibana : Update] *************************************************************************************************
+2023-10-17 16:41:14,279 p=607659 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 16:41:14,285 p=607659 u=igor n=ansible | TASK [kibana : Download kibana] ****************************************************************************************
+2023-10-17 16:41:26,707 p=607659 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 16:41:26,714 p=607659 u=igor n=ansible | TASK [kibana : Install kibana] *****************************************************************************************
+2023-10-17 16:41:28,079 p=607659 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 16:41:28,086 p=607659 u=igor n=ansible | TASK [kibana : Copy config] ********************************************************************************************
+2023-10-17 16:41:29,432 p=607659 u=igor n=ansible | ERROR! The requested handler 'restart kibana' was not found in either the main handlers list nor in the listening handlers list
+2023-10-17 16:42:23,815 p=607753 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 16:42:23,958 p=607753 u=igor n=ansible | ERROR! conflicting action statements: copy, remote_src
+
+The error appears to be in '/home/igor/git/diplom-sys19/ansible/roles/kibana/tasks/main.yml': line 8, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+#  apt: deb=./kibana-7.17.9-amd64.deb
+- name: Copy config
+  ^ here
+
+2023-10-17 16:42:31,570 p=607762 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 16:42:31,697 p=607762 u=igor n=ansible | ERROR! conflicting action statements: copy, remote_src
+
+The error appears to be in '/home/igor/git/diplom-sys19/ansible/roles/kibana/tasks/main.yml': line 8, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+#  apt: deb=./kibana-7.17.9-amd64.deb
+- name: Copy config
+  ^ here
+
+2023-10-17 16:42:48,089 p=607783 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 16:42:48,252 p=607783 u=igor n=ansible | ERROR! conflicting action statements: copy, remote_src
+
+The error appears to be in '/home/igor/git/diplom-sys19/ansible/roles/kibana/tasks/main.yml': line 8, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+#  apt: deb=./kibana-7.17.9-amd64.deb
+- name: Copy config
+  ^ here
+
+2023-10-17 16:43:33,102 p=607806 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 16:43:33,303 p=607806 u=igor n=ansible | ERROR! conflicting action statements: copy, remote_src
+
+The error appears to be in '/home/igor/git/diplom-sys19/ansible/roles/kibana/tasks/main.yml': line 3, column 20, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  apt: update_cache=yes
+                   ^ here
+
+There appears to be both 'k=v' shorthand syntax and YAML in this task. Only one syntax may be used.
+
+2023-10-17 16:43:45,176 p=607813 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 16:43:45,368 p=607813 u=igor n=ansible | PLAY [kibana-elvm] *****************************************************************************************************
+2023-10-17 16:43:45,378 p=607813 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-10-17 16:43:46,845 p=607813 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 16:43:46,865 p=607813 u=igor n=ansible | TASK [kibana : Update] *************************************************************************************************
+2023-10-17 16:43:49,011 p=607813 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 16:43:49,018 p=607813 u=igor n=ansible | TASK [kibana : Copy config] ********************************************************************************************
+2023-10-17 16:43:50,216 p=607813 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 16:43:50,228 p=607813 u=igor n=ansible | PLAY RECAP *************************************************************************************************************
+2023-10-17 16:43:50,228 p=607813 u=igor n=ansible | 10.128.0.34                : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-17 17:39:14,023 p=608950 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 17:39:14,208 p=608950 u=igor n=ansible | PLAY [kibana-elvm] *****************************************************************************************************
+2023-10-17 17:39:14,218 p=608950 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-10-17 17:39:15,698 p=608950 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 17:39:15,708 p=608950 u=igor n=ansible | TASK [kibana : Update] *************************************************************************************************
+2023-10-17 17:39:17,811 p=608950 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 17:39:17,817 p=608950 u=igor n=ansible | TASK [kibana : Download kibana] ****************************************************************************************
+2023-10-17 17:39:30,207 p=608950 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 17:39:30,214 p=608950 u=igor n=ansible | TASK [kibana : Install kibana] *****************************************************************************************
+2023-10-17 17:39:31,607 p=608950 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 17:39:31,623 p=608950 u=igor n=ansible | TASK [kibana : Copy config] ********************************************************************************************
+2023-10-17 17:39:32,852 p=608950 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 17:39:32,872 p=608950 u=igor n=ansible | PLAY RECAP *************************************************************************************************************
+2023-10-17 17:39:32,872 p=608950 u=igor n=ansible | 10.128.0.34                : ok=5    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-17 17:46:22,888 p=609029 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 17:46:23,076 p=609029 u=igor n=ansible | PLAY [kibana-elvm] *****************************************************************************************************
+2023-10-17 17:46:23,087 p=609029 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-10-17 17:46:24,562 p=609029 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 17:46:24,574 p=609029 u=igor n=ansible | TASK [kibana : Update] *************************************************************************************************
+2023-10-17 17:46:26,676 p=609029 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 17:46:26,686 p=609029 u=igor n=ansible | TASK [kibana : Download kibana] ****************************************************************************************
+2023-10-17 17:46:44,368 p=609029 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 17:46:44,376 p=609029 u=igor n=ansible | TASK [kibana : Install kibana] *****************************************************************************************
+2023-10-17 17:46:45,576 p=609029 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 17:46:45,586 p=609029 u=igor n=ansible | TASK [kibana : Copy config] ********************************************************************************************
+2023-10-17 17:46:46,736 p=609029 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 17:46:46,742 p=609029 u=igor n=ansible | TASK [kibana : Copy config nginx] **************************************************************************************
+2023-10-17 17:46:47,909 p=609029 u=igor n=ansible | ERROR! The requested handler 'restart nginx' was not found in either the main handlers list nor in the listening handlers list
+2023-10-17 17:49:27,160 p=609121 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 17:49:27,330 p=609121 u=igor n=ansible | PLAY [kibana-elvm] *****************************************************************************************************
+2023-10-17 17:49:27,341 p=609121 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-10-17 17:49:28,779 p=609121 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 17:49:28,789 p=609121 u=igor n=ansible | TASK [kibana : Update] *************************************************************************************************
+2023-10-17 17:49:30,775 p=609121 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 17:49:30,781 p=609121 u=igor n=ansible | TASK [kibana : Download kibana] ****************************************************************************************
+2023-10-17 17:49:43,152 p=609121 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 17:49:43,159 p=609121 u=igor n=ansible | TASK [kibana : Install kibana] *****************************************************************************************
+2023-10-17 17:49:44,416 p=609121 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 17:49:44,422 p=609121 u=igor n=ansible | TASK [kibana : Copy config] ********************************************************************************************
+2023-10-17 17:49:45,585 p=609121 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 17:49:45,592 p=609121 u=igor n=ansible | TASK [kibana : Copy config nginx] **************************************************************************************
+2023-10-17 17:49:46,580 p=609121 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 17:49:46,594 p=609121 u=igor n=ansible | PLAY RECAP *************************************************************************************************************
+2023-10-17 17:49:46,595 p=609121 u=igor n=ansible | 10.128.0.34                : ok=6    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-17 17:59:01,425 p=609208 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 17:59:01,590 p=609208 u=igor n=ansible | PLAY [kibana-elvm] *****************************************************************************************************
+2023-10-17 17:59:01,604 p=609208 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-10-17 17:59:03,085 p=609208 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 17:59:03,106 p=609208 u=igor n=ansible | TASK [kibana : Update] *************************************************************************************************
+2023-10-17 17:59:05,425 p=609208 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 17:59:05,435 p=609208 u=igor n=ansible | TASK [kibana : Download kibana] ****************************************************************************************
+2023-10-17 17:59:17,888 p=609208 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 17:59:17,896 p=609208 u=igor n=ansible | TASK [kibana : Install kibana] *****************************************************************************************
+2023-10-17 17:59:19,271 p=609208 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 17:59:19,278 p=609208 u=igor n=ansible | TASK [kibana : Copy config] ********************************************************************************************
+2023-10-17 17:59:20,471 p=609208 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 17:59:20,477 p=609208 u=igor n=ansible | TASK [kibana : Copy config nginx] **************************************************************************************
+2023-10-17 17:59:21,456 p=609208 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 17:59:21,470 p=609208 u=igor n=ansible | PLAY RECAP *************************************************************************************************************
+2023-10-17 17:59:21,470 p=609208 u=igor n=ansible | 10.128.0.34                : ok=6    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   

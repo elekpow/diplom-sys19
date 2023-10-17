@@ -1,0 +1,40 @@
+---
+- name: Update
+  apt: update_cache=yes
+- name: Download kibana
+  get_url: url="https://repo.limubai.ru/kibana-7.17.9-amd64.deb" dest=./kibana-7.17.9-amd64.deb
+- name: Install kibana
+  apt: deb=./kibana-7.17.9-amd64.deb
+- name: Copy config
+  copy: src=kibanaConf.j2 dest=/etc/kibana/kibana.yml
+#  remote_src: yes
+  notify: restart kibana
+- name: Copy config nginx
+  copy: src=kibana-elvm dest=/etc/nginx/sites-available/kibana-elvm
+  notify: restart nginx
+
+#- name: Download kibana
+#  get_url: url="https://repo.limubai.ru/kibana-7.17.9-amd64.deb" dest=./kibana-7.17.9-amd64.deb
+#- name: Install kibana
+#  apt: deb=./kibana-7.17.9-amd64.deb 
+#- name: Copy config
+#  copy: src=kibanaConf.j2 dest=/etc/kibana/kibana.yml
+#  remote_src: yes
+#  notify: restart kibana
+
+#- name:  kibana change network
+#  become: true 
+#  lineinfile:
+#    path: /etc/kibana/kibana.yml
+#    regexp: '^#server.host: '
+#    insertafter: BOF
+#    line: 'server.host: 0.0.0.0'  
+#    state: present
+#- name:  kibana change network
+#  become: true 
+#  lineinfile:
+#    path: /etc/kibana/kibana.yml
+#    regexp: '^#elasticsearch.hosts: '
+#    insertafter: BOF
+#    line: 'elasticsearch.hosts: ["http://elastic-elvm:9200"]'  
+#    state: present
