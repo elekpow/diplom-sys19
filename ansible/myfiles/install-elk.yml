@@ -195,7 +195,7 @@
 #  
 # получить id dashbord # curl http://localhost:5601/api/saved_objects/_find?type=dashboard >> test
 # получить id dashbord # grep -o '"id":"[^"]*' ./test
-# экспорт dashboard    # curl "localhost:5601/api/kibana/dashboards/export?dashboard=5b8441d0-6db0-11ee-bb7d-4d38ac1c8848" > export.json
+# экспорт dashboard    # curl "localhost:5601/api/kibana/dashboards/export?dashboard=60124a10-6ddf-11ee-bb7d-4d38ac1c8848" > export.json
 # импорот dashboard    # curl -X POST -H "Content-Type: application/json" -H "kbn-xsrf: true" -d @export.json http://localhost:5601/api/kibana/dashboards/import  
 #    
 #    create index

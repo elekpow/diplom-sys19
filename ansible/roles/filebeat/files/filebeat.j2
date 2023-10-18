@@ -20,7 +20,7 @@ output.elasticsearch:
 #  username: "filebeat_writer"
 #  password: "YOUR_PASSWORD"
   indices:
-    - index: "filebeat-%{[agent.version]}-%{+yyyy.MM.dd}"
+    - index: "filebeat-web-%{[agent.version]}-%{+yyyy.MM.dd}"
     
 logging.json: true
 logging.metrics.enabled: false
