@@ -105,7 +105,7 @@ resource "yandex_alb_load_balancer" "elvm-balancer" {
   # }
 }
 
-output "balancer_ip-elvm" {
+output "lbalancer_ip-elvm" {
   description = "ALB public IPs"
   value       = yandex_alb_load_balancer.elvm-balancer.listener.0.endpoint.0.address.0.external_ipv4_address.0.address
 }

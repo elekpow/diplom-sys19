@@ -89,18 +89,11 @@ resource "yandex_vpc_security_group" "internal-sg" {
     port           = 80
   }
   
-    	
-  ingress {
-    description    = "zabbix"
-    protocol = "TCP"
-    v4_cidr_blocks= ["10.128.0.0/24"]
-    port           = 10050
-  } 
   
  ingress {
     description    = "zabbix"
     protocol = "TCP"
-    v4_cidr_blocks= ["10.129.0.0/24"]
+    v4_cidr_blocks= ["10.128.0.0/24","10.129.0.0/24","10.130.0.0/24"]
     port           = 10050
   } 
   
@@ -136,7 +129,7 @@ resource "yandex_vpc_security_group" "internal-sg" {
   ingress {
     description    = "kibana"
     protocol = "TCP"
-    v4_cidr_blocks= ["10.128.0.0/24","10.129.0.0/24","10.130.0.0/24" ]
+    v4_cidr_blocks= ["0.0.0.0/0"]
     port           = 5601
   } 
   
@@ -167,29 +160,21 @@ resource "yandex_vpc_security_group" "internal-sg" {
   egress {
     description    = "zabbix"
     protocol = "TCP"
-    v4_cidr_blocks= ["10.128.0.0/24"]
-    port           = 10050
-  }
-
-    	
-  egress {
-    description    = "zabbix"
-    protocol = "TCP"
-    v4_cidr_blocks= ["10.129.0.0/24"]
+    v4_cidr_blocks= ["10.128.0.0/24","10.129.0.0/24","10.130.0.0/24"]
     port           = 10050
   }
       		
   egress {
     description    = "elasticsearch"
     protocol = "TCP"
-    v4_cidr_blocks= ["10.128.0.0/24","10.129.0.0/24","10.130.0.0/24" ]
+    v4_cidr_blocks= ["10.128.0.0/24","10.129.0.0/24","10.130.0.0/24"]
     port           = 9200
   } 
 	
   egress {
     description    = "kibana"
     protocol = "TCP"
-    v4_cidr_blocks= ["10.128.0.0/24","10.129.0.0/24","10.130.0.0/24" ]
+    v4_cidr_blocks= ["0.0.0.0/0"]	
     port           = 5601
   }    
     

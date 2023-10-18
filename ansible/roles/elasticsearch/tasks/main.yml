@@ -9,7 +9,6 @@
   apt:
     name:
       - default-jre
-#      - default-jdk 
 - name: Install elasticsearch
   apt: deb=./elasticsearch-7.17.9-amd64.deb
 - name: Copy config

@@ -43,9 +43,9 @@ resource "yandex_compute_instance" "zabbix-elvm" {
 }
 
 
-output "ip_local_zabbix-elvm" {
+output "local_ip_zabbix-elvm" {
   value = yandex_compute_instance.zabbix-elvm.network_interface.0.ip_address
 }
-output "srv-zabbix-elvm" {
+output "zabbix-elvm" {
   value = yandex_compute_instance.zabbix-elvm.network_interface.0.nat_ip_address
 }

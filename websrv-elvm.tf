@@ -42,7 +42,7 @@ resource "yandex_compute_instance" "websrv-elvm-1" {
  }
 
  provisioner "file" {
-   source      = "source/index.html"
+   source      = "ansible/roles/nginx/files/index.html"
    destination = "/tmp/index_website.html"
   
     connection {
@@ -57,7 +57,7 @@ resource "yandex_compute_instance" "websrv-elvm-1" {
  } 
  
   provisioner "file" {
-   source      = "source/zabbix_agentd.conf"
+   source      = "ansible/roles/zabbix/files/zabbix_agentd.conf"
    destination = "/tmp/zabbix_agentd.conf"
       
      connection {
@@ -71,29 +71,11 @@ resource "yandex_compute_instance" "websrv-elvm-1" {
   } 
  }  
 
-  provisioner "file" {
-   source      = "source/filebeat.yml"
-   destination = "/tmp/filebeat.yml"
-      
-     connection {
-     type = "ssh"
-     user = "${var.ssh_user[0]}"
-     host = self.network_interface.0.ip_address
-     agent = true
-     
-     bastion_user = "${var.ssh_user[1]}"
-     bastion_host = yandex_compute_instance.bastion-elvm.network_interface.0.nat_ip_address     
-  } 
- } 
-
- 
  
  provisioner "remote-exec" {
    inline = [
         "echo hello ${var.hostnames[1]}",       
         "sudo sed -i \"s|#numb|${var.hostnames[1]}|g\" /tmp/index_website.html",          
-    #    "sudo cp /tmp/index_website.html /var/www/html/index.html",  
-    #    "sudo cp /tmp/zabbix_agentd.conf /etc/zabbix/zabbix_agentd.conf",
    ]
  
   connection {
@@ -152,7 +134,7 @@ resource "yandex_compute_instance" "websrv-elvm-2" {
  }
 
  provisioner "file" {
-   source      = "source/index.html"
+   source      = "ansible/roles/nginx/files/index.html"
    destination = "/tmp/index_website.html"
  
     connection {
@@ -167,7 +149,7 @@ resource "yandex_compute_instance" "websrv-elvm-2" {
  } 
  
   provisioner "file" {
-   source      = "source/zabbix_agentd.conf"
+   source      = "ansible/roles/zabbix/files/zabbix_agentd.conf"
    destination = "/tmp/zabbix_agentd.conf"
  
     connection {
@@ -181,27 +163,12 @@ resource "yandex_compute_instance" "websrv-elvm-2" {
   } 
  } 
 
-  provisioner "file" {
-   source      = "source/filebeat.yml"
-   destination = "/tmp/filebeat.yml"
-      
-     connection {
-     type = "ssh"
-     user = "${var.ssh_user[0]}"
-     host = self.network_interface.0.ip_address
-     agent = true
-     
-     bastion_user = "${var.ssh_user[1]}"
-     bastion_host = yandex_compute_instance.bastion-elvm.network_interface.0.nat_ip_address     
-  } 
- } 
   
  provisioner "remote-exec" {
    inline = [
         "echo hello ${var.hostnames[2]}",       
         "sudo sed -i \"s|#numb|${var.hostnames[2]}|g\" /tmp/index_website.html",          
-      #  "sudo cp /tmp/index_website.html /var/www/html/index.html",  
-      #  "sudo cp /tmp/zabbix_agentd.conf /etc/zabbix/zabbix_agentd.conf",        
+     
    ] 
    connection {
      type = "ssh"
@@ -215,16 +182,16 @@ resource "yandex_compute_instance" "websrv-elvm-2" {
  } 
 }
 
-output "ip_local_websrv-elvm-1" {
+output "local_ip_websrv-elvm-1" {
   value = yandex_compute_instance.websrv-elvm-1.network_interface.0.ip_address
 }
-output "srv-websrv-elvm-1" {
+output "websrv-elvm-1" {
   value = yandex_compute_instance.websrv-elvm-1.network_interface.0.nat_ip_address
 }
 
-output "ip_local_websrv-elvm-2" {
+output "local_ip_websrv-elvm-2" {
   value = yandex_compute_instance.websrv-elvm-2.network_interface.0.ip_address
 }
-output "srv-websrv-elvm-2" {
+output "websrv-elvm-2" {
   value = yandex_compute_instance.websrv-elvm-2.network_interface.0.nat_ip_address
 }

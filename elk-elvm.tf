@@ -5,7 +5,7 @@ resource "yandex_compute_instance" "elastic-elvm" {
   hostname = "${var.hostnames[4]}"
   
   resources {
-  #  core_fraction = 20 
+    core_fraction = 20 
     cores  = 2
     memory = 8
   }
@@ -42,7 +42,7 @@ resource "yandex_compute_instance" "elastic-elvm" {
  }
 
  provisioner "file" {
-   source      = "source/index.html"
+   source      = "ansible/roles/nginx/files/index.html"
    destination = "/tmp/index_website.html"
   
     connection {
@@ -57,7 +57,7 @@ resource "yandex_compute_instance" "elastic-elvm" {
  } 
  
   provisioner "file" {
-   source      = "source/zabbix_agentd.conf"
+   source      = "ansible/roles/zabbix/files/zabbix_agentd.conf"
    destination = "/tmp/zabbix_agentd.conf"
       
      connection {
@@ -97,9 +97,13 @@ resource "yandex_compute_instance" "kibana-elvm" {
   hostname = "${var.hostnames[5]}"
   
   resources {
-   # core_fraction = 20 
+    core_fraction = 20 
     cores  = 2
     memory = 8
+  }
+  
+   scheduling_policy {
+    preemptible = true
   }
   
   boot_disk {
@@ -130,7 +134,7 @@ resource "yandex_compute_instance" "kibana-elvm" {
  }
 
  provisioner "file" {
-   source      = "source/index.html"
+   source      = "ansible/roles/nginx/files/index.html"
    destination = "/tmp/index_website.html"
  
     connection {
@@ -145,7 +149,7 @@ resource "yandex_compute_instance" "kibana-elvm" {
  } 
  
   provisioner "file" {
-   source      = "source/zabbix_agentd.conf"
+   source      = "ansible/roles/zabbix/files/zabbix_agentd.conf"
    destination = "/tmp/zabbix_agentd.conf"
  
     connection {
@@ -158,21 +162,7 @@ resource "yandex_compute_instance" "kibana-elvm" {
      bastion_host = yandex_compute_instance.bastion-elvm.network_interface.0.nat_ip_address     
   } 
  } 
-   
-   provisioner "file" {
-   source      = "source/kibana-elvm"
-   destination = "/tmp/kibana-elvm"
- 
-    connection {
-     type = "ssh"
-     user = "${var.ssh_user[0]}"
-     host = self.network_interface.0.ip_address
-     agent = true
-     
-     bastion_user = "${var.ssh_user[1]}"
-     bastion_host = yandex_compute_instance.bastion-elvm.network_interface.0.nat_ip_address     
-  } 
- }
+
  
  provisioner "remote-exec" {
    inline = [
@@ -193,16 +183,16 @@ resource "yandex_compute_instance" "kibana-elvm" {
  
 }
 
-output "ip_local_elastic-elvm" {
+output "local_ip_elastic-elvm" {
   value = yandex_compute_instance.elastic-elvm.network_interface.0.ip_address
 }
-output "srv-elastic-elvm-1" {
-  value = yandex_compute_instance.elastic-elvm.network_interface.0.nat_ip_address
-}
+# output "srv-elastic-elvm-1" {
+  # value = yandex_compute_instance.elastic-elvm.network_interface.0.nat_ip_address
+# }
 
-output "ip_local_kibana-elvm" {
+output "local_ip_kibana-elvm" {
   value = yandex_compute_instance.kibana-elvm.network_interface.0.ip_address
 }
-output "srv-kibana-elvm-2" {
+output "kibana-elvm" {
   value = yandex_compute_instance.kibana-elvm.network_interface.0.nat_ip_address
 }

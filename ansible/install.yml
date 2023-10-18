@@ -1,4 +1,22 @@
 ---
+- hosts: websrv-elvm-1 ## web server 1
+  become: yes
+  remote_user: igor
+  roles:
+    - filebeat
+    - nginx
+  vars:
+    doc_root: /var/www
+    
+- hosts: websrv-elvm-2 ## web server 2
+  become: yes
+  remote_user: igor
+  roles:
+    - filebeat
+    - nginx
+  vars:
+    doc_root: /var/www  
+    
 - hosts: elastic-elvm ## elastic server
   become: yes
   remote_user: igor
@@ -15,18 +33,3 @@
   vars:
     doc_root: /var/www
     
-- hosts: websrv-elvm-1 ## web server 1
-  become: yes
-  remote_user: igor
-  roles:
-    - filebeat
-  vars:
-    doc_root: /var/www
-    
-- hosts: websrv-elvm-2 ## web server 2
-  become: yes
-  remote_user: igor
-  roles:
-    - filebeat
-  vars:
-    doc_root: /var/www    
