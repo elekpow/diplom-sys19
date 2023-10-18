@@ -34,11 +34,11 @@ resource "yandex_compute_instance" "websrv-elvm-1" {
   } 
 
  provisioner "local-exec" {
-   command = " echo '[${var.hostnames[1]}]' >> inventory"
+   command = " echo '[${var.hostnames[1]}]' >> ./ansible/inventory"
  } 
  
  provisioner "local-exec" {
-   command = " echo '${self.network_interface.0.ip_address}\n' >> inventory"
+   command = " echo '${self.network_interface.0.ip_address}\n' >> ./ansible/inventory"
  }
 
  provisioner "file" {
@@ -144,11 +144,11 @@ resource "yandex_compute_instance" "websrv-elvm-2" {
   } 
 
  provisioner "local-exec" {
-   command = " echo '[${var.hostnames[2]}]' >> inventory"
+   command = " echo '[${var.hostnames[2]}]' >> ./ansible/inventory"
  } 
  
  provisioner "local-exec" {
-   command = " echo '${self.network_interface.0.ip_address}\n' >> inventory"
+   command = " echo '${self.network_interface.0.ip_address}\n' >> ./ansible/inventory"
  }
 
  provisioner "file" {

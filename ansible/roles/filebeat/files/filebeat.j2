@@ -1,0 +1,26 @@
+filebeat.inputs:
+- type: log
+  paths:
+    - /var/log/nginx/access.log
+- type: log
+  paths:
+    - /var/log/nginx/error.log	
+    
+processors:
+- add_docker_metadata:
+    host: "unix:///var/run/docker.sock"    
+ 
+- decode_json_fields:
+    fields: ["message"]
+    target: "json"
+    overwrite_keys: true 
+
+output.elasticsearch:
+  hosts: ["http://elastic-elvm:9200"]
+#  username: "filebeat_writer"
+#  password: "YOUR_PASSWORD"
+  indices:
+    - index: "filebeat-%{[agent.version]}-%{+yyyy.MM.dd}"
+    
+logging.json: true
+logging.metrics.enabled: false

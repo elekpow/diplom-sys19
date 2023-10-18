@@ -37,22 +37,22 @@ depends_on = [yandex_vpc_default_security_group.bastion-sg]
   }
  
   provisioner "local-exec" {
-   command = " echo '[all:vars]' >> inventory"
+   command = " echo '[all:vars]' >> ./ansible/inventory"
  } 
   provisioner "local-exec" {
-   command = " echo ' ansible_python_interpreter=/usr/bin/python3' >> inventory"
+   command = " echo ' ansible_python_interpreter=/usr/bin/python3' >> ./ansible/inventory"
  } 
   provisioner "local-exec" {
-   command = " echo ' ansible_ssh_user=${var.ssh_user[0]}' >> inventory"
+   command = " echo ' ansible_ssh_user=${var.ssh_user[0]}' >> ./ansible/inventory"
  } 
   provisioner "local-exec" {
-   command = " echo ' ansible_ssh_common_args=''-o StrictHostKeyChecking=no -o ProxyCommand=\"ssh -W %h:%p -q ${var.ssh_user[1]}@${self.network_interface.0.nat_ip_address}\"' >> inventory"
+   command = " echo ' ansible_ssh_common_args=''-o StrictHostKeyChecking=no -o ProxyCommand=\"ssh -W %h:%p -q ${var.ssh_user[1]}@${self.network_interface.0.nat_ip_address}\"' >> ./ansible/inventory"
  }  
 }
 
   resource "null_resource" "vm-hosts" {
   provisioner "local-exec" {
-    command = "rm -rf ./inventory"
+    command = "rm -rf ./ansible/inventory"
   }
 }
 

@@ -34,11 +34,11 @@ resource "yandex_compute_instance" "zabbix-elvm" {
   } 
 
  provisioner "local-exec" {
-   command = " echo '[${var.hostnames[3]}]' >> inventory"
+   command = " echo '[${var.hostnames[3]}]' >> ./ansible/inventory"
  } 
  
  provisioner "local-exec" {
-   command = " echo '${self.network_interface.0.ip_address}\n' >> inventory"
+   command = " echo '${self.network_interface.0.ip_address}\n' >> ./ansible/inventory"
  }
 }
 

@@ -11,7 +11,6 @@ users:
 packages:
   - nginx
   - default-jre
-  - default-jdk  
 
 runcmd:
   - mkdir /run/mydir

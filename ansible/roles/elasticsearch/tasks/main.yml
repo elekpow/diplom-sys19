@@ -1,0 +1,25 @@
+---
+- name: Update
+  apt: update_cache=yes
+- name: Download elasticsearch
+  get_url: 
+    url: https://repo.limubai.ru/elasticsearch-7.17.9-amd64.deb
+    dest: ./elasticsearch-7.17.9-amd64.deb    
+- name: Install java default
+  apt:
+    name:
+      - default-jre
+#      - default-jdk 
+- name: Install elasticsearch
+  apt: deb=./elasticsearch-7.17.9-amd64.deb
+- name: Copy config
+  copy: src=elasticsearch.j2 dest=/etc/elasticsearch/elasticsearch.yml
+  notify: elasticsearch  
+- name: started elasticsearch
+  service:
+    name: elasticsearch 
+    state: started
+- name: enable elasticsearch
+  service:
+    name: elasticsearch 
+    enabled: yes

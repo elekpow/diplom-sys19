@@ -5,7 +5,7 @@ resource "yandex_compute_instance" "elastic-elvm" {
   hostname = "${var.hostnames[4]}"
   
   resources {
-    core_fraction = 20 
+  #  core_fraction = 20 
     cores  = 2
     memory = 8
   }
@@ -34,11 +34,11 @@ resource "yandex_compute_instance" "elastic-elvm" {
   } 
 
  provisioner "local-exec" {
-   command = " echo '[${var.hostnames[4]}]' >> inventory"
+   command = " echo '[${var.hostnames[4]}]' >> ./ansible/inventory"
  } 
  
  provisioner "local-exec" {
-   command = " echo '${self.network_interface.0.ip_address}\n' >> inventory"
+   command = " echo '${self.network_interface.0.ip_address}\n' >> ./ansible/inventory"
  }
 
  provisioner "file" {
@@ -75,8 +75,6 @@ resource "yandex_compute_instance" "elastic-elvm" {
    inline = [
         "echo hello ${var.hostnames[4]}",       
         "sudo sed -i \"s|#numb|${var.hostnames[4]}|g\" /tmp/index_website.html",          
-    #    "sudo cp /tmp/index_website.html /var/www/html/index.html",  
-    #    "sudo cp /tmp/zabbix_agentd.conf /etc/zabbix/zabbix_agentd.conf",
    ]
  
   connection {
@@ -99,7 +97,7 @@ resource "yandex_compute_instance" "kibana-elvm" {
   hostname = "${var.hostnames[5]}"
   
   resources {
-    core_fraction = 20 
+   # core_fraction = 20 
     cores  = 2
     memory = 8
   }
@@ -124,11 +122,11 @@ resource "yandex_compute_instance" "kibana-elvm" {
   } 
 
  provisioner "local-exec" {
-   command = " echo '[${var.hostnames[5]}]' >> inventory"
+   command = " echo '[${var.hostnames[5]}]' >> ./ansible/inventory"
  } 
  
  provisioner "local-exec" {
-   command = " echo '${self.network_interface.0.ip_address}\n' >> inventory"
+   command = " echo '${self.network_interface.0.ip_address}\n' >> ./ansible/inventory"
  }
 
  provisioner "file" {
@@ -180,8 +178,6 @@ resource "yandex_compute_instance" "kibana-elvm" {
    inline = [
         "echo hello ${var.hostnames[5]}",       
         "sudo sed -i \"s|#numb|${var.hostnames[5]}|g\" /tmp/index_website.html",          
-    #    "sudo cp /tmp/index_website.html /var/www/html/index.html",  
-    #    "sudo cp /tmp/zabbix_agentd.conf /etc/zabbix/zabbix_agentd.conf",
    ]
  
   connection {

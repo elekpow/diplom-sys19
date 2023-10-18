@@ -1,0 +1,32 @@
+---
+- hosts: elastic-elvm ## elastic server
+  become: yes
+  remote_user: igor
+  roles:
+    - elasticsearch
+  vars:
+    doc_root: /var/www
+    
+- hosts: kibana-elvm ## kibana server
+  become: yes
+  remote_user: igor
+  roles:
+    - kibana
+  vars:
+    doc_root: /var/www
+    
+- hosts: websrv-elvm-1 ## web server 1
+  become: yes
+  remote_user: igor
+  roles:
+    - filebeat
+  vars:
+    doc_root: /var/www
+    
+- hosts: websrv-elvm-2 ## web server 2
+  become: yes
+  remote_user: igor
+  roles:
+    - filebeat
+  vars:
+    doc_root: /var/www    

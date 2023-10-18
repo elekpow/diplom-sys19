@@ -10631,3 +10631,859 @@ There appears to be both 'k=v' shorthand syntax and YAML in this task. Only one 
 2023-10-17 17:59:21,456 p=609208 u=igor n=ansible | ok: [10.128.0.34]
 2023-10-17 17:59:21,470 p=609208 u=igor n=ansible | PLAY RECAP *************************************************************************************************************
 2023-10-17 17:59:21,470 p=609208 u=igor n=ansible | 10.128.0.34                : ok=6    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-17 20:00:01,196 p=2043 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 20:00:01,356 p=2043 u=igor n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to be in '/home/igor/git/diplom-sys19/ansible/roles/kibana/tasks/main.yml': line 16, column 56, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+- name: Create a symbolic link
+  file: src=/etc/nginx/sites-available/kibana-elvm dest: /etc/nginx/sites-enabled/kibana-elvm
+                                                       ^ here
+
+2023-10-17 20:00:17,685 p=2053 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 20:00:17,832 p=2053 u=igor n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to be in '/home/igor/git/diplom-sys19/ansible/roles/kibana/tasks/main.yml': line 16, column 12, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  file: src=/etc/nginx/sites-available/kibana-elvm dest=/etc/nginx/sites-enabled/kibana-elvm
+           ^ here
+
+There appears to be both 'k=v' shorthand syntax and YAML in this task. Only one syntax may be used.
+
+2023-10-17 20:00:48,189 p=2055 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 20:00:48,360 p=2055 u=igor n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to be in '/home/igor/git/diplom-sys19/ansible/roles/kibana/tasks/main.yml': line 16, column 12, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  file: src=/etc/nginx/sites-available/kibana-elvm dest=/etc/nginx/sites-enabled/kibana-elvm
+           ^ here
+
+There appears to be both 'k=v' shorthand syntax and YAML in this task. Only one syntax may be used.
+
+2023-10-17 20:01:28,207 p=2057 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 20:01:28,418 p=2057 u=igor n=ansible | ERROR! conflicting action statements: file, remote_src
+
+The error appears to be in '/home/igor/git/diplom-sys19/ansible/roles/kibana/tasks/main.yml': line 15, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  notify: restart nginx
+- name: Create a symbolic link
+  ^ here
+
+2023-10-17 20:01:47,582 p=2059 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 20:01:47,762 p=2059 u=igor n=ansible | PLAY [kibana-elvm] *****************************************************************************************************
+2023-10-17 20:01:47,777 p=2059 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-10-17 20:01:49,316 p=2059 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:01:49,329 p=2059 u=igor n=ansible | TASK [kibana : Update] *************************************************************************************************
+2023-10-17 20:01:52,651 p=2059 u=igor n=ansible | changed: [10.128.0.34]
+2023-10-17 20:01:52,664 p=2059 u=igor n=ansible | TASK [kibana : Download kibana] ****************************************************************************************
+2023-10-17 20:01:55,840 p=2059 u=igor n=ansible | fatal: [10.128.0.34]: FAILED! => {"changed": false, "dest": "./kibana-7.17.9-amd64.deb", "elapsed": 0, "gid": 0, "group": "root", "mode": "0644", "msg": "Request failed: <urlopen error [Errno 111] Connection refused>", "owner": "root", "size": 271870992, "state": "file", "uid": 0, "url": "https://repo.limubai.ru/kibana-7.17.9-amd64.deb"}
+2023-10-17 20:01:55,841 p=2059 u=igor n=ansible | PLAY RECAP *************************************************************************************************************
+2023-10-17 20:01:55,842 p=2059 u=igor n=ansible | 10.128.0.34                : ok=2    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-10-17 20:02:47,592 p=2095 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 20:02:47,786 p=2095 u=igor n=ansible | PLAY [kibana-elvm] *****************************************************************************************************
+2023-10-17 20:02:47,798 p=2095 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-10-17 20:02:49,001 p=2095 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:02:49,026 p=2095 u=igor n=ansible | TASK [kibana : Update] *************************************************************************************************
+2023-10-17 20:02:51,125 p=2095 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:02:51,131 p=2095 u=igor n=ansible | TASK [kibana : Download kibana] ****************************************************************************************
+2023-10-17 20:02:51,920 p=2095 u=igor n=ansible | fatal: [10.128.0.34]: FAILED! => {"changed": false, "dest": "./kibana-7.17.9-amd64.deb", "elapsed": 0, "gid": 0, "group": "root", "mode": "0644", "msg": "Request failed: <urlopen error [Errno 111] Connection refused>", "owner": "root", "size": 271870992, "state": "file", "uid": 0, "url": "https://repo.limubai.ru/kibana-7.17.9-amd64.deb"}
+2023-10-17 20:02:51,922 p=2095 u=igor n=ansible | PLAY RECAP *************************************************************************************************************
+2023-10-17 20:02:51,923 p=2095 u=igor n=ansible | 10.128.0.34                : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-10-17 20:03:27,216 p=2135 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 20:03:27,413 p=2135 u=igor n=ansible | PLAY [kibana-elvm] *****************************************************************************************************
+2023-10-17 20:03:27,425 p=2135 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-10-17 20:03:28,625 p=2135 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:03:28,639 p=2135 u=igor n=ansible | TASK [kibana : Update] *************************************************************************************************
+2023-10-17 20:03:30,706 p=2135 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:03:30,713 p=2135 u=igor n=ansible | TASK [kibana : Download kibana] ****************************************************************************************
+2023-10-17 20:03:31,588 p=2135 u=igor n=ansible | fatal: [10.128.0.34]: FAILED! => {"changed": false, "dest": "./kibana-7.17.9-amd64.deb", "elapsed": 0, "gid": 0, "group": "root", "mode": "0644", "msg": "Request failed: <urlopen error [Errno 111] Connection refused>", "owner": "root", "size": 271870992, "state": "file", "uid": 0, "url": "https://repo.limubai.ru/kibana-7.17.9-amd64.deb"}
+2023-10-17 20:03:31,591 p=2135 u=igor n=ansible | PLAY RECAP *************************************************************************************************************
+2023-10-17 20:03:31,591 p=2135 u=igor n=ansible | 10.128.0.34                : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-10-17 20:06:16,042 p=2184 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 20:06:16,220 p=2184 u=igor n=ansible | PLAY [kibana-elvm] *****************************************************************************************************
+2023-10-17 20:06:16,230 p=2184 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-10-17 20:06:17,739 p=2184 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:06:17,750 p=2184 u=igor n=ansible | TASK [kibana : Update] *************************************************************************************************
+2023-10-17 20:06:19,802 p=2184 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:06:19,808 p=2184 u=igor n=ansible | TASK [kibana : Download kibana] ****************************************************************************************
+2023-10-17 20:06:20,623 p=2184 u=igor n=ansible | fatal: [10.128.0.34]: FAILED! => {"changed": false, "dest": "./kibana-7.17.9-amd64.deb", "elapsed": 0, "gid": 0, "group": "root", "mode": "0644", "msg": "Request failed: <urlopen error [Errno 111] Connection refused>", "owner": "root", "size": 271870992, "state": "file", "uid": 0, "url": "https://repo.limubai.ru/kibana-7.17.9-amd64.deb"}
+2023-10-17 20:06:20,624 p=2184 u=igor n=ansible | PLAY RECAP *************************************************************************************************************
+2023-10-17 20:06:20,625 p=2184 u=igor n=ansible | 10.128.0.34                : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-10-17 20:06:46,501 p=2223 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 20:06:46,694 p=2223 u=igor n=ansible | PLAY [kibana-elvm] *****************************************************************************************************
+2023-10-17 20:06:46,707 p=2223 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-10-17 20:06:47,843 p=2223 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:06:47,857 p=2223 u=igor n=ansible | TASK [kibana : Update] *************************************************************************************************
+2023-10-17 20:06:49,839 p=2223 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:06:49,845 p=2223 u=igor n=ansible | TASK [kibana : Download kibana] ****************************************************************************************
+2023-10-17 20:06:50,673 p=2223 u=igor n=ansible | fatal: [10.128.0.34]: FAILED! => {"changed": false, "dest": "./kibana-7.17.9-amd64.deb", "elapsed": 0, "msg": "Request failed: <urlopen error [Errno 111] Connection refused>", "url": "https://repo.limubai.ru/kibana-7.17.9-amd64.deb"}
+2023-10-17 20:06:50,675 p=2223 u=igor n=ansible | PLAY RECAP *************************************************************************************************************
+2023-10-17 20:06:50,676 p=2223 u=igor n=ansible | 10.128.0.34                : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-10-17 20:13:59,060 p=2630 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 20:13:59,249 p=2630 u=igor n=ansible | PLAY [kibana-elvm] *****************************************************************************************************
+2023-10-17 20:13:59,260 p=2630 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-10-17 20:14:00,764 p=2630 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:14:00,783 p=2630 u=igor n=ansible | TASK [kibana : Update] *************************************************************************************************
+2023-10-17 20:14:02,879 p=2630 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:14:02,889 p=2630 u=igor n=ansible | TASK [kibana : Download kibana] ****************************************************************************************
+2023-10-17 20:14:17,628 p=2630 u=igor n=ansible | changed: [10.128.0.34]
+2023-10-17 20:14:17,639 p=2630 u=igor n=ansible | TASK [kibana : Install kibana] *****************************************************************************************
+2023-10-17 20:14:18,871 p=2630 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:14:18,881 p=2630 u=igor n=ansible | TASK [kibana : Copy config] ********************************************************************************************
+2023-10-17 20:14:20,177 p=2630 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:14:20,190 p=2630 u=igor n=ansible | TASK [kibana : Copy config nginx] **************************************************************************************
+2023-10-17 20:14:21,126 p=2630 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:14:21,134 p=2630 u=igor n=ansible | TASK [kibana : Create a symbolic link] *********************************************************************************
+2023-10-17 20:14:24,284 p=2630 u=igor n=ansible | fatal: [10.128.0.34]: FAILED! => {"changed": false, "gid": 0, "group": "root", "mode": "0644", "msg": "chown failed: failed to look up user foo", "owner": "root", "path": "/etc/nginx/sites-available/kibana-elvm", "size": 515, "state": "file", "uid": 0}
+2023-10-17 20:14:24,286 p=2630 u=igor n=ansible | PLAY RECAP *************************************************************************************************************
+2023-10-17 20:14:24,287 p=2630 u=igor n=ansible | 10.128.0.34                : ok=6    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-10-17 20:14:45,179 p=2710 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 20:14:45,373 p=2710 u=igor n=ansible | PLAY [kibana-elvm] *****************************************************************************************************
+2023-10-17 20:14:45,386 p=2710 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-10-17 20:14:46,531 p=2710 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:14:46,551 p=2710 u=igor n=ansible | TASK [kibana : Update] *************************************************************************************************
+2023-10-17 20:14:48,519 p=2710 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:14:48,528 p=2710 u=igor n=ansible | TASK [kibana : Download kibana] ****************************************************************************************
+2023-10-17 20:15:00,922 p=2710 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:15:00,930 p=2710 u=igor n=ansible | TASK [kibana : Install kibana] *****************************************************************************************
+2023-10-17 20:15:02,196 p=2710 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:15:02,203 p=2710 u=igor n=ansible | TASK [kibana : Copy config] ********************************************************************************************
+2023-10-17 20:15:03,541 p=2710 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:15:03,552 p=2710 u=igor n=ansible | TASK [kibana : Copy config nginx] **************************************************************************************
+2023-10-17 20:15:04,472 p=2710 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:15:04,479 p=2710 u=igor n=ansible | TASK [kibana : Create a symbolic link] *********************************************************************************
+2023-10-17 20:15:05,248 p=2710 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:15:05,260 p=2710 u=igor n=ansible | PLAY RECAP *************************************************************************************************************
+2023-10-17 20:15:05,261 p=2710 u=igor n=ansible | 10.128.0.34                : ok=7    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-17 20:24:35,248 p=2907 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 20:24:35,467 p=2907 u=igor n=ansible | PLAY [kibana-elvm] *********************************************************************************************************************
+2023-10-17 20:24:35,482 p=2907 u=igor n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2023-10-17 20:24:37,022 p=2907 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:24:37,043 p=2907 u=igor n=ansible | TASK [kibana : Update] *****************************************************************************************************************
+2023-10-17 20:24:39,111 p=2907 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:24:39,122 p=2907 u=igor n=ansible | TASK [kibana : Download kibana] ********************************************************************************************************
+2023-10-17 20:24:51,516 p=2907 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:24:51,528 p=2907 u=igor n=ansible | TASK [kibana : Install kibana] *********************************************************************************************************
+2023-10-17 20:24:52,743 p=2907 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:24:52,750 p=2907 u=igor n=ansible | TASK [kibana : Copy config] ************************************************************************************************************
+2023-10-17 20:24:54,063 p=2907 u=igor n=ansible | ERROR! The requested handler 'restart kibana' was not found in either the main handlers list nor in the listening handlers list
+2023-10-17 20:25:33,594 p=2982 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 20:25:33,792 p=2982 u=igor n=ansible | PLAY [kibana-elvm] *********************************************************************************************************************
+2023-10-17 20:25:33,804 p=2982 u=igor n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2023-10-17 20:25:34,928 p=2982 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:25:34,941 p=2982 u=igor n=ansible | TASK [kibana : Update] *****************************************************************************************************************
+2023-10-17 20:25:37,019 p=2982 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:25:37,024 p=2982 u=igor n=ansible | TASK [kibana : Download kibana] ********************************************************************************************************
+2023-10-17 20:25:49,436 p=2982 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:25:49,448 p=2982 u=igor n=ansible | TASK [kibana : Install kibana] *********************************************************************************************************
+2023-10-17 20:25:50,759 p=2982 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:25:50,768 p=2982 u=igor n=ansible | TASK [kibana : Copy config] ************************************************************************************************************
+2023-10-17 20:25:52,003 p=2982 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:25:52,009 p=2982 u=igor n=ansible | TASK [kibana : remove default site] ****************************************************************************************************
+2023-10-17 20:25:52,855 p=2982 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:25:52,863 p=2982 u=igor n=ansible | TASK [kibana : Create a symbolic link] *************************************************************************************************
+2023-10-17 20:25:53,408 p=2982 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:25:53,416 p=2982 u=igor n=ansible | TASK [kibana : Copy config nginx] ******************************************************************************************************
+2023-10-17 20:25:54,307 p=2982 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:25:54,321 p=2982 u=igor n=ansible | PLAY RECAP *****************************************************************************************************************************
+2023-10-17 20:25:54,321 p=2982 u=igor n=ansible | 10.128.0.34                : ok=8    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-17 20:26:11,163 p=3075 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 20:26:11,378 p=3075 u=igor n=ansible | PLAY [kibana-elvm] *********************************************************************************************************************
+2023-10-17 20:26:11,391 p=3075 u=igor n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2023-10-17 20:26:12,575 p=3075 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:26:12,586 p=3075 u=igor n=ansible | TASK [kibana : Update] *****************************************************************************************************************
+2023-10-17 20:26:14,638 p=3075 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:26:14,647 p=3075 u=igor n=ansible | TASK [kibana : Download kibana] ********************************************************************************************************
+2023-10-17 20:26:29,999 p=3075 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:26:30,006 p=3075 u=igor n=ansible | TASK [kibana : Install kibana] *********************************************************************************************************
+2023-10-17 20:26:31,235 p=3075 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:26:31,243 p=3075 u=igor n=ansible | TASK [kibana : Copy config] ************************************************************************************************************
+2023-10-17 20:26:32,549 p=3075 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:26:32,563 p=3075 u=igor n=ansible | TASK [kibana : remove default site] ****************************************************************************************************
+2023-10-17 20:26:33,376 p=3075 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:26:33,387 p=3075 u=igor n=ansible | TASK [kibana : Create a symbolic link] *************************************************************************************************
+2023-10-17 20:26:33,980 p=3075 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:26:33,989 p=3075 u=igor n=ansible | TASK [kibana : Copy config nginx] ******************************************************************************************************
+2023-10-17 20:26:34,937 p=3075 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:26:34,960 p=3075 u=igor n=ansible | PLAY RECAP *****************************************************************************************************************************
+2023-10-17 20:26:34,961 p=3075 u=igor n=ansible | 10.128.0.34                : ok=8    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-17 20:36:42,355 p=3244 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 20:36:42,602 p=3244 u=igor n=ansible | PLAY [kibana-elvm] *********************************************************************************************************************
+2023-10-17 20:36:42,624 p=3244 u=igor n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2023-10-17 20:36:44,136 p=3244 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:36:44,158 p=3244 u=igor n=ansible | TASK [kibana : Update] *****************************************************************************************************************
+2023-10-17 20:36:46,252 p=3244 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:36:46,258 p=3244 u=igor n=ansible | TASK [kibana : Download kibana] ********************************************************************************************************
+2023-10-17 20:36:58,706 p=3244 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:36:58,713 p=3244 u=igor n=ansible | TASK [kibana : Install kibana] *********************************************************************************************************
+2023-10-17 20:37:00,105 p=3244 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:37:00,114 p=3244 u=igor n=ansible | TASK [kibana : Copy config] ************************************************************************************************************
+2023-10-17 20:37:01,423 p=3244 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:37:01,429 p=3244 u=igor n=ansible | TASK [kibana : remove default site] ****************************************************************************************************
+2023-10-17 20:37:02,168 p=3244 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:37:02,181 p=3244 u=igor n=ansible | TASK [kibana : Create a symbolic link] *************************************************************************************************
+2023-10-17 20:37:02,767 p=3244 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:37:02,773 p=3244 u=igor n=ansible | TASK [kibana : Copy config nginx] ******************************************************************************************************
+2023-10-17 20:37:03,771 p=3244 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:37:03,788 p=3244 u=igor n=ansible | PLAY [elastic-elvm] ********************************************************************************************************************
+2023-10-17 20:37:03,794 p=3244 u=igor n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2023-10-17 20:37:05,552 p=3244 u=igor n=ansible | ok: [10.128.0.11]
+2023-10-17 20:37:05,565 p=3244 u=igor n=ansible | TASK [elasticsearch : Update] **********************************************************************************************************
+2023-10-17 20:37:11,591 p=3244 u=igor n=ansible | changed: [10.128.0.11]
+2023-10-17 20:37:11,598 p=3244 u=igor n=ansible | TASK [elasticsearch : Download elasticsearch] ******************************************************************************************
+2023-10-17 20:37:25,494 p=3244 u=igor n=ansible | changed: [10.128.0.11]
+2023-10-17 20:37:25,501 p=3244 u=igor n=ansible | TASK [elasticsearch : Install elasticsearch] *******************************************************************************************
+2023-10-17 20:38:22,862 p=3244 u=igor n=ansible | changed: [10.128.0.11]
+2023-10-17 20:38:22,868 p=3244 u=igor n=ansible | TASK [elasticsearch : Copy config] *****************************************************************************************************
+2023-10-17 20:38:24,071 p=3244 u=igor n=ansible | changed: [10.128.0.11]
+2023-10-17 20:38:24,080 p=3244 u=igor n=ansible | TASK [elasticsearch : elasticsearch status] ********************************************************************************************
+2023-10-17 20:38:24,822 p=3244 u=igor n=ansible | [WARNING]: Consider using the get_url or uri module rather than running 'curl'.  If you need to use command because get_url or uri is
+insufficient you can add 'warn: false' to this command task or set 'command_warnings=False' in ansible.cfg to get rid of this message.
+
+2023-10-17 20:38:24,823 p=3244 u=igor n=ansible | fatal: [10.128.0.11]: FAILED! => {"changed": true, "cmd": "curl -XGET http://localhost:9200", "delta": "0:00:00.020939", "end": "2023-10-17 17:38:23.314500", "msg": "non-zero return code", "rc": 7, "start": "2023-10-17 17:38:23.293561", "stderr": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0curl: (7) Failed to connect to localhost port 9200: Connection refused", "stderr_lines": ["  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current", "                                 Dload  Upload   Total   Spent    Left  Speed", "", "  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0curl: (7) Failed to connect to localhost port 9200: Connection refused"], "stdout": "", "stdout_lines": []}
+2023-10-17 20:38:24,824 p=3244 u=igor n=ansible | RUNNING HANDLER [elasticsearch : elasticsearch] ****************************************************************************************
+2023-10-17 20:38:24,828 p=3244 u=igor n=ansible | PLAY RECAP *****************************************************************************************************************************
+2023-10-17 20:38:24,828 p=3244 u=igor n=ansible | 10.128.0.11                : ok=5    changed=4    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-10-17 20:38:24,829 p=3244 u=igor n=ansible | 10.128.0.34                : ok=8    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-17 20:41:24,059 p=3646 u=igor n=ansible | ERROR! the playbook: ./ansible/el could not be found
+2023-10-17 20:43:11,194 p=3656 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 20:43:11,369 p=3656 u=igor n=ansible | PLAY [elastic-elvm] ********************************************************************************************************************
+2023-10-17 20:43:11,379 p=3656 u=igor n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2023-10-17 20:43:12,838 p=3656 u=igor n=ansible | ok: [10.128.0.11]
+2023-10-17 20:43:12,850 p=3656 u=igor n=ansible | TASK [elasticsearch : Update] **********************************************************************************************************
+2023-10-17 20:43:15,160 p=3656 u=igor n=ansible | ok: [10.128.0.11]
+2023-10-17 20:43:15,168 p=3656 u=igor n=ansible | TASK [elasticsearch : Download elasticsearch] ******************************************************************************************
+2023-10-17 20:43:29,652 p=3656 u=igor n=ansible | ok: [10.128.0.11]
+2023-10-17 20:43:29,660 p=3656 u=igor n=ansible | TASK [elasticsearch : Install elasticsearch] *******************************************************************************************
+2023-10-17 20:43:31,075 p=3656 u=igor n=ansible | ok: [10.128.0.11]
+2023-10-17 20:43:31,084 p=3656 u=igor n=ansible | TASK [elasticsearch : Copy config] *****************************************************************************************************
+2023-10-17 20:43:32,311 p=3656 u=igor n=ansible | ok: [10.128.0.11]
+2023-10-17 20:43:32,326 p=3656 u=igor n=ansible | PLAY [kibana-elvm] *********************************************************************************************************************
+2023-10-17 20:43:32,332 p=3656 u=igor n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2023-10-17 20:43:33,526 p=3656 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:43:33,543 p=3656 u=igor n=ansible | TASK [kibana : Update] *****************************************************************************************************************
+2023-10-17 20:43:35,352 p=3656 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:43:35,359 p=3656 u=igor n=ansible | TASK [kibana : Download kibana] ********************************************************************************************************
+2023-10-17 20:43:47,518 p=3656 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:43:47,525 p=3656 u=igor n=ansible | TASK [kibana : Install kibana] *********************************************************************************************************
+2023-10-17 20:43:48,731 p=3656 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:43:48,737 p=3656 u=igor n=ansible | TASK [kibana : Copy config] ************************************************************************************************************
+2023-10-17 20:43:49,611 p=3656 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:43:49,618 p=3656 u=igor n=ansible | TASK [kibana : remove default site] ****************************************************************************************************
+2023-10-17 20:43:50,349 p=3656 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:43:50,361 p=3656 u=igor n=ansible | TASK [kibana : Create a symbolic link] *************************************************************************************************
+2023-10-17 20:43:50,911 p=3656 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:43:50,917 p=3656 u=igor n=ansible | TASK [kibana : Copy config nginx] ******************************************************************************************************
+2023-10-17 20:43:51,888 p=3656 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:43:51,909 p=3656 u=igor n=ansible | PLAY RECAP *****************************************************************************************************************************
+2023-10-17 20:43:51,909 p=3656 u=igor n=ansible | 10.128.0.11                : ok=5    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-17 20:43:51,910 p=3656 u=igor n=ansible | 10.128.0.34                : ok=8    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-17 20:58:00,145 p=3976 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 20:58:00,324 p=3976 u=igor n=ansible | PLAY [elastic-elvm] ********************************************************************************************************************
+2023-10-17 20:58:00,334 p=3976 u=igor n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2023-10-17 20:58:01,804 p=3976 u=igor n=ansible | ok: [10.128.0.11]
+2023-10-17 20:58:01,815 p=3976 u=igor n=ansible | TASK [elasticsearch : Update] **********************************************************************************************************
+2023-10-17 20:58:03,843 p=3976 u=igor n=ansible | ok: [10.128.0.11]
+2023-10-17 20:58:03,855 p=3976 u=igor n=ansible | TASK [elasticsearch : Download elasticsearch] ******************************************************************************************
+2023-10-17 20:58:24,119 p=3976 u=igor n=ansible | ok: [10.128.0.11]
+2023-10-17 20:58:24,125 p=3976 u=igor n=ansible | TASK [elasticsearch : Install elasticsearch] *******************************************************************************************
+2023-10-17 20:58:25,226 p=3976 u=igor n=ansible | ok: [10.128.0.11]
+2023-10-17 20:58:25,232 p=3976 u=igor n=ansible | TASK [elasticsearch : Copy config] *****************************************************************************************************
+2023-10-17 20:58:26,350 p=3976 u=igor n=ansible | ok: [10.128.0.11]
+2023-10-17 20:58:26,356 p=3976 u=igor n=ansible | TASK [elasticsearch : started elasticsearch] *******************************************************************************************
+2023-10-17 20:58:27,275 p=3976 u=igor n=ansible | ok: [10.128.0.11]
+2023-10-17 20:58:27,281 p=3976 u=igor n=ansible | TASK [elasticsearch : enable elasticsearch] ********************************************************************************************
+2023-10-17 20:58:28,267 p=3976 u=igor n=ansible | changed: [10.128.0.11]
+2023-10-17 20:58:28,279 p=3976 u=igor n=ansible | PLAY [kibana-elvm] *********************************************************************************************************************
+2023-10-17 20:58:28,284 p=3976 u=igor n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2023-10-17 20:58:29,411 p=3976 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:58:29,421 p=3976 u=igor n=ansible | TASK [kibana : Update] *****************************************************************************************************************
+2023-10-17 20:58:31,250 p=3976 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:58:31,258 p=3976 u=igor n=ansible | TASK [kibana : Download kibana] ********************************************************************************************************
+2023-10-17 20:58:43,450 p=3976 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:58:43,458 p=3976 u=igor n=ansible | TASK [kibana : Install kibana] *********************************************************************************************************
+2023-10-17 20:58:44,783 p=3976 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:58:44,788 p=3976 u=igor n=ansible | TASK [kibana : Copy config] ************************************************************************************************************
+2023-10-17 20:58:45,682 p=3976 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:58:45,688 p=3976 u=igor n=ansible | TASK [kibana : remove default site] ****************************************************************************************************
+2023-10-17 20:58:46,394 p=3976 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:58:46,401 p=3976 u=igor n=ansible | TASK [kibana : Create a symbolic link] *************************************************************************************************
+2023-10-17 20:58:46,947 p=3976 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:58:46,954 p=3976 u=igor n=ansible | TASK [kibana : Copy config nginx] ******************************************************************************************************
+2023-10-17 20:58:47,927 p=3976 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 20:58:47,933 p=3976 u=igor n=ansible | TASK [kibana : started kibana] *********************************************************************************************************
+2023-10-17 20:58:48,608 p=3976 u=igor n=ansible | changed: [10.128.0.34]
+2023-10-17 20:58:48,614 p=3976 u=igor n=ansible | TASK [kibana : enable kibana] **********************************************************************************************************
+2023-10-17 20:58:49,717 p=3976 u=igor n=ansible | changed: [10.128.0.34]
+2023-10-17 20:58:49,723 p=3976 u=igor n=ansible | TASK [kibana : Restart nginx] **********************************************************************************************************
+2023-10-17 20:58:50,620 p=3976 u=igor n=ansible | changed: [10.128.0.34]
+2023-10-17 20:58:50,632 p=3976 u=igor n=ansible | PLAY RECAP *****************************************************************************************************************************
+2023-10-17 20:58:50,632 p=3976 u=igor n=ansible | 10.128.0.11                : ok=7    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-17 20:58:50,632 p=3976 u=igor n=ansible | 10.128.0.34                : ok=11   changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-17 22:13:24,190 p=5254 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 22:13:24,470 p=5254 u=igor n=ansible | PLAY [elastic-elvm] ********************************************************************************************************************
+2023-10-17 22:13:24,490 p=5254 u=igor n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2023-10-17 22:13:26,200 p=5254 u=igor n=ansible | ok: [10.128.0.11]
+2023-10-17 22:13:26,211 p=5254 u=igor n=ansible | TASK [elasticsearch : Update] **********************************************************************************************************
+2023-10-17 22:13:38,070 p=5254 u=igor n=ansible | changed: [10.128.0.11]
+2023-10-17 22:13:38,075 p=5254 u=igor n=ansible | TASK [elasticsearch : Download elasticsearch] ******************************************************************************************
+2023-10-17 22:14:33,762 p=5254 u=igor n=ansible | ok: [10.128.0.11]
+2023-10-17 22:14:33,775 p=5254 u=igor n=ansible | TASK [elasticsearch : Install elasticsearch] *******************************************************************************************
+2023-10-17 22:14:34,968 p=5254 u=igor n=ansible | ok: [10.128.0.11]
+2023-10-17 22:14:34,981 p=5254 u=igor n=ansible | TASK [elasticsearch : Copy config] *****************************************************************************************************
+2023-10-17 22:14:36,314 p=5254 u=igor n=ansible | ok: [10.128.0.11]
+2023-10-17 22:14:36,321 p=5254 u=igor n=ansible | TASK [elasticsearch : started elasticsearch] *******************************************************************************************
+2023-10-17 22:14:37,310 p=5254 u=igor n=ansible | ok: [10.128.0.11]
+2023-10-17 22:14:37,321 p=5254 u=igor n=ansible | TASK [elasticsearch : enable elasticsearch] ********************************************************************************************
+2023-10-17 22:14:38,015 p=5254 u=igor n=ansible | ok: [10.128.0.11]
+2023-10-17 22:14:38,029 p=5254 u=igor n=ansible | PLAY [kibana-elvm] *********************************************************************************************************************
+2023-10-17 22:14:38,034 p=5254 u=igor n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2023-10-17 22:14:39,359 p=5254 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 22:14:39,379 p=5254 u=igor n=ansible | TASK [kibana : Update] *****************************************************************************************************************
+2023-10-17 22:14:48,186 p=5254 u=igor n=ansible | changed: [10.128.0.34]
+2023-10-17 22:14:48,193 p=5254 u=igor n=ansible | TASK [kibana : Download kibana] ********************************************************************************************************
+2023-10-17 22:15:02,018 p=5254 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 22:15:02,025 p=5254 u=igor n=ansible | TASK [kibana : Install kibana] *********************************************************************************************************
+2023-10-17 22:15:03,536 p=5254 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 22:15:03,542 p=5254 u=igor n=ansible | TASK [kibana : Copy config] ************************************************************************************************************
+2023-10-17 22:15:04,844 p=5254 u=igor n=ansible | changed: [10.128.0.34]
+2023-10-17 22:15:04,855 p=5254 u=igor n=ansible | TASK [kibana : remove default site] ****************************************************************************************************
+2023-10-17 22:15:05,599 p=5254 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 22:15:05,606 p=5254 u=igor n=ansible | TASK [kibana : Create a symbolic link] *************************************************************************************************
+2023-10-17 22:15:06,223 p=5254 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 22:15:06,229 p=5254 u=igor n=ansible | TASK [kibana : Copy config nginx] ******************************************************************************************************
+2023-10-17 22:15:07,262 p=5254 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 22:15:07,269 p=5254 u=igor n=ansible | TASK [kibana : started kibana] *********************************************************************************************************
+2023-10-17 22:15:08,006 p=5254 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 22:15:08,012 p=5254 u=igor n=ansible | TASK [kibana : enable kibana] **********************************************************************************************************
+2023-10-17 22:15:08,742 p=5254 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-17 22:15:08,754 p=5254 u=igor n=ansible | TASK [kibana : Restart nginx] **********************************************************************************************************
+2023-10-17 22:15:09,549 p=5254 u=igor n=ansible | changed: [10.128.0.34]
+2023-10-17 22:15:09,557 p=5254 u=igor n=ansible | RUNNING HANDLER [kibana : kibana] ******************************************************************************************************
+2023-10-17 22:15:53,372 p=5254 u=igor n=ansible | changed: [10.128.0.34]
+2023-10-17 22:15:53,389 p=5254 u=igor n=ansible | PLAY [websrv-elvm-1] *******************************************************************************************************************
+2023-10-17 22:15:53,399 p=5254 u=igor n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2023-10-17 22:15:54,691 p=5254 u=igor n=ansible | ok: [10.128.0.31]
+2023-10-17 22:15:54,713 p=5254 u=igor n=ansible | TASK [filebeat : Update] ***************************************************************************************************************
+2023-10-17 22:16:00,411 p=5254 u=igor n=ansible | changed: [10.128.0.31]
+2023-10-17 22:16:00,418 p=5254 u=igor n=ansible | TASK [filebeat : Download filebeat] ****************************************************************************************************
+2023-10-17 22:16:01,815 p=5254 u=igor n=ansible | changed: [10.128.0.31]
+2023-10-17 22:16:01,821 p=5254 u=igor n=ansible | TASK [filebeat : Install elasticsearch] ************************************************************************************************
+2023-10-17 22:16:13,803 p=5254 u=igor n=ansible | changed: [10.128.0.31]
+2023-10-17 22:16:13,809 p=5254 u=igor n=ansible | TASK [filebeat : Copy config] **********************************************************************************************************
+2023-10-17 22:16:14,905 p=5254 u=igor n=ansible | changed: [10.128.0.31]
+2023-10-17 22:16:14,920 p=5254 u=igor n=ansible | PLAY [websrv-elvm-2] *******************************************************************************************************************
+2023-10-17 22:16:14,926 p=5254 u=igor n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2023-10-17 22:16:16,275 p=5254 u=igor n=ansible | ok: [10.129.0.36]
+2023-10-17 22:16:16,292 p=5254 u=igor n=ansible | TASK [filebeat : Update] ***************************************************************************************************************
+2023-10-17 22:16:21,776 p=5254 u=igor n=ansible | changed: [10.129.0.36]
+2023-10-17 22:16:21,790 p=5254 u=igor n=ansible | TASK [filebeat : Download filebeat] ****************************************************************************************************
+2023-10-17 22:16:23,276 p=5254 u=igor n=ansible | changed: [10.129.0.36]
+2023-10-17 22:16:23,287 p=5254 u=igor n=ansible | TASK [filebeat : Install elasticsearch] ************************************************************************************************
+2023-10-17 22:16:35,560 p=5254 u=igor n=ansible | changed: [10.129.0.36]
+2023-10-17 22:16:35,573 p=5254 u=igor n=ansible | TASK [filebeat : Copy config] **********************************************************************************************************
+2023-10-17 22:16:36,800 p=5254 u=igor n=ansible | changed: [10.129.0.36]
+2023-10-17 22:16:36,827 p=5254 u=igor n=ansible | PLAY RECAP *****************************************************************************************************************************
+2023-10-17 22:16:36,827 p=5254 u=igor n=ansible | 10.128.0.11                : ok=7    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-17 22:16:36,827 p=5254 u=igor n=ansible | 10.128.0.31                : ok=5    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-17 22:16:36,828 p=5254 u=igor n=ansible | 10.128.0.34                : ok=12   changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-17 22:16:36,828 p=5254 u=igor n=ansible | 10.129.0.36                : ok=5    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-17 22:19:12,731 p=5600 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 22:19:12,948 p=5600 u=igor n=ansible | PLAY [websrv-elvm-1] *******************************************************************************************************************
+2023-10-17 22:19:12,963 p=5600 u=igor n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2023-10-17 22:19:14,411 p=5600 u=igor n=ansible | ok: [10.128.0.31]
+2023-10-17 22:19:14,422 p=5600 u=igor n=ansible | TASK [filebeat : Update] ***************************************************************************************************************
+2023-10-17 22:19:16,670 p=5600 u=igor n=ansible | ok: [10.128.0.31]
+2023-10-17 22:19:16,676 p=5600 u=igor n=ansible | TASK [filebeat : Download filebeat] ****************************************************************************************************
+2023-10-17 22:19:18,259 p=5600 u=igor n=ansible | ok: [10.128.0.31]
+2023-10-17 22:19:18,265 p=5600 u=igor n=ansible | TASK [filebeat : Install filebeat] *****************************************************************************************************
+2023-10-17 22:19:19,514 p=5600 u=igor n=ansible | ok: [10.128.0.31]
+2023-10-17 22:19:19,521 p=5600 u=igor n=ansible | TASK [filebeat : Copy config] **********************************************************************************************************
+2023-10-17 22:19:20,824 p=5600 u=igor n=ansible | ok: [10.128.0.31]
+2023-10-17 22:19:20,831 p=5600 u=igor n=ansible | TASK [filebeat : started filebeat] *****************************************************************************************************
+2023-10-17 22:19:21,933 p=5600 u=igor n=ansible | changed: [10.128.0.31]
+2023-10-17 22:19:21,940 p=5600 u=igor n=ansible | TASK [filebeat : enable filebeat] ******************************************************************************************************
+2023-10-17 22:19:23,009 p=5600 u=igor n=ansible | changed: [10.128.0.31]
+2023-10-17 22:19:23,029 p=5600 u=igor n=ansible | PLAY [websrv-elvm-2] *******************************************************************************************************************
+2023-10-17 22:19:23,035 p=5600 u=igor n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2023-10-17 22:19:24,319 p=5600 u=igor n=ansible | ok: [10.129.0.36]
+2023-10-17 22:19:24,341 p=5600 u=igor n=ansible | TASK [filebeat : Update] ***************************************************************************************************************
+2023-10-17 22:19:26,527 p=5600 u=igor n=ansible | ok: [10.129.0.36]
+2023-10-17 22:19:26,534 p=5600 u=igor n=ansible | TASK [filebeat : Download filebeat] ****************************************************************************************************
+2023-10-17 22:19:28,016 p=5600 u=igor n=ansible | ok: [10.129.0.36]
+2023-10-17 22:19:28,029 p=5600 u=igor n=ansible | TASK [filebeat : Install filebeat] *****************************************************************************************************
+2023-10-17 22:19:29,229 p=5600 u=igor n=ansible | ok: [10.129.0.36]
+2023-10-17 22:19:29,241 p=5600 u=igor n=ansible | TASK [filebeat : Copy config] **********************************************************************************************************
+2023-10-17 22:19:30,268 p=5600 u=igor n=ansible | ok: [10.129.0.36]
+2023-10-17 22:19:30,281 p=5600 u=igor n=ansible | TASK [filebeat : started filebeat] *****************************************************************************************************
+2023-10-17 22:19:31,041 p=5600 u=igor n=ansible | changed: [10.129.0.36]
+2023-10-17 22:19:31,048 p=5600 u=igor n=ansible | TASK [filebeat : enable filebeat] ******************************************************************************************************
+2023-10-17 22:19:32,124 p=5600 u=igor n=ansible | changed: [10.129.0.36]
+2023-10-17 22:19:32,136 p=5600 u=igor n=ansible | PLAY RECAP *****************************************************************************************************************************
+2023-10-17 22:19:32,137 p=5600 u=igor n=ansible | 10.128.0.31                : ok=7    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-17 22:19:32,137 p=5600 u=igor n=ansible | 10.129.0.36                : ok=7    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-17 22:32:42,424 p=5910 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 22:32:42,602 p=5910 u=igor n=ansible | PLAY [websrv-elvm-1] *******************************************************************************************************************
+2023-10-17 22:32:42,612 p=5910 u=igor n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2023-10-17 22:32:44,145 p=5910 u=igor n=ansible | ok: [10.128.0.31]
+2023-10-17 22:32:44,165 p=5910 u=igor n=ansible | TASK [filebeat : Update] ***************************************************************************************************************
+2023-10-17 22:32:46,242 p=5910 u=igor n=ansible | ok: [10.128.0.31]
+2023-10-17 22:32:46,250 p=5910 u=igor n=ansible | TASK [filebeat : Download filebeat] ****************************************************************************************************
+2023-10-17 22:32:47,815 p=5910 u=igor n=ansible | ok: [10.128.0.31]
+2023-10-17 22:32:47,822 p=5910 u=igor n=ansible | TASK [filebeat : Install filebeat] *****************************************************************************************************
+2023-10-17 22:32:49,015 p=5910 u=igor n=ansible | ok: [10.128.0.31]
+2023-10-17 22:32:49,022 p=5910 u=igor n=ansible | TASK [filebeat : Copy config] **********************************************************************************************************
+2023-10-17 22:32:50,354 p=5910 u=igor n=ansible | changed: [10.128.0.31]
+2023-10-17 22:32:50,361 p=5910 u=igor n=ansible | TASK [filebeat : started filebeat] *****************************************************************************************************
+2023-10-17 22:32:51,412 p=5910 u=igor n=ansible | ok: [10.128.0.31]
+2023-10-17 22:32:51,421 p=5910 u=igor n=ansible | TASK [filebeat : enable filebeat] ******************************************************************************************************
+2023-10-17 22:32:52,172 p=5910 u=igor n=ansible | ok: [10.128.0.31]
+2023-10-17 22:32:52,179 p=5910 u=igor n=ansible | TASK [filebeat : Restart] **************************************************************************************************************
+2023-10-17 22:32:52,966 p=5910 u=igor n=ansible | changed: [10.128.0.31]
+2023-10-17 22:32:52,991 p=5910 u=igor n=ansible | PLAY [websrv-elvm-2] *******************************************************************************************************************
+2023-10-17 22:32:53,001 p=5910 u=igor n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2023-10-17 22:32:54,252 p=5910 u=igor n=ansible | ok: [10.129.0.36]
+2023-10-17 22:32:54,262 p=5910 u=igor n=ansible | TASK [filebeat : Update] ***************************************************************************************************************
+2023-10-17 22:32:56,115 p=5910 u=igor n=ansible | ok: [10.129.0.36]
+2023-10-17 22:32:56,128 p=5910 u=igor n=ansible | TASK [filebeat : Download filebeat] ****************************************************************************************************
+2023-10-17 22:32:57,570 p=5910 u=igor n=ansible | ok: [10.129.0.36]
+2023-10-17 22:32:57,577 p=5910 u=igor n=ansible | TASK [filebeat : Install filebeat] *****************************************************************************************************
+2023-10-17 22:32:58,694 p=5910 u=igor n=ansible | ok: [10.129.0.36]
+2023-10-17 22:32:58,700 p=5910 u=igor n=ansible | TASK [filebeat : Copy config] **********************************************************************************************************
+2023-10-17 22:32:59,826 p=5910 u=igor n=ansible | changed: [10.129.0.36]
+2023-10-17 22:32:59,833 p=5910 u=igor n=ansible | TASK [filebeat : started filebeat] *****************************************************************************************************
+2023-10-17 22:33:00,616 p=5910 u=igor n=ansible | ok: [10.129.0.36]
+2023-10-17 22:33:00,622 p=5910 u=igor n=ansible | TASK [filebeat : enable filebeat] ******************************************************************************************************
+2023-10-17 22:33:01,379 p=5910 u=igor n=ansible | ok: [10.129.0.36]
+2023-10-17 22:33:01,385 p=5910 u=igor n=ansible | TASK [filebeat : Restart] **************************************************************************************************************
+2023-10-17 22:33:02,239 p=5910 u=igor n=ansible | changed: [10.129.0.36]
+2023-10-17 22:33:02,251 p=5910 u=igor n=ansible | PLAY RECAP *****************************************************************************************************************************
+2023-10-17 22:33:02,251 p=5910 u=igor n=ansible | 10.128.0.31                : ok=8    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-17 22:33:02,251 p=5910 u=igor n=ansible | 10.129.0.36                : ok=8    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-17 22:39:53,838 p=6456 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 22:39:54,014 p=6456 u=igor n=ansible | PLAY [websrv-elvm-1] *******************************************************************************************************************
+2023-10-17 22:39:54,024 p=6456 u=igor n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2023-10-17 22:39:55,408 p=6456 u=igor n=ansible | ok: [10.128.0.31]
+2023-10-17 22:39:55,419 p=6456 u=igor n=ansible | TASK [filebeat : Update] ***************************************************************************************************************
+2023-10-17 22:39:57,414 p=6456 u=igor n=ansible | ok: [10.128.0.31]
+2023-10-17 22:39:57,425 p=6456 u=igor n=ansible | TASK [filebeat : Download filebeat] ****************************************************************************************************
+2023-10-17 22:39:58,962 p=6456 u=igor n=ansible | ok: [10.128.0.31]
+2023-10-17 22:39:58,967 p=6456 u=igor n=ansible | TASK [filebeat : Install filebeat] *****************************************************************************************************
+2023-10-17 22:40:00,122 p=6456 u=igor n=ansible | ok: [10.128.0.31]
+2023-10-17 22:40:00,130 p=6456 u=igor n=ansible | TASK [filebeat : Copy config] **********************************************************************************************************
+2023-10-17 22:40:01,418 p=6456 u=igor n=ansible | changed: [10.128.0.31]
+2023-10-17 22:40:01,425 p=6456 u=igor n=ansible | TASK [filebeat : started filebeat] *****************************************************************************************************
+2023-10-17 22:40:02,445 p=6456 u=igor n=ansible | changed: [10.128.0.31]
+2023-10-17 22:40:02,451 p=6456 u=igor n=ansible | TASK [filebeat : enable filebeat] ******************************************************************************************************
+2023-10-17 22:40:03,192 p=6456 u=igor n=ansible | ok: [10.128.0.31]
+2023-10-17 22:40:03,202 p=6456 u=igor n=ansible | TASK [filebeat : Restart] **************************************************************************************************************
+2023-10-17 22:40:03,940 p=6456 u=igor n=ansible | changed: [10.128.0.31]
+2023-10-17 22:40:03,967 p=6456 u=igor n=ansible | PLAY [websrv-elvm-2] *******************************************************************************************************************
+2023-10-17 22:40:03,976 p=6456 u=igor n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2023-10-17 22:40:05,250 p=6456 u=igor n=ansible | ok: [10.129.0.36]
+2023-10-17 22:40:05,260 p=6456 u=igor n=ansible | TASK [filebeat : Update] ***************************************************************************************************************
+2023-10-17 22:40:07,164 p=6456 u=igor n=ansible | ok: [10.129.0.36]
+2023-10-17 22:40:07,176 p=6456 u=igor n=ansible | TASK [filebeat : Download filebeat] ****************************************************************************************************
+2023-10-17 22:40:08,655 p=6456 u=igor n=ansible | ok: [10.129.0.36]
+2023-10-17 22:40:08,666 p=6456 u=igor n=ansible | TASK [filebeat : Install filebeat] *****************************************************************************************************
+2023-10-17 22:40:09,816 p=6456 u=igor n=ansible | ok: [10.129.0.36]
+2023-10-17 22:40:09,827 p=6456 u=igor n=ansible | TASK [filebeat : Copy config] **********************************************************************************************************
+2023-10-17 22:40:11,007 p=6456 u=igor n=ansible | changed: [10.129.0.36]
+2023-10-17 22:40:11,018 p=6456 u=igor n=ansible | TASK [filebeat : started filebeat] *****************************************************************************************************
+2023-10-17 22:40:11,773 p=6456 u=igor n=ansible | changed: [10.129.0.36]
+2023-10-17 22:40:11,784 p=6456 u=igor n=ansible | TASK [filebeat : enable filebeat] ******************************************************************************************************
+2023-10-17 22:40:12,555 p=6456 u=igor n=ansible | ok: [10.129.0.36]
+2023-10-17 22:40:12,567 p=6456 u=igor n=ansible | TASK [filebeat : Restart] **************************************************************************************************************
+2023-10-17 22:40:13,337 p=6456 u=igor n=ansible | changed: [10.129.0.36]
+2023-10-17 22:40:13,349 p=6456 u=igor n=ansible | PLAY RECAP *****************************************************************************************************************************
+2023-10-17 22:40:13,349 p=6456 u=igor n=ansible | 10.128.0.31                : ok=8    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-17 22:40:13,349 p=6456 u=igor n=ansible | 10.129.0.36                : ok=8    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-17 22:48:49,794 p=6781 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-17 22:48:50,010 p=6781 u=igor n=ansible | PLAY [elastic-elvm] ********************************************************************************************************************
+2023-10-17 22:48:50,023 p=6781 u=igor n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2023-10-17 22:48:51,535 p=6781 u=igor n=ansible | ok: [10.128.0.11]
+2023-10-17 22:48:51,547 p=6781 u=igor n=ansible | TASK [elasticsearch : Update] **********************************************************************************************************
+2023-10-17 22:48:53,595 p=6781 u=igor n=ansible | ok: [10.128.0.11]
+2023-10-17 22:48:53,601 p=6781 u=igor n=ansible | TASK [elasticsearch : Download elasticsearch] ******************************************************************************************
+2023-10-17 22:49:08,067 p=6781 u=igor n=ansible | ok: [10.128.0.11]
+2023-10-17 22:49:08,075 p=6781 u=igor n=ansible | TASK [elasticsearch : Install java default] ********************************************************************************************
+2023-10-17 22:50:14,143 p=6781 u=igor n=ansible | changed: [10.128.0.11]
+2023-10-17 22:50:14,155 p=6781 u=igor n=ansible | TASK [elasticsearch : Install elasticsearch] *******************************************************************************************
+2023-10-17 22:50:15,615 p=6781 u=igor n=ansible | ok: [10.128.0.11]
+2023-10-17 22:50:15,627 p=6781 u=igor n=ansible | TASK [elasticsearch : Copy config] *****************************************************************************************************
+2023-10-17 22:50:17,002 p=6781 u=igor n=ansible | changed: [10.128.0.11]
+2023-10-17 22:50:17,008 p=6781 u=igor n=ansible | TASK [elasticsearch : started elasticsearch] *******************************************************************************************
+2023-10-17 22:51:02,694 p=6781 u=igor n=ansible | changed: [10.128.0.11]
+2023-10-17 22:51:02,701 p=6781 u=igor n=ansible | TASK [elasticsearch : enable elasticsearch] ********************************************************************************************
+2023-10-17 22:51:03,451 p=6781 u=igor n=ansible | ok: [10.128.0.11]
+2023-10-17 22:51:03,458 p=6781 u=igor n=ansible | RUNNING HANDLER [elasticsearch : elasticsearch] ****************************************************************************************
+2023-10-17 22:51:50,660 p=6781 u=igor n=ansible | changed: [10.128.0.11]
+2023-10-17 22:51:50,670 p=6781 u=igor n=ansible | PLAY [websrv-elvm-1] *******************************************************************************************************************
+2023-10-17 22:51:50,676 p=6781 u=igor n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2023-10-17 22:51:51,837 p=6781 u=igor n=ansible | ok: [10.128.0.31]
+2023-10-17 22:51:51,847 p=6781 u=igor n=ansible | TASK [filebeat : Update] ***************************************************************************************************************
+2023-10-17 22:51:53,693 p=6781 u=igor n=ansible | ok: [10.128.0.31]
+2023-10-17 22:51:53,698 p=6781 u=igor n=ansible | TASK [filebeat : Download filebeat] ****************************************************************************************************
+2023-10-17 22:51:55,072 p=6781 u=igor n=ansible | ok: [10.128.0.31]
+2023-10-17 22:51:55,082 p=6781 u=igor n=ansible | TASK [filebeat : Install filebeat] *****************************************************************************************************
+2023-10-17 22:51:56,214 p=6781 u=igor n=ansible | ok: [10.128.0.31]
+2023-10-17 22:51:56,220 p=6781 u=igor n=ansible | TASK [filebeat : Copy config] **********************************************************************************************************
+2023-10-17 22:51:57,202 p=6781 u=igor n=ansible | ok: [10.128.0.31]
+2023-10-17 22:51:57,207 p=6781 u=igor n=ansible | TASK [filebeat : started filebeat] *****************************************************************************************************
+2023-10-17 22:51:57,860 p=6781 u=igor n=ansible | ok: [10.128.0.31]
+2023-10-17 22:51:57,866 p=6781 u=igor n=ansible | TASK [filebeat : enable filebeat] ******************************************************************************************************
+2023-10-17 22:51:58,531 p=6781 u=igor n=ansible | ok: [10.128.0.31]
+2023-10-17 22:51:58,537 p=6781 u=igor n=ansible | TASK [filebeat : Restart] **************************************************************************************************************
+2023-10-17 22:51:59,213 p=6781 u=igor n=ansible | changed: [10.128.0.31]
+2023-10-17 22:51:59,225 p=6781 u=igor n=ansible | PLAY [websrv-elvm-2] *******************************************************************************************************************
+2023-10-17 22:51:59,230 p=6781 u=igor n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2023-10-17 22:52:00,495 p=6781 u=igor n=ansible | ok: [10.129.0.36]
+2023-10-17 22:52:00,515 p=6781 u=igor n=ansible | TASK [filebeat : Update] ***************************************************************************************************************
+2023-10-17 22:52:02,367 p=6781 u=igor n=ansible | ok: [10.129.0.36]
+2023-10-17 22:52:02,375 p=6781 u=igor n=ansible | TASK [filebeat : Download filebeat] ****************************************************************************************************
+2023-10-17 22:52:03,860 p=6781 u=igor n=ansible | ok: [10.129.0.36]
+2023-10-17 22:52:03,867 p=6781 u=igor n=ansible | TASK [filebeat : Install filebeat] *****************************************************************************************************
+2023-10-17 22:52:05,089 p=6781 u=igor n=ansible | ok: [10.129.0.36]
+2023-10-17 22:52:05,099 p=6781 u=igor n=ansible | TASK [filebeat : Copy config] **********************************************************************************************************
+2023-10-17 22:52:06,110 p=6781 u=igor n=ansible | ok: [10.129.0.36]
+2023-10-17 22:52:06,117 p=6781 u=igor n=ansible | TASK [filebeat : started filebeat] *****************************************************************************************************
+2023-10-17 22:52:06,882 p=6781 u=igor n=ansible | ok: [10.129.0.36]
+2023-10-17 22:52:06,889 p=6781 u=igor n=ansible | TASK [filebeat : enable filebeat] ******************************************************************************************************
+2023-10-17 22:52:07,657 p=6781 u=igor n=ansible | ok: [10.129.0.36]
+2023-10-17 22:52:07,665 p=6781 u=igor n=ansible | TASK [filebeat : Restart] **************************************************************************************************************
+2023-10-17 22:52:08,481 p=6781 u=igor n=ansible | changed: [10.129.0.36]
+2023-10-17 22:52:08,492 p=6781 u=igor n=ansible | PLAY RECAP *****************************************************************************************************************************
+2023-10-17 22:52:08,492 p=6781 u=igor n=ansible | 10.128.0.11                : ok=9    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-17 22:52:08,493 p=6781 u=igor n=ansible | 10.128.0.31                : ok=8    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-17 22:52:08,493 p=6781 u=igor n=ansible | 10.129.0.36                : ok=8    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-18 00:26:14,950 p=9071 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-18 00:26:15,135 p=9071 u=igor n=ansible | PLAY [elastic-elvm] ********************************************************************************************************************
+2023-10-18 00:26:15,145 p=9071 u=igor n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2023-10-18 00:26:16,725 p=9071 u=igor n=ansible | ok: [10.128.0.27]
+2023-10-18 00:26:16,739 p=9071 u=igor n=ansible | TASK [elasticsearch : Update] **********************************************************************************************************
+2023-10-18 00:26:22,951 p=9071 u=igor n=ansible | changed: [10.128.0.27]
+2023-10-18 00:26:22,960 p=9071 u=igor n=ansible | TASK [elasticsearch : Download elasticsearch] ******************************************************************************************
+2023-10-18 00:26:37,066 p=9071 u=igor n=ansible | changed: [10.128.0.27]
+2023-10-18 00:26:37,073 p=9071 u=igor n=ansible | TASK [elasticsearch : Install java default] ********************************************************************************************
+2023-10-18 00:27:58,043 p=9071 u=igor n=ansible | changed: [10.128.0.27]
+2023-10-18 00:27:58,052 p=9071 u=igor n=ansible | TASK [elasticsearch : Install elasticsearch] *******************************************************************************************
+2023-10-18 00:28:38,063 p=9071 u=igor n=ansible | changed: [10.128.0.27]
+2023-10-18 00:28:38,073 p=9071 u=igor n=ansible | TASK [elasticsearch : Copy config] *****************************************************************************************************
+2023-10-18 00:28:39,411 p=9071 u=igor n=ansible | changed: [10.128.0.27]
+2023-10-18 00:28:39,416 p=9071 u=igor n=ansible | TASK [elasticsearch : started elasticsearch] *******************************************************************************************
+2023-10-18 00:29:22,594 p=9071 u=igor n=ansible | changed: [10.128.0.27]
+2023-10-18 00:29:22,604 p=9071 u=igor n=ansible | TASK [elasticsearch : enable elasticsearch] ********************************************************************************************
+2023-10-18 00:29:23,622 p=9071 u=igor n=ansible | changed: [10.128.0.27]
+2023-10-18 00:29:23,628 p=9071 u=igor n=ansible | RUNNING HANDLER [elasticsearch : elasticsearch] ****************************************************************************************
+2023-10-18 00:30:07,652 p=9071 u=igor n=ansible | changed: [10.128.0.27]
+2023-10-18 00:30:07,661 p=9071 u=igor n=ansible | PLAY [websrv-elvm-1] *******************************************************************************************************************
+2023-10-18 00:30:07,666 p=9071 u=igor n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2023-10-18 00:30:09,097 p=9071 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-18 00:30:09,116 p=9071 u=igor n=ansible | TASK [filebeat : Update] ***************************************************************************************************************
+2023-10-18 00:30:13,927 p=9071 u=igor n=ansible | changed: [10.128.0.34]
+2023-10-18 00:30:13,938 p=9071 u=igor n=ansible | TASK [filebeat : Download filebeat] ****************************************************************************************************
+2023-10-18 00:30:16,258 p=9071 u=igor n=ansible | changed: [10.128.0.34]
+2023-10-18 00:30:16,266 p=9071 u=igor n=ansible | TASK [filebeat : Install filebeat] *****************************************************************************************************
+2023-10-18 00:30:32,022 p=9071 u=igor n=ansible | changed: [10.128.0.34]
+2023-10-18 00:30:32,030 p=9071 u=igor n=ansible | TASK [filebeat : Copy config] **********************************************************************************************************
+2023-10-18 00:30:33,161 p=9071 u=igor n=ansible | changed: [10.128.0.34]
+2023-10-18 00:30:33,168 p=9071 u=igor n=ansible | TASK [filebeat : started filebeat] *****************************************************************************************************
+2023-10-18 00:30:33,954 p=9071 u=igor n=ansible | changed: [10.128.0.34]
+2023-10-18 00:30:33,962 p=9071 u=igor n=ansible | TASK [filebeat : enable filebeat] ******************************************************************************************************
+2023-10-18 00:30:35,126 p=9071 u=igor n=ansible | changed: [10.128.0.34]
+2023-10-18 00:30:35,133 p=9071 u=igor n=ansible | TASK [filebeat : Restart] **************************************************************************************************************
+2023-10-18 00:30:35,984 p=9071 u=igor n=ansible | changed: [10.128.0.34]
+2023-10-18 00:30:35,998 p=9071 u=igor n=ansible | PLAY [websrv-elvm-2] *******************************************************************************************************************
+2023-10-18 00:30:36,004 p=9071 u=igor n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2023-10-18 00:30:37,364 p=9071 u=igor n=ansible | ok: [10.129.0.8]
+2023-10-18 00:30:37,383 p=9071 u=igor n=ansible | TASK [filebeat : Update] ***************************************************************************************************************
+2023-10-18 00:30:42,098 p=9071 u=igor n=ansible | changed: [10.129.0.8]
+2023-10-18 00:30:42,104 p=9071 u=igor n=ansible | TASK [filebeat : Download filebeat] ****************************************************************************************************
+2023-10-18 00:30:44,420 p=9071 u=igor n=ansible | changed: [10.129.0.8]
+2023-10-18 00:30:44,427 p=9071 u=igor n=ansible | TASK [filebeat : Install filebeat] *****************************************************************************************************
+2023-10-18 00:30:56,946 p=9071 u=igor n=ansible | changed: [10.129.0.8]
+2023-10-18 00:30:56,951 p=9071 u=igor n=ansible | TASK [filebeat : Copy config] **********************************************************************************************************
+2023-10-18 00:30:58,126 p=9071 u=igor n=ansible | changed: [10.129.0.8]
+2023-10-18 00:30:58,131 p=9071 u=igor n=ansible | TASK [filebeat : started filebeat] *****************************************************************************************************
+2023-10-18 00:30:58,871 p=9071 u=igor n=ansible | changed: [10.129.0.8]
+2023-10-18 00:30:58,877 p=9071 u=igor n=ansible | TASK [filebeat : enable filebeat] ******************************************************************************************************
+2023-10-18 00:30:59,940 p=9071 u=igor n=ansible | changed: [10.129.0.8]
+2023-10-18 00:30:59,945 p=9071 u=igor n=ansible | TASK [filebeat : Restart] **************************************************************************************************************
+2023-10-18 00:31:00,770 p=9071 u=igor n=ansible | changed: [10.129.0.8]
+2023-10-18 00:31:00,780 p=9071 u=igor n=ansible | PLAY RECAP *****************************************************************************************************************************
+2023-10-18 00:31:00,781 p=9071 u=igor n=ansible | 10.128.0.27                : ok=9    changed=8    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-18 00:31:00,781 p=9071 u=igor n=ansible | 10.128.0.34                : ok=8    changed=7    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-18 00:31:00,781 p=9071 u=igor n=ansible | 10.129.0.8                 : ok=8    changed=7    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-18 00:42:48,131 p=9610 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-18 00:42:48,312 p=9610 u=igor n=ansible | PLAY [kibana-elvm] *********************************************************************************************************************
+2023-10-18 00:42:48,323 p=9610 u=igor n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2023-10-18 00:42:49,876 p=9610 u=igor n=ansible | ok: [10.128.0.38]
+2023-10-18 00:42:49,886 p=9610 u=igor n=ansible | TASK [kibana : Update] *****************************************************************************************************************
+2023-10-18 00:42:53,983 p=9610 u=igor n=ansible | changed: [10.128.0.38]
+2023-10-18 00:42:53,994 p=9610 u=igor n=ansible | TASK [kibana : Download kibana] ********************************************************************************************************
+2023-10-18 00:43:06,235 p=9610 u=igor n=ansible | changed: [10.128.0.38]
+2023-10-18 00:43:06,242 p=9610 u=igor n=ansible | TASK [kibana : Install kibana] *********************************************************************************************************
+2023-10-18 00:44:53,436 p=9610 u=igor n=ansible | changed: [10.128.0.38]
+2023-10-18 00:44:53,442 p=9610 u=igor n=ansible | TASK [kibana : Copy config] ************************************************************************************************************
+2023-10-18 00:44:54,911 p=9610 u=igor n=ansible | changed: [10.128.0.38]
+2023-10-18 00:44:54,917 p=9610 u=igor n=ansible | TASK [kibana : remove default site] ****************************************************************************************************
+2023-10-18 00:44:55,687 p=9610 u=igor n=ansible | changed: [10.128.0.38]
+2023-10-18 00:44:55,694 p=9610 u=igor n=ansible | TASK [kibana : Create a symbolic link] *************************************************************************************************
+2023-10-18 00:44:56,311 p=9610 u=igor n=ansible | fatal: [10.128.0.38]: FAILED! => {"changed": false, "msg": "src file does not exist, use \"force=yes\" if you really want to create the link: /etc/nginx/sites-available/kibana-elvm", "path": "/etc/nginx/sites-enabled/kibana-elvm", "src": "/etc/nginx/sites-available/kibana-elvm"}
+2023-10-18 00:44:56,312 p=9610 u=igor n=ansible | RUNNING HANDLER [kibana : kibana] ******************************************************************************************************
+2023-10-18 00:44:56,315 p=9610 u=igor n=ansible | PLAY RECAP *****************************************************************************************************************************
+2023-10-18 00:44:56,315 p=9610 u=igor n=ansible | 10.128.0.38                : ok=6    changed=5    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2023-10-18 00:48:19,452 p=9705 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-18 00:48:19,634 p=9705 u=igor n=ansible | PLAY [kibana-elvm] *********************************************************************************************************************
+2023-10-18 00:48:19,645 p=9705 u=igor n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2023-10-18 00:48:21,176 p=9705 u=igor n=ansible | ok: [10.128.0.38]
+2023-10-18 00:48:21,188 p=9705 u=igor n=ansible | TASK [kibana : Copy config nginx] ******************************************************************************************************
+2023-10-18 00:48:22,670 p=9705 u=igor n=ansible | ERROR! The requested handler 'restart nginx' was not found in either the main handlers list nor in the listening handlers list
+2023-10-18 00:49:17,711 p=9741 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-18 00:49:17,875 p=9741 u=igor n=ansible | PLAY [kibana-elvm] *********************************************************************************************************************
+2023-10-18 00:49:17,885 p=9741 u=igor n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2023-10-18 00:49:18,985 p=9741 u=igor n=ansible | ok: [10.128.0.38]
+2023-10-18 00:49:18,997 p=9741 u=igor n=ansible | TASK [kibana : Copy config nginx] ******************************************************************************************************
+2023-10-18 00:49:20,182 p=9741 u=igor n=ansible | ok: [10.128.0.38]
+2023-10-18 00:49:20,187 p=9741 u=igor n=ansible | TASK [kibana : Create a symbolic link] *************************************************************************************************
+2023-10-18 00:49:20,910 p=9741 u=igor n=ansible | changed: [10.128.0.38]
+2023-10-18 00:49:20,917 p=9741 u=igor n=ansible | TASK [kibana : started kibana] *********************************************************************************************************
+2023-10-18 00:49:21,977 p=9741 u=igor n=ansible | changed: [10.128.0.38]
+2023-10-18 00:49:21,983 p=9741 u=igor n=ansible | TASK [kibana : enable kibana] **********************************************************************************************************
+2023-10-18 00:49:23,103 p=9741 u=igor n=ansible | changed: [10.128.0.38]
+2023-10-18 00:49:23,112 p=9741 u=igor n=ansible | TASK [kibana : Restart nginx] **********************************************************************************************************
+2023-10-18 00:49:23,996 p=9741 u=igor n=ansible | changed: [10.128.0.38]
+2023-10-18 00:49:24,009 p=9741 u=igor n=ansible | PLAY RECAP *****************************************************************************************************************************
+2023-10-18 00:49:24,009 p=9741 u=igor n=ansible | 10.128.0.38                : ok=6    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-18 01:13:26,149 p=10296 u=igor n=ansible | ERROR! the playbook: ./ansible/elk-install.yml could not be found
+2023-10-18 01:13:34,596 p=10297 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-18 01:13:34,840 p=10297 u=igor n=ansible | PLAY [elastic-elvm] ********************************************************************************************************************
+2023-10-18 01:13:34,853 p=10297 u=igor n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2023-10-18 01:13:36,374 p=10297 u=igor n=ansible | ok: [10.128.0.34]
+2023-10-18 01:13:36,385 p=10297 u=igor n=ansible | TASK [elasticsearch : Update] **********************************************************************************************************
+2023-10-18 01:13:40,118 p=10297 u=igor n=ansible | changed: [10.128.0.34]
+2023-10-18 01:13:40,124 p=10297 u=igor n=ansible | TASK [elasticsearch : Download elasticsearch] ******************************************************************************************
+2023-10-18 01:13:56,168 p=10297 u=igor n=ansible | changed: [10.128.0.34]
+2023-10-18 01:13:56,178 p=10297 u=igor n=ansible | TASK [elasticsearch : Install java default] ********************************************************************************************
+2023-10-18 01:15:15,529 p=10297 u=igor n=ansible | changed: [10.128.0.34]
+2023-10-18 01:15:15,536 p=10297 u=igor n=ansible | TASK [elasticsearch : Install elasticsearch] *******************************************************************************************
+2023-10-18 01:15:55,450 p=10297 u=igor n=ansible | changed: [10.128.0.34]
+2023-10-18 01:15:55,460 p=10297 u=igor n=ansible | TASK [elasticsearch : Copy config] *****************************************************************************************************
+2023-10-18 01:15:56,831 p=10297 u=igor n=ansible | changed: [10.128.0.34]
+2023-10-18 01:15:56,837 p=10297 u=igor n=ansible | TASK [elasticsearch : started elasticsearch] *******************************************************************************************
+2023-10-18 01:16:46,161 p=10297 u=igor n=ansible | changed: [10.128.0.34]
+2023-10-18 01:16:46,168 p=10297 u=igor n=ansible | TASK [elasticsearch : enable elasticsearch] ********************************************************************************************
+2023-10-18 01:16:47,224 p=10297 u=igor n=ansible | changed: [10.128.0.34]
+2023-10-18 01:16:47,231 p=10297 u=igor n=ansible | RUNNING HANDLER [elasticsearch : elasticsearch] ****************************************************************************************
+2023-10-18 01:17:37,273 p=10297 u=igor n=ansible | changed: [10.128.0.34]
+2023-10-18 01:17:37,286 p=10297 u=igor n=ansible | PLAY [kibana-elvm] *********************************************************************************************************************
+2023-10-18 01:17:37,295 p=10297 u=igor n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2023-10-18 01:17:38,575 p=10297 u=igor n=ansible | ok: [10.128.0.37]
+2023-10-18 01:17:38,587 p=10297 u=igor n=ansible | TASK [kibana : Update] *****************************************************************************************************************
+2023-10-18 01:17:42,323 p=10297 u=igor n=ansible | changed: [10.128.0.37]
+2023-10-18 01:17:42,335 p=10297 u=igor n=ansible | TASK [kibana : Download kibana] ********************************************************************************************************
+2023-10-18 01:17:55,930 p=10297 u=igor n=ansible | changed: [10.128.0.37]
+2023-10-18 01:17:55,936 p=10297 u=igor n=ansible | TASK [kibana : Install kibana] *********************************************************************************************************
+2023-10-18 01:19:42,083 p=10297 u=igor n=ansible | changed: [10.128.0.37]
+2023-10-18 01:19:42,090 p=10297 u=igor n=ansible | TASK [kibana : Copy config] ************************************************************************************************************
+2023-10-18 01:19:43,183 p=10297 u=igor n=ansible | changed: [10.128.0.37]
+2023-10-18 01:19:43,189 p=10297 u=igor n=ansible | TASK [kibana : remove default site] ****************************************************************************************************
+2023-10-18 01:19:43,940 p=10297 u=igor n=ansible | changed: [10.128.0.37]
+2023-10-18 01:19:43,948 p=10297 u=igor n=ansible | TASK [kibana : Copy config nginx] ******************************************************************************************************
+2023-10-18 01:19:44,980 p=10297 u=igor n=ansible | changed: [10.128.0.37]
+2023-10-18 01:19:44,986 p=10297 u=igor n=ansible | TASK [kibana : Create a symbolic link] *************************************************************************************************
+2023-10-18 01:19:45,544 p=10297 u=igor n=ansible | changed: [10.128.0.37]
+2023-10-18 01:19:45,551 p=10297 u=igor n=ansible | TASK [kibana : started kibana] *********************************************************************************************************
+2023-10-18 01:19:46,264 p=10297 u=igor n=ansible | changed: [10.128.0.37]
+2023-10-18 01:19:46,270 p=10297 u=igor n=ansible | TASK [kibana : enable kibana] **********************************************************************************************************
+2023-10-18 01:19:47,628 p=10297 u=igor n=ansible | changed: [10.128.0.37]
+2023-10-18 01:19:47,634 p=10297 u=igor n=ansible | TASK [kibana : Restart nginx] **********************************************************************************************************
+2023-10-18 01:19:48,559 p=10297 u=igor n=ansible | changed: [10.128.0.37]
+2023-10-18 01:19:48,565 p=10297 u=igor n=ansible | RUNNING HANDLER [kibana : kibana] ******************************************************************************************************
+2023-10-18 01:19:54,640 p=10297 u=igor n=ansible | changed: [10.128.0.37]
+2023-10-18 01:19:54,640 p=10297 u=igor n=ansible | RUNNING HANDLER [kibana : nginx] *******************************************************************************************************
+2023-10-18 01:19:55,533 p=10297 u=igor n=ansible | changed: [10.128.0.37]
+2023-10-18 01:19:55,542 p=10297 u=igor n=ansible | PLAY [websrv-elvm-1] *******************************************************************************************************************
+2023-10-18 01:19:55,547 p=10297 u=igor n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2023-10-18 01:19:56,851 p=10297 u=igor n=ansible | ok: [10.128.0.11]
+2023-10-18 01:19:56,860 p=10297 u=igor n=ansible | TASK [filebeat : Update] ***************************************************************************************************************
+2023-10-18 01:20:01,518 p=10297 u=igor n=ansible | changed: [10.128.0.11]
+2023-10-18 01:20:01,524 p=10297 u=igor n=ansible | TASK [filebeat : Download filebeat] ****************************************************************************************************
+2023-10-18 01:20:03,949 p=10297 u=igor n=ansible | changed: [10.128.0.11]
+2023-10-18 01:20:03,959 p=10297 u=igor n=ansible | TASK [filebeat : Install filebeat] *****************************************************************************************************
+2023-10-18 01:20:15,974 p=10297 u=igor n=ansible | changed: [10.128.0.11]
+2023-10-18 01:20:15,981 p=10297 u=igor n=ansible | TASK [filebeat : Copy config] **********************************************************************************************************
+2023-10-18 01:20:17,042 p=10297 u=igor n=ansible | changed: [10.128.0.11]
+2023-10-18 01:20:17,048 p=10297 u=igor n=ansible | TASK [filebeat : started filebeat] *****************************************************************************************************
+2023-10-18 01:20:17,736 p=10297 u=igor n=ansible | changed: [10.128.0.11]
+2023-10-18 01:20:17,741 p=10297 u=igor n=ansible | TASK [filebeat : enable filebeat] ******************************************************************************************************
+2023-10-18 01:20:18,774 p=10297 u=igor n=ansible | changed: [10.128.0.11]
+2023-10-18 01:20:18,780 p=10297 u=igor n=ansible | TASK [filebeat : Restart] **************************************************************************************************************
+2023-10-18 01:20:19,517 p=10297 u=igor n=ansible | changed: [10.128.0.11]
+2023-10-18 01:20:19,531 p=10297 u=igor n=ansible | PLAY [websrv-elvm-2] *******************************************************************************************************************
+2023-10-18 01:20:19,537 p=10297 u=igor n=ansible | TASK [Gathering Facts] *****************************************************************************************************************
+2023-10-18 01:20:20,962 p=10297 u=igor n=ansible | ok: [10.129.0.26]
+2023-10-18 01:20:20,973 p=10297 u=igor n=ansible | TASK [filebeat : Update] ***************************************************************************************************************
+2023-10-18 01:20:26,971 p=10297 u=igor n=ansible | changed: [10.129.0.26]
+2023-10-18 01:20:26,979 p=10297 u=igor n=ansible | TASK [filebeat : Download filebeat] ****************************************************************************************************
+2023-10-18 01:20:29,687 p=10297 u=igor n=ansible | changed: [10.129.0.26]
+2023-10-18 01:20:29,694 p=10297 u=igor n=ansible | TASK [filebeat : Install filebeat] *****************************************************************************************************
+2023-10-18 01:20:43,931 p=10297 u=igor n=ansible | changed: [10.129.0.26]
+2023-10-18 01:20:43,942 p=10297 u=igor n=ansible | TASK [filebeat : Copy config] **********************************************************************************************************
+2023-10-18 01:20:45,176 p=10297 u=igor n=ansible | changed: [10.129.0.26]
+2023-10-18 01:20:45,182 p=10297 u=igor n=ansible | TASK [filebeat : started filebeat] *****************************************************************************************************
+2023-10-18 01:20:45,978 p=10297 u=igor n=ansible | changed: [10.129.0.26]
+2023-10-18 01:20:45,985 p=10297 u=igor n=ansible | TASK [filebeat : enable filebeat] ******************************************************************************************************
+2023-10-18 01:20:47,141 p=10297 u=igor n=ansible | changed: [10.129.0.26]
+2023-10-18 01:20:47,153 p=10297 u=igor n=ansible | TASK [filebeat : Restart] **************************************************************************************************************
+2023-10-18 01:20:47,989 p=10297 u=igor n=ansible | changed: [10.129.0.26]
+2023-10-18 01:20:48,001 p=10297 u=igor n=ansible | PLAY RECAP *****************************************************************************************************************************
+2023-10-18 01:20:48,002 p=10297 u=igor n=ansible | 10.128.0.11                : ok=8    changed=7    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-18 01:20:48,002 p=10297 u=igor n=ansible | 10.128.0.34                : ok=9    changed=8    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-18 01:20:48,002 p=10297 u=igor n=ansible | 10.128.0.37                : ok=13   changed=12   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-18 01:20:48,002 p=10297 u=igor n=ansible | 10.129.0.26                : ok=8    changed=7    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-18 09:05:33,921 p=17395 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-18 09:05:33,929 p=17395 u=igor n=ansible | [WARNING]: Could not match supplied host pattern, ignoring: ansible/install.yml
+
+2023-10-18 09:05:33,929 p=17395 u=igor n=ansible | [WARNING]: No hosts matched, nothing to do
+
+2023-10-18 09:05:33,933 p=17395 u=igor n=ansible | ERROR! No argument passed to command module (did you mean to run ansible-playbook?)
+2023-10-18 09:05:50,884 p=17396 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-18 09:05:51,093 p=17396 u=igor n=ansible | PLAY [elastic-elvm] ****************************************************************************************************
+2023-10-18 09:05:51,105 p=17396 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-10-18 09:05:52,680 p=17396 u=igor n=ansible | ok: [10.128.0.25]
+2023-10-18 09:05:52,691 p=17396 u=igor n=ansible | TASK [elasticsearch : Update] ******************************************************************************************
+2023-10-18 09:05:58,914 p=17396 u=igor n=ansible | changed: [10.128.0.25]
+2023-10-18 09:05:58,919 p=17396 u=igor n=ansible | TASK [elasticsearch : Download elasticsearch] **************************************************************************
+2023-10-18 09:06:13,020 p=17396 u=igor n=ansible | changed: [10.128.0.25]
+2023-10-18 09:06:13,033 p=17396 u=igor n=ansible | TASK [elasticsearch : Install java default] ****************************************************************************
+2023-10-18 09:07:33,414 p=17396 u=igor n=ansible | changed: [10.128.0.25]
+2023-10-18 09:07:33,421 p=17396 u=igor n=ansible | TASK [elasticsearch : Install elasticsearch] ***************************************************************************
+2023-10-18 09:08:13,324 p=17396 u=igor n=ansible | changed: [10.128.0.25]
+2023-10-18 09:08:13,331 p=17396 u=igor n=ansible | TASK [elasticsearch : Copy config] *************************************************************************************
+2023-10-18 09:08:14,840 p=17396 u=igor n=ansible | changed: [10.128.0.25]
+2023-10-18 09:08:14,849 p=17396 u=igor n=ansible | TASK [elasticsearch : started elasticsearch] ***************************************************************************
+2023-10-18 09:09:03,294 p=17396 u=igor n=ansible | changed: [10.128.0.25]
+2023-10-18 09:09:03,301 p=17396 u=igor n=ansible | TASK [elasticsearch : enable elasticsearch] ****************************************************************************
+2023-10-18 09:09:04,386 p=17396 u=igor n=ansible | changed: [10.128.0.25]
+2023-10-18 09:09:04,394 p=17396 u=igor n=ansible | RUNNING HANDLER [elasticsearch : elasticsearch] ************************************************************************
+2023-10-18 09:09:54,692 p=17396 u=igor n=ansible | changed: [10.128.0.25]
+2023-10-18 09:09:54,702 p=17396 u=igor n=ansible | PLAY [kibana-elvm] *****************************************************************************************************
+2023-10-18 09:09:54,708 p=17396 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-10-18 09:09:55,973 p=17396 u=igor n=ansible | ok: [10.128.0.15]
+2023-10-18 09:09:55,984 p=17396 u=igor n=ansible | TASK [kibana : Update] *************************************************************************************************
+2023-10-18 09:09:59,674 p=17396 u=igor n=ansible | changed: [10.128.0.15]
+2023-10-18 09:09:59,681 p=17396 u=igor n=ansible | TASK [kibana : Download kibana] ****************************************************************************************
+2023-10-18 09:10:13,543 p=17396 u=igor n=ansible | changed: [10.128.0.15]
+2023-10-18 09:10:13,550 p=17396 u=igor n=ansible | TASK [kibana : Install kibana] *****************************************************************************************
+2023-10-18 09:12:03,087 p=17396 u=igor n=ansible | changed: [10.128.0.15]
+2023-10-18 09:12:03,098 p=17396 u=igor n=ansible | TASK [kibana : Copy config] ********************************************************************************************
+2023-10-18 09:12:04,201 p=17396 u=igor n=ansible | changed: [10.128.0.15]
+2023-10-18 09:12:04,212 p=17396 u=igor n=ansible | TASK [kibana : remove default site] ************************************************************************************
+2023-10-18 09:12:05,004 p=17396 u=igor n=ansible | changed: [10.128.0.15]
+2023-10-18 09:12:05,010 p=17396 u=igor n=ansible | TASK [kibana : Copy config nginx] **************************************************************************************
+2023-10-18 09:12:06,112 p=17396 u=igor n=ansible | changed: [10.128.0.15]
+2023-10-18 09:12:06,120 p=17396 u=igor n=ansible | TASK [kibana : Create a symbolic link] *********************************************************************************
+2023-10-18 09:12:06,687 p=17396 u=igor n=ansible | changed: [10.128.0.15]
+2023-10-18 09:12:06,695 p=17396 u=igor n=ansible | TASK [kibana : started kibana] *****************************************************************************************
+2023-10-18 09:12:07,391 p=17396 u=igor n=ansible | changed: [10.128.0.15]
+2023-10-18 09:12:07,398 p=17396 u=igor n=ansible | TASK [kibana : enable kibana] ******************************************************************************************
+2023-10-18 09:12:08,724 p=17396 u=igor n=ansible | changed: [10.128.0.15]
+2023-10-18 09:12:08,730 p=17396 u=igor n=ansible | TASK [kibana : Restart nginx] ******************************************************************************************
+2023-10-18 09:12:09,599 p=17396 u=igor n=ansible | changed: [10.128.0.15]
+2023-10-18 09:12:09,610 p=17396 u=igor n=ansible | RUNNING HANDLER [kibana : kibana] **************************************************************************************
+2023-10-18 09:12:15,729 p=17396 u=igor n=ansible | changed: [10.128.0.15]
+2023-10-18 09:12:15,730 p=17396 u=igor n=ansible | RUNNING HANDLER [kibana : nginx] ***************************************************************************************
+2023-10-18 09:12:16,672 p=17396 u=igor n=ansible | changed: [10.128.0.15]
+2023-10-18 09:12:16,680 p=17396 u=igor n=ansible | PLAY [websrv-elvm-1] ***************************************************************************************************
+2023-10-18 09:12:16,686 p=17396 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-10-18 09:12:17,980 p=17396 u=igor n=ansible | ok: [10.128.0.36]
+2023-10-18 09:12:17,991 p=17396 u=igor n=ansible | TASK [filebeat : Update] ***********************************************************************************************
+2023-10-18 09:12:22,638 p=17396 u=igor n=ansible | changed: [10.128.0.36]
+2023-10-18 09:12:22,644 p=17396 u=igor n=ansible | TASK [filebeat : Download filebeat] ************************************************************************************
+2023-10-18 09:12:25,067 p=17396 u=igor n=ansible | changed: [10.128.0.36]
+2023-10-18 09:12:25,073 p=17396 u=igor n=ansible | TASK [filebeat : Install filebeat] *************************************************************************************
+2023-10-18 09:12:37,967 p=17396 u=igor n=ansible | changed: [10.128.0.36]
+2023-10-18 09:12:37,975 p=17396 u=igor n=ansible | TASK [filebeat : Copy config] ******************************************************************************************
+2023-10-18 09:12:39,027 p=17396 u=igor n=ansible | changed: [10.128.0.36]
+2023-10-18 09:12:39,033 p=17396 u=igor n=ansible | TASK [filebeat : started filebeat] *************************************************************************************
+2023-10-18 09:12:39,712 p=17396 u=igor n=ansible | changed: [10.128.0.36]
+2023-10-18 09:12:39,718 p=17396 u=igor n=ansible | TASK [filebeat : enable filebeat] **************************************************************************************
+2023-10-18 09:12:40,747 p=17396 u=igor n=ansible | changed: [10.128.0.36]
+2023-10-18 09:12:40,753 p=17396 u=igor n=ansible | TASK [filebeat : Restart] **********************************************************************************************
+2023-10-18 09:12:42,064 p=17396 u=igor n=ansible | changed: [10.128.0.36]
+2023-10-18 09:12:42,077 p=17396 u=igor n=ansible | PLAY [websrv-elvm-2] ***************************************************************************************************
+2023-10-18 09:12:42,083 p=17396 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-10-18 09:12:43,389 p=17396 u=igor n=ansible | ok: [10.129.0.34]
+2023-10-18 09:12:43,400 p=17396 u=igor n=ansible | TASK [filebeat : Update] ***********************************************************************************************
+2023-10-18 09:12:47,959 p=17396 u=igor n=ansible | changed: [10.129.0.34]
+2023-10-18 09:12:47,965 p=17396 u=igor n=ansible | TASK [filebeat : Download filebeat] ************************************************************************************
+2023-10-18 09:12:50,315 p=17396 u=igor n=ansible | changed: [10.129.0.34]
+2023-10-18 09:12:50,325 p=17396 u=igor n=ansible | TASK [filebeat : Install filebeat] *************************************************************************************
+2023-10-18 09:13:03,131 p=17396 u=igor n=ansible | changed: [10.129.0.34]
+2023-10-18 09:13:03,143 p=17396 u=igor n=ansible | TASK [filebeat : Copy config] ******************************************************************************************
+2023-10-18 09:13:04,359 p=17396 u=igor n=ansible | changed: [10.129.0.34]
+2023-10-18 09:13:04,366 p=17396 u=igor n=ansible | TASK [filebeat : started filebeat] *************************************************************************************
+2023-10-18 09:13:05,164 p=17396 u=igor n=ansible | changed: [10.129.0.34]
+2023-10-18 09:13:05,170 p=17396 u=igor n=ansible | TASK [filebeat : enable filebeat] **************************************************************************************
+2023-10-18 09:13:06,231 p=17396 u=igor n=ansible | changed: [10.129.0.34]
+2023-10-18 09:13:06,238 p=17396 u=igor n=ansible | TASK [filebeat : Restart] **********************************************************************************************
+2023-10-18 09:13:07,226 p=17396 u=igor n=ansible | changed: [10.129.0.34]
+2023-10-18 09:13:07,241 p=17396 u=igor n=ansible | PLAY RECAP *************************************************************************************************************
+2023-10-18 09:13:07,242 p=17396 u=igor n=ansible | 10.128.0.15                : ok=13   changed=12   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-18 09:13:07,242 p=17396 u=igor n=ansible | 10.128.0.25                : ok=9    changed=8    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-18 09:13:07,242 p=17396 u=igor n=ansible | 10.128.0.36                : ok=8    changed=7    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-18 09:13:07,243 p=17396 u=igor n=ansible | 10.129.0.34                : ok=8    changed=7    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
