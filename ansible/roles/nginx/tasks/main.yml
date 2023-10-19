@@ -1,0 +1,8 @@
+---
+- name: Install nginx
+  apt: name='nginx' state='latest' update_cache='true'
+  environment: "{{ proxy_env }}"  
+- name: Copy config
+  copy: src='nginx.conf' dest='/etc/nginx/nginx.conf'
+- name: Restart nginx 
+  service: name='nginx' state='restarted'

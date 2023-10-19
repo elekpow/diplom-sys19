@@ -29,7 +29,7 @@ resource "yandex_compute_instance" "zabbix-elvm" {
   }
 
   metadata = {
-    user-data = "${file("./metadata/zabbix.yml")}"
+    user-data = "${file("./metadata/servers.yml")}"
     serial-port-enable = 1
   } 
 

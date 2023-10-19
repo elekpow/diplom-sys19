@@ -1,0 +1,5 @@
+Acquire::http::proxy "http://user1:123456@bastion-elvm:3128/";
+#Acquire::https::proxy "https://username:password@proxy.com:port/";
+#Acquire::ftp::proxy "http://username:password@proxy.com:port/";
+#Acquire::socks::proxy "socks://username:password@proxy.com:port/";
+Acquire::::Proxy "true";

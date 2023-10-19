@@ -47,20 +47,14 @@ resource "yandex_vpc_default_security_group" "bastion-sg" {
     port           = 22
   }
   
-  ingress {
-    protocol       = "ICMP"
+  egress {
+    protocol       = "ANY"
     description    = "ping"
     v4_cidr_blocks = ["0.0.0.0/0"]
     from_port = 0
     to_port = 65535
   } 
-  
-  egress {
-    port           = 22
-    protocol = "TCP"
-    v4_cidr_blocks= ["0.0.0.0/0"]
-  }
-    
+      
 }
 
 resource "yandex_vpc_security_group" "internal-sg" {
@@ -153,10 +147,8 @@ resource "yandex_vpc_security_group" "internal-sg" {
     v4_cidr_blocks= ["0.0.0.0/0"]
 	from_port = 0
     to_port = 65535
-  }    
-    
-    
-    	
+  }  
+ 	
   egress {
     description    = "zabbix"
     protocol = "TCP"
@@ -178,6 +170,7 @@ resource "yandex_vpc_security_group" "internal-sg" {
     port           = 5601
   }    
     
-    
+ 
+     
 	
 }

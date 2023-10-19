@@ -1,0 +1,21 @@
+---
+- name: download zabbix agent file with proxy
+  ansible.builtin.get_url:
+    url: "https://repo.zabbix.com/zabbix/6.4/debian/pool/main/z/zabbix-release/zabbix-release_6.4-1+debian11_all.deb"
+    dest: "./zabbix-release_6.4-1+debian11_all.deb"
+    mode: '0644'
+  environment: "{{ proxy_env }}"  
+- name: Install zabbix agent
+  apt: deb=./zabbix-release_6.4-1+debian11_all.deb  
+- name: Install zabbix agent
+  apt: name='zabbix-agent' state='present' update_cache='true'
+  environment: "{{ proxy_env }}" 
+  notify: zabbix-agent  
+- name: stopped zabbix agent
+  service: name='zabbix-agent' state='stopped'  
+- name: Remove  zabbix agent
+  file: path='/etc/zabbix/zabbix_agentd.conf' state='absent'  
+- name: Copy config
+  copy: src='zabbix_agentd.conf.j2' dest='/etc/zabbix/zabbix_agentd.conf'
+- name: zabbix-agent
+  service: name='zabbix-agent' state='restarted' 

@@ -36,7 +36,16 @@ depends_on = [yandex_vpc_default_security_group.bastion-sg]
     serial-port-enable = 1
   }
  
-  provisioner "local-exec" {
+ provisioner "local-exec" {
+   command = " echo '[${var.hostnames[0]}]' >> ./ansible/inventory"
+ } 
+ 
+ provisioner "local-exec" {
+   command = " echo '${self.network_interface.0.ip_address}\n' >> ./ansible/inventory"
+ } 
+ 
+ 
+ provisioner "local-exec" {
    command = " echo '[all:vars]' >> ./ansible/inventory"
  } 
   provisioner "local-exec" {
@@ -48,7 +57,8 @@ depends_on = [yandex_vpc_default_security_group.bastion-sg]
   provisioner "local-exec" {
    command = " echo ' ansible_ssh_common_args=''-o StrictHostKeyChecking=no -o ProxyCommand=\"ssh -W %h:%p -q ${var.ssh_user[1]}@${self.network_interface.0.nat_ip_address}\"' >> ./ansible/inventory"
  }  
-}
+ 
+ }
 
   resource "null_resource" "vm-hosts" {
   provisioner "local-exec" {
