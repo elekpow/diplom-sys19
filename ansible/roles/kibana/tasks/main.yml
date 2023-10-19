@@ -1,39 +1,27 @@
 ---
 - name: Update
-  apt: update_cache=yes
+  apt: update_cache='yes'
+  environment: "{{ proxy_env }}"  
 - name: Download kibana
   get_url: 
-    url: https://repo.limubai.ru/kibana-7.17.9-amd64.deb
-    dest: ./kibana-7.17.9-amd64.deb
+    url='https://repo.limubai.ru/kibana-7.17.9-amd64.deb' dest='./kibana-7.17.9-amd64.deb'
+  environment: "{{ proxy_env }}"  
 - name: Install kibana
-  apt: deb=./kibana-7.17.9-amd64.deb
+  apt: deb='./kibana-7.17.9-amd64.deb'
 - name: Copy config
-  copy: src=kibanaConf.j2 dest=/etc/kibana/kibana.yml
-  notify: kibana
+  copy: src='kibanaConf.j2' dest='/etc/kibana/kibana.yml'
 - name: remove default site
-  file: 
-    path: /etc/nginx/sites-enabled/default
-    state: absent
+  file: path='/etc/nginx/sites-enabled/default' state='absent'
 - name: Copy config nginx
-  copy: src=kibana-elvm dest=/etc/nginx/sites-available/kibana-elvm
-  notify: nginx      
+  copy: src='kibana-elvm' dest='/etc/nginx/sites-available/kibana-elvm'  
 - name: Create a symbolic link
-  file: 
-    src: /etc/nginx/sites-available/kibana-elvm 
-    dest: /etc/nginx/sites-enabled/kibana-elvm
-    state: link
+  file: src='/etc/nginx/sites-available/kibana-elvm' dest='/etc/nginx/sites-enabled/kibana-elvm' state='link'
 - name: Restart nginx
-  service:
-    name: nginx 
-    state: restarted
+  service: name='nginx' state='restarted'
 - name: started kibana
-  service:
-    name: kibana 
-    state: started
+  service: name='kibana' state='started'
 - name: enable kibana
-  service:
-    name: kibana 
-    enabled: yes
+  service: name='kibana' enabled='yes'
 - name: export dashboard
   copy: 
     src: json.sh 
@@ -43,14 +31,11 @@
     mode: '1777' 
 - name: Execute the script
   shell: sh /home/igor/json.sh
-
 # - name: request POST
   # ansible.builtin.shell: |
     # curl --fail --request POST --header 'Content-Type: application/json' --header 'kbn-xsrf: this_is_required_header' 'http://localhost:5601/api/saved_objects/index-pattern/filebeat-web-*?overwrite=true' --data '{"attributes":{"title":"filebeat-web-*","timeFieldName":"@timestamp"}}' 'http://localhost:5601/api/saved_objects/index-pattern/filebeat-web-*?overwrite=true'
 - name: export dashboard
-  copy: src=export.json dest=/home/igor/export.json 
+  copy: src='export.json' dest='home/igor/export.json' 
 - name: request POST
   ansible.builtin.shell: |
     curl -X POST -H "Content-Type: application/json" -H "kbn-xsrf: true" -d @export.json http://localhost:5601/api/kibana/dashboards/import
-
-  
