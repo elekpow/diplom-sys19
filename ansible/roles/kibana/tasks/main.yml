@@ -35,7 +35,7 @@
   # ansible.builtin.shell: |
     # curl --fail --request POST --header 'Content-Type: application/json' --header 'kbn-xsrf: this_is_required_header' 'http://localhost:5601/api/saved_objects/index-pattern/filebeat-web-*?overwrite=true' --data '{"attributes":{"title":"filebeat-web-*","timeFieldName":"@timestamp"}}' 'http://localhost:5601/api/saved_objects/index-pattern/filebeat-web-*?overwrite=true'
 - name: export dashboard
-  copy: src='export.json' dest='home/igor/export.json' 
+  copy: src='export.json' dest='/home/igor/export.json' 
 - name: request POST
   ansible.builtin.shell: |
     curl -X POST -H "Content-Type: application/json" -H "kbn-xsrf: true" -d @export.json http://localhost:5601/api/kibana/dashboards/import

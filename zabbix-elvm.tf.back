@@ -34,7 +34,7 @@ resource "yandex_compute_instance" "zabbix-elvm" {
   } 
 
  provisioner "local-exec" {
-   command = "sed -i 's|#monhost1|${self.network_interface.0.ip_address}|g' ./ansible/inventory"
+   command = "sed -i 's|#zabbix1|${self.network_interface.0.ip_address}|g' ./ansible/inventory"
  } 
  
 

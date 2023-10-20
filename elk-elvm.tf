@@ -29,12 +29,12 @@ resource "yandex_compute_instance" "elastic-elvm" {
   }
 
   metadata = {
-    user-data = "${file("./metadata/websrv.yml")}"
+    user-data = "${file("./metadata/servers.yml")}"
     serial-port-enable = 1
   } 
 
  provisioner "local-exec" {
-   command = "sed -i 's|#loghost1|${self.network_interface.0.ip_address}|g' ./ansible/inventory"
+   command = "sed -i 's|#elastichost1|${self.network_interface.0.ip_address}|g' ./ansible/inventory"
  } 
 
 }
@@ -70,12 +70,12 @@ resource "yandex_compute_instance" "kibana-elvm" {
   }
 
   metadata = {
-    user-data = "${file("./metadata/websrv.yml")}"
+    user-data = "${file("./metadata/servers.yml")}"
     serial-port-enable = 1
   } 
 
  provisioner "local-exec" {
-   command = "sed -i 's|#loghost2|${self.network_interface.0.ip_address}|g' ./ansible/inventory"
+   command = "sed -i 's|#kibanahost1|${self.network_interface.0.ip_address}|g' ./ansible/inventory"
  } 
 
  

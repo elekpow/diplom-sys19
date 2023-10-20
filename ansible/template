@@ -4,19 +4,29 @@ bastion-elvm:
 websrv-elvm:
   hosts:
     #webhost1:
-    #webhost2:
-    #webhost3:    
+    #webhost2:  
   vars:
     ansible_python_interpreter: '/usr/bin/python3'
     ansible_ssh_user: 'igor'
     ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o ProxyCommand="ssh -W %h:%p -q bastion@#bastionhost1"'    
-logservers:
+elastic-elvm:
   hosts:
-    #loghost1:
-    #loghost2:
-    #loghost3:
-monitoring:
+    #elastichost1:
+  vars:
+    ansible_python_interpreter: '/usr/bin/python3'
+    ansible_ssh_user: 'igor'
+    ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o ProxyCommand="ssh -W %h:%p -q bastion@#bastionhost1"'        
+kibana-elvm:
   hosts:
-    #monhost1:
-    #monhost2:
-    #monhost3:
+    #kibanahost1:
+  vars:
+    ansible_python_interpreter: '/usr/bin/python3'
+    ansible_ssh_user: 'igor'
+    ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o ProxyCommand="ssh -W %h:%p -q bastion@#bastionhost1"'        
+zabbix-elvm:
+  hosts:
+    #zabbix1:
+  vars:
+    ansible_python_interpreter: '/usr/bin/python3'
+    ansible_ssh_user: 'igor'
+    ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o ProxyCommand="ssh -W %h:%p -q bastion@#bastionhost1"'        
