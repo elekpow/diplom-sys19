@@ -34,29 +34,8 @@ resource "yandex_compute_instance" "elastic-elvm" {
   } 
 
  provisioner "local-exec" {
-   command = " echo '[${var.hostnames[4]}]' >> ./ansible/inventory"
+   command = "sed -i 's|#loghost1|${self.network_interface.0.ip_address}|g' ./ansible/inventory"
  } 
- 
- provisioner "local-exec" {
-   command = " echo '${self.network_interface.0.ip_address}\n' >> ./ansible/inventory"
- }
-
-  # provisioner "remote-exec" {
-   # inline = [
-        # "echo hello ${var.hostnames[4]}",       
-        # "sudo sed -i \"s|#numb|${var.hostnames[4]}|g\" /tmp/index_website.html",          
-   # ]
- 
-  # connection {
-     # type = "ssh"
-     # user = "${var.ssh_user[0]}"
-     # host = self.network_interface.0.ip_address
-     # agent = true
-     
-     # bastion_user = "${var.ssh_user[1]}"
-     # bastion_host = yandex_compute_instance.bastion-elvm.network_interface.0.nat_ip_address     
-  # }
- # }
 
 }
 
@@ -96,29 +75,9 @@ resource "yandex_compute_instance" "kibana-elvm" {
   } 
 
  provisioner "local-exec" {
-   command = " echo '[${var.hostnames[5]}]' >> ./ansible/inventory"
+   command = "sed -i 's|#loghost2|${self.network_interface.0.ip_address}|g' ./ansible/inventory"
  } 
- 
- provisioner "local-exec" {
-   command = " echo '${self.network_interface.0.ip_address}\n' >> ./ansible/inventory"
- }
 
- # provisioner "remote-exec" {
-   # inline = [
-        # "echo hello ${var.hostnames[5]}",       
-        # "sudo sed -i \"s|#numb|${var.hostnames[5]}|g\" /tmp/index_website.html",          
-   # ]
- 
-  # connection {
-     # type = "ssh"
-     # user = "${var.ssh_user[0]}"
-     # host = self.network_interface.0.ip_address
-     # agent = true
-     
-     # bastion_user = "${var.ssh_user[1]}"
-     # bastion_host = yandex_compute_instance.bastion-elvm.network_interface.0.nat_ip_address     
-  # }
- # } 
  
 }
 

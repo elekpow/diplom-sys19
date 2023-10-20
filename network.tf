@@ -46,6 +46,13 @@ resource "yandex_vpc_default_security_group" "bastion-sg" {
     v4_cidr_blocks = ["0.0.0.0/0"]
     port           = 22
   }
+
+  ingress {
+    protocol       = "TCP"
+    description    = "proxy"
+    v4_cidr_blocks = ["10.128.0.0/24","10.129.0.0/24","10.130.0.0/24"]
+    port           = 3128
+  }
   
   egress {
     protocol       = "ANY"
@@ -170,7 +177,12 @@ resource "yandex_vpc_security_group" "internal-sg" {
     port           = 5601
   }    
     
- 
+   egress {
+    protocol       = "TCP"
+    description    = "proxy"
+    v4_cidr_blocks = ["10.130.0.254/32"]
+    port           = 3128
+  }
      
 	
 }

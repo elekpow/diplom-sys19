@@ -24,41 +24,17 @@ resource "yandex_compute_instance" "websrv-elvm-1" {
 
   network_interface {
     subnet_id = yandex_vpc_subnet.subnet-a.id
-    security_group_ids = [yandex_vpc_security_group.internal-sg.id]    
-  #  nat       = true
+    security_group_ids = [yandex_vpc_security_group.internal-sg.id]
   }
 
   metadata = {
     user-data = "${file("./metadata/servers.yml")}"
     serial-port-enable = 1
   } 
-
  provisioner "local-exec" {
-   command = " echo '[${var.hostnames[1]}]' >> ./ansible/inventory"
+   command = "sed -i 's|#webhost1|${self.network_interface.0.ip_address}|g' ./ansible/inventory"
  } 
- 
- provisioner "local-exec" {
-   command = " echo '${self.network_interface.0.ip_address}\n' >> ./ansible/inventory"
- }
 
-
- 
- # provisioner "remote-exec" {
-   # inline = [
-        # "echo hello ${var.hostnames[1]}",       
-        # "sudo sed -i \"s|#numb|${var.hostnames[1]}|g\" /tmp/index_website.html",          
-   # ]
- 
-  # connection {
-     # type = "ssh"
-     # user = "${var.ssh_user[0]}"
-     # host = self.network_interface.0.ip_address
-     # agent = true
-     
-     # bastion_user = "${var.ssh_user[1]}"
-     # bastion_host = yandex_compute_instance.bastion-elvm.network_interface.0.nat_ip_address     
-  # }
- # }
 }
 
 resource "yandex_compute_instance" "websrv-elvm-2" {
@@ -88,7 +64,6 @@ resource "yandex_compute_instance" "websrv-elvm-2" {
   network_interface {
     subnet_id = yandex_vpc_subnet.subnet-b.id
     security_group_ids = [yandex_vpc_security_group.internal-sg.id]    
-  #  nat       = true
   }
 
   metadata = {
@@ -97,29 +72,9 @@ resource "yandex_compute_instance" "websrv-elvm-2" {
   } 
 
  provisioner "local-exec" {
-   command = " echo '[${var.hostnames[2]}]' >> ./ansible/inventory"
+   command = "sed -i 's|#webhost2|${self.network_interface.0.ip_address}|g' ./ansible/inventory"
  } 
- 
- provisioner "local-exec" {
-   command = " echo '${self.network_interface.0.ip_address}\n' >> ./ansible/inventory"
- }
-  
- # provisioner "remote-exec" {
-   # inline = [
-        # "echo hello ${var.hostnames[2]}",       
-        # "sudo sed -i \"s|#numb|${var.hostnames[2]}|g\" /tmp/index_website.html",          
-     
-   # ] 
-   # connection {
-     # type = "ssh"
-     # user = "${var.ssh_user[0]}"
-     # host = self.network_interface.0.ip_address
-     # agent = true
-     
-     # bastion_user = "${var.ssh_user[1]}"
-     # bastion_host = yandex_compute_instance.bastion-elvm.network_interface.0.nat_ip_address     
-  # } 
- # } 
+
 }
 
 output "local_ip_websrv-elvm-1" {

@@ -29,7 +29,7 @@ resource "yandex_compute_instance" "bastion-elvm" {
     ip_address = "10.130.0.254"
   }
 
-depends_on = [yandex_vpc_default_security_group.bastion-sg]
+  depends_on = [yandex_vpc_default_security_group.bastion-sg]
 
   metadata = {
     user-data = "${file("./metadata/bastion.yml")}"
@@ -37,32 +37,15 @@ depends_on = [yandex_vpc_default_security_group.bastion-sg]
   }
  
  provisioner "local-exec" {
-   command = " echo '[${var.hostnames[0]}]' >> ./ansible/inventory"
- } 
- 
- provisioner "local-exec" {
-   command = " echo '${self.network_interface.0.ip_address}\n' >> ./ansible/inventory"
+   command = "sed -i 's|#bastionhost1|${self.network_interface.0.nat_ip_address}|g' ./ansible/inventory"
  } 
  
  
- provisioner "local-exec" {
-   command = " echo '[all:vars]' >> ./ansible/inventory"
- } 
-  provisioner "local-exec" {
-   command = " echo ' ansible_python_interpreter=/usr/bin/python3' >> ./ansible/inventory"
- } 
-  provisioner "local-exec" {
-   command = " echo ' ansible_ssh_user=${var.ssh_user[0]}' >> ./ansible/inventory"
- } 
-  provisioner "local-exec" {
-   command = " echo ' ansible_ssh_common_args=''-o StrictHostKeyChecking=no -o ProxyCommand=\"ssh -W %h:%p -q ${var.ssh_user[1]}@${self.network_interface.0.nat_ip_address}\"' >> ./ansible/inventory"
- }  
- 
- }
+}
 
-  resource "null_resource" "vm-hosts" {
+resource "null_resource" "vm-hosts" {
   provisioner "local-exec" {
-    command = "rm -rf ./ansible/inventory"
+    command = "cp ./ansible/template ./ansible/inventory"
   }
 }
 

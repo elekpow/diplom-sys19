@@ -1,15 +1,15 @@
 bastion-elvm:
   hosts:
-    130.193.51.161:  
+    #bastionhost1:  
 websrv-elvm:
   hosts:
-    10.128.0.6:
-    10.129.0.14:
+    #webhost1:
+    #webhost2:
     #webhost3:    
   vars:
     ansible_python_interpreter: '/usr/bin/python3'
     ansible_ssh_user: 'igor'
-    ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o ProxyCommand="ssh -W %h:%p -q bastion@130.193.51.161"'    
+    ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o ProxyCommand="ssh -W %h:%p -q bastion@#bastionhost1"'    
 logservers:
   hosts:
     #loghost1:

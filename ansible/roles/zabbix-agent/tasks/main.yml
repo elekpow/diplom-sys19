@@ -6,7 +6,7 @@
     mode: '0644'
   environment: "{{ proxy_env }}"  
 - name: Install zabbix agent
-  apt: deb=./zabbix-release_6.4-1+debian11_all.deb  
+  apt: deb='./zabbix-release_6.4-1+debian11_all.deb'  
 - name: Install zabbix agent
   apt: name='zabbix-agent' state='present' update_cache='true'
   environment: "{{ proxy_env }}" 

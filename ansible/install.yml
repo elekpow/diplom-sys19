@@ -4,20 +4,13 @@
   remote_user: bastion
   roles:
     - bastion
-- hosts: websrv-elvm-1 ## web server 1
+- hosts: websrv-elvm ## web server 1
   become: yes
   remote_user: igor 
   roles:
     - zabbix-agent
     - nginx
-    - filebeat
-- hosts: websrv-elvm-2 ## web server 2
-  become: yes
-  remote_user: igor
-  roles:
-    - filebeat
-    - zabbix-agent
-    - nginx    
+    - filebeat 
 - hosts: elastic-elvm ## elastic server
   become: yes
   remote_user: igor

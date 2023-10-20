@@ -7,8 +7,8 @@
   copy: src='squid.conf' dest='/etc/squid/squid.conf'
 - name: Copy auth_users
   copy: src='auth_users' dest='/etc/squid/auth_users'
-# - name: stopped squid
-  # service: name=squid state=stopped  
+- name: stopped squid
+  service: name=squid state=stopped
 - name: request shell squid
   shell: squid -z 
 - name: started squid
