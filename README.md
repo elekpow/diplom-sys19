@@ -204,7 +204,7 @@ output "balancer_ip-elvm" {
 }
 ```
 
-
+## Инфраструктура проекта
 curl localhost:9200/_nodes/stats/process?pretty
 
 sudo systemctl stop kibana
