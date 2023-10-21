@@ -227,3 +227,157 @@ curl -v 51.250.47.212:80
 Создайте snapshot дисков всех ВМ. Ограничьте время жизни snaphot в неделю. Сами snaphot настройте на ежедневное копирование.
 
 terraform destroy -auto-approve
+
+
+Структура проекта
+
+```
+.
+├── ansible
+│   ├── install.yml
+│   ├── inventory
+│   ├── roles
+│   └── template
+├── ansible.cfg
+├── bastion-elvm.tf
+├── elk-elvm.tf
+├── metadata
+│   ├── bastion.yml
+│   └── servers.yml
+├── network.tf
+├── provider.tf
+├── target-group.tf
+├── variables.tf
+├── websrv-elvm.tf
+└── zabbix-elvm.tf
+```
+
+Ansible roles
+
+```
+ansible
+├── roles
+│   ├── bastion
+│   ├── elasticsearch
+│   ├── filebeat
+│   ├── kibana
+│   ├── nginx
+│   ├── zabbix
+│   └── zabbix-agent
+├── install.yml
+└── template
+```
+
+
+
+```
+Outputs:
+
+bastion-elvm = "158.160.45.111"
+host_kibana-elvm = "158.160.34.141"
+host_zabbix-elvm = "158.160.56.157"
+ip_elvm-balancer = "51.250.46.167"
+local_ip_elastic-elvm = "172.16.121.29"
+local_ip_kibana-elvm = "172.16.121.20"
+local_ip_websrv-elvm-1 = "172.16.121.33"
+local_ip_websrv-elvm-2 = "172.16.122.6"
+local_ip_zabbix-elvm = "172.16.121.21"
+```
+
+ip адрес бастион хоста `158.160.45.111`
+
+Веб сервера находяться в приватной сети
+
+```
+local_ip_websrv-elvm-1 = "172.16.121.33"
+local_ip_websrv-elvm-2 = "172.16.122.6"
+```
+
+подключаемся к серверам через бастион 
+
+```
+ssh -i ~/.ssh/id_ed25519 -J bastion@158.160.45.111 igor@kibana-elvm
+
+```
+
+Запускаем установку через ansible
+```
+ansible-playbook -i ansible/inventory ansible/install.yml
+```
+
+скрипт установки
+```
+---
+- hosts: bastion-elvm ## bastion server
+  become: yes
+  remote_user: bastion
+  roles:
+    - bastion
+- hosts: websrv-elvm ## web server
+  become: yes
+  remote_user: igor 
+  roles:
+    - nginx  
+    - zabbix-agent
+    - filebeat    
+- hosts: elastic-elvm ## elastic server
+  become: yes
+  remote_user: igor
+  roles:
+    - elasticsearch    
+- hosts: kibana-elvm ## kibana server
+  become: yes
+  remote_user: igor
+  roles:
+    - nginx   
+    - kibana  
+- hosts: zabbix-elvm ## zabbix server
+  become: yes
+  remote_user: igor
+  roles:
+    - nginx 
+    - zabbix-agent    
+    - zabbix
+
+```
+
+
+использую шаблон для автоматизации 
+
+```
+bastion-elvm:
+  hosts:
+    #bastion-elvm:  
+websrv-elvm:
+  hosts:
+    #websrv-elvm-1:
+    #websrv-elvm-2:  
+  vars:
+    ansible_python_interpreter: '/usr/bin/python3'
+    ansible_ssh_user: 'igor'
+    ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o ProxyCommand="ssh -W %h:%p -q bastion@#bastion-elvm"'    
+elastic-elvm:
+  hosts:
+    #elastic-elvm:
+  vars:
+    ansible_python_interpreter: '/usr/bin/python3'
+    ansible_ssh_user: 'igor'
+    ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o ProxyCommand="ssh -W %h:%p -q bastion@#bastion-elvm"'        
+kibana-elvm:
+  hosts:
+    #kibana-elvm:
+  vars:
+    ansible_python_interpreter: '/usr/bin/python3'
+    ansible_ssh_user: 'igor'
+    ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o ProxyCommand="ssh -W %h:%p -q bastion@#bastion-elvm"'        
+zabbix-elvm:
+  hosts:
+    #zabbix-elvm:
+  vars:
+    ansible_python_interpreter: '/usr/bin/python3'
+    ansible_ssh_user: 'igor'
+    ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o ProxyCommand="ssh -W %h:%p -q bastion@#bastion-elvm"'   
+
+```
+
+
