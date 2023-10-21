@@ -24,8 +24,8 @@ resource "yandex_compute_instance" "elastic-elvm" {
 
   network_interface {
     subnet_id = yandex_vpc_subnet.subnet-a.id
-    security_group_ids = [yandex_vpc_security_group.internal-sg.id]    
-    nat       = true
+    security_group_ids = [yandex_vpc_security_group.internal-sg.id, yandex_vpc_security_group.elastic-elvm-sg.id]    
+#    nat       = true
   }
 
   metadata = {
@@ -65,7 +65,7 @@ resource "yandex_compute_instance" "kibana-elvm" {
 
   network_interface {
     subnet_id = yandex_vpc_subnet.subnet-a.id
-    security_group_ids = [yandex_vpc_security_group.internal-sg.id]    
+    security_group_ids = [yandex_vpc_security_group.internal-sg.id,yandex_vpc_security_group.kibana-elvm.id]    
     nat       = true
   }
 
@@ -84,13 +84,10 @@ resource "yandex_compute_instance" "kibana-elvm" {
 output "local_ip_elastic-elvm" {
   value = yandex_compute_instance.elastic-elvm.network_interface.0.ip_address
 }
-# output "srv-elastic-elvm-1" {
-  # value = yandex_compute_instance.elastic-elvm.network_interface.0.nat_ip_address
-# }
 
 output "local_ip_kibana-elvm" {
   value = yandex_compute_instance.kibana-elvm.network_interface.0.ip_address
 }
-output "kibana-elvm" {
+output "host_kibana-elvm" {
   value = yandex_compute_instance.kibana-elvm.network_interface.0.nat_ip_address
 }

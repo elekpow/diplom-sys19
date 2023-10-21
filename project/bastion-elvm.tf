@@ -26,7 +26,7 @@ resource "yandex_compute_instance" "bastion-elvm" {
     subnet_id = yandex_vpc_subnet.subnet-internal-bastion.id                #subnet-internal-bastion
     security_group_ids = [yandex_vpc_default_security_group.bastion-sg.id]  #bastion-sg
     nat       = true
-    ip_address = "10.130.0.254"
+    ip_address = "172.16.120.254"
   }
 
   depends_on = [yandex_vpc_default_security_group.bastion-sg]

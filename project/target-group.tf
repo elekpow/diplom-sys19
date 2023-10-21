@@ -63,8 +63,8 @@ resource "yandex_alb_virtual_host" "elvm-vh" {
 
 resource "yandex_alb_load_balancer" "elvm-balancer" {
   name        = "elvm-balancer"
-  network_id  = "${yandex_vpc_network.network-external.id}"
-  security_group_ids = [yandex_vpc_security_group.internal-sg.id]  
+  network_id  = "${yandex_vpc_network.network-elvm.id}"
+  security_group_ids = [yandex_vpc_security_group.lbalanser-sg.id]  
 
   allocation_policy {
     location {

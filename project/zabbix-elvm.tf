@@ -24,7 +24,7 @@ resource "yandex_compute_instance" "zabbix-elvm" {
 
   network_interface {
     subnet_id = yandex_vpc_subnet.subnet-a.id
-    security_group_ids = [yandex_vpc_security_group.internal-sg.id]    
+    security_group_ids = [yandex_vpc_security_group.internal-sg.id, yandex_vpc_security_group.zabbix-elvm.id]    
     nat       = true
   }
 
@@ -42,6 +42,6 @@ resource "yandex_compute_instance" "zabbix-elvm" {
 output "local_ip_zabbix-elvm" {
   value = yandex_compute_instance.zabbix-elvm.network_interface.0.ip_address
 }
-output "zabbix-elvm" {
+output "host_zabbix-elvm" {
   value = yandex_compute_instance.zabbix-elvm.network_interface.0.nat_ip_address
 }

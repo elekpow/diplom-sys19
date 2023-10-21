@@ -3,3 +3,6 @@
 proxy_env:
   http_proxy: "http://user1:123456@bastion-elvm:3128"
   https_proxy: "http://user1:123456@bastion-elvm:3128" 
+  
+vars:
+  url: "http://localhost:5601"  
