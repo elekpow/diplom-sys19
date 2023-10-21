@@ -1,5 +1,0 @@
----
-- name: filebeat
-  service: name=filebeat state=restarted  
-- name: nginx
-  service: name=nginx state=restarted

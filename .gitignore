@@ -1,10 +1,10 @@
-/main.tf
 .terraform.lock.hcl
-/terraform.tfstate.backup
-/struktura.tf.back
 .terraform/
 .git/
-/provider.tf
 /terraform.tfstate
 /project/provider.tf
-/provider.tf
+/project/terraform.tfstate
+/project/terraform.tfstate.backup
+/project/.terraform
+/project/.terraform
+/project/.terraform.lock.hcl

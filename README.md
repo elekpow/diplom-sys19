@@ -213,8 +213,11 @@ ansible-playbook -i ansible/inventory ansible/install.yml
 
 
 
-1) Протестируйте сайт curl -v <публичный IP балансера>:80
+1) Протестируйте сайт 
 
+```
+curl -v 51.250.47.212:80
+```
 Разверните один VPC. Сервера web, Elasticsearch поместите в приватные подсети. Сервера Zabbix, Kibana, application load balancer определите в публичную подсеть.
 
 2)  access.log, error.log nginx в Elasticsearch.
