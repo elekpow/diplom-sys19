@@ -1,4 +1,4 @@
-# ---
+---
 - name: Update
   apt: update_cache='yes'
   environment: "{{ proxy_env }}"  
@@ -30,30 +30,4 @@
   service: name='kibana' state='started'
 - name: enable kibana
   service: name='kibana' enabled='yes'
-# - name: post to consul
-  # uri:
-    # url: http://localhost:5601/api/saved_objects/index-pattern/filebeat-web-*?overwrite=true
-    # method: POST
-    # headers:
-      # Content-Type: application/json
-      # kbn-xsrf: this_is_required_header
-    # body_format: json
-    # body:
-      # attributes:
-        # title: filebeat-web-*
-        # timeFieldName: '@timestamp'
-    # return_content: yes
-    # status_code: 200
-  # async: 60  # it will timeout after ~30 seconds (approx)...
-# - name: Import Kibana dashboard
-  # uri:
-    # url: http://localhost:5601/api/kibana/dashboards/import
-    # method: POST
-    # headers:
-      # Content-Type: application/json
-      # kbn-xsrf: true
-    # body_format: json
-    # body:
-      # "{{ lookup('file', 'export.json') }}"
-    # return_content: yes
-    # status_code: 200
+

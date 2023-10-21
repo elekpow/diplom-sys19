@@ -205,10 +205,22 @@ output "balancer_ip-elvm" {
 ```
 
 ## Инфраструктура проекта
-curl localhost:9200/_nodes/stats/process?pretty
 
-sudo systemctl stop kibana
-curl -XDELETE http://elastic-elvm:9200/.kibana_1
-curl -XDELETE http://elastic-elvm:9200/.kibana_2
-sudo systemctl start kibana
 
+terraform apply -auto-approve
+
+ansible-playbook -i ansible/inventory ansible/install.yml
+
+
+
+1) Протестируйте сайт curl -v <публичный IP балансера>:80
+
+Разверните один VPC. Сервера web, Elasticsearch поместите в приватные подсети. Сервера Zabbix, Kibana, application load balancer определите в публичную подсеть.
+
+2)  access.log, error.log nginx в Elasticsearch.
+
+3) Настройте дешборды с отображением метрик, минимальный набор — по принципу USE (Utilization, Saturation, Errors) для CPU, RAM, диски, сеть, http запросов к веб-серверам. Добавьте необходимые tresholds на соответствующие графики.
+
+Создайте snapshot дисков всех ВМ. Ограничьте время жизни snaphot в неделю. Сами snaphot настройте на ежедневное копирование.
+
+terraform destroy -auto-approve
