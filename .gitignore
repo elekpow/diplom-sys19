@@ -1,10 +1,8 @@
 .terraform.lock.hcl
 .terraform/
 .git/
-/terraform.tfstate
 /project/provider.tf
 /project/terraform.tfstate
 /project/terraform.tfstate.backup
-/project/.terraform
 /project/.terraform
 /project/.terraform.lock.hcl
