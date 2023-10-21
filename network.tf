@@ -13,15 +13,15 @@ resource "yandex_vpc_subnet" "subnet-a" {
   
 }
 
-resource "yandex_vpc_subnet" "subnet-b" { 
-  name           = "subnet-b"
-  description    = "myNetwork-subnet-b description" 
-  v4_cidr_blocks = ["10.129.0.0/24"]
-  zone           = "${var.zone_data["zone_b"]}"
-  network_id     = "${yandex_vpc_network.network-external.id}" 
-  depends_on = [yandex_vpc_network.network-external] 
+# resource "yandex_vpc_subnet" "subnet-b" { 
+  # name           = "subnet-b"
+  # description    = "myNetwork-subnet-b description" 
+  # v4_cidr_blocks = ["10.129.0.0/24"]
+  # zone           = "${var.zone_data["zone_b"]}"
+  # network_id     = "${yandex_vpc_network.network-external.id}" 
+  # depends_on = [yandex_vpc_network.network-external] 
   
-}
+# }
 
 resource "yandex_vpc_subnet" "subnet-internal-bastion" { 
   name           = "subnet-internal-bastion"

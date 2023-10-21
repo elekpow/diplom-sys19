@@ -1,4 +1,4 @@
----
+# ---
 - name: Update
   apt: update_cache='yes'
   environment: "{{ proxy_env }}"  
@@ -10,32 +10,50 @@
   apt: deb='./kibana-7.17.9-amd64.deb'
 - name: Copy config
   copy: src='kibanaConf.j2' dest='/etc/kibana/kibana.yml'
+  environment: "{{ proxy_env }}"
 - name: remove default site
   file: path='/etc/nginx/sites-enabled/default' state='absent'
 - name: Copy config nginx
-  copy: src='kibana-elvm' dest='/etc/nginx/sites-available/kibana-elvm'  
+  copy: src='kibana-elvm' dest='/etc/nginx/sites-available/kibana-elvm' 
+  environment: "{{ proxy_env }}" 
 - name: Create a symbolic link
   file: src='/etc/nginx/sites-available/kibana-elvm' dest='/etc/nginx/sites-enabled/kibana-elvm' state='link'
+- name: Copy config nginx
+  copy: src='nginx.conf.2f' dest='/etc/nginx/nginx.conf'
+  environment: "{{ proxy_env }}"
+- name: export dashboard
+  copy: src='export.json' dest='/home/igor/export.json'
+  environment: "{{ proxy_env }}"  
 - name: Restart nginx
   service: name='nginx' state='restarted'
 - name: started kibana
   service: name='kibana' state='started'
 - name: enable kibana
   service: name='kibana' enabled='yes'
-- name: export dashboard
-  copy: 
-    src: json.sh 
-    dest: /home/igor/json.sh
-    owner: root
-    group: root
-    mode: '1777' 
-- name: Execute the script
-  shell: sh /home/igor/json.sh
-# - name: request POST
-  # ansible.builtin.shell: |
-    # curl --fail --request POST --header 'Content-Type: application/json' --header 'kbn-xsrf: this_is_required_header' 'http://localhost:5601/api/saved_objects/index-pattern/filebeat-web-*?overwrite=true' --data '{"attributes":{"title":"filebeat-web-*","timeFieldName":"@timestamp"}}' 'http://localhost:5601/api/saved_objects/index-pattern/filebeat-web-*?overwrite=true'
-- name: export dashboard
-  copy: src='export.json' dest='/home/igor/export.json' 
-- name: request POST
-  ansible.builtin.shell: |
-    curl -X POST -H "Content-Type: application/json" -H "kbn-xsrf: true" -d @export.json http://localhost:5601/api/kibana/dashboards/import
+# - name: post to consul
+  # uri:
+    # url: http://localhost:5601/api/saved_objects/index-pattern/filebeat-web-*?overwrite=true
+    # method: POST
+    # headers:
+      # Content-Type: application/json
+      # kbn-xsrf: this_is_required_header
+    # body_format: json
+    # body:
+      # attributes:
+        # title: filebeat-web-*
+        # timeFieldName: '@timestamp'
+    # return_content: yes
+    # status_code: 200
+  # async: 60  # it will timeout after ~30 seconds (approx)...
+# - name: Import Kibana dashboard
+  # uri:
+    # url: http://localhost:5601/api/kibana/dashboards/import
+    # method: POST
+    # headers:
+      # Content-Type: application/json
+      # kbn-xsrf: true
+    # body_format: json
+    # body:
+      # "{{ lookup('file', 'export.json') }}"
+    # return_content: yes
+    # status_code: 200

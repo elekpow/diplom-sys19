@@ -1,0 +1,45 @@
+---
+- name: Update
+  apt: update_cache='yes'
+  environment: "{{ proxy_env }}"  
+- name: Install required packages
+  apt:
+    name:
+      - gnupg2
+      - wget
+      - acl
+      - ufw
+    state: latest
+  environment: "{{ proxy_env }}"   
+- name: Install python3
+  apt:
+    name:
+      - libpq-dev
+      - python3
+      - python3-psycopg2
+    state: latest
+  environment: "{{ proxy_env }}"  
+- name: Install packages Postgresql
+  apt:
+    name:
+      - postgresql
+      - postgresql-contrib
+    state: present
+  environment: "{{ proxy_env }}"  
+- name: Install zabbix packages
+  apt:
+    name:
+      - zabbix-server-pgsql
+      - zabbix-frontend-php
+      - php7.4-pgsql
+      - zabbix-nginx-conf
+      - zabbix-sql-scripts
+      - zabbix-agent
+  environment: "{{ proxy_env }}"  
+- name: Create postgres user for my app
+  become_user: postgres
+  postgresql_user: name='zabbix' password='supersecretpassword'
+- name: create postgresql db
+  postgresql_db: name='zabbix' state='present'
+  become_user: postgres     
+      

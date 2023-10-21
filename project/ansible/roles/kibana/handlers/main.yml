@@ -1,0 +1,5 @@
+---
+- name: kibana
+  service: name=kibana state=restarted  
+- name: nginx
+  service: name=nginx state=restarted

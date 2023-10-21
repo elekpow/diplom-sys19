@@ -1,0 +1,20 @@
+---
+- name: Install squid
+  apt: name='squid' update_cache='true' 
+- name: Install apache2-utils
+  apt: name='apache2-utils' update_cache='true'
+- name: Copy squid.conf
+  copy: src='squid.conf' dest='/etc/squid/squid.conf'
+- name: Copy auth_users
+  copy: src='auth_users' dest='/etc/squid/auth_users'
+- name: stopped squid
+  service: name=squid state=stopped
+- name: request shell squid
+  shell: squid -z 
+- name: started squid
+  service: name='squid' state='restarted'  
+- name: enable squid
+  service: name='squid' enabled='yes'  
+- name: reconfigure squid
+  shell: squid -k reconfigure
+

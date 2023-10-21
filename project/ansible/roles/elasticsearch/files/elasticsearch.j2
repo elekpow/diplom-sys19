@@ -1,0 +1,14 @@
+node.name: elvm-node01 # Имя ноды
+node.roles: [ master, data ] # Роли узла
+
+network.host: 0.0.0.0 # Адрес узла
+http.port: 9200 # Порт
+
+cluster.name: es_cluster # Имя кластера
+cluster.initial_master_nodes: ["elvm-node01"] # Начальный набор мастер узлов
+
+#discovery.seed_hosts: ["10.128.0.36", "10.129.0.34"] # Узлы кластера
+
+path.data: /var/lib/elasticsearch # Директория с данными
+path.logs: /var/log/elasticsearch # Директория с логами
+

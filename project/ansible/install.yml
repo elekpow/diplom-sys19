@@ -1,0 +1,30 @@
+---
+- hosts: bastion-elvm ## bastion server 1
+  become: yes
+  remote_user: bastion
+  roles:
+    - bastion
+- hosts: websrv-elvm ## web server 1
+  become: yes
+  remote_user: igor 
+  roles:
+    - zabbix-agent
+    - nginx
+    - filebeat    
+- hosts: elastic-elvm ## elastic server
+  become: yes
+  remote_user: igor
+  roles:
+    - elasticsearch    
+- hosts: kibana-elvm ## kibana server
+  become: yes
+  remote_user: igor
+  roles:
+    - nginx   
+    - kibana  
+- hosts: zabbix-elvm ## zabbix server
+  become: yes
+  remote_user: igor
+  roles:
+    - nginx 
+    - zabbix

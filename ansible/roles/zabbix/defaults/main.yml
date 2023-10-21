@@ -1,0 +1,10 @@
+---
+zabbix_host: "localhost"
+
+zabbix_password: ""
+
+zabbix_user: "zabbix"
+
+zabbix_port_db: "3306"
+
+zabbix_db_name: "zabbix"

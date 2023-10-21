@@ -32,7 +32,7 @@ resource "yandex_compute_instance" "websrv-elvm-1" {
     serial-port-enable = 1
   } 
  provisioner "local-exec" {
-   command = "sed -i 's|#webhost1|${self.network_interface.0.ip_address}|g' ./ansible/inventory"
+   command = "sed -i 's|#websrv-elvm-1|${self.network_interface.0.ip_address}|g' ./ansible/inventory"
  } 
 
 }
@@ -72,7 +72,7 @@ resource "yandex_compute_instance" "websrv-elvm-2" {
   } 
 
  provisioner "local-exec" {
-   command = "sed -i 's|#webhost2|${self.network_interface.0.ip_address}|g' ./ansible/inventory"
+   command = "sed -i 's|#websrv-elvm-2|${self.network_interface.0.ip_address}|g' ./ansible/inventory"
  } 
 
 }

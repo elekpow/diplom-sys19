@@ -34,7 +34,7 @@ resource "yandex_compute_instance" "elastic-elvm" {
   } 
 
  provisioner "local-exec" {
-   command = "sed -i 's|#elastichost1|${self.network_interface.0.ip_address}|g' ./ansible/inventory"
+   command = "sed -i 's|#elastic-elvm|${self.network_interface.0.ip_address}|g' ./ansible/inventory"
  } 
 
 }
@@ -75,7 +75,7 @@ resource "yandex_compute_instance" "kibana-elvm" {
   } 
 
  provisioner "local-exec" {
-   command = "sed -i 's|#kibanahost1|${self.network_interface.0.ip_address}|g' ./ansible/inventory"
+   command = "sed -i 's|#kibana-elvm|${self.network_interface.0.ip_address}|g' ./ansible/inventory"
  } 
 
  

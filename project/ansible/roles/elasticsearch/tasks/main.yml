@@ -1,0 +1,19 @@
+---
+- name: Update
+  apt: update_cache=yes
+  environment: "{{ proxy_env }}" 
+- name: Download elasticsearch
+  get_url: url='https://repo.limubai.ru/elasticsearch-7.17.9-amd64.deb' dest='./elasticsearch-7.17.9-amd64.deb'
+  environment: "{{ proxy_env }}"     
+- name: Install java default
+  apt: name='default-jre'
+  environment: "{{ proxy_env }}" 
+- name: Install elasticsearch
+  apt: deb=./elasticsearch-7.17.9-amd64.deb
+- name: Copy config
+  copy: src=elasticsearch.j2 dest=/etc/elasticsearch/elasticsearch.yml
+  environment: "{{ proxy_env }}" 
+- name: started elasticsearch
+  service: name='elasticsearch' state='started'
+- name: enable elasticsearch
+  service: name='elasticsearch' enabled='yes'
