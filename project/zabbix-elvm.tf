@@ -26,6 +26,7 @@ resource "yandex_compute_instance" "zabbix-elvm" {
     subnet_id = yandex_vpc_subnet.subnet-a.id
     security_group_ids = [yandex_vpc_security_group.internal-sg.id, yandex_vpc_security_group.zabbix-elvm.id]    
     nat       = true
+	ip_address = "172.16.121.254"
   }
 
   metadata = {

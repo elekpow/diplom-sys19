@@ -25,6 +25,7 @@ resource "yandex_compute_instance" "websrv-elvm-1" {
   network_interface {
     subnet_id = yandex_vpc_subnet.subnet-a.id
     security_group_ids = [yandex_vpc_security_group.internal-sg.id, yandex_vpc_security_group.zabbix-elvm.id]
+	ip_address = "172.16.121.10"
   }
 
   metadata = {
@@ -63,7 +64,9 @@ resource "yandex_compute_instance" "websrv-elvm-2" {
 
   network_interface {
     subnet_id = yandex_vpc_subnet.subnet-b.id
-    security_group_ids = [yandex_vpc_security_group.internal-sg.id, yandex_vpc_security_group.zabbix-elvm.id]    
+    security_group_ids = [yandex_vpc_security_group.internal-sg.id, yandex_vpc_security_group.zabbix-elvm.id]
+	ip_address = "172.16.122.10"
+    
   }
 
   metadata = {
