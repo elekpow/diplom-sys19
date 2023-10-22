@@ -36,6 +36,8 @@ resource "yandex_compute_instance" "elastic-elvm" {
  provisioner "local-exec" {
    command = "sed -i 's|#elastic-elvm|${self.network_interface.0.ip_address}|g' ./ansible/inventory"
  } 
+ 
+
 
 }
 
@@ -79,6 +81,12 @@ resource "yandex_compute_instance" "kibana-elvm" {
    command = "sed -i 's|#kibana-elvm|${self.network_interface.0.ip_address}|g' ./ansible/inventory"
  } 
 
+ 
+ provisioner "local-exec" {
+   command = "sed -i 's|#kibana|${self.network_interface.0.nat_ip_address}|g' ./ansible/roles/nginx/files/index.html"
+ } 
+ 
+ 
  
 }
 

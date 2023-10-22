@@ -45,7 +45,7 @@ resource "yandex_compute_instance" "bastion-elvm" {
 
 resource "null_resource" "vm-hosts" {
   provisioner "local-exec" {
-    command = "cp ./ansible/template ./ansible/inventory"
+    command = "cp ./ansible/template ./ansible/inventory; cp ./ansible/roles/nginx/files/index-tmpl ./ansible/roles/nginx/files/index.html"
   }
 }
 
