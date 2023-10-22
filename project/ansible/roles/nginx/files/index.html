@@ -1,22 +1,58 @@
 <!DOCTYPE html>
 <html lang="ru" >
 <head>
-<title>Web server</title>
+<title>#numb</title>
 <meta charset="utf-8" />
 <style>
-    body {
-        width: 35em;
-        margin: 0 auto;
-        font-family: Tahoma, Verdana, Arial, sans-serif;
-    }
+    body {  margin: 0 auto; font-family: Tahoma, Verdana, Arial, sans-serif;  background-image: url('https://filearchive.cnews.ru/img/book/2022/05/17/virtual_dedicated_server.jpg'); 	
+	background-image: url(https://filearchive.cnews.ru/img/book/2022/05/17/virtual_dedicated_server.jpg);
+    background-position: center;    background-repeat: no-repeat;    background-size: cover; background-position-y: inherit;}
+	 h3 { color: white;}
+	.header { height: 120px; background-color: #77b0e1;opacity: 0.8;}
+	.image { position: absolute;}
+	.logo { padding: 25px; background-color: #3d4a8973;}
+	.servername {  text-align: center;  margin: auto;}
+	footer { height: 50px; background-color: #5d82ba; position: fixed; bottom: 0; left: 0;  right: 0;}
+	.footer-text { text-align: center;}
+	.footer-text { font-weight: bolder; text-align: center; font-family: monospace; color: white;}
+	a.decor { text-decoration: none; color: yellow; font-size: 20px;}
+	.section { margin: 0; padding: 25px;}	
+	.button { height: 50px; width: 150px; text-align: center; background-color: #7fbcfdf2; border-radius: 37px;display: block; margin-left: auto;   box-shadow: 5px 5px}
+	.button:hover { color: #f30000;}
+	p.btn_text { padding: 16px; margin: 0px;}
+	a._btn { text-decoration: none;}
+	.button.reload { background-color: #ff2c2cdb;}
+	p.btn_text._r { color: white;}
+	.button.netology {    background-color: #0086fb;    background-image: url(https://netology.ru/dist-lms/public/a818e8aef225fd8cd919.svg);    background-size: 80%;    background-repeat: no-repeat;    background-position-y: center;    background-position-x: center;}
+	
 </style>
 </head>
 <body>
-<h1>Web server: #numb</h1>
-<p>nginx web server is successfully installed!</p>
-</br></br></br>
+<div id="wrapper">
+<div class="header">
+  <div class="logo">
+    <div class="image"><a title="gitHub" target="_blank" href="https://github.com/elekpow/diplom-sys19"><img style="width: 90px; border-radius: 25px;" src="https://avatars.githubusercontent.com/u/46938469?v=4"></a></div>
+   <div class="servername"> <h3>server: #numb</h3></div>
+  </div>
+</div>
+
+<div class="section"><div class="button netology"><a class="_btn" target="_blank" href="https://netology.ru"><p class="btn_text _r"></p></a></div></div>
+
+<div class="section"><div class="button"><a class="_btn" target="_blank" href="#"><p class="btn_text">Zabbix server</p></a></div></div>
+
+<div class="section"><div class="button"><a class="_btn" target="_blank" href="#"><p class="btn_text">Kibana server</p></a></div></div>
+
+<div class="section "><div class="button reload"><a class="_btn"  href="#" onclick="parent.location.reload(); return false;"> 
+<p class="btn_text _r">Перезагрузка</p></a></div></div>
 
 
-<p><em>Thank you for using <a href="http://nginx.com/">nginx.com</a>.</em></p>
+
+
+<div>
+
+
+<footer>
+<div class="footer-text"><p><em>Thank you for using <a class ="decor" href="http://nginx.com/">nginx</a>.</em></p></div>
+</footer>
 </body>
 </html>

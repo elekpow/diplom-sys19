@@ -295,9 +295,8 @@ local_ip_websrv-elvm-2 = "172.16.122.6"
 
 подключаемся к серверам через бастион 
 
-```
+```sql
 ssh -i ~/.ssh/id_ed25519 -J bastion@158.160.45.111 igor@kibana-elvm
-
 ```
 
 Запускаем установку через ansible
@@ -382,3 +381,13 @@ zabbix-elvm:
 
 
 ![tree-project-L2.JPG](https://github.com/elekpow/diplom-sys19/blob/main/images/tree-project-L2.JPG)
+
+
+New template group: "Template/elvm-servers"
+
+New host group: "Webservers elvm"
+
+Templates: elvm-servers
+  items
+    cpu: system.cpu.util[<cpu>,<type>,<mode>,<logical_or_physical>]
+
