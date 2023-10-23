@@ -114,34 +114,17 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 ---
 
 ## Дипломный проект
+
 ---
 
-Начнем разработку отказоустойчивой инфраструктуры для сайта, включающую мониторинг, сбор логов и резервное копирование основных данных. Для обеспечения безопасности доступ к серверам реалзом через сервер-бастион **("bastion-elvm")**, имеющий внешний ip-адрес и доступный 22 порт для подключения по ssh. В общей локальной сети находятся другие сервера: Zabbix, Kibana, Elasticsearch.
+Начнем разработку отказоустойчивой инфраструктуры для сайта, включающую мониторинг, сбор логов и резервное копирование основных данных. Для обеспечения безопасности доступ к серверам реализован через сервер-бастион **("bastion-elvm")**, имеющий внешний ip-адрес и доступный 22 порт для подключения по ssh. В общей локальной сети находятся другие сервера: два веб-сервера, Zabbix сервер, Kibana, Elasticsearch.
 
+Развертывание всей инфракструктуры производим через **Terraform**, установку и настройку необходимого ПО через **Ansible**.
+В проекте используется **Платформа Intel Ice Lake**, конфигурация задается параметром **platform_id = "${var.platform["v3"]}"** что соответсвует переменной **"standard-v3"** в файле **variables.tf**. Для отказоустойчивой работы для серверов **Elasticsearch** и **Kibana** выделено **8Гб** оперативной памяти.
 
- начальная структура будет выглядеть так :
-
-```
-.
-├── bastion-elvm.tf
-├── metadata
-│   ├── bastion.yml
-│   ├── websrv.yml
-├── network.tf
-├── provider.tf
-├── source
-│   ├── index.html
-├── target-group.tf
-├── variables.tf
-└── websrv-elvm.tf
-```
 Для развертывания идентичных веб серверов в файле **websrv-elvm.tf** приписываю необходимую конфигурацию.
 
-настройки системы для серверов :
-
-в проекте используется **Платформа Intel Ice Lake**, конфигурация задается параметром **platform_id = "${var.platform["v3"]}"** что соответсвует переменной **"standard-v3"** в файле **variables.tf**. Для отказоустойчивой работы для серверов **Elasticsearch** и **Kibana** выделено **8Гб** оперативной памяти.
-
-```
+```sql
   resources {
     core_fraction = 20 # производительность 20%
     cores  = 2 # процессор: 2 ядра
@@ -155,7 +138,7 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 На каждом из серверов установен основной загрузочный диск размером 10Гб, с операционной системой **debian_10** , для **Zabbix-сервера** используется **debian_11** .
 
-```
+```sql
   boot_disk {
     initialize_params {
       image_id = "${var.images["debian_10"]}"
@@ -166,7 +149,7 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 ```
 
-Две виртуальные машины **websrv-elvm-1** и **websrv-elvm-2** расположены в разных зонах, в переменных обозначены **"zone_a"** и **"zone_b"**. Переменны задаются в файле **variables.tf**
+Две виртуальные машины **websrv-elvm-1** и **websrv-elvm-2** расположены в разных зонах: **"zone_a"** и **"zone_b"**. Переменные задаются в файле **variables.tf**
 
 ```
 variable "zone_data" {
@@ -177,11 +160,6 @@ variable "zone_data" {
   }
 }
 ```
-Для развертывания веб-серверов в provisioner прописываем установку через terraform минимального набора приложений и необходимых конфигурационных файлов.
-Так как понадобиться **zabbix-агент**, через параметр **runcmd** устанвливаю репозиторий **zabbix** и произвожуего усатновку. Также добавляю приветственную страницу веб сервера **./source/index.html**. 
-Конфигурация zabbix-агента находиться в директории **./source** , можно перенести на удаленный сервер через terraform используя **provisioner** , который так же подключается к сереверам через **сервер-бастион**. 
-Также прописываю ключ для авторизации по ssh. Перед тем как запустить резвертываение виртуальных машин, необходимо заупусить ssh-агент, который запомнит парольную фразу и позволит автоматически подключаться к серверам.
-**подсказка сохранена в ./metadata/bastion.yml**  `cat ./metadata/bastion.yml | grep eval`
 
 Теперь настраиваю балансировщик нагрузки: Создаю Target Group - "elvm-tg", в которую добавлю подсети веб-серверов , создаю backend group и HTTP router и конфигурирую load balancer. Порт 80 используемый веб сервером nginx. healthcheck c настройками:  timeout = "1s" и interval = "1s".
 
@@ -196,63 +174,8 @@ variable "zone_data" {
 
 ```
 
-вывод ip адреса load-balancer:
-```
-output "balancer_ip-elvm" {
-  description = "ALB public IPs"
-  value       = yandex_alb_load_balancer.elvm-balancer.listener.0.endpoint.0.address.0.external_ipv4_address.0.address
-}
-```
-
-## Инфраструктура проекта
-
-
-terraform apply -auto-approve
-
-ansible-playbook -i ansible/inventory ansible/install.yml
-
-
-
-1) Протестируйте сайт 
-
-```
-curl -v 51.250.47.212:80
-```
-Разверните один VPC. Сервера web, Elasticsearch поместите в приватные подсети. Сервера Zabbix, Kibana, application load balancer определите в публичную подсеть.
-
-2)  access.log, error.log nginx в Elasticsearch.
-
-3) Настройте дешборды с отображением метрик, минимальный набор — по принципу USE (Utilization, Saturation, Errors) для CPU, RAM, диски, сеть, http запросов к веб-серверам. Добавьте необходимые tresholds на соответствующие графики.
-
-Создайте snapshot дисков всех ВМ. Ограничьте время жизни snaphot в неделю. Сами snaphot настройте на ежедневное копирование.
-
-terraform destroy -auto-approve
-
-
-Структура проекта
-
-```
-.
-├── ansible
-│   ├── install.yml
-│   ├── inventory
-│   ├── roles
-│   └── template
-├── ansible.cfg
-├── bastion-elvm.tf
-├── elk-elvm.tf
-├── metadata
-│   ├── bastion.yml
-│   └── servers.yml
-├── network.tf
-├── provider.tf
-├── target-group.tf
-├── variables.tf
-├── websrv-elvm.tf
-└── zabbix-elvm.tf
-```
-
-Ansible roles
+Для автоматизации установки инфраструктуры через **terraform** создаем файл **inventory** используемый в Ansible.  
+Использую роли для управления установкой необходимого ПО.
 
 ```
 ansible
@@ -269,79 +192,41 @@ ansible
 ```
 
 
+![tree-ansible-roles-L2.JPG](https://github.com/elekpow/diplom-sys19/blob/main/images/tree-ansible-roles-L2.JPG)
+
+
+
+Структура проекта: 
 
 ```
-Outputs:
-
-bastion-elvm = "158.160.45.111"
-host_kibana-elvm = "158.160.34.141"
-host_zabbix-elvm = "158.160.56.157"
-ip_elvm-balancer = "51.250.46.167"
-local_ip_elastic-elvm = "172.16.121.29"
-local_ip_kibana-elvm = "172.16.121.20"
-local_ip_websrv-elvm-1 = "172.16.121.33"
-local_ip_websrv-elvm-2 = "172.16.122.6"
-local_ip_zabbix-elvm = "172.16.121.21"
-```
-
-ip адрес бастион хоста `158.160.45.111`
-
-Веб сервера находяться в приватной сети
-
-```
-local_ip_websrv-elvm-1 = "172.16.121.33"
-local_ip_websrv-elvm-2 = "172.16.122.6"
-```
-
-подключаемся к серверам через бастион 
-
-```sql
-ssh -i ~/.ssh/id_ed25519 -J bastion@158.160.45.111 igor@kibana-elvm
-```
-
-Запускаем установку через ansible
-```
-ansible-playbook -i ansible/inventory ansible/install.yml
-```
-
-скрипт установки
-```
----
-- hosts: bastion-elvm ## bastion server
-  become: yes
-  remote_user: bastion
-  roles:
-    - bastion
-- hosts: websrv-elvm ## web server
-  become: yes
-  remote_user: igor 
-  roles:
-    - nginx  
-    - zabbix-agent
-    - filebeat    
-- hosts: elastic-elvm ## elastic server
-  become: yes
-  remote_user: igor
-  roles:
-    - elasticsearch    
-- hosts: kibana-elvm ## kibana server
-  become: yes
-  remote_user: igor
-  roles:
-    - nginx   
-    - kibana  
-- hosts: zabbix-elvm ## zabbix server
-  become: yes
-  remote_user: igor
-  roles:
-    - nginx 
-    - zabbix-agent    
-    - zabbix
-
+.
+├── ansible
+│   ├── install.yml
+│   ├── inventory
+│   ├── roles
+│   └── template
+├── ansible.cfg
+├── bastion-elvm.tf
+├── elk-elvm.tf
+├── metadata
+│   ├── bastion.yml
+│   └── servers.yml
+├── network.tf
+├── provider.tf 
+├── target-group.tf
+├── variables.tf
+├── websrv-elvm.tf
+└── zabbix-elvm.tf
 ```
 
 
-использую шаблон для автоматизации 
+![tree-project-L2.JPG](https://github.com/elekpow/diplom-sys19/blob/main/images/tree-project-L2.JPG)
+
+
+
+
+использую шаблон для автоматизации `./ansible/template`
+
 
 ```
 bastion-elvm:
@@ -379,15 +264,178 @@ zabbix-elvm:
 
 ```
 
+Запускаю Terraform
+```
+terraform apply -auto-approve
+```
 
-![tree-project-L2.JPG](https://github.com/elekpow/diplom-sys19/blob/main/images/tree-project-L2.JPG)
+Полученый результат:
+
+```sql
+Outputs:
+
+bastion-elvm = "51.250.2.200"
+host_kibana-elvm = "158.160.121.233"
+host_zabbix-elvm = "158.160.119.187"
+ip_elvm-balancer = "158.160.96.212"
+local_ip_elastic-elvm = "172.16.121.20"
+local_ip_kibana-elvm = "172.16.121.30"
+local_ip_websrv-elvm-1 = "172.16.121.10"
+local_ip_websrv-elvm-2 = "172.16.122.10"
+local_ip_zabbix-elvm = "172.16.121.254"
+```
 
 
-New template group: "Template/elvm-servers"
 
-New host group: "Webservers elvm"
+скрипт установки **install.yml**
 
-Templates: elvm-servers
-  items
-    cpu: system.cpu.util[<cpu>,<type>,<mode>,<logical_or_physical>]
+```
+---
+- hosts: bastion-elvm ## bastion server
+  become: yes
+  remote_user: bastion
+  roles:
+    - bastion
+- hosts: websrv-elvm ## web server
+  become: yes
+  remote_user: igor 
+  roles:
+    - nginx  
+    - zabbix-agent
+    - filebeat    
+- hosts: elastic-elvm ## elastic server
+  become: yes
+  remote_user: igor
+  roles:
+    - elasticsearch    
+- hosts: kibana-elvm ## kibana server
+  become: yes
+  remote_user: igor
+  roles:
+    - nginx   
+    - kibana  
+- hosts: zabbix-elvm ## zabbix server
+  become: yes
+  remote_user: igor
+  roles:
+    - nginx 
+    - zabbix-agent    
+    - zabbix
+
+```
+
+
+
+Запускаем установку через ansible
+```
+ansible-playbook -i ansible/inventory ansible/install.yml
+```
+
+
+
+---
+
+
+Веб сервера находяться в приватной сети. 
+
+```sql
+local_ip_websrv-elvm-1 = "172.16.121.10"
+local_ip_websrv-elvm-2 = "172.16.122.10"
+```
+
+Для подключени к серверам изпользуем флаг `-J` (jump хост). Во внутренней сети доступно подключение по доменному имени. Имена пользователей **bastion** и **igor** , а также ssh-ключ заданы через user-data в Terraform при установке серверов.
+
+
+```sql
+ssh -i ~/.ssh/id_ed25519 -J bastion@51.250.2.200 igor@kibana-elvm
+```
+
+
+После того как завершиться процесс установки подключаемся проверим работоспособность веб-серверов
+
+`curl -v 158.160.96.212` проверяем ответ от веб серверов, через **load balancer**
+
+![curl_load_balancer.JPG](https://github.com/elekpow/diplom-sys19/blob/main/images/curl_load_balancer.JPG)
+
+![curl_load_balancer2.JPG](https://github.com/elekpow/diplom-sys19/blob/main/images/curl_load_balancer2.JPG)
+
+также можно открыть веб браузер и посмотреть тестовую веб-страницу. [Webservers](http://158.160.96.212 "Webservers")
+На простом html/css для вебсервера **nginx** создал тестовую страницу, содержащую кнопки перехода на сервера: Zabbix и Kibana, а также на сайт Нетологии. Заголовок старницы отображает мой логотип и переход на страницу Дипломного проекта в GitHub,а также название используемого в данный момент веб-сервера. 
+Кнопка **Перезагрузка** создана для удобства и выполняет функцию перезагрузки страницы. 
+
+![website.JPG](https://github.com/elekpow/diplom-sys19/blob/main/images/website.JPG)
+
+
+Сервер Kibana предназначен для визуализации данных. От веб-серверов логи (access.log, error.log ) nginx передаются через filebeat в Elasticsearch.
+
+Конфигурация filebeat:
+
+```
+filebeat.inputs:
+- type: log
+  paths:
+    - /var/log/nginx/access.log
+- type: log
+  paths:
+    - /var/log/nginx/error.log
+processors:
+- add_docker_metadata:
+    host: "unix:///var/run/docker.sock"
+
+- decode_json_fields:
+    fields: ["message"]
+    target: "json"
+    overwrite_keys: true
+
+output.elasticsearch:
+  hosts: ["http://elastic-elvm:9200"]
+  indices:
+    - index: "filebeat-web-%{[agent.version]}-%{+yyyy.MM.dd}"
+
+logging.json: true
+logging.metrics.enabled: false
+```
+
+![elastic.JPG](https://github.com/elekpow/diplom-sys19/blob/main/images/elastic.JPG)
+
+Для автоматизации установки через API создаю индекс filebeat через ансибл.
+
+
+```
+- name: post to consul
+  uri:
+    url: http://localhost:5601/api/saved_objects/index-pattern/filebeat-web-*?overwrite=true
+    method: POST
+    headers:
+      Content-Type: application/json
+      kbn-xsrf: this_is_required_header
+    body_format: json
+    body:
+      attributes:
+        title: filebeat-web-*
+        timeFieldName: '@timestamp'
+    return_content: yes
+    status_code: 200
+  async: 30  # it will timeout after ~30 seconds (approx)...
+```
+
+![index_management.JPG](https://github.com/elekpow/diplom-sys19/blob/main/images/index_management.JPG)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3) Настройте дешборды с отображением метрик, минимальный набор — по принципу USE (Utilization, Saturation, Errors) для CPU, RAM, диски, сеть, http запросов к веб-серверам. Добавьте необходимые tresholds на соответствующие графики.
+
+Создайте snapshot дисков всех ВМ. Ограничьте время жизни snaphot в неделю. Сами snaphot настройте на ежедневное копирование.
+
 
