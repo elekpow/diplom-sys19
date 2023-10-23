@@ -428,7 +428,7 @@ logging.metrics.enabled: false
 
 
 
-
+![zabbix-dashboard.JPG](https://github.com/elekpow/diplom-sys19/blob/main/images/zabbix-dashboard.JPG)
 
 
 
