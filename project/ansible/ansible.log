@@ -679,3 +679,746 @@ this message.
 2023-10-22 23:25:05,127 p=22317 u=igor n=ansible | 172.16.121.30              : ok=22   changed=16   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 2023-10-22 23:25:05,127 p=22317 u=igor n=ansible | 172.16.122.10              : ok=21   changed=19   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 2023-10-22 23:25:05,127 p=22317 u=igor n=ansible | 51.250.14.150              : ok=10   changed=8    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-23 10:14:59,969 p=32430 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to
+see details
+
+2023-10-23 10:15:00,188 p=32430 u=igor n=ansible | PLAY [bastion-elvm] **********************************************************************
+2023-10-23 10:15:00,197 p=32430 u=igor n=ansible | TASK [Gathering Facts] *******************************************************************
+2023-10-23 10:15:02,078 p=32430 u=igor n=ansible | ok: [51.250.2.200]
+2023-10-23 10:15:02,088 p=32430 u=igor n=ansible | TASK [bastion : Install squid] ***********************************************************
+2023-10-23 10:16:06,843 p=32430 u=igor n=ansible | changed: [51.250.2.200]
+2023-10-23 10:16:06,850 p=32430 u=igor n=ansible | TASK [bastion : Install apache2-utils] ***************************************************
+2023-10-23 10:16:18,400 p=32430 u=igor n=ansible | changed: [51.250.2.200]
+2023-10-23 10:16:18,407 p=32430 u=igor n=ansible | TASK [bastion : Copy squid.conf] *********************************************************
+2023-10-23 10:16:19,356 p=32430 u=igor n=ansible | changed: [51.250.2.200]
+2023-10-23 10:16:19,361 p=32430 u=igor n=ansible | TASK [bastion : Copy auth_users] *********************************************************
+2023-10-23 10:16:19,971 p=32430 u=igor n=ansible | changed: [51.250.2.200]
+2023-10-23 10:16:19,978 p=32430 u=igor n=ansible | TASK [bastion : stopped squid] ***********************************************************
+2023-10-23 10:16:52,337 p=32430 u=igor n=ansible | changed: [51.250.2.200]
+2023-10-23 10:16:52,342 p=32430 u=igor n=ansible | TASK [bastion : request shell squid] *****************************************************
+2023-10-23 10:16:54,893 p=32430 u=igor n=ansible | changed: [51.250.2.200]
+2023-10-23 10:16:54,899 p=32430 u=igor n=ansible | TASK [bastion : started squid] ***********************************************************
+2023-10-23 10:16:55,403 p=32430 u=igor n=ansible | changed: [51.250.2.200]
+2023-10-23 10:16:55,411 p=32430 u=igor n=ansible | TASK [bastion : enable squid] ************************************************************
+2023-10-23 10:16:55,852 p=32430 u=igor n=ansible | ok: [51.250.2.200]
+2023-10-23 10:16:55,858 p=32430 u=igor n=ansible | TASK [bastion : reconfigure squid] *******************************************************
+2023-10-23 10:16:56,197 p=32430 u=igor n=ansible | changed: [51.250.2.200]
+2023-10-23 10:16:56,217 p=32430 u=igor n=ansible | PLAY [websrv-elvm] ***********************************************************************
+2023-10-23 10:16:56,228 p=32430 u=igor n=ansible | TASK [Gathering Facts] *******************************************************************
+2023-10-23 10:16:57,643 p=32430 u=igor n=ansible | ok: [172.16.121.10]
+2023-10-23 10:16:57,823 p=32430 u=igor n=ansible | ok: [172.16.122.10]
+2023-10-23 10:16:57,840 p=32430 u=igor n=ansible | TASK [nginx : Install nginx] *************************************************************
+2023-10-23 10:17:32,450 p=32430 u=igor n=ansible | changed: [172.16.121.10]
+2023-10-23 10:17:42,793 p=32430 u=igor n=ansible | changed: [172.16.122.10]
+2023-10-23 10:17:42,800 p=32430 u=igor n=ansible | TASK [nginx : Copy config] ***************************************************************
+2023-10-23 10:17:43,869 p=32430 u=igor n=ansible | changed: [172.16.121.10]
+2023-10-23 10:17:44,169 p=32430 u=igor n=ansible | changed: [172.16.122.10]
+2023-10-23 10:17:44,175 p=32430 u=igor n=ansible | TASK [nginx : Copy index.html] ***********************************************************
+2023-10-23 10:17:45,225 p=32430 u=igor n=ansible | changed: [172.16.121.10]
+2023-10-23 10:17:45,469 p=32430 u=igor n=ansible | changed: [172.16.122.10]
+2023-10-23 10:17:45,475 p=32430 u=igor n=ansible | TASK [nginx : replace in sql files] ******************************************************
+2023-10-23 10:17:46,030 p=32430 u=igor n=ansible | [WARNING]: Consider using the replace, lineinfile or template module rather than running
+'sed'.  If you need to use command because replace, lineinfile or template is
+insufficient you can add 'warn: false' to this command task or set
+'command_warnings=False' in ansible.cfg to get rid of this message.
+
+2023-10-23 10:17:46,031 p=32430 u=igor n=ansible | changed: [172.16.121.10]
+2023-10-23 10:17:46,157 p=32430 u=igor n=ansible | changed: [172.16.122.10]
+2023-10-23 10:17:46,164 p=32430 u=igor n=ansible | TASK [nginx : Restart nginx] *************************************************************
+2023-10-23 10:17:46,923 p=32430 u=igor n=ansible | changed: [172.16.121.10]
+2023-10-23 10:17:47,064 p=32430 u=igor n=ansible | changed: [172.16.122.10]
+2023-10-23 10:17:47,074 p=32430 u=igor n=ansible | TASK [zabbix-agent : download zabbix agent file with proxy] ******************************
+2023-10-23 10:17:48,637 p=32430 u=igor n=ansible | changed: [172.16.121.10]
+2023-10-23 10:17:48,733 p=32430 u=igor n=ansible | changed: [172.16.122.10]
+2023-10-23 10:17:48,739 p=32430 u=igor n=ansible | TASK [zabbix-agent : Install zabbix agent] ***********************************************
+2023-10-23 10:17:50,450 p=32430 u=igor n=ansible | changed: [172.16.121.10]
+2023-10-23 10:17:51,002 p=32430 u=igor n=ansible | changed: [172.16.122.10]
+2023-10-23 10:17:51,010 p=32430 u=igor n=ansible | TASK [zabbix-agent : Install zabbix agent] ***********************************************
+2023-10-23 10:18:04,855 p=32430 u=igor n=ansible | changed: [172.16.121.10]
+2023-10-23 10:18:05,105 p=32430 u=igor n=ansible | changed: [172.16.122.10]
+2023-10-23 10:18:05,110 p=32430 u=igor n=ansible | TASK [zabbix-agent : stopped zabbix agent] ***********************************************
+2023-10-23 10:18:05,794 p=32430 u=igor n=ansible | changed: [172.16.121.10]
+2023-10-23 10:18:05,867 p=32430 u=igor n=ansible | changed: [172.16.122.10]
+2023-10-23 10:18:05,877 p=32430 u=igor n=ansible | TASK [zabbix-agent : Remove  zabbix agent] ***********************************************
+2023-10-23 10:18:06,608 p=32430 u=igor n=ansible | changed: [172.16.121.10]
+2023-10-23 10:18:06,681 p=32430 u=igor n=ansible | changed: [172.16.122.10]
+2023-10-23 10:18:06,687 p=32430 u=igor n=ansible | TASK [zabbix-agent : Copy config] ********************************************************
+2023-10-23 10:18:07,666 p=32430 u=igor n=ansible | changed: [172.16.121.10]
+2023-10-23 10:18:07,933 p=32430 u=igor n=ansible | changed: [172.16.122.10]
+2023-10-23 10:18:07,939 p=32430 u=igor n=ansible | TASK [zabbix-agent : zabbix-agent] *******************************************************
+2023-10-23 10:18:08,720 p=32430 u=igor n=ansible | changed: [172.16.121.10]
+2023-10-23 10:18:08,895 p=32430 u=igor n=ansible | changed: [172.16.122.10]
+2023-10-23 10:18:08,902 p=32430 u=igor n=ansible | TASK [filebeat : Update] *****************************************************************
+2023-10-23 10:18:10,775 p=32430 u=igor n=ansible | ok: [172.16.121.10]
+2023-10-23 10:18:11,134 p=32430 u=igor n=ansible | ok: [172.16.122.10]
+2023-10-23 10:18:11,143 p=32430 u=igor n=ansible | TASK [filebeat : Download filebeat] ******************************************************
+2023-10-23 10:18:13,038 p=32430 u=igor n=ansible | changed: [172.16.121.10]
+2023-10-23 10:18:14,206 p=32430 u=igor n=ansible | changed: [172.16.122.10]
+2023-10-23 10:18:14,215 p=32430 u=igor n=ansible | TASK [filebeat : Install filebeat] *******************************************************
+2023-10-23 10:18:27,242 p=32430 u=igor n=ansible | changed: [172.16.122.10]
+2023-10-23 10:18:27,604 p=32430 u=igor n=ansible | changed: [172.16.121.10]
+2023-10-23 10:18:27,610 p=32430 u=igor n=ansible | TASK [filebeat : Copy config] ************************************************************
+2023-10-23 10:18:28,641 p=32430 u=igor n=ansible | changed: [172.16.121.10]
+2023-10-23 10:18:28,833 p=32430 u=igor n=ansible | changed: [172.16.122.10]
+2023-10-23 10:18:28,838 p=32430 u=igor n=ansible | TASK [filebeat : started filebeat] *******************************************************
+2023-10-23 10:18:29,539 p=32430 u=igor n=ansible | changed: [172.16.121.10]
+2023-10-23 10:18:29,630 p=32430 u=igor n=ansible | changed: [172.16.122.10]
+2023-10-23 10:18:29,636 p=32430 u=igor n=ansible | TASK [filebeat : enable filebeat] ********************************************************
+2023-10-23 10:18:30,672 p=32430 u=igor n=ansible | changed: [172.16.121.10]
+2023-10-23 10:18:30,776 p=32430 u=igor n=ansible | changed: [172.16.122.10]
+2023-10-23 10:18:30,785 p=32430 u=igor n=ansible | TASK [filebeat : Restart] ****************************************************************
+2023-10-23 10:18:31,575 p=32430 u=igor n=ansible | changed: [172.16.121.10]
+2023-10-23 10:18:31,651 p=32430 u=igor n=ansible | changed: [172.16.122.10]
+2023-10-23 10:18:31,657 p=32430 u=igor n=ansible | RUNNING HANDLER [zabbix-agent : zabbix-agent] ********************************************
+2023-10-23 10:18:32,455 p=32430 u=igor n=ansible | changed: [172.16.121.10]
+2023-10-23 10:18:32,547 p=32430 u=igor n=ansible | changed: [172.16.122.10]
+2023-10-23 10:18:32,567 p=32430 u=igor n=ansible | PLAY [elastic-elvm] **********************************************************************
+2023-10-23 10:18:32,572 p=32430 u=igor n=ansible | TASK [Gathering Facts] *******************************************************************
+2023-10-23 10:18:34,285 p=32430 u=igor n=ansible | ok: [172.16.121.20]
+2023-10-23 10:18:34,295 p=32430 u=igor n=ansible | TASK [elasticsearch : Update] ************************************************************
+2023-10-23 10:19:16,257 p=32430 u=igor n=ansible | changed: [172.16.121.20]
+2023-10-23 10:19:16,263 p=32430 u=igor n=ansible | TASK [elasticsearch : Download elasticsearch] ********************************************
+2023-10-23 10:19:35,106 p=32430 u=igor n=ansible | changed: [172.16.121.20]
+2023-10-23 10:19:35,112 p=32430 u=igor n=ansible | TASK [elasticsearch : Install java default] **********************************************
+2023-10-23 10:21:18,815 p=32430 u=igor n=ansible | changed: [172.16.121.20]
+2023-10-23 10:21:18,821 p=32430 u=igor n=ansible | TASK [elasticsearch : Install elasticsearch] *********************************************
+2023-10-23 10:21:59,161 p=32430 u=igor n=ansible | changed: [172.16.121.20]
+2023-10-23 10:21:59,166 p=32430 u=igor n=ansible | TASK [elasticsearch : Copy config] *******************************************************
+2023-10-23 10:22:00,237 p=32430 u=igor n=ansible | changed: [172.16.121.20]
+2023-10-23 10:22:00,244 p=32430 u=igor n=ansible | TASK [elasticsearch : started elasticsearch] *********************************************
+2023-10-23 10:22:14,103 p=32430 u=igor n=ansible | changed: [172.16.121.20]
+2023-10-23 10:22:14,109 p=32430 u=igor n=ansible | TASK [elasticsearch : enable elasticsearch] **********************************************
+2023-10-23 10:22:15,611 p=32430 u=igor n=ansible | changed: [172.16.121.20]
+2023-10-23 10:22:15,624 p=32430 u=igor n=ansible | PLAY [kibana-elvm] ***********************************************************************
+2023-10-23 10:22:15,631 p=32430 u=igor n=ansible | TASK [Gathering Facts] *******************************************************************
+2023-10-23 10:22:16,988 p=32430 u=igor n=ansible | ok: [172.16.121.30]
+2023-10-23 10:22:16,998 p=32430 u=igor n=ansible | TASK [nginx : Install nginx] *************************************************************
+2023-10-23 10:22:43,178 p=32430 u=igor n=ansible | changed: [172.16.121.30]
+2023-10-23 10:22:43,184 p=32430 u=igor n=ansible | TASK [nginx : Copy config] ***************************************************************
+2023-10-23 10:22:44,250 p=32430 u=igor n=ansible | changed: [172.16.121.30]
+2023-10-23 10:22:44,256 p=32430 u=igor n=ansible | TASK [nginx : Copy index.html] ***********************************************************
+2023-10-23 10:22:45,222 p=32430 u=igor n=ansible | changed: [172.16.121.30]
+2023-10-23 10:22:45,231 p=32430 u=igor n=ansible | TASK [nginx : replace in sql files] ******************************************************
+2023-10-23 10:22:45,788 p=32430 u=igor n=ansible | changed: [172.16.121.30]
+2023-10-23 10:22:45,797 p=32430 u=igor n=ansible | TASK [nginx : Restart nginx] *************************************************************
+2023-10-23 10:22:46,499 p=32430 u=igor n=ansible | changed: [172.16.121.30]
+2023-10-23 10:22:46,505 p=32430 u=igor n=ansible | TASK [kibana : Update] *******************************************************************
+2023-10-23 10:22:47,745 p=32430 u=igor n=ansible | ok: [172.16.121.30]
+2023-10-23 10:22:47,751 p=32430 u=igor n=ansible | TASK [kibana : Download kibana] **********************************************************
+2023-10-23 10:23:02,005 p=32430 u=igor n=ansible | changed: [172.16.121.30]
+2023-10-23 10:23:02,011 p=32430 u=igor n=ansible | TASK [kibana : Install kibana] ***********************************************************
+2023-10-23 10:24:52,006 p=32430 u=igor n=ansible | changed: [172.16.121.30]
+2023-10-23 10:24:52,011 p=32430 u=igor n=ansible | TASK [kibana : Copy config] **************************************************************
+2023-10-23 10:24:53,034 p=32430 u=igor n=ansible | changed: [172.16.121.30]
+2023-10-23 10:24:53,040 p=32430 u=igor n=ansible | TASK [kibana : remove default site] ******************************************************
+2023-10-23 10:24:53,561 p=32430 u=igor n=ansible | changed: [172.16.121.30]
+2023-10-23 10:24:53,566 p=32430 u=igor n=ansible | TASK [kibana : Copy config nginx] ********************************************************
+2023-10-23 10:24:54,533 p=32430 u=igor n=ansible | changed: [172.16.121.30]
+2023-10-23 10:24:54,538 p=32430 u=igor n=ansible | TASK [kibana : Create a symbolic link] ***************************************************
+2023-10-23 10:24:55,113 p=32430 u=igor n=ansible | changed: [172.16.121.30]
+2023-10-23 10:24:55,119 p=32430 u=igor n=ansible | TASK [kibana : Copy config nginx] ********************************************************
+2023-10-23 10:24:56,157 p=32430 u=igor n=ansible | changed: [172.16.121.30]
+2023-10-23 10:24:56,163 p=32430 u=igor n=ansible | TASK [kibana : Restart nginx] ************************************************************
+2023-10-23 10:24:56,866 p=32430 u=igor n=ansible | changed: [172.16.121.30]
+2023-10-23 10:24:56,873 p=32430 u=igor n=ansible | TASK [kibana : started kibana] ***********************************************************
+2023-10-23 10:24:57,526 p=32430 u=igor n=ansible | changed: [172.16.121.30]
+2023-10-23 10:24:57,532 p=32430 u=igor n=ansible | TASK [kibana : enable kibana] ************************************************************
+2023-10-23 10:24:58,572 p=32430 u=igor n=ansible | changed: [172.16.121.30]
+2023-10-23 10:24:58,581 p=32430 u=igor n=ansible | TASK [kibana : export dashboard] *********************************************************
+2023-10-23 10:24:59,634 p=32430 u=igor n=ansible | changed: [172.16.121.30]
+2023-10-23 10:24:59,639 p=32430 u=igor n=ansible | TASK [kibana : verify is up] *************************************************************
+2023-10-23 10:25:11,905 p=32430 u=igor n=ansible | ok: [172.16.121.30]
+2023-10-23 10:25:11,916 p=32430 u=igor n=ansible | TASK [kibana : include] ******************************************************************
+2023-10-23 10:25:11,963 p=32430 u=igor n=ansible | included: /home/igor/git/diplom-sys19/project/ansible/roles/kibana/tasks/pattern.yml for 172.16.121.30
+2023-10-23 10:25:11,971 p=32430 u=igor n=ansible | TASK [kibana : post to consul] ***********************************************************
+2023-10-23 10:25:28,331 p=32430 u=igor n=ansible | ok: [172.16.121.30]
+2023-10-23 10:25:28,338 p=32430 u=igor n=ansible | TASK [kibana : Import Kibana dashboard] **************************************************
+2023-10-23 10:25:30,150 p=32430 u=igor n=ansible | ok: [172.16.121.30]
+2023-10-23 10:25:30,162 p=32430 u=igor n=ansible | PLAY [zabbix-elvm] ***********************************************************************
+2023-10-23 10:25:30,170 p=32430 u=igor n=ansible | TASK [Gathering Facts] *******************************************************************
+2023-10-23 10:25:31,790 p=32430 u=igor n=ansible | ok: [172.16.121.254]
+2023-10-23 10:25:31,800 p=32430 u=igor n=ansible | TASK [nginx : Install nginx] *************************************************************
+2023-10-23 10:26:57,946 p=32430 u=igor n=ansible | changed: [172.16.121.254]
+2023-10-23 10:26:57,951 p=32430 u=igor n=ansible | TASK [nginx : Copy config] ***************************************************************
+2023-10-23 10:26:59,093 p=32430 u=igor n=ansible | changed: [172.16.121.254]
+2023-10-23 10:26:59,099 p=32430 u=igor n=ansible | TASK [nginx : Copy index.html] ***********************************************************
+2023-10-23 10:27:00,141 p=32430 u=igor n=ansible | changed: [172.16.121.254]
+2023-10-23 10:27:00,147 p=32430 u=igor n=ansible | TASK [nginx : replace in sql files] ******************************************************
+2023-10-23 10:27:00,766 p=32430 u=igor n=ansible | changed: [172.16.121.254]
+2023-10-23 10:27:00,771 p=32430 u=igor n=ansible | TASK [nginx : Restart nginx] *************************************************************
+2023-10-23 10:27:01,611 p=32430 u=igor n=ansible | changed: [172.16.121.254]
+2023-10-23 10:27:01,617 p=32430 u=igor n=ansible | TASK [zabbix-agent : download zabbix agent file with proxy] ******************************
+2023-10-23 10:27:03,077 p=32430 u=igor n=ansible | changed: [172.16.121.254]
+2023-10-23 10:27:03,084 p=32430 u=igor n=ansible | TASK [zabbix-agent : Install zabbix agent] ***********************************************
+2023-10-23 10:27:04,909 p=32430 u=igor n=ansible | changed: [172.16.121.254]
+2023-10-23 10:27:04,915 p=32430 u=igor n=ansible | TASK [zabbix-agent : Install zabbix agent] ***********************************************
+2023-10-23 10:27:17,481 p=32430 u=igor n=ansible | changed: [172.16.121.254]
+2023-10-23 10:27:17,487 p=32430 u=igor n=ansible | TASK [zabbix-agent : stopped zabbix agent] ***********************************************
+2023-10-23 10:27:18,206 p=32430 u=igor n=ansible | changed: [172.16.121.254]
+2023-10-23 10:27:18,214 p=32430 u=igor n=ansible | TASK [zabbix-agent : Remove  zabbix agent] ***********************************************
+2023-10-23 10:27:18,782 p=32430 u=igor n=ansible | changed: [172.16.121.254]
+2023-10-23 10:27:18,790 p=32430 u=igor n=ansible | TASK [zabbix-agent : Copy config] ********************************************************
+2023-10-23 10:27:19,894 p=32430 u=igor n=ansible | changed: [172.16.121.254]
+2023-10-23 10:27:19,900 p=32430 u=igor n=ansible | TASK [zabbix-agent : zabbix-agent] *******************************************************
+2023-10-23 10:27:20,719 p=32430 u=igor n=ansible | changed: [172.16.121.254]
+2023-10-23 10:27:20,725 p=32430 u=igor n=ansible | TASK [zabbix : Update] *******************************************************************
+2023-10-23 10:27:23,221 p=32430 u=igor n=ansible | ok: [172.16.121.254]
+2023-10-23 10:27:23,226 p=32430 u=igor n=ansible | TASK [zabbix : Delete nginx site default] ************************************************
+2023-10-23 10:27:23,798 p=32430 u=igor n=ansible | changed: [172.16.121.254]
+2023-10-23 10:27:23,805 p=32430 u=igor n=ansible | TASK [zabbix : Copy config nginx] ********************************************************
+2023-10-23 10:27:24,954 p=32430 u=igor n=ansible | changed: [172.16.121.254]
+2023-10-23 10:27:24,959 p=32430 u=igor n=ansible | TASK [zabbix : Copy config] **************************************************************
+2023-10-23 10:27:26,142 p=32430 u=igor n=ansible | changed: [172.16.121.254]
+2023-10-23 10:27:26,150 p=32430 u=igor n=ansible | TASK [zabbix : Install required packages] ************************************************
+2023-10-23 10:28:37,056 p=32430 u=igor n=ansible | changed: [172.16.121.254]
+2023-10-23 10:28:37,062 p=32430 u=igor n=ansible | TASK [zabbix : Install packages] *********************************************************
+2023-10-23 10:29:13,877 p=32430 u=igor n=ansible | changed: [172.16.121.254]
+2023-10-23 10:29:13,885 p=32430 u=igor n=ansible | TASK [zabbix : Install zabbix packages] **************************************************
+2023-10-23 10:30:24,654 p=32430 u=igor n=ansible | changed: [172.16.121.254]
+2023-10-23 10:30:24,661 p=32430 u=igor n=ansible | TASK [zabbix : Create postgres user for my app] ******************************************
+2023-10-23 10:30:25,509 p=32430 u=igor n=ansible | changed: [172.16.121.254]
+2023-10-23 10:30:25,515 p=32430 u=igor n=ansible | TASK [zabbix : create postgresql db] *****************************************************
+2023-10-23 10:30:26,569 p=32430 u=igor n=ansible | changed: [172.16.121.254]
+2023-10-23 10:30:26,575 p=32430 u=igor n=ansible | TASK [zabbix : Ensure we have access from the new user] **********************************
+2023-10-23 10:30:27,325 p=32430 u=igor n=ansible | ok: [172.16.121.254]
+2023-10-23 10:30:27,331 p=32430 u=igor n=ansible | TASK [zabbix : Initialize the database] **************************************************
+2023-10-23 10:31:00,601 p=32430 u=igor n=ansible | changed: [172.16.121.254]
+2023-10-23 10:31:00,707 p=32430 u=igor n=ansible | TASK [zabbix : DBPassword change] ********************************************************
+2023-10-23 10:31:01,449 p=32430 u=igor n=ansible | changed: [172.16.121.254]
+2023-10-23 10:31:01,463 p=32430 u=igor n=ansible | TASK [zabbix : Copy config zabbix] *******************************************************
+2023-10-23 10:31:02,497 p=32430 u=igor n=ansible | changed: [172.16.121.254]
+2023-10-23 10:31:02,503 p=32430 u=igor n=ansible | TASK [zabbix : Restart agent] ************************************************************
+2023-10-23 10:31:03,307 p=32430 u=igor n=ansible | changed: [172.16.121.254]
+2023-10-23 10:31:03,312 p=32430 u=igor n=ansible | TASK [zabbix : zabbix-agent enabled] *****************************************************
+2023-10-23 10:31:04,114 p=32430 u=igor n=ansible | ok: [172.16.121.254]
+2023-10-23 10:31:04,120 p=32430 u=igor n=ansible | TASK [zabbix : Restart service nginx] ****************************************************
+2023-10-23 10:31:04,863 p=32430 u=igor n=ansible | changed: [172.16.121.254]
+2023-10-23 10:31:04,869 p=32430 u=igor n=ansible | TASK [zabbix : Enable service nginx] *****************************************************
+2023-10-23 10:31:05,563 p=32430 u=igor n=ansible | ok: [172.16.121.254]
+2023-10-23 10:31:05,568 p=32430 u=igor n=ansible | TASK [zabbix : Restart zabbix-server] ****************************************************
+2023-10-23 10:31:06,403 p=32430 u=igor n=ansible | changed: [172.16.121.254]
+2023-10-23 10:31:06,410 p=32430 u=igor n=ansible | TASK [zabbix : Enable service zabbix-server] *********************************************
+2023-10-23 10:31:07,647 p=32430 u=igor n=ansible | changed: [172.16.121.254]
+2023-10-23 10:31:07,654 p=32430 u=igor n=ansible | RUNNING HANDLER [zabbix-agent : zabbix-agent] ********************************************
+2023-10-23 10:31:08,580 p=32430 u=igor n=ansible | changed: [172.16.121.254]
+2023-10-23 10:31:08,587 p=32430 u=igor n=ansible | PLAY RECAP *******************************************************************************
+2023-10-23 10:31:08,588 p=32430 u=igor n=ansible | 172.16.121.10              : ok=21   changed=19   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-23 10:31:08,588 p=32430 u=igor n=ansible | 172.16.121.20              : ok=8    changed=7    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-23 10:31:08,588 p=32430 u=igor n=ansible | 172.16.121.254             : ok=33   changed=28   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-23 10:31:08,588 p=32430 u=igor n=ansible | 172.16.121.30              : ok=22   changed=16   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-23 10:31:08,588 p=32430 u=igor n=ansible | 172.16.122.10              : ok=21   changed=19   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-23 10:31:08,588 p=32430 u=igor n=ansible | 51.250.2.200               : ok=10   changed=8    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-25 13:47:47,738 p=78322 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-25 13:47:47,982 p=78322 u=igor n=ansible | PLAY [bastion-elvm] ****************************************************************************************************
+2023-10-25 13:47:47,993 p=78322 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-10-25 13:47:49,414 p=78322 u=igor n=ansible | ok: [62.84.112.11]
+2023-10-25 13:47:49,424 p=78322 u=igor n=ansible | TASK [bastion : Install squid] *****************************************************************************************
+2023-10-25 13:48:22,557 p=78322 u=igor n=ansible | changed: [62.84.112.11]
+2023-10-25 13:48:22,563 p=78322 u=igor n=ansible | TASK [bastion : Install apache2-utils] *********************************************************************************
+2023-10-25 13:48:25,238 p=78322 u=igor n=ansible | changed: [62.84.112.11]
+2023-10-25 13:48:25,246 p=78322 u=igor n=ansible | TASK [bastion : Copy squid.conf] ***************************************************************************************
+2023-10-25 13:48:26,261 p=78322 u=igor n=ansible | changed: [62.84.112.11]
+2023-10-25 13:48:26,271 p=78322 u=igor n=ansible | TASK [bastion : Copy auth_users] ***************************************************************************************
+2023-10-25 13:48:26,922 p=78322 u=igor n=ansible | changed: [62.84.112.11]
+2023-10-25 13:48:26,929 p=78322 u=igor n=ansible | TASK [bastion : stopped squid] *****************************************************************************************
+2023-10-25 13:48:59,099 p=78322 u=igor n=ansible | changed: [62.84.112.11]
+2023-10-25 13:48:59,106 p=78322 u=igor n=ansible | TASK [bastion : request shell squid] ***********************************************************************************
+2023-10-25 13:48:59,718 p=78322 u=igor n=ansible | changed: [62.84.112.11]
+2023-10-25 13:48:59,723 p=78322 u=igor n=ansible | TASK [bastion : started squid] *****************************************************************************************
+2023-10-25 13:49:00,228 p=78322 u=igor n=ansible | changed: [62.84.112.11]
+2023-10-25 13:49:00,234 p=78322 u=igor n=ansible | TASK [bastion : enable squid] ******************************************************************************************
+2023-10-25 13:49:00,695 p=78322 u=igor n=ansible | ok: [62.84.112.11]
+2023-10-25 13:49:00,701 p=78322 u=igor n=ansible | TASK [bastion : reconfigure squid] *************************************************************************************
+2023-10-25 13:49:01,058 p=78322 u=igor n=ansible | changed: [62.84.112.11]
+2023-10-25 13:49:01,075 p=78322 u=igor n=ansible | PLAY [websrv-elvm] *****************************************************************************************************
+2023-10-25 13:49:01,082 p=78322 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-10-25 13:49:01,169 p=78322 u=igor n=ansible | fatal: [websrv-elvm-2.ru-central1.internal]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ", "unreachable": true}
+2023-10-25 13:49:01,171 p=78322 u=igor n=ansible | fatal: [websrv-elvm-1.ru-central1.internal]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ", "unreachable": true}
+2023-10-25 13:49:01,172 p=78322 u=igor n=ansible | PLAY RECAP *************************************************************************************************************
+2023-10-25 13:49:01,173 p=78322 u=igor n=ansible | 62.84.112.11               : ok=10   changed=8    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-25 13:49:01,173 p=78322 u=igor n=ansible | websrv-elvm-1.ru-central1.internal : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-25 13:49:01,173 p=78322 u=igor n=ansible | websrv-elvm-2.ru-central1.internal : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-25 13:50:12,521 p=78464 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-25 13:50:12,794 p=78464 u=igor n=ansible | PLAY [bastion-elvm] ****************************************************************************************************
+2023-10-25 13:50:12,804 p=78464 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-10-25 13:50:12,871 p=78464 u=igor n=ansible | fatal: [bastion-elvm.ru-central1.interna]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ", "unreachable": true}
+2023-10-25 13:50:12,873 p=78464 u=igor n=ansible | PLAY RECAP *************************************************************************************************************
+2023-10-25 13:50:12,873 p=78464 u=igor n=ansible | bastion-elvm.ru-central1.interna : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-25 14:37:37,878 p=78888 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-25 14:37:38,116 p=78888 u=igor n=ansible | PLAY [bastion-elvm] ****************************************************************************************************
+2023-10-25 14:37:38,126 p=78888 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-10-25 14:37:39,239 p=78888 u=igor n=ansible | ok: [62.84.112.11]
+2023-10-25 14:37:39,249 p=78888 u=igor n=ansible | TASK [bastion : Install squid] *****************************************************************************************
+2023-10-25 14:37:40,744 p=78888 u=igor n=ansible | ok: [62.84.112.11]
+2023-10-25 14:37:40,751 p=78888 u=igor n=ansible | TASK [bastion : Install apache2-utils] *********************************************************************************
+2023-10-25 14:37:42,103 p=78888 u=igor n=ansible | ok: [62.84.112.11]
+2023-10-25 14:37:42,113 p=78888 u=igor n=ansible | TASK [bastion : Copy squid.conf] ***************************************************************************************
+2023-10-25 14:37:42,941 p=78888 u=igor n=ansible | ok: [62.84.112.11]
+2023-10-25 14:37:42,947 p=78888 u=igor n=ansible | TASK [bastion : Copy auth_users] ***************************************************************************************
+2023-10-25 14:37:43,485 p=78888 u=igor n=ansible | ok: [62.84.112.11]
+2023-10-25 14:37:43,490 p=78888 u=igor n=ansible | TASK [bastion : stopped squid] *****************************************************************************************
+2023-10-25 14:38:15,337 p=78888 u=igor n=ansible | changed: [62.84.112.11]
+2023-10-25 14:38:15,344 p=78888 u=igor n=ansible | TASK [bastion : request shell squid] ***********************************************************************************
+2023-10-25 14:38:15,836 p=78888 u=igor n=ansible | changed: [62.84.112.11]
+2023-10-25 14:38:15,842 p=78888 u=igor n=ansible | TASK [bastion : started squid] *****************************************************************************************
+2023-10-25 14:38:16,354 p=78888 u=igor n=ansible | changed: [62.84.112.11]
+2023-10-25 14:38:16,359 p=78888 u=igor n=ansible | TASK [bastion : enable squid] ******************************************************************************************
+2023-10-25 14:38:16,809 p=78888 u=igor n=ansible | ok: [62.84.112.11]
+2023-10-25 14:38:16,816 p=78888 u=igor n=ansible | TASK [bastion : reconfigure squid] *************************************************************************************
+2023-10-25 14:38:17,146 p=78888 u=igor n=ansible | changed: [62.84.112.11]
+2023-10-25 14:38:17,159 p=78888 u=igor n=ansible | PLAY [websrv-elvm] *****************************************************************************************************
+2023-10-25 14:38:17,166 p=78888 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-10-25 14:38:19,704 p=78888 u=igor n=ansible | ok: [172.16.122.10]
+2023-10-25 14:38:27,204 p=78888 u=igor n=ansible | fatal: [172.16.121.10]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ", "unreachable": true}
+2023-10-25 14:38:27,214 p=78888 u=igor n=ansible | TASK [nginx : Install nginx] *******************************************************************************************
+2023-10-25 14:39:07,714 p=78888 u=igor n=ansible | changed: [172.16.122.10]
+2023-10-25 14:39:07,719 p=78888 u=igor n=ansible | TASK [nginx : Copy config] *********************************************************************************************
+2023-10-25 14:39:09,166 p=78888 u=igor n=ansible | changed: [172.16.122.10]
+2023-10-25 14:39:09,172 p=78888 u=igor n=ansible | TASK [nginx : Copy index.html] *****************************************************************************************
+2023-10-25 14:39:10,378 p=78888 u=igor n=ansible | changed: [172.16.122.10]
+2023-10-25 14:39:10,384 p=78888 u=igor n=ansible | TASK [nginx : replace in sql files] ************************************************************************************
+2023-10-25 14:39:11,010 p=78888 u=igor n=ansible | [WARNING]: Consider using the replace, lineinfile or template module rather than running 'sed'.  If you need to use
+command because replace, lineinfile or template is insufficient you can add 'warn: false' to this command task or set
+'command_warnings=False' in ansible.cfg to get rid of this message.
+
+2023-10-25 14:39:11,011 p=78888 u=igor n=ansible | changed: [172.16.122.10]
+2023-10-25 14:39:11,017 p=78888 u=igor n=ansible | TASK [nginx : Restart nginx] *******************************************************************************************
+2023-10-25 14:39:11,827 p=78888 u=igor n=ansible | changed: [172.16.122.10]
+2023-10-25 14:39:11,834 p=78888 u=igor n=ansible | TASK [zabbix-agent : download zabbix agent file with proxy] ************************************************************
+2023-10-25 14:39:13,438 p=78888 u=igor n=ansible | changed: [172.16.122.10]
+2023-10-25 14:39:13,448 p=78888 u=igor n=ansible | TASK [zabbix-agent : Install zabbix agent] *****************************************************************************
+2023-10-25 14:39:15,521 p=78888 u=igor n=ansible | changed: [172.16.122.10]
+2023-10-25 14:39:15,527 p=78888 u=igor n=ansible | TASK [zabbix-agent : Install zabbix agent] *****************************************************************************
+2023-10-25 14:39:29,344 p=78888 u=igor n=ansible | changed: [172.16.122.10]
+2023-10-25 14:39:29,355 p=78888 u=igor n=ansible | TASK [zabbix-agent : stopped zabbix agent] *****************************************************************************
+2023-10-25 14:39:30,131 p=78888 u=igor n=ansible | changed: [172.16.122.10]
+2023-10-25 14:39:30,137 p=78888 u=igor n=ansible | TASK [zabbix-agent : Remove  zabbix agent] *****************************************************************************
+2023-10-25 14:39:30,913 p=78888 u=igor n=ansible | changed: [172.16.122.10]
+2023-10-25 14:39:30,919 p=78888 u=igor n=ansible | TASK [zabbix-agent : Copy config] **************************************************************************************
+2023-10-25 14:39:32,078 p=78888 u=igor n=ansible | changed: [172.16.122.10]
+2023-10-25 14:39:32,085 p=78888 u=igor n=ansible | TASK [zabbix-agent : zabbix-agent] *************************************************************************************
+2023-10-25 14:39:32,960 p=78888 u=igor n=ansible | changed: [172.16.122.10]
+2023-10-25 14:39:32,970 p=78888 u=igor n=ansible | TASK [filebeat : Update] ***********************************************************************************************
+2023-10-25 14:39:34,963 p=78888 u=igor n=ansible | ok: [172.16.122.10]
+2023-10-25 14:39:34,974 p=78888 u=igor n=ansible | TASK [filebeat : Download filebeat] ************************************************************************************
+2023-10-25 14:39:36,629 p=78888 u=igor n=ansible | changed: [172.16.122.10]
+2023-10-25 14:39:36,635 p=78888 u=igor n=ansible | TASK [filebeat : Install filebeat] *************************************************************************************
+2023-10-25 14:39:49,718 p=78888 u=igor n=ansible | changed: [172.16.122.10]
+2023-10-25 14:39:49,724 p=78888 u=igor n=ansible | TASK [filebeat : Copy config] ******************************************************************************************
+2023-10-25 14:39:50,926 p=78888 u=igor n=ansible | changed: [172.16.122.10]
+2023-10-25 14:39:50,932 p=78888 u=igor n=ansible | TASK [filebeat : started filebeat] *************************************************************************************
+2023-10-25 14:39:51,711 p=78888 u=igor n=ansible | changed: [172.16.122.10]
+2023-10-25 14:39:51,717 p=78888 u=igor n=ansible | TASK [filebeat : enable filebeat] **************************************************************************************
+2023-10-25 14:39:52,842 p=78888 u=igor n=ansible | changed: [172.16.122.10]
+2023-10-25 14:39:52,848 p=78888 u=igor n=ansible | TASK [filebeat : Restart] **********************************************************************************************
+2023-10-25 14:39:53,647 p=78888 u=igor n=ansible | changed: [172.16.122.10]
+2023-10-25 14:39:53,653 p=78888 u=igor n=ansible | RUNNING HANDLER [zabbix-agent : zabbix-agent] **************************************************************************
+2023-10-25 14:39:54,584 p=78888 u=igor n=ansible | changed: [172.16.122.10]
+2023-10-25 14:39:54,598 p=78888 u=igor n=ansible | PLAY [elastic-elvm] ****************************************************************************************************
+2023-10-25 14:39:54,607 p=78888 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-10-25 14:39:57,169 p=78888 u=igor n=ansible | ok: [172.16.121.20]
+2023-10-25 14:39:57,183 p=78888 u=igor n=ansible | TASK [elasticsearch : Update] ******************************************************************************************
+2023-10-25 14:40:11,515 p=78888 u=igor n=ansible | changed: [172.16.121.20]
+2023-10-25 14:40:11,521 p=78888 u=igor n=ansible | TASK [elasticsearch : Download elasticsearch] **************************************************************************
+2023-10-25 14:40:27,631 p=78888 u=igor n=ansible | changed: [172.16.121.20]
+2023-10-25 14:40:27,639 p=78888 u=igor n=ansible | TASK [elasticsearch : Install java default] ****************************************************************************
+2023-10-25 14:42:20,045 p=78888 u=igor n=ansible | changed: [172.16.121.20]
+2023-10-25 14:42:20,051 p=78888 u=igor n=ansible | TASK [elasticsearch : Install elasticsearch] ***************************************************************************
+2023-10-25 14:43:00,887 p=78888 u=igor n=ansible | changed: [172.16.121.20]
+2023-10-25 14:43:00,897 p=78888 u=igor n=ansible | TASK [elasticsearch : Copy config] *************************************************************************************
+2023-10-25 14:43:02,135 p=78888 u=igor n=ansible | changed: [172.16.121.20]
+2023-10-25 14:43:02,141 p=78888 u=igor n=ansible | TASK [elasticsearch : started elasticsearch] ***************************************************************************
+2023-10-25 14:43:18,537 p=78888 u=igor n=ansible | changed: [172.16.121.20]
+2023-10-25 14:43:18,547 p=78888 u=igor n=ansible | TASK [elasticsearch : enable elasticsearch] ****************************************************************************
+2023-10-25 14:43:19,999 p=78888 u=igor n=ansible | changed: [172.16.121.20]
+2023-10-25 14:43:20,013 p=78888 u=igor n=ansible | PLAY [kibana-elvm] *****************************************************************************************************
+2023-10-25 14:43:20,020 p=78888 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-10-25 14:43:22,619 p=78888 u=igor n=ansible | ok: [172.16.121.30]
+2023-10-25 14:43:22,629 p=78888 u=igor n=ansible | TASK [nginx : Install nginx] *******************************************************************************************
+2023-10-25 14:43:46,082 p=78888 u=igor n=ansible | changed: [172.16.121.30]
+2023-10-25 14:43:46,088 p=78888 u=igor n=ansible | TASK [nginx : Copy config] *********************************************************************************************
+2023-10-25 14:43:47,226 p=78888 u=igor n=ansible | changed: [172.16.121.30]
+2023-10-25 14:43:47,232 p=78888 u=igor n=ansible | TASK [nginx : Copy index.html] *****************************************************************************************
+2023-10-25 14:43:48,279 p=78888 u=igor n=ansible | changed: [172.16.121.30]
+2023-10-25 14:43:48,286 p=78888 u=igor n=ansible | TASK [nginx : replace in sql files] ************************************************************************************
+2023-10-25 14:43:48,862 p=78888 u=igor n=ansible | changed: [172.16.121.30]
+2023-10-25 14:43:48,867 p=78888 u=igor n=ansible | TASK [nginx : Restart nginx] *******************************************************************************************
+2023-10-25 14:43:49,591 p=78888 u=igor n=ansible | changed: [172.16.121.30]
+2023-10-25 14:43:49,596 p=78888 u=igor n=ansible | TASK [kibana : Update] *************************************************************************************************
+2023-10-25 14:43:51,126 p=78888 u=igor n=ansible | ok: [172.16.121.30]
+2023-10-25 14:43:51,132 p=78888 u=igor n=ansible | TASK [kibana : Download kibana] ****************************************************************************************
+2023-10-25 14:44:03,172 p=78888 u=igor n=ansible | changed: [172.16.121.30]
+2023-10-25 14:44:03,184 p=78888 u=igor n=ansible | TASK [kibana : Install kibana] *****************************************************************************************
+2023-10-25 14:45:57,146 p=78888 u=igor n=ansible | changed: [172.16.121.30]
+2023-10-25 14:45:57,153 p=78888 u=igor n=ansible | TASK [kibana : Copy config] ********************************************************************************************
+2023-10-25 14:45:58,210 p=78888 u=igor n=ansible | changed: [172.16.121.30]
+2023-10-25 14:45:58,216 p=78888 u=igor n=ansible | TASK [kibana : remove default site] ************************************************************************************
+2023-10-25 14:45:58,770 p=78888 u=igor n=ansible | changed: [172.16.121.30]
+2023-10-25 14:45:58,777 p=78888 u=igor n=ansible | TASK [kibana : Copy config nginx] **************************************************************************************
+2023-10-25 14:45:59,819 p=78888 u=igor n=ansible | changed: [172.16.121.30]
+2023-10-25 14:45:59,825 p=78888 u=igor n=ansible | TASK [kibana : Create a symbolic link] *********************************************************************************
+2023-10-25 14:46:00,403 p=78888 u=igor n=ansible | changed: [172.16.121.30]
+2023-10-25 14:46:00,409 p=78888 u=igor n=ansible | TASK [kibana : Copy config nginx] **************************************************************************************
+2023-10-25 14:46:01,570 p=78888 u=igor n=ansible | changed: [172.16.121.30]
+2023-10-25 14:46:01,576 p=78888 u=igor n=ansible | TASK [kibana : Restart nginx] ******************************************************************************************
+2023-10-25 14:46:02,417 p=78888 u=igor n=ansible | changed: [172.16.121.30]
+2023-10-25 14:46:02,423 p=78888 u=igor n=ansible | TASK [kibana : started kibana] *****************************************************************************************
+2023-10-25 14:46:03,155 p=78888 u=igor n=ansible | changed: [172.16.121.30]
+2023-10-25 14:46:03,161 p=78888 u=igor n=ansible | TASK [kibana : enable kibana] ******************************************************************************************
+2023-10-25 14:46:04,358 p=78888 u=igor n=ansible | changed: [172.16.121.30]
+2023-10-25 14:46:04,368 p=78888 u=igor n=ansible | TASK [kibana : export dashboard] ***************************************************************************************
+2023-10-25 14:46:05,506 p=78888 u=igor n=ansible | changed: [172.16.121.30]
+2023-10-25 14:46:05,515 p=78888 u=igor n=ansible | TASK [kibana : verify is up] *******************************************************************************************
+2023-10-25 14:46:19,742 p=78888 u=igor n=ansible | ok: [172.16.121.30]
+2023-10-25 14:46:19,749 p=78888 u=igor n=ansible | TASK [kibana : include] ************************************************************************************************
+2023-10-25 14:46:19,797 p=78888 u=igor n=ansible | included: /home/igor/git/diplom-sys19/project/ansible/roles/kibana/tasks/pattern.yml for 172.16.121.30
+2023-10-25 14:46:19,810 p=78888 u=igor n=ansible | TASK [kibana : post to consul] *****************************************************************************************
+2023-10-25 14:46:36,260 p=78888 u=igor n=ansible | ok: [172.16.121.30]
+2023-10-25 14:46:36,268 p=78888 u=igor n=ansible | TASK [kibana : Import Kibana dashboard] ********************************************************************************
+2023-10-25 14:46:37,469 p=78888 u=igor n=ansible | ok: [172.16.121.30]
+2023-10-25 14:46:37,493 p=78888 u=igor n=ansible | PLAY [zabbix-elvm] *****************************************************************************************************
+2023-10-25 14:46:37,511 p=78888 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-10-25 14:46:47,545 p=78888 u=igor n=ansible | fatal: [172.16.121.254]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ", "unreachable": true}
+2023-10-25 14:46:47,547 p=78888 u=igor n=ansible | PLAY RECAP *************************************************************************************************************
+2023-10-25 14:46:47,547 p=78888 u=igor n=ansible | 172.16.121.10              : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-25 14:46:47,547 p=78888 u=igor n=ansible | 172.16.121.20              : ok=8    changed=7    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-25 14:46:47,548 p=78888 u=igor n=ansible | 172.16.121.254             : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-25 14:46:47,548 p=78888 u=igor n=ansible | 172.16.121.30              : ok=22   changed=16   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-25 14:46:47,548 p=78888 u=igor n=ansible | 172.16.122.10              : ok=21   changed=19   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-25 14:46:47,548 p=78888 u=igor n=ansible | 62.84.112.11               : ok=10   changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-25 16:25:51,357 p=81482 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-25 16:25:51,594 p=81482 u=igor n=ansible | PLAY [bastion-elvm] *************************************************************************************************************************************************************************************************************************
+2023-10-25 16:25:51,604 p=81482 u=igor n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2023-10-25 16:25:53,020 p=81482 u=igor n=ansible | ok: [62.84.127.125]
+2023-10-25 16:25:53,029 p=81482 u=igor n=ansible | TASK [bastion : Install squid] **************************************************************************************************************************************************************************************************************
+2023-10-25 16:26:25,547 p=81482 u=igor n=ansible | changed: [62.84.127.125]
+2023-10-25 16:26:25,554 p=81482 u=igor n=ansible | TASK [bastion : Install apache2-utils] ******************************************************************************************************************************************************************************************************
+2023-10-25 16:26:28,156 p=81482 u=igor n=ansible | changed: [62.84.127.125]
+2023-10-25 16:26:28,163 p=81482 u=igor n=ansible | TASK [bastion : Copy squid.conf] ************************************************************************************************************************************************************************************************************
+2023-10-25 16:26:29,225 p=81482 u=igor n=ansible | changed: [62.84.127.125]
+2023-10-25 16:26:29,232 p=81482 u=igor n=ansible | TASK [bastion : Copy auth_users] ************************************************************************************************************************************************************************************************************
+2023-10-25 16:26:29,877 p=81482 u=igor n=ansible | changed: [62.84.127.125]
+2023-10-25 16:26:29,884 p=81482 u=igor n=ansible | TASK [bastion : stopped squid] **************************************************************************************************************************************************************************************************************
+2023-10-25 16:27:01,994 p=81482 u=igor n=ansible | changed: [62.84.127.125]
+2023-10-25 16:27:02,001 p=81482 u=igor n=ansible | TASK [bastion : request shell squid] ********************************************************************************************************************************************************************************************************
+2023-10-25 16:27:03,703 p=81482 u=igor n=ansible | changed: [62.84.127.125]
+2023-10-25 16:27:03,709 p=81482 u=igor n=ansible | TASK [bastion : started squid] **************************************************************************************************************************************************************************************************************
+2023-10-25 16:27:04,259 p=81482 u=igor n=ansible | changed: [62.84.127.125]
+2023-10-25 16:27:04,265 p=81482 u=igor n=ansible | TASK [bastion : enable squid] ***************************************************************************************************************************************************************************************************************
+2023-10-25 16:27:04,755 p=81482 u=igor n=ansible | ok: [62.84.127.125]
+2023-10-25 16:27:04,761 p=81482 u=igor n=ansible | TASK [bastion : reconfigure squid] **********************************************************************************************************************************************************************************************************
+2023-10-25 16:27:05,112 p=81482 u=igor n=ansible | changed: [62.84.127.125]
+2023-10-25 16:27:05,128 p=81482 u=igor n=ansible | PLAY [websrv-elvm] **************************************************************************************************************************************************************************************************************************
+2023-10-25 16:27:05,137 p=81482 u=igor n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************************************************
+2023-10-25 16:27:06,560 p=81482 u=igor n=ansible | ok: [websrv-elvm-2.ru-central1.internal]
+2023-10-25 16:27:06,658 p=81482 u=igor n=ansible | ok: [websrv-elvm-1.ru-central1.internal]
+2023-10-25 16:27:06,669 p=81482 u=igor n=ansible | TASK [nginx : Install nginx] ****************************************************************************************************************************************************************************************************************
+2023-10-25 16:27:41,321 p=81482 u=igor n=ansible | changed: [websrv-elvm-2.ru-central1.internal]
+2023-10-25 16:27:45,071 p=81482 u=igor n=ansible | changed: [websrv-elvm-1.ru-central1.internal]
+2023-10-25 16:27:45,077 p=81482 u=igor n=ansible | TASK [nginx : Copy config] ******************************************************************************************************************************************************************************************************************
+2023-10-25 16:27:46,342 p=81482 u=igor n=ansible | changed: [websrv-elvm-2.ru-central1.internal]
+2023-10-25 16:27:46,378 p=81482 u=igor n=ansible | changed: [websrv-elvm-1.ru-central1.internal]
+2023-10-25 16:27:46,390 p=81482 u=igor n=ansible | TASK [nginx : Copy index.html] **************************************************************************************************************************************************************************************************************
+2023-10-25 16:27:47,506 p=81482 u=igor n=ansible | changed: [websrv-elvm-1.ru-central1.internal]
+2023-10-25 16:27:47,618 p=81482 u=igor n=ansible | changed: [websrv-elvm-2.ru-central1.internal]
+2023-10-25 16:27:47,624 p=81482 u=igor n=ansible | TASK [nginx : replace in sql files] *********************************************************************************************************************************************************************************************************
+2023-10-25 16:27:48,218 p=81482 u=igor n=ansible | [WARNING]: Consider using the replace, lineinfile or template module rather than running 'sed'.  If you need to use command because replace, lineinfile or template is insufficient you can add 'warn: false' to this command task or set
+'command_warnings=False' in ansible.cfg to get rid of this message.
+
+2023-10-25 16:27:48,218 p=81482 u=igor n=ansible | changed: [websrv-elvm-1.ru-central1.internal]
+2023-10-25 16:27:48,260 p=81482 u=igor n=ansible | changed: [websrv-elvm-2.ru-central1.internal]
+2023-10-25 16:27:48,267 p=81482 u=igor n=ansible | TASK [nginx : Restart nginx] ****************************************************************************************************************************************************************************************************************
+2023-10-25 16:27:49,031 p=81482 u=igor n=ansible | changed: [websrv-elvm-1.ru-central1.internal]
+2023-10-25 16:27:49,046 p=81482 u=igor n=ansible | changed: [websrv-elvm-2.ru-central1.internal]
+2023-10-25 16:27:49,053 p=81482 u=igor n=ansible | TASK [zabbix-agent : download zabbix agent file with proxy] *********************************************************************************************************************************************************************************
+2023-10-25 16:27:50,666 p=81482 u=igor n=ansible | changed: [websrv-elvm-1.ru-central1.internal]
+2023-10-25 16:27:50,713 p=81482 u=igor n=ansible | changed: [websrv-elvm-2.ru-central1.internal]
+2023-10-25 16:27:50,720 p=81482 u=igor n=ansible | TASK [zabbix-agent : Install zabbix agent] **************************************************************************************************************************************************************************************************
+2023-10-25 16:27:52,587 p=81482 u=igor n=ansible | changed: [websrv-elvm-2.ru-central1.internal]
+2023-10-25 16:27:52,878 p=81482 u=igor n=ansible | changed: [websrv-elvm-1.ru-central1.internal]
+2023-10-25 16:27:52,884 p=81482 u=igor n=ansible | TASK [zabbix-agent : Install zabbix agent] **************************************************************************************************************************************************************************************************
+2023-10-25 16:28:06,850 p=81482 u=igor n=ansible | changed: [websrv-elvm-2.ru-central1.internal]
+2023-10-25 16:28:07,618 p=81482 u=igor n=ansible | changed: [websrv-elvm-1.ru-central1.internal]
+2023-10-25 16:28:07,624 p=81482 u=igor n=ansible | TASK [zabbix-agent : stopped zabbix agent] **************************************************************************************************************************************************************************************************
+2023-10-25 16:28:08,387 p=81482 u=igor n=ansible | changed: [websrv-elvm-2.ru-central1.internal]
+2023-10-25 16:28:08,439 p=81482 u=igor n=ansible | changed: [websrv-elvm-1.ru-central1.internal]
+2023-10-25 16:28:08,445 p=81482 u=igor n=ansible | TASK [zabbix-agent : Remove  zabbix agent] **************************************************************************************************************************************************************************************************
+2023-10-25 16:28:09,219 p=81482 u=igor n=ansible | changed: [websrv-elvm-1.ru-central1.internal]
+2023-10-25 16:28:09,246 p=81482 u=igor n=ansible | changed: [websrv-elvm-2.ru-central1.internal]
+2023-10-25 16:28:09,257 p=81482 u=igor n=ansible | TASK [zabbix-agent : Copy config] ***********************************************************************************************************************************************************************************************************
+2023-10-25 16:28:10,350 p=81482 u=igor n=ansible | changed: [websrv-elvm-1.ru-central1.internal]
+2023-10-25 16:28:10,465 p=81482 u=igor n=ansible | changed: [websrv-elvm-2.ru-central1.internal]
+2023-10-25 16:28:10,473 p=81482 u=igor n=ansible | TASK [zabbix-agent : zabbix-agent] **********************************************************************************************************************************************************************************************************
+2023-10-25 16:28:11,328 p=81482 u=igor n=ansible | changed: [websrv-elvm-1.ru-central1.internal]
+2023-10-25 16:28:11,362 p=81482 u=igor n=ansible | changed: [websrv-elvm-2.ru-central1.internal]
+2023-10-25 16:28:11,369 p=81482 u=igor n=ansible | TASK [filebeat : Update] ********************************************************************************************************************************************************************************************************************
+2023-10-25 16:28:13,270 p=81482 u=igor n=ansible | ok: [websrv-elvm-2.ru-central1.internal]
+2023-10-25 16:28:13,489 p=81482 u=igor n=ansible | ok: [websrv-elvm-1.ru-central1.internal]
+2023-10-25 16:28:13,495 p=81482 u=igor n=ansible | TASK [filebeat : Download filebeat] *********************************************************************************************************************************************************************************************************
+2023-10-25 16:28:16,506 p=81482 u=igor n=ansible | changed: [websrv-elvm-1.ru-central1.internal]
+2023-10-25 16:28:16,605 p=81482 u=igor n=ansible | changed: [websrv-elvm-2.ru-central1.internal]
+2023-10-25 16:28:16,612 p=81482 u=igor n=ansible | TASK [filebeat : Install filebeat] **********************************************************************************************************************************************************************************************************
+2023-10-25 16:28:29,038 p=81482 u=igor n=ansible | changed: [websrv-elvm-2.ru-central1.internal]
+2023-10-25 16:28:29,105 p=81482 u=igor n=ansible | changed: [websrv-elvm-1.ru-central1.internal]
+2023-10-25 16:28:29,111 p=81482 u=igor n=ansible | TASK [filebeat : Copy config] ***************************************************************************************************************************************************************************************************************
+2023-10-25 16:28:30,222 p=81482 u=igor n=ansible | changed: [websrv-elvm-1.ru-central1.internal]
+2023-10-25 16:28:30,338 p=81482 u=igor n=ansible | changed: [websrv-elvm-2.ru-central1.internal]
+2023-10-25 16:28:30,350 p=81482 u=igor n=ansible | TASK [filebeat : started filebeat] **********************************************************************************************************************************************************************************************************
+2023-10-25 16:28:31,121 p=81482 u=igor n=ansible | changed: [websrv-elvm-1.ru-central1.internal]
+2023-10-25 16:28:31,135 p=81482 u=igor n=ansible | changed: [websrv-elvm-2.ru-central1.internal]
+2023-10-25 16:28:31,141 p=81482 u=igor n=ansible | TASK [filebeat : enable filebeat] ***********************************************************************************************************************************************************************************************************
+2023-10-25 16:28:32,228 p=81482 u=igor n=ansible | changed: [websrv-elvm-2.ru-central1.internal]
+2023-10-25 16:28:32,290 p=81482 u=igor n=ansible | changed: [websrv-elvm-1.ru-central1.internal]
+2023-10-25 16:28:32,297 p=81482 u=igor n=ansible | TASK [filebeat : Restart] *******************************************************************************************************************************************************************************************************************
+2023-10-25 16:28:33,079 p=81482 u=igor n=ansible | changed: [websrv-elvm-1.ru-central1.internal]
+2023-10-25 16:28:33,114 p=81482 u=igor n=ansible | changed: [websrv-elvm-2.ru-central1.internal]
+2023-10-25 16:28:33,120 p=81482 u=igor n=ansible | RUNNING HANDLER [zabbix-agent : zabbix-agent] ***********************************************************************************************************************************************************************************************
+2023-10-25 16:28:33,968 p=81482 u=igor n=ansible | changed: [websrv-elvm-1.ru-central1.internal]
+2023-10-25 16:28:33,975 p=81482 u=igor n=ansible | changed: [websrv-elvm-2.ru-central1.internal]
+2023-10-25 16:28:33,983 p=81482 u=igor n=ansible | [WARNING]: Could not match supplied host pattern, ignoring: elastic-elvm
+
+2023-10-25 16:28:33,984 p=81482 u=igor n=ansible | PLAY [elastic-elvm] *************************************************************************************************************************************************************************************************************************
+2023-10-25 16:28:33,984 p=81482 u=igor n=ansible | skipping: no hosts matched
+2023-10-25 16:28:33,984 p=81482 u=igor n=ansible | [WARNING]: Could not match supplied host pattern, ignoring: kibana-elvm
+
+2023-10-25 16:28:33,985 p=81482 u=igor n=ansible | PLAY [kibana-elvm] **************************************************************************************************************************************************************************************************************************
+2023-10-25 16:28:33,985 p=81482 u=igor n=ansible | skipping: no hosts matched
+2023-10-25 16:28:33,986 p=81482 u=igor n=ansible | [WARNING]: Could not match supplied host pattern, ignoring: zabbix-elvm
+
+2023-10-25 16:28:33,986 p=81482 u=igor n=ansible | PLAY [zabbix-elvm] **************************************************************************************************************************************************************************************************************************
+2023-10-25 16:28:33,986 p=81482 u=igor n=ansible | skipping: no hosts matched
+2023-10-25 16:28:33,986 p=81482 u=igor n=ansible | PLAY RECAP **********************************************************************************************************************************************************************************************************************************
+2023-10-25 16:28:33,986 p=81482 u=igor n=ansible | 62.84.127.125              : ok=10   changed=8    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-25 16:28:33,987 p=81482 u=igor n=ansible | websrv-elvm-1.ru-central1.internal : ok=21   changed=19   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-25 16:28:33,987 p=81482 u=igor n=ansible | websrv-elvm-2.ru-central1.internal : ok=21   changed=19   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-25 17:07:00,715 p=82724 u=igor n=ansible | [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
+
+2023-10-25 17:07:00,948 p=82724 u=igor n=ansible | PLAY [bastion-elvm] ****************************************************************************************************
+2023-10-25 17:07:00,958 p=82724 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-10-25 17:07:02,981 p=82724 u=igor n=ansible | ok: [158.160.109.213]
+2023-10-25 17:07:02,992 p=82724 u=igor n=ansible | TASK [bastion : Install squid] *****************************************************************************************
+2023-10-25 17:07:24,459 p=82724 u=igor n=ansible | changed: [158.160.109.213]
+2023-10-25 17:07:24,466 p=82724 u=igor n=ansible | TASK [bastion : Install apache2-utils] *********************************************************************************
+2023-10-25 17:07:27,165 p=82724 u=igor n=ansible | changed: [158.160.109.213]
+2023-10-25 17:07:27,177 p=82724 u=igor n=ansible | TASK [bastion : Copy squid.conf] ***************************************************************************************
+2023-10-25 17:07:28,198 p=82724 u=igor n=ansible | changed: [158.160.109.213]
+2023-10-25 17:07:28,204 p=82724 u=igor n=ansible | TASK [bastion : Copy auth_users] ***************************************************************************************
+2023-10-25 17:07:28,810 p=82724 u=igor n=ansible | changed: [158.160.109.213]
+2023-10-25 17:07:28,818 p=82724 u=igor n=ansible | TASK [bastion : stopped squid] *****************************************************************************************
+2023-10-25 17:08:00,981 p=82724 u=igor n=ansible | changed: [158.160.109.213]
+2023-10-25 17:08:00,988 p=82724 u=igor n=ansible | TASK [bastion : request shell squid] ***********************************************************************************
+2023-10-25 17:08:01,644 p=82724 u=igor n=ansible | changed: [158.160.109.213]
+2023-10-25 17:08:01,650 p=82724 u=igor n=ansible | TASK [bastion : started squid] *****************************************************************************************
+2023-10-25 17:08:02,185 p=82724 u=igor n=ansible | changed: [158.160.109.213]
+2023-10-25 17:08:02,191 p=82724 u=igor n=ansible | TASK [bastion : enable squid] ******************************************************************************************
+2023-10-25 17:08:02,660 p=82724 u=igor n=ansible | ok: [158.160.109.213]
+2023-10-25 17:08:02,666 p=82724 u=igor n=ansible | TASK [bastion : reconfigure squid] *************************************************************************************
+2023-10-25 17:08:03,016 p=82724 u=igor n=ansible | changed: [158.160.109.213]
+2023-10-25 17:08:03,031 p=82724 u=igor n=ansible | PLAY [websrv-elvm] *****************************************************************************************************
+2023-10-25 17:08:03,038 p=82724 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-10-25 17:08:04,459 p=82724 u=igor n=ansible | ok: [websrv-elvm-1.ru-central1.internal]
+2023-10-25 17:08:04,702 p=82724 u=igor n=ansible | ok: [websrv-elvm-2.ru-central1.internal]
+2023-10-25 17:08:04,713 p=82724 u=igor n=ansible | TASK [nginx : Install nginx] *******************************************************************************************
+2023-10-25 17:08:28,428 p=82724 u=igor n=ansible | changed: [websrv-elvm-2.ru-central1.internal]
+2023-10-25 17:08:29,656 p=82724 u=igor n=ansible | changed: [websrv-elvm-1.ru-central1.internal]
+2023-10-25 17:08:29,664 p=82724 u=igor n=ansible | TASK [nginx : Copy config] *********************************************************************************************
+2023-10-25 17:08:30,902 p=82724 u=igor n=ansible | changed: [websrv-elvm-1.ru-central1.internal]
+2023-10-25 17:08:30,981 p=82724 u=igor n=ansible | changed: [websrv-elvm-2.ru-central1.internal]
+2023-10-25 17:08:30,989 p=82724 u=igor n=ansible | TASK [nginx : Copy index.html] *****************************************************************************************
+2023-10-25 17:08:32,086 p=82724 u=igor n=ansible | changed: [websrv-elvm-1.ru-central1.internal]
+2023-10-25 17:08:32,205 p=82724 u=igor n=ansible | changed: [websrv-elvm-2.ru-central1.internal]
+2023-10-25 17:08:32,211 p=82724 u=igor n=ansible | TASK [nginx : replace in sql files] ************************************************************************************
+2023-10-25 17:08:32,793 p=82724 u=igor n=ansible | [WARNING]: Consider using the replace, lineinfile or template module rather than running 'sed'.  If you need to use
+command because replace, lineinfile or template is insufficient you can add 'warn: false' to this command task or set
+'command_warnings=False' in ansible.cfg to get rid of this message.
+
+2023-10-25 17:08:32,794 p=82724 u=igor n=ansible | changed: [websrv-elvm-1.ru-central1.internal]
+2023-10-25 17:08:32,862 p=82724 u=igor n=ansible | changed: [websrv-elvm-2.ru-central1.internal]
+2023-10-25 17:08:32,872 p=82724 u=igor n=ansible | TASK [nginx : Restart nginx] *******************************************************************************************
+2023-10-25 17:08:33,637 p=82724 u=igor n=ansible | changed: [websrv-elvm-1.ru-central1.internal]
+2023-10-25 17:08:33,679 p=82724 u=igor n=ansible | changed: [websrv-elvm-2.ru-central1.internal]
+2023-10-25 17:08:33,686 p=82724 u=igor n=ansible | TASK [zabbix-agent : download zabbix agent file with proxy] ************************************************************
+2023-10-25 17:08:35,266 p=82724 u=igor n=ansible | changed: [websrv-elvm-1.ru-central1.internal]
+2023-10-25 17:08:35,297 p=82724 u=igor n=ansible | changed: [websrv-elvm-2.ru-central1.internal]
+2023-10-25 17:08:35,305 p=82724 u=igor n=ansible | TASK [zabbix-agent : Install zabbix agent] *****************************************************************************
+2023-10-25 17:08:36,918 p=82724 u=igor n=ansible | changed: [websrv-elvm-2.ru-central1.internal]
+2023-10-25 17:08:37,090 p=82724 u=igor n=ansible | changed: [websrv-elvm-1.ru-central1.internal]
+2023-10-25 17:08:37,096 p=82724 u=igor n=ansible | TASK [zabbix-agent : Install zabbix agent] *****************************************************************************
+2023-10-25 17:08:45,046 p=82724 u=igor n=ansible | changed: [websrv-elvm-2.ru-central1.internal]
+2023-10-25 17:08:46,162 p=82724 u=igor n=ansible | changed: [websrv-elvm-1.ru-central1.internal]
+2023-10-25 17:08:46,169 p=82724 u=igor n=ansible | TASK [zabbix-agent : stopped zabbix agent] *****************************************************************************
+2023-10-25 17:08:46,957 p=82724 u=igor n=ansible | changed: [websrv-elvm-1.ru-central1.internal]
+2023-10-25 17:08:46,968 p=82724 u=igor n=ansible | changed: [websrv-elvm-2.ru-central1.internal]
+2023-10-25 17:08:46,978 p=82724 u=igor n=ansible | TASK [zabbix-agent : Remove  zabbix agent] *****************************************************************************
+2023-10-25 17:08:47,719 p=82724 u=igor n=ansible | changed: [websrv-elvm-1.ru-central1.internal]
+2023-10-25 17:08:47,738 p=82724 u=igor n=ansible | changed: [websrv-elvm-2.ru-central1.internal]
+2023-10-25 17:08:47,749 p=82724 u=igor n=ansible | TASK [zabbix-agent : Copy config] **************************************************************************************
+2023-10-25 17:08:48,847 p=82724 u=igor n=ansible | changed: [websrv-elvm-1.ru-central1.internal]
+2023-10-25 17:08:48,955 p=82724 u=igor n=ansible | changed: [websrv-elvm-2.ru-central1.internal]
+2023-10-25 17:08:48,961 p=82724 u=igor n=ansible | TASK [zabbix-agent : zabbix-agent] *************************************************************************************
+2023-10-25 17:08:49,851 p=82724 u=igor n=ansible | changed: [websrv-elvm-2.ru-central1.internal]
+2023-10-25 17:08:49,862 p=82724 u=igor n=ansible | changed: [websrv-elvm-1.ru-central1.internal]
+2023-10-25 17:08:49,868 p=82724 u=igor n=ansible | TASK [filebeat : Update] ***********************************************************************************************
+2023-10-25 17:08:51,775 p=82724 u=igor n=ansible | ok: [websrv-elvm-2.ru-central1.internal]
+2023-10-25 17:08:51,898 p=82724 u=igor n=ansible | ok: [websrv-elvm-1.ru-central1.internal]
+2023-10-25 17:08:51,911 p=82724 u=igor n=ansible | TASK [filebeat : Download filebeat] ************************************************************************************
+2023-10-25 17:08:54,897 p=82724 u=igor n=ansible | changed: [websrv-elvm-2.ru-central1.internal]
+2023-10-25 17:08:55,113 p=82724 u=igor n=ansible | changed: [websrv-elvm-1.ru-central1.internal]
+2023-10-25 17:08:55,120 p=82724 u=igor n=ansible | TASK [filebeat : Install filebeat] *************************************************************************************
+2023-10-25 17:09:03,490 p=82724 u=igor n=ansible | changed: [websrv-elvm-1.ru-central1.internal]
+2023-10-25 17:09:03,989 p=82724 u=igor n=ansible | changed: [websrv-elvm-2.ru-central1.internal]
+2023-10-25 17:09:03,995 p=82724 u=igor n=ansible | TASK [filebeat : Copy config] ******************************************************************************************
+2023-10-25 17:09:05,086 p=82724 u=igor n=ansible | changed: [websrv-elvm-1.ru-central1.internal]
+2023-10-25 17:09:05,189 p=82724 u=igor n=ansible | changed: [websrv-elvm-2.ru-central1.internal]
+2023-10-25 17:09:05,196 p=82724 u=igor n=ansible | TASK [filebeat : started filebeat] *************************************************************************************
+2023-10-25 17:09:05,911 p=82724 u=igor n=ansible | changed: [websrv-elvm-1.ru-central1.internal]
+2023-10-25 17:09:05,959 p=82724 u=igor n=ansible | changed: [websrv-elvm-2.ru-central1.internal]
+2023-10-25 17:09:05,964 p=82724 u=igor n=ansible | TASK [filebeat : enable filebeat] **************************************************************************************
+2023-10-25 17:09:07,052 p=82724 u=igor n=ansible | changed: [websrv-elvm-1.ru-central1.internal]
+2023-10-25 17:09:07,066 p=82724 u=igor n=ansible | changed: [websrv-elvm-2.ru-central1.internal]
+2023-10-25 17:09:07,073 p=82724 u=igor n=ansible | TASK [filebeat : Restart] **********************************************************************************************
+2023-10-25 17:09:07,847 p=82724 u=igor n=ansible | changed: [websrv-elvm-2.ru-central1.internal]
+2023-10-25 17:09:07,895 p=82724 u=igor n=ansible | changed: [websrv-elvm-1.ru-central1.internal]
+2023-10-25 17:09:07,902 p=82724 u=igor n=ansible | RUNNING HANDLER [zabbix-agent : zabbix-agent] **************************************************************************
+2023-10-25 17:09:08,765 p=82724 u=igor n=ansible | changed: [websrv-elvm-1.ru-central1.internal]
+2023-10-25 17:09:08,791 p=82724 u=igor n=ansible | changed: [websrv-elvm-2.ru-central1.internal]
+2023-10-25 17:09:08,802 p=82724 u=igor n=ansible | PLAY [elastic-elvm] ****************************************************************************************************
+2023-10-25 17:09:08,807 p=82724 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-10-25 17:09:10,259 p=82724 u=igor n=ansible | ok: [elastic-elvm.ru-central1.internal]
+2023-10-25 17:09:10,272 p=82724 u=igor n=ansible | TASK [elasticsearch : Update] ******************************************************************************************
+2023-10-25 17:09:23,614 p=82724 u=igor n=ansible | changed: [elastic-elvm.ru-central1.internal]
+2023-10-25 17:09:23,621 p=82724 u=igor n=ansible | TASK [elasticsearch : Download elasticsearch] **************************************************************************
+2023-10-25 17:09:37,541 p=82724 u=igor n=ansible | changed: [elastic-elvm.ru-central1.internal]
+2023-10-25 17:09:37,548 p=82724 u=igor n=ansible | TASK [elasticsearch : Install java default] ****************************************************************************
+2023-10-25 17:11:21,136 p=82724 u=igor n=ansible | changed: [elastic-elvm.ru-central1.internal]
+2023-10-25 17:11:21,142 p=82724 u=igor n=ansible | TASK [elasticsearch : Install elasticsearch] ***************************************************************************
+2023-10-25 17:11:35,407 p=82724 u=igor n=ansible | changed: [elastic-elvm.ru-central1.internal]
+2023-10-25 17:11:35,420 p=82724 u=igor n=ansible | TASK [elasticsearch : Copy config] *************************************************************************************
+2023-10-25 17:11:36,526 p=82724 u=igor n=ansible | changed: [elastic-elvm.ru-central1.internal]
+2023-10-25 17:11:36,532 p=82724 u=igor n=ansible | TASK [elasticsearch : started elasticsearch] ***************************************************************************
+2023-10-25 17:11:51,271 p=82724 u=igor n=ansible | changed: [elastic-elvm.ru-central1.internal]
+2023-10-25 17:11:51,276 p=82724 u=igor n=ansible | TASK [elasticsearch : enable elasticsearch] ****************************************************************************
+2023-10-25 17:11:52,627 p=82724 u=igor n=ansible | changed: [elastic-elvm.ru-central1.internal]
+2023-10-25 17:11:52,641 p=82724 u=igor n=ansible | PLAY [kibana-elvm] *****************************************************************************************************
+2023-10-25 17:11:52,649 p=82724 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-10-25 17:11:54,229 p=82724 u=igor n=ansible | ok: [kibana-elvm.ru-central1.internal]
+2023-10-25 17:11:54,239 p=82724 u=igor n=ansible | TASK [nginx : Install nginx] *******************************************************************************************
+2023-10-25 17:12:18,364 p=82724 u=igor n=ansible | changed: [kibana-elvm.ru-central1.internal]
+2023-10-25 17:12:18,371 p=82724 u=igor n=ansible | TASK [nginx : Copy config] *********************************************************************************************
+2023-10-25 17:12:19,562 p=82724 u=igor n=ansible | changed: [kibana-elvm.ru-central1.internal]
+2023-10-25 17:12:19,569 p=82724 u=igor n=ansible | TASK [nginx : Copy index.html] *****************************************************************************************
+2023-10-25 17:12:20,631 p=82724 u=igor n=ansible | changed: [kibana-elvm.ru-central1.internal]
+2023-10-25 17:12:20,638 p=82724 u=igor n=ansible | TASK [nginx : replace in sql files] ************************************************************************************
+2023-10-25 17:12:21,271 p=82724 u=igor n=ansible | changed: [kibana-elvm.ru-central1.internal]
+2023-10-25 17:12:21,278 p=82724 u=igor n=ansible | TASK [nginx : Restart nginx] *******************************************************************************************
+2023-10-25 17:12:22,125 p=82724 u=igor n=ansible | changed: [kibana-elvm.ru-central1.internal]
+2023-10-25 17:12:22,132 p=82724 u=igor n=ansible | TASK [kibana : Update] *************************************************************************************************
+2023-10-25 17:12:23,771 p=82724 u=igor n=ansible | ok: [kibana-elvm.ru-central1.internal]
+2023-10-25 17:12:23,782 p=82724 u=igor n=ansible | TASK [kibana : Download kibana] ****************************************************************************************
+2023-10-25 17:12:35,842 p=82724 u=igor n=ansible | changed: [kibana-elvm.ru-central1.internal]
+2023-10-25 17:12:35,849 p=82724 u=igor n=ansible | TASK [kibana : Install kibana] *****************************************************************************************
+2023-10-25 17:13:35,469 p=82724 u=igor n=ansible | changed: [kibana-elvm.ru-central1.internal]
+2023-10-25 17:13:35,477 p=82724 u=igor n=ansible | TASK [kibana : Copy config] ********************************************************************************************
+2023-10-25 17:13:36,550 p=82724 u=igor n=ansible | changed: [kibana-elvm.ru-central1.internal]
+2023-10-25 17:13:36,556 p=82724 u=igor n=ansible | TASK [kibana : remove default site] ************************************************************************************
+2023-10-25 17:13:37,114 p=82724 u=igor n=ansible | changed: [kibana-elvm.ru-central1.internal]
+2023-10-25 17:13:37,119 p=82724 u=igor n=ansible | TASK [kibana : Copy config nginx] **************************************************************************************
+2023-10-25 17:13:38,170 p=82724 u=igor n=ansible | changed: [kibana-elvm.ru-central1.internal]
+2023-10-25 17:13:38,177 p=82724 u=igor n=ansible | TASK [kibana : Create a symbolic link] *********************************************************************************
+2023-10-25 17:13:38,743 p=82724 u=igor n=ansible | changed: [kibana-elvm.ru-central1.internal]
+2023-10-25 17:13:38,755 p=82724 u=igor n=ansible | TASK [kibana : Copy config nginx] **************************************************************************************
+2023-10-25 17:13:39,922 p=82724 u=igor n=ansible | changed: [kibana-elvm.ru-central1.internal]
+2023-10-25 17:13:39,928 p=82724 u=igor n=ansible | TASK [kibana : Restart nginx] ******************************************************************************************
+2023-10-25 17:13:40,740 p=82724 u=igor n=ansible | changed: [kibana-elvm.ru-central1.internal]
+2023-10-25 17:13:40,747 p=82724 u=igor n=ansible | TASK [kibana : started kibana] *****************************************************************************************
+2023-10-25 17:13:41,488 p=82724 u=igor n=ansible | changed: [kibana-elvm.ru-central1.internal]
+2023-10-25 17:13:41,495 p=82724 u=igor n=ansible | TASK [kibana : enable kibana] ******************************************************************************************
+2023-10-25 17:13:42,791 p=82724 u=igor n=ansible | changed: [kibana-elvm.ru-central1.internal]
+2023-10-25 17:13:42,797 p=82724 u=igor n=ansible | TASK [kibana : export dashboard] ***************************************************************************************
+2023-10-25 17:13:43,885 p=82724 u=igor n=ansible | changed: [kibana-elvm.ru-central1.internal]
+2023-10-25 17:13:43,891 p=82724 u=igor n=ansible | TASK [kibana : verify is up] *******************************************************************************************
+2023-10-25 17:13:56,913 p=82724 u=igor n=ansible | ok: [kibana-elvm.ru-central1.internal]
+2023-10-25 17:13:56,920 p=82724 u=igor n=ansible | TASK [kibana : include] ************************************************************************************************
+2023-10-25 17:13:56,980 p=82724 u=igor n=ansible | included: /home/igor/git/diplom-sys19/project/ansible/roles/kibana/tasks/pattern.yml for kibana-elvm.ru-central1.internal
+2023-10-25 17:13:56,987 p=82724 u=igor n=ansible | TASK [kibana : post to consul] *****************************************************************************************
+2023-10-25 17:14:13,522 p=82724 u=igor n=ansible | ok: [kibana-elvm.ru-central1.internal]
+2023-10-25 17:14:13,529 p=82724 u=igor n=ansible | TASK [kibana : Import Kibana dashboard] ********************************************************************************
+2023-10-25 17:14:14,461 p=82724 u=igor n=ansible | ok: [kibana-elvm.ru-central1.internal]
+2023-10-25 17:14:14,478 p=82724 u=igor n=ansible | PLAY [zabbix-elvm] *****************************************************************************************************
+2023-10-25 17:14:14,487 p=82724 u=igor n=ansible | TASK [Gathering Facts] *************************************************************************************************
+2023-10-25 17:14:15,983 p=82724 u=igor n=ansible | ok: [zabbix-elvm.ru-central1.internal]
+2023-10-25 17:14:15,992 p=82724 u=igor n=ansible | TASK [nginx : Install nginx] *******************************************************************************************
+2023-10-25 17:14:39,135 p=82724 u=igor n=ansible | changed: [zabbix-elvm.ru-central1.internal]
+2023-10-25 17:14:39,141 p=82724 u=igor n=ansible | TASK [nginx : Copy config] *********************************************************************************************
+2023-10-25 17:14:40,246 p=82724 u=igor n=ansible | changed: [zabbix-elvm.ru-central1.internal]
+2023-10-25 17:14:40,252 p=82724 u=igor n=ansible | TASK [nginx : Copy index.html] *****************************************************************************************
+2023-10-25 17:14:41,322 p=82724 u=igor n=ansible | changed: [zabbix-elvm.ru-central1.internal]
+2023-10-25 17:14:41,329 p=82724 u=igor n=ansible | TASK [nginx : replace in sql files] ************************************************************************************
+2023-10-25 17:14:41,939 p=82724 u=igor n=ansible | changed: [zabbix-elvm.ru-central1.internal]
+2023-10-25 17:14:41,945 p=82724 u=igor n=ansible | TASK [nginx : Restart nginx] *******************************************************************************************
+2023-10-25 17:14:42,755 p=82724 u=igor n=ansible | changed: [zabbix-elvm.ru-central1.internal]
+2023-10-25 17:14:42,761 p=82724 u=igor n=ansible | TASK [zabbix-agent : download zabbix agent file with proxy] ************************************************************
+2023-10-25 17:14:44,193 p=82724 u=igor n=ansible | changed: [zabbix-elvm.ru-central1.internal]
+2023-10-25 17:14:44,199 p=82724 u=igor n=ansible | TASK [zabbix-agent : Install zabbix agent] *****************************************************************************
+2023-10-25 17:14:45,667 p=82724 u=igor n=ansible | changed: [zabbix-elvm.ru-central1.internal]
+2023-10-25 17:14:45,677 p=82724 u=igor n=ansible | TASK [zabbix-agent : Install zabbix agent] *****************************************************************************
+2023-10-25 17:14:52,833 p=82724 u=igor n=ansible | changed: [zabbix-elvm.ru-central1.internal]
+2023-10-25 17:14:52,843 p=82724 u=igor n=ansible | TASK [zabbix-agent : stopped zabbix agent] *****************************************************************************
+2023-10-25 17:14:53,555 p=82724 u=igor n=ansible | changed: [zabbix-elvm.ru-central1.internal]
+2023-10-25 17:14:53,561 p=82724 u=igor n=ansible | TASK [zabbix-agent : Remove  zabbix agent] *****************************************************************************
+2023-10-25 17:14:54,114 p=82724 u=igor n=ansible | changed: [zabbix-elvm.ru-central1.internal]
+2023-10-25 17:14:54,120 p=82724 u=igor n=ansible | TASK [zabbix-agent : Copy config] **************************************************************************************
+2023-10-25 17:14:55,123 p=82724 u=igor n=ansible | changed: [zabbix-elvm.ru-central1.internal]
+2023-10-25 17:14:55,129 p=82724 u=igor n=ansible | TASK [zabbix-agent : zabbix-agent] *************************************************************************************
+2023-10-25 17:14:55,951 p=82724 u=igor n=ansible | changed: [zabbix-elvm.ru-central1.internal]
+2023-10-25 17:14:55,958 p=82724 u=igor n=ansible | TASK [zabbix : Update] *************************************************************************************************
+2023-10-25 17:14:57,777 p=82724 u=igor n=ansible | ok: [zabbix-elvm.ru-central1.internal]
+2023-10-25 17:14:57,783 p=82724 u=igor n=ansible | TASK [zabbix : Delete nginx site default] ******************************************************************************
+2023-10-25 17:14:58,338 p=82724 u=igor n=ansible | changed: [zabbix-elvm.ru-central1.internal]
+2023-10-25 17:14:58,344 p=82724 u=igor n=ansible | TASK [zabbix : Copy config nginx] **************************************************************************************
+2023-10-25 17:14:59,410 p=82724 u=igor n=ansible | changed: [zabbix-elvm.ru-central1.internal]
+2023-10-25 17:14:59,416 p=82724 u=igor n=ansible | TASK [zabbix : Copy config] ********************************************************************************************
+2023-10-25 17:15:00,506 p=82724 u=igor n=ansible | changed: [zabbix-elvm.ru-central1.internal]
+2023-10-25 17:15:00,513 p=82724 u=igor n=ansible | TASK [zabbix : Install required packages] ******************************************************************************
+2023-10-25 17:16:18,536 p=82724 u=igor n=ansible | changed: [zabbix-elvm.ru-central1.internal]
+2023-10-25 17:16:18,543 p=82724 u=igor n=ansible | TASK [zabbix : Install packages] ***************************************************************************************
+2023-10-25 17:16:36,178 p=82724 u=igor n=ansible | changed: [zabbix-elvm.ru-central1.internal]
+2023-10-25 17:16:36,184 p=82724 u=igor n=ansible | TASK [zabbix : Install zabbix packages] ********************************************************************************
+2023-10-25 17:17:02,417 p=82724 u=igor n=ansible | changed: [zabbix-elvm.ru-central1.internal]
+2023-10-25 17:17:02,423 p=82724 u=igor n=ansible | TASK [zabbix : Create postgres user for my app] ************************************************************************
+2023-10-25 17:17:03,262 p=82724 u=igor n=ansible | changed: [zabbix-elvm.ru-central1.internal]
+2023-10-25 17:17:03,268 p=82724 u=igor n=ansible | TASK [zabbix : create postgresql db] ***********************************************************************************
+2023-10-25 17:17:04,181 p=82724 u=igor n=ansible | changed: [zabbix-elvm.ru-central1.internal]
+2023-10-25 17:17:04,188 p=82724 u=igor n=ansible | TASK [zabbix : Ensure we have access from the new user] ****************************************************************
+2023-10-25 17:17:05,000 p=82724 u=igor n=ansible | ok: [zabbix-elvm.ru-central1.internal]
+2023-10-25 17:17:05,006 p=82724 u=igor n=ansible | TASK [zabbix : Initialize the database] ********************************************************************************
+2023-10-25 17:17:28,942 p=82724 u=igor n=ansible | changed: [zabbix-elvm.ru-central1.internal]
+2023-10-25 17:17:29,059 p=82724 u=igor n=ansible | TASK [zabbix : DBPassword change] **************************************************************************************
+2023-10-25 17:17:29,822 p=82724 u=igor n=ansible | changed: [zabbix-elvm.ru-central1.internal]
+2023-10-25 17:17:29,836 p=82724 u=igor n=ansible | TASK [zabbix : Copy config zabbix] *************************************************************************************
+2023-10-25 17:17:30,886 p=82724 u=igor n=ansible | changed: [zabbix-elvm.ru-central1.internal]
+2023-10-25 17:17:30,893 p=82724 u=igor n=ansible | TASK [zabbix : Restart agent] ******************************************************************************************
+2023-10-25 17:17:31,735 p=82724 u=igor n=ansible | changed: [zabbix-elvm.ru-central1.internal]
+2023-10-25 17:17:31,742 p=82724 u=igor n=ansible | TASK [zabbix : zabbix-agent enabled] ***********************************************************************************
+2023-10-25 17:17:32,459 p=82724 u=igor n=ansible | ok: [zabbix-elvm.ru-central1.internal]
+2023-10-25 17:17:32,466 p=82724 u=igor n=ansible | TASK [zabbix : Restart service nginx] **********************************************************************************
+2023-10-25 17:17:33,222 p=82724 u=igor n=ansible | changed: [zabbix-elvm.ru-central1.internal]
+2023-10-25 17:17:33,232 p=82724 u=igor n=ansible | TASK [zabbix : Enable service nginx] ***********************************************************************************
+2023-10-25 17:17:33,936 p=82724 u=igor n=ansible | ok: [zabbix-elvm.ru-central1.internal]
+2023-10-25 17:17:33,943 p=82724 u=igor n=ansible | TASK [zabbix : Restart zabbix-server] **********************************************************************************
+2023-10-25 17:17:34,772 p=82724 u=igor n=ansible | changed: [zabbix-elvm.ru-central1.internal]
+2023-10-25 17:17:34,778 p=82724 u=igor n=ansible | TASK [zabbix : Enable service zabbix-server] ***************************************************************************
+2023-10-25 17:17:36,029 p=82724 u=igor n=ansible | changed: [zabbix-elvm.ru-central1.internal]
+2023-10-25 17:17:36,036 p=82724 u=igor n=ansible | RUNNING HANDLER [zabbix-agent : zabbix-agent] **************************************************************************
+2023-10-25 17:17:36,872 p=82724 u=igor n=ansible | changed: [zabbix-elvm.ru-central1.internal]
+2023-10-25 17:17:36,879 p=82724 u=igor n=ansible | PLAY RECAP *************************************************************************************************************
+2023-10-25 17:17:36,879 p=82724 u=igor n=ansible | 158.160.109.213            : ok=10   changed=8    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-25 17:17:36,879 p=82724 u=igor n=ansible | elastic-elvm.ru-central1.internal : ok=8    changed=7    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-25 17:17:36,879 p=82724 u=igor n=ansible | kibana-elvm.ru-central1.internal : ok=22   changed=16   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-25 17:17:36,880 p=82724 u=igor n=ansible | websrv-elvm-1.ru-central1.internal : ok=21   changed=19   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-25 17:17:36,880 p=82724 u=igor n=ansible | websrv-elvm-2.ru-central1.internal : ok=21   changed=19   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2023-10-25 17:17:36,880 p=82724 u=igor n=ansible | zabbix-elvm.ru-central1.internal : ok=33   changed=28   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   

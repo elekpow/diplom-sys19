@@ -17,7 +17,7 @@ resource "yandex_compute_instance" "websrv-elvm-1" {
   boot_disk {
     initialize_params {
       image_id = "${var.images["debian_10"]}"
-      type = "network-ssd"
+      type = "network-hdd"
       size = "10"
     }
   }
@@ -33,7 +33,7 @@ resource "yandex_compute_instance" "websrv-elvm-1" {
     serial-port-enable = 1
   } 
  provisioner "local-exec" {
-   command = "sed -i 's|#websrv-elvm-1|${self.network_interface.0.ip_address}|g' ./ansible/inventory"
+   command = "sed -i 's|#websrv-elvm-1|websrv-elvm-1.ru-central1.internal|g' ./ansible/inventory"
  } 
 
 }
@@ -57,7 +57,7 @@ resource "yandex_compute_instance" "websrv-elvm-2" {
   boot_disk {
     initialize_params {
       image_id = "${var.images["debian_10"]}"
-      type = "network-ssd"
+      type = "network-hdd"
       size = "10"
     }
   }
@@ -75,15 +75,8 @@ resource "yandex_compute_instance" "websrv-elvm-2" {
   } 
 
  provisioner "local-exec" {
-   command = "sed -i 's|#websrv-elvm-2|${self.network_interface.0.ip_address}|g' ./ansible/inventory"
+   command = "sed -i 's|#websrv-elvm-2|websrv-elvm-2.ru-central1.internal|g' ./ansible/inventory"
  } 
 
 }
 
-output "local_ip_websrv-elvm-1" {
-  value = yandex_compute_instance.websrv-elvm-1.network_interface.0.ip_address
-}
-
-output "local_ip_websrv-elvm-2" {
-  value = yandex_compute_instance.websrv-elvm-2.network_interface.0.ip_address
-}

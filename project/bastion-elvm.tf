@@ -17,7 +17,7 @@ resource "yandex_compute_instance" "bastion-elvm" {
   boot_disk {
     initialize_params {
       image_id = "${var.images["debian_10"]}"
-      type = "network-ssd"
+      type = "network-hdd"
       size = "10"
     }
   }

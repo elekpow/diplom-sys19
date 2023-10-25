@@ -1,12 +1,10 @@
-
-variable "ssh_user_1" {
-  type = string
-  default = "igor"
-}
-
-variable "ssh_user_2" {
-  type = string
-  default = "bastion"
+variable "ya_cloud_" {
+  type = map
+  default = {
+  "token" = ""
+  "cloud" = ""
+  "folder" = ""
+  }
 }
 
 variable "ssh_user" {
@@ -15,6 +13,7 @@ variable "ssh_user" {
    "1" = "bastion"
   }
 }
+
 
 variable "zone_data" {
   type = map

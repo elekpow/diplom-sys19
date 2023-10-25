@@ -17,7 +17,7 @@ resource "yandex_compute_instance" "zabbix-elvm" {
   boot_disk {
     initialize_params {
       image_id = "${var.images["debian_11"]}"
-      type = "network-ssd"
+      type = "network-hdd"
       size = "10"
     }
   }
@@ -35,7 +35,7 @@ resource "yandex_compute_instance" "zabbix-elvm" {
   } 
 
  provisioner "local-exec" {
-   command = "sed -i 's|#zabbix-elvm|${self.network_interface.0.ip_address}|g' ./ansible/inventory"
+   command = "sed -i 's|#zabbix-elvm|zabbix-elvm.ru-central1.internal|g' ./ansible/inventory"
  } 
  
   provisioner "local-exec" {
@@ -45,9 +45,7 @@ resource "yandex_compute_instance" "zabbix-elvm" {
  
 }
 
-output "local_ip_zabbix-elvm" {
-  value = yandex_compute_instance.zabbix-elvm.network_interface.0.ip_address
-}
-output "host_zabbix-elvm" {
+
+output "zabbix-elvm" {
   value = yandex_compute_instance.zabbix-elvm.network_interface.0.nat_ip_address
 }

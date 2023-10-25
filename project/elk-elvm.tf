@@ -17,7 +17,7 @@ resource "yandex_compute_instance" "elastic-elvm" {
   boot_disk {
     initialize_params {
       image_id = "${var.images["debian_10"]}"
-      type = "network-ssd"
+      type = "network-hdd"
       size = "10"
     }
   }
@@ -34,7 +34,7 @@ resource "yandex_compute_instance" "elastic-elvm" {
   } 
 
  provisioner "local-exec" {
-   command = "sed -i 's|#elastic-elvm|${self.network_interface.0.ip_address}|g' ./ansible/inventory"
+   command = "sed -i 's|#elastic-elvm|elastic-elvm.ru-central1.internal|g' ./ansible/inventory"
  } 
  
 
@@ -60,7 +60,7 @@ resource "yandex_compute_instance" "kibana-elvm" {
   boot_disk {
     initialize_params {
       image_id = "${var.images["debian_10"]}"
-      type = "network-ssd"
+      type = "network-hdd"
       size = "10"
     }
   }
@@ -78,7 +78,7 @@ resource "yandex_compute_instance" "kibana-elvm" {
   } 
 
  provisioner "local-exec" {
-   command = "sed -i 's|#kibana-elvm|${self.network_interface.0.ip_address}|g' ./ansible/inventory"
+   command = "sed -i 's|#kibana-elvm|kibana-elvm.ru-central1.internal|g' ./ansible/inventory"
  } 
 
  
@@ -90,13 +90,7 @@ resource "yandex_compute_instance" "kibana-elvm" {
  
 }
 
-output "local_ip_elastic-elvm" {
-  value = yandex_compute_instance.elastic-elvm.network_interface.0.ip_address
-}
 
-output "local_ip_kibana-elvm" {
-  value = yandex_compute_instance.kibana-elvm.network_interface.0.ip_address
-}
-output "host_kibana-elvm" {
+output "kibana-elvm" {
   value = yandex_compute_instance.kibana-elvm.network_interface.0.nat_ip_address
 }
