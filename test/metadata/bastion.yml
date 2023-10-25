@@ -1,0 +1,12 @@
+#cloud-config
+users:
+  - name: bastion
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh-authorized-keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH/NTJ9DmsqtiiQpivsKLjYOrmQ65uReDMUzfS/HobpR igor@debian
+  
+##### ssh-agent #####
+##
+## eval "$(ssh-agent -s)"; ssh-add ~/.ssh/id_ed25519
