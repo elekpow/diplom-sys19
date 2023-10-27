@@ -1,0 +1,150 @@
+---
+- name: Authenticate with Zabbix API
+  uri:
+    url: http://127.0.0.1/api_jsonrpc.php
+    method: POST
+    body_format: json
+    body:
+      jsonrpc: "2.0"
+      method: user.login
+      params:
+        username: "Admin"
+        password: "zabbix"
+      id: 1
+    headers:
+      Content-Type: "application/json-rpc"
+    validate_certs: no
+  register: zabbix_auth
+  
+- set_fact:
+    zabbix_auth_key: "{{ zabbix_auth.json.result }}"  
+
+- name: Create Zabbix Template
+  uri:
+    url: "http://127.0.0.1/api_jsonrpc.php"
+    method: POST
+    body_format: json
+    body:
+      jsonrpc: "2.0"
+      method: "template.create"
+      params:
+        host: "My template"
+        groups:
+          groupid: 1          
+      auth: "{{ zabbix_auth_key }}"
+      id: 1
+    status_code: 200
+  #  return_content: yes
+  register: template_elvm
+
+
+- name: get  Template
+  uri:
+    url: "http://127.0.0.1/api_jsonrpc.php"
+    method: POST
+    body_format: json
+    body:
+      jsonrpc: "2.0"
+      method: "template.get"
+      params:
+        output: "extend"
+        filter:
+          host: "My template"          
+      auth: "{{ zabbix_auth_key }}"
+      id: 1
+    status_code: 200
+  #  return_content: yes
+  register: template_elvm
+  
+- set_fact:
+    zabbix_template: "{{ template_elvm.json.result[0].templateid  }}" 
+
+- name: Create Item
+  uri:
+    url: http://127.0.0.1/api_jsonrpc.php
+    method: POST
+    body_format: json
+    body:
+      jsonrpc: "2.0"
+      method: item.create
+      params:
+        name: "{{ item.name }}"
+        key_: "{{ item.key }}"
+        hostid: "{{ zabbix_template }}"
+        type: 0
+        value_type: 3
+        delay: 60s
+      auth: "{{ zabbix_auth_key }}"
+      id: 3
+    headers:
+      Content-Type: "application/json-rpc"
+    validate_certs: no
+  with_items: "{{ item_response }}" 
+  register: item_response
+
+- name: Create Zabbix host group
+  uri:
+    url: http://127.0.0.1/api_jsonrpc.php
+    method: POST
+    body_format: json
+    body:
+      jsonrpc: "2.0"
+      method: hostgroup.create
+      params:
+        name: "web-hosts"
+      auth: "{{ zabbix_auth_key }}"
+      id: 3
+    headers:
+      Content-Type: "application/json-rpc"
+    validate_certs: no
+  register: zabbix_create_hostgroup
+
+- name: get host group
+  uri:
+    url: "http://127.0.0.1/api_jsonrpc.php"
+    method: POST
+    body_format: json
+    body:
+      jsonrpc: "2.0"
+      method: "hostgroup.get"
+      params:
+        output: "extend"
+        filter:
+          name: "web-hosts"          
+      auth: "{{ zabbix_auth_key }}"
+      id: 1
+    status_code: 200
+ #   return_content: yes
+  register: host_elvm 
+   
+- set_fact:
+    zabbix_hostgroup: "{{ host_elvm.json.result[0].groupid  }}"   
+
+- name: add to group
+  uri:
+    url: http://127.0.0.1/api_jsonrpc.php
+    method: POST
+    body_format: json
+    body:
+      jsonrpc: "2.0"
+      method: host.create
+      params:
+        host: "{{ item.name }}"
+        interfaces:
+          type: 1
+          main: 1
+          useip: 0
+          ip: ""
+          dns: "{{ item.dns }}"
+          port: "10050"
+        groups:
+          groupid: "{{ zabbix_hostgroup }}"
+        templates:
+           templateid: "{{ zabbix_template }}" 
+      auth: "{{ zabbix_auth_key }}"
+      id: 4
+    headers:
+      Content-Type: "application/json-rpc"
+    validate_certs: no
+  with_items: "{{ zabbix_hosts }}" 
+  register: zabbix_elvm_host

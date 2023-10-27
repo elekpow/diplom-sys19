@@ -3,7 +3,8 @@
 proxy_env:
   http_proxy: "http://user1:123456@bastion-elvm:3128"
   https_proxy: "http://user1:123456@bastion-elvm:3128" 
- 
+  
+  
 
 zabbix_hosts:
   - name: "websrv-elvm-1"
@@ -20,4 +21,4 @@ item_response:
   - name: "Interface eth"
     key: "net.if.in[\"eth0\"]" 
   - name: "Total memory"
-    key: "vm.memory.size[total]"       
+    key: "vm.memory.size[total]"     
