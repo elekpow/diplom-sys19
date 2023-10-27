@@ -408,10 +408,35 @@ logging.metrics.enabled: false
 
 Ansible устанавливает на веб сервера zabbix-agent, данные передаются на Zabbix-сервер.
 
-Для автоматизации так же через Ansible прописываю хосты и вывод данных, в 
+Через API передаю в Zabbix данные о хостах, также создаю item с параметрами мониторинга.
 
+Пример создания Item. Код выполняется на стороне сервера.
 
+```sql
+- name: Create Item
+  uri:
+    url: http://127.0.0.1/api_jsonrpc.php
+    method: POST
+    body_format: json
+    body:
+      jsonrpc: "2.0"
+      method: item.create
+      params:
+        name: "{{ item.name }}"
+        key_: "{{ item.key }}"
+        hostid: "{{ zabbix_template }}"
+        type: 0
+        value_type: 3
+        delay: 60s
+      auth: "{{ zabbix_auth_key }}"
+      id: 3
+    headers:
+      Content-Type: "application/json-rpc"
+    validate_certs: no
+  with_items: "{{ item_response }}" 
+  register: item_response
 
+```
 
 
 ![zabbix-dashboard.JPG](https://github.com/elekpow/diplom-sys19/blob/main/images/zabbix-dashboard.JPG)
