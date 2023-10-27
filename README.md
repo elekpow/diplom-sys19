@@ -24,6 +24,7 @@
     * [Структура проекта](#Структура-проекта)
 	* [Установка виртульных машин](#Установка-виртульных-машин)
 	* [Мониторинг серверов](#Мониторинг-серверов)
+	* [Доступ к ресурсам](##Доступ-к-ресурсам)
 	
 ---------
 
@@ -444,3 +445,43 @@ Ansible устанавливает на веб сервера zabbix-agent, да
 
 
 
+Конфигурация Terraform для создания снимков :
+
+```sql
+resource "yandex_compute_snapshot_schedule" "snapshot" {
+  name = "snapshots-elvm"
+  schedule_policy {
+	expression = "0 21 ? * *"
+  }
+  retention_period = "168h"
+  snapshot_spec {
+	  description = "retention-snapshot"      
+  }
+
+  disk_ids = ["${yandex_compute_instance.bastion-elvm.boot_disk[0].disk_id}",
+              "${yandex_compute_instance.websrv-elvm-1.boot_disk[0].disk_id}",
+              "${yandex_compute_instance.websrv-elvm-2.boot_disk[0].disk_id}",
+              "${yandex_compute_instance.zabbix-elvm.boot_disk[0].disk_id}",
+              "${yandex_compute_instance.elastic-elvm.boot_disk[0].disk_id}",
+              "${yandex_compute_instance.kibana-elvm.boot_disk[0].disk_id}",]
+}
+
+``` 
+
+
+## Доступ к ресурсам
+
+- Веб сайт: [load-balancer](http://84.201.159.19 "load-balancer)")
+
+- Логи: [Kibana](http://84.201.159.19 "Kibana)")
+
+- Мониторинг: [Zabbix](http://84.201.159.19 "Zabbix)")
+
+- Свой сервер с deb пакетами : [repo.limubai.ru](https://repo.limubai.ru "repo.limubai.ru)")
+
+
+-rw-r--r-- 5 root root 315292122 Oct  3 16:54 elasticsearch-7.17.9-amd64.deb
+-rw-r--r-- 5 root root  35503128 Oct  3 16:16 filebeat-7.17.9-amd64.deb
+-rw-r--r-- 1 root root         0 Oct 15 13:39 index.html.back
+-rw-r--r-- 5 root root 271870992 Oct  3 16:19 kibana-7.17.9-amd64.deb
+-rw-r--r-- 5 root root 366727506 Oct  3 16:24 logstash-7.17.9-amd64.deb
