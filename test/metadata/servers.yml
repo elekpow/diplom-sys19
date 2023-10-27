@@ -1,8 +1,0 @@
-#cloud-config
-users:
-  - name: igor
-    groups: sudo
-    shell: /bin/bash
-    sudo: ['ALL=(ALL) NOPASSWD:ALL']
-    ssh-authorized-keys:
-      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH/NTJ9DmsqtiiQpivsKLjYOrmQ65uReDMUzfS/HobpR igor@debian
