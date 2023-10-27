@@ -479,9 +479,13 @@ resource "yandex_compute_snapshot_schedule" "snapshot" {
 
 - Свой сервер с deb пакетами : [repo.limubai.ru](https://repo.limubai.ru "repo.limubai.ru)")
 
+```sql
+/
+├── elasticsearch-7.17.9-amd64.deb
+├── filebeat-7.17.9-amd64.deb
+├── kibana-7.17.9-amd64.deb
+```
+![repo.JPG](https://github.com/elekpow/diplom-sys19/blob/main/images/repo.JPG)
 
--rw-r--r-- 5 root root 315292122 Oct  3 16:54 elasticsearch-7.17.9-amd64.deb
--rw-r--r-- 5 root root  35503128 Oct  3 16:16 filebeat-7.17.9-amd64.deb
--rw-r--r-- 1 root root         0 Oct 15 13:39 index.html.back
--rw-r--r-- 5 root root 271870992 Oct  3 16:19 kibana-7.17.9-amd64.deb
--rw-r--r-- 5 root root 366727506 Oct  3 16:24 logstash-7.17.9-amd64.deb
+
+
