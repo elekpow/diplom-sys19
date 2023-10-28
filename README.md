@@ -274,17 +274,17 @@ terraform apply -auto-approve
 ```sql
 Outputs:
 
-bastion-elvm = "51.250.80.150"
-kibana-elvm = "84.201.159.19"
-load_balancer = "158.160.130.19"
-zabbix-elvm = "84.201.130.19"
+bastion-elvm = "51.250.79.53"
+kibana-elvm = "158.160.117.170"
+load_balancer = "158.160.130.40"
+zabbix-elvm = "158.160.123.194"
 ```
 
 
 
 Ansible использует файл **inventory**, в котором определена опция "SSH ProxyCommand", позволяя подключаться к вирутальным машинам чере бастион-серевер.
 
-структура выглядит так:
+пример структуры, шаблон выглядит так:
 
 ```sql
 websrv-elvm:
@@ -351,6 +351,12 @@ ansible-playbook -i ansible/inventory ansible/install.yml
 ```
 
 
+
+![installing.JPG](https://github.com/elekpow/diplom-sys19/blob/main/images/installing.JPG)
+
+
+
+
 Так как программы - Elasticsearch, Kibana, Filebeat не удается установить из за ограничений доступа , использую собственный сервер: **"http://repo.limubai.ru"**. 
 
 Для доступа к серверам использую  подключение по ssh через бастион-серевер, для этого изпользуется флаг `-J` (jump хост). Группа безопасности **bastion-sg** для бастион-серевера определена в файле **network.tf**, он имеет открытый 22 порт. Во внутренней сети можно использовать имя сервера либо FQDN.
@@ -358,17 +364,21 @@ ansible-playbook -i ansible/inventory ansible/install.yml
 Пример подключения к серверу:
 
 ```sql
-ssh -i ~/.ssh/id_ed25519 -J bastion@51.250.80.150 igor@websrv-elvm-1
+ssh -i ~/.ssh/id_ed25519 -J bastion@51.250.79.53 igor@websrv-elvm-1
 ```
 
 
 После того как завершиться процесс установки подключаемся проверим работоспособность веб-серверов
 
-`curl -v 158.160.130.19` проверяем ответ от веб серверов, через **load balancer**
+`curl -v 158.160.130.40` проверяем ответ от веб серверов, через **load balancer**
 
-![curl_load_balancer.JPG](https://github.com/elekpow/diplom-sys19/blob/main/images/curl_load_balancer.JPG)
 
-![curl_load_balancer2.JPG](https://github.com/elekpow/diplom-sys19/blob/main/images/curl_load_balancer2.JPG)
+<title>websrv-elvm-1</title>
+![installing_complete.JPG](https://github.com/elekpow/diplom-sys19/blob/main/images/installing_complete.JPG)
+
+<title>websrv-elvm-2</title>
+![installing_complete2.JPG](https://github.com/elekpow/diplom-sys19/blob/main/images/installing_complete2.JPG)
+
 
 также можно открыть веб браузер и посмотреть тестовую веб-страницу. [Webservers](http://158.160.130.19 "Webservers")
 
@@ -474,9 +484,6 @@ Ansible устанавливает на веб сервера zabbix-agent, да
 ```
 
 
-
-
-
 ![zabbix-dashboard.JPG](https://github.com/elekpow/diplom-sys19/blob/main/images/zabbix-dashboard.JPG)
 
 
@@ -487,9 +494,9 @@ Ansible устанавливает на веб сервера zabbix-agent, да
 ## Доступ к ресурсам
 
 
-- Веб сайт, доcтупен через балансировщик: [load-balancer](http://84.201.159.19 "load-balancer")
+- Веб сайт, доcтупен через балансировщик: [load-balancer](http://158.160.130.40 "load-balancer")
 
-- Логи выводялся на сервер Kibana: [Kibana](http://84.201.159.19 "Kibana")
+- Логи выводялся на сервер Kibana: [Kibana](http://158.160.117.170/app/discover "Kibana")
 
 
 <details>
@@ -517,7 +524,7 @@ deb пакеты для установки:
 ![repo.JPG](https://github.com/elekpow/diplom-sys19/blob/main/images/repo.JPG)
 
 
-- Мониторинг: [Zabbix](http://84.201.159.19 "Zabbix")
+- Мониторинг: [Zabbix](http://158.160.123.194 "Zabbix")
 
 <details>
   <summary>Авторизация на Zabbix-сервере:  </summary>
@@ -527,9 +534,4 @@ deb пакеты для установки:
 Пароль: `zabbix`
 
 </details>
-
-
-
-
-
 
