@@ -274,10 +274,10 @@ terraform apply -auto-approve
 ```sql
 Outputs:
 
-bastion-elvm = "51.250.79.53"
-kibana-elvm = "158.160.117.170"
-load_balancer = "158.160.130.40"
-zabbix-elvm = "158.160.123.194"
+bastion-elvm = "51.250.84.74"
+kibana-elvm = "158.160.124.80"
+load_balancer = "158.160.129.4"
+zabbix-elvm = "158.160.120.17"
 ```
 
 
@@ -364,13 +364,13 @@ ansible-playbook -i ansible/inventory ansible/install.yml
 Пример подключения к серверу:
 
 ```sql
-ssh -i ~/.ssh/id_ed25519 -J bastion@51.250.79.53 igor@websrv-elvm-1
+ssh -i ~/.ssh/id_ed25519 -J bastion@51.250.84.74 igor@websrv-elvm-1
 ```
 
 
 После того как завершиться процесс установки подключаемся проверим работоспособность веб-серверов
 
-`curl -v 158.160.130.40` проверяем ответ от веб серверов, через **load balancer**
+`curl -v 158.160.129.4` проверяем ответ от веб серверов, через **load balancer**
 
 
 <title>websrv-elvm-1</title>
@@ -493,12 +493,17 @@ Ansible устанавливает на веб сервера zabbix-agent, да
 
 
 
+
+
+
+
+
 ## Доступ к ресурсам
 
 
-- Веб сайт, доcтупен через балансировщик: [load-balancer](http://158.160.130.40 "load-balancer")
+- Веб сайт, доcтупен через балансировщик: [load-balancer](http://158.160.129.4 "load-balancer")
 
-- Логи выводялся на сервер Kibana: [Kibana](http://158.160.117.170/app/discover "Kibana")
+- Логи выводялся на сервер Kibana: [Kibana](http://158.160.124.80/app/discover "Kibana")
 
 
 <details>
@@ -526,7 +531,7 @@ deb пакеты для установки:
 ![repo.JPG](https://github.com/elekpow/diplom-sys19/blob/main/images/repo.JPG)
 
 
-- Мониторинг: [Zabbix](http://158.160.123.194 "Zabbix")
+- Мониторинг: [Zabbix](http://158.160.120.17 "Zabbix")
 
 <details>
   <summary>Авторизация на Zabbix-сервере:  </summary>
