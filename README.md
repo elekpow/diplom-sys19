@@ -497,7 +497,14 @@ Ansible устанавливает на веб сервера zabbix-agent, да
 
 - <a href="https://repo.limubai.ru/" target="_blank">https://repo.limubai.ru</a>
     
-deb пакеты для устагновки:
+deb пакеты для установки:
+
+```sql
+/
+├── elasticsearch-7.17.9-amd64.deb
+├── filebeat-7.17.9-amd64.deb
+├── kibana-7.17.9-amd64.deb
+```
  	
 - [elasticsearch-7.17.9](https://repo.limubai.ru/elasticsearch-7.17.9-amd64.deb)
 
@@ -507,25 +514,22 @@ deb пакеты для устагновки:
 
 </details>
 
+![repo.JPG](https://github.com/elekpow/diplom-sys19/blob/main/images/repo.JPG)
+
+
+- Мониторинг: [Zabbix](http://84.201.159.19 "Zabbix")
 
 <details>
   <summary>Авторизация на Zabbix-сервере:  </summary>
   
 Логин: `Admin`
+
 Пароль: `zabbix`
 
 </details>
 
 
-- Мониторинг: [Zabbix](http://84.201.159.19 "Zabbix")
 
-```sql
-/
-├── elasticsearch-7.17.9-amd64.deb
-├── filebeat-7.17.9-amd64.deb
-├── kibana-7.17.9-amd64.deb
-```
-![repo.JPG](https://github.com/elekpow/diplom-sys19/blob/main/images/repo.JPG)
 
 
 
