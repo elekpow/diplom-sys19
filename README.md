@@ -275,10 +275,13 @@ zabbix-elvm = "84.201.130.19"
 ansible-playbook -i ansible/inventory ansible/install.yml
 ```
 
-Для удобства установки создадим роли. На веб сервера установим nginx c тестовой страницей, а также zabbix-agent и filebeat. 
 
 
-Структура файла **install.yml**
+<details>
+  <summary>Структура файла **install.yml**</summary>
+  
+  Для удобства установки применяю роли ansible. На веб сервера устанавливается nginx c тестовой страницей, а также zabbix-agent и filebeat. 
+
 
 ```sql
 ---
@@ -314,7 +317,7 @@ ansible-playbook -i ansible/inventory ansible/install.yml
     - zabbix
 
 ```
-
+</details>
 
 Так как программы - Elasticsearch, Kibana, Filebeat не удается установить из за ограничений доступа , использую собственный сервер: **"http://repo.limubai.ru"**. 
 
