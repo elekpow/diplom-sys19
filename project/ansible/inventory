@@ -1,6 +1,6 @@
 bastion-elvm:
   hosts:
-    51.250.79.53:  
+    51.250.84.74:  
 websrv-elvm:
   hosts:
     websrv-elvm-1.ru-central1.internal:
@@ -8,25 +8,25 @@ websrv-elvm:
   vars:
     ansible_python_interpreter: '/usr/bin/python3'
     ansible_ssh_user: 'igor'
-    ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o ProxyCommand="ssh -W %h:%p -q bastion@51.250.79.53"'    
+    ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o ProxyCommand="ssh -W %h:%p -q bastion@51.250.84.74"'    
 elastic-elvm:
   hosts:
     elastic-elvm.ru-central1.internal:
   vars:
     ansible_python_interpreter: '/usr/bin/python3'
     ansible_ssh_user: 'igor'
-    ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o ProxyCommand="ssh -W %h:%p -q bastion@51.250.79.53"'        
+    ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o ProxyCommand="ssh -W %h:%p -q bastion@51.250.84.74"'        
 kibana-elvm:
   hosts:
     kibana-elvm.ru-central1.internal:
   vars:
     ansible_python_interpreter: '/usr/bin/python3'
     ansible_ssh_user: 'igor'
-    ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o ProxyCommand="ssh -W %h:%p -q bastion@51.250.79.53"'        
+    ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o ProxyCommand="ssh -W %h:%p -q bastion@51.250.84.74"'        
 zabbix-elvm:
   hosts:
     zabbix-elvm.ru-central1.internal:
   vars:
     ansible_python_interpreter: '/usr/bin/python3'
     ansible_ssh_user: 'igor'
-    ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o ProxyCommand="ssh -W %h:%p -q bastion@51.250.79.53"'        
+    ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o ProxyCommand="ssh -W %h:%p -q bastion@51.250.84.74"'        

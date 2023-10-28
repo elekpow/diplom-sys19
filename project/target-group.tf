@@ -13,25 +13,16 @@ resource "yandex_alb_target_group" "elvm-tg" {
 }
 resource "yandex_alb_backend_group" "elvm-bk" {
   name                     = "elvm-bk"
-  #session_affinity {
-#    connection {
-#      source_ip = <true_или_false>
-#    }
-#  }
 
   http_backend {
     name                   = "elvm-http-bk"
     weight                 = 1
     port                   = 80
     target_group_ids       = ["${yandex_alb_target_group.elvm-tg.id}"]
-    # load_balancing_config {
-      # panic_threshold      = 50
-    # }    
+    
     healthcheck {
       timeout              = "1s"
       interval             = "1s"
-    #  healthy_threshold    = 10
-   #   unhealthy_threshold  = 15 
       http_healthcheck {
         path               = "/"
       }
@@ -94,15 +85,7 @@ resource "yandex_alb_load_balancer" "elvm-balancer" {
     }
   }
 
-  # log_options {
-   # log_group_id = "<идентификатор_лог-группы>"
-    # discard_rule {
-      # http_codes          = ["200"]
-      # http_code_intervals = ["HTTP_ALL"]
-      # grpc_codes          = ["OK"]
-      # discard_percent     = 75
-    # }
-  # }
+
 }
 
 output "load_balancer" {
