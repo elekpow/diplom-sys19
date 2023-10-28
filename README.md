@@ -226,7 +226,59 @@ ansible
 ```
 
 
+Конфигурация Terraform для создания снимков :
+
+```sql
+resource "yandex_compute_snapshot_schedule" "snapshot" {
+  name = "snapshots-elvm"
+  schedule_policy {
+	expression = "0 21 ? * *"
+  }
+  retention_period = "168h"
+  snapshot_spec {
+	  description = "retention-snapshot"      
+  }
+
+  disk_ids = ["${yandex_compute_instance.bastion-elvm.boot_disk[0].disk_id}",
+              "${yandex_compute_instance.websrv-elvm-1.boot_disk[0].disk_id}",
+              "${yandex_compute_instance.websrv-elvm-2.boot_disk[0].disk_id}",
+              "${yandex_compute_instance.zabbix-elvm.boot_disk[0].disk_id}",
+              "${yandex_compute_instance.elastic-elvm.boot_disk[0].disk_id}",
+              "${yandex_compute_instance.kibana-elvm.boot_disk[0].disk_id}",]
+}
+
+``` 
+
+
+
+
+
 ![tree-project-L2.JPG](https://github.com/elekpow/diplom-sys19/blob/main/images/tree-project-L2.JPG)
+
+
+
+
+## Установка виртульных машин
+
+Произведем установку всех виртульных машин, а также подключим балансировщик, и настроим снапшоты загрузочных дисков.
+
+Команда для автоматического запуска Terraform
+
+```
+terraform apply -auto-approve
+```
+
+
+Полученый результат :
+
+```sql
+Outputs:
+
+bastion-elvm = "51.250.80.150"
+kibana-elvm = "84.201.159.19"
+load_balancer = "158.160.130.19"
+zabbix-elvm = "84.201.130.19"
+```
 
 
 
@@ -246,39 +298,9 @@ websrv-elvm:
 
 ```
 
-## Установка виртульных машин
-
-Произведем установку всех виртульных машин, а также подключим балансировщик, и настроим снапшоты загрузочных дисков.
-
-Команда для автоматического запуска Terraform
-
-```
-terraform apply -auto-approve
-```
-
-
-Полученый результат:
-
-```sql
-Outputs:
-
-bastion-elvm = "51.250.80.150"
-kibana-elvm = "84.201.159.19"
-load_balancer = "158.160.130.19"
-zabbix-elvm = "84.201.130.19"
-```
-
-
-Запускаем установку программ через ansible.
-
-```
-ansible-playbook -i ansible/inventory ansible/install.yml
-```
-
-
 
 <details>
-  <summary>Структура файла **install.yml**</summary>
+  <summary>Структура файла install.yml</summary>
   
   Для удобства установки применяю роли ansible. На веб сервера устанавливается nginx c тестовой страницей, а также zabbix-agent и filebeat. 
 
@@ -318,6 +340,16 @@ ansible-playbook -i ansible/inventory ansible/install.yml
 
 ```
 </details>
+
+
+
+
+Запускаем установку программ через ansible.
+
+```
+ansible-playbook -i ansible/inventory ansible/install.yml
+```
+
 
 Так как программы - Elasticsearch, Kibana, Filebeat не удается установить из за ограничений доступа , использую собственный сервер: **"http://repo.limubai.ru"**. 
 
@@ -410,11 +442,10 @@ logging.metrics.enabled: false
 
 ## Мониторинг серверов
 
-Ansible устанавливает на веб сервера zabbix-agent, данные передаются на Zabbix-сервер.
+Ansible устанавливает на веб сервера zabbix-agent, данные передаются на Zabbix-сервер. В процессе выполнения роли Zabbix-сервера, подключается файл **addhost.yml**, в котором задаю подключение и через API передаю в Zabbix данные о хостах, также создаю item с параметрами мониторинга. применяя  `with_items: "{{ item_response }}"`, в Vars задаю нужные параметры сбора данных.
 
-Через API передаю в Zabbix данные о хостах, также создаю item с параметрами мониторинга.
 
-Пример создания Item. Код выполняется на стороне сервера.
+Пример создания Item.
 
 ```sql
 - name: Create Item
@@ -443,44 +474,44 @@ Ansible устанавливает на веб сервера zabbix-agent, да
 ```
 
 
+
+
+
 ![zabbix-dashboard.JPG](https://github.com/elekpow/diplom-sys19/blob/main/images/zabbix-dashboard.JPG)
 
 
 
 
-Конфигурация Terraform для создания снимков :
-
-```sql
-resource "yandex_compute_snapshot_schedule" "snapshot" {
-  name = "snapshots-elvm"
-  schedule_policy {
-	expression = "0 21 ? * *"
-  }
-  retention_period = "168h"
-  snapshot_spec {
-	  description = "retention-snapshot"      
-  }
-
-  disk_ids = ["${yandex_compute_instance.bastion-elvm.boot_disk[0].disk_id}",
-              "${yandex_compute_instance.websrv-elvm-1.boot_disk[0].disk_id}",
-              "${yandex_compute_instance.websrv-elvm-2.boot_disk[0].disk_id}",
-              "${yandex_compute_instance.zabbix-elvm.boot_disk[0].disk_id}",
-              "${yandex_compute_instance.elastic-elvm.boot_disk[0].disk_id}",
-              "${yandex_compute_instance.kibana-elvm.boot_disk[0].disk_id}",]
-}
-
-``` 
 
 
 ## Доступ к ресурсам
 
-- Веб сайт: [load-balancer](http://84.201.159.19 "load-balancer)")
 
-- Логи: [Kibana](http://84.201.159.19 "Kibana)")
+- Веб сайт: [load-balancer](http://84.201.159.19 "load-balancer"
 
-- Мониторинг: [Zabbix](http://84.201.159.19 "Zabbix)")
+- Логи: [Kibana](http://84.201.159.19 "Kibana")
 
-- Свой сервер с deb пакетами : [repo.limubai.ru](https://repo.limubai.ru "repo.limubai.ru)")
+<details>
+  <summary>Авторизация на Zabbix-сервере:  </summary>
+  
+Логин: `Admin`
+Пароль: `zabbix`
+
+</details>
+
+
+<details>
+  <summary>Свой сервер с deb пакетами:  </summary>
+
+- <a href="https://repo.limubai.ru/" target="_blank">https://repo.limubai.ru</a>
+    
+[elasticsearch-7.17.9](https://repo.limubai.ru/elasticsearch-7.17.9-amd64.deb)
+[kibana-7.17.9](https://repo.limubai.ru/kibana-7.17.9-amd64.deb)
+[filebeat-7.17.9](https://repo.limubai.ru/filebeat-7.17.9-amd64.deb)
+
+</details>
+
+- Мониторинг: [Zabbix](http://84.201.159.19 "Zabbix")
 
 ```sql
 /
