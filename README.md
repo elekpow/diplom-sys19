@@ -487,9 +487,24 @@ Ansible устанавливает на веб сервера zabbix-agent, да
 ## Доступ к ресурсам
 
 
-- Веб сайт: [load-balancer](http://84.201.159.19 "load-balancer"
+- Веб сайт, доcтупен через балансировщик: [load-balancer](http://84.201.159.19 "load-balancer")
 
-- Логи: [Kibana](http://84.201.159.19 "Kibana")
+- Логи выводялся на сервер Kibana: [Kibana](http://84.201.159.19 "Kibana")
+
+
+<details>
+  <summary>Свой сервер с deb пакетами:  </summary>
+
+- <a href="https://repo.limubai.ru/" target="_blank">https://repo.limubai.ru</a>
+    
+- [elasticsearch-7.17.9](https://repo.limubai.ru/elasticsearch-7.17.9-amd64.deb)
+
+- [kibana-7.17.9](https://repo.limubai.ru/kibana-7.17.9-amd64.deb)
+
+- [filebeat-7.17.9](https://repo.limubai.ru/filebeat-7.17.9-amd64.deb)
+
+</details>
+
 
 <details>
   <summary>Авторизация на Zabbix-сервере:  </summary>
@@ -499,17 +514,6 @@ Ansible устанавливает на веб сервера zabbix-agent, да
 
 </details>
 
-
-<details>
-  <summary>Свой сервер с deb пакетами:  </summary>
-
-- <a href="https://repo.limubai.ru/" target="_blank">https://repo.limubai.ru</a>
-    
-[elasticsearch-7.17.9](https://repo.limubai.ru/elasticsearch-7.17.9-amd64.deb)
-[kibana-7.17.9](https://repo.limubai.ru/kibana-7.17.9-amd64.deb)
-[filebeat-7.17.9](https://repo.limubai.ru/filebeat-7.17.9-amd64.deb)
-
-</details>
 
 - Мониторинг: [Zabbix](http://84.201.159.19 "Zabbix")
 
