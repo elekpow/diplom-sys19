@@ -497,6 +497,8 @@ Ansible устанавливает на веб сервера zabbix-agent, да
 
 - <a href="https://repo.limubai.ru/" target="_blank">https://repo.limubai.ru</a>
     
+deb пакеты для устагновки:
+ 	
 - [elasticsearch-7.17.9](https://repo.limubai.ru/elasticsearch-7.17.9-amd64.deb)
 
 - [kibana-7.17.9](https://repo.limubai.ru/kibana-7.17.9-amd64.deb)
