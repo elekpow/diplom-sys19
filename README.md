@@ -448,6 +448,13 @@ logging.metrics.enabled: false
 
 ![elastic.JPG](https://github.com/elekpow/diplom-sys19/blob/main/images/elastic.JPG)
 
+dashboard:
+
+![elastic-dashboard.JPG](https://github.com/elekpow/diplom-sys19/blob/main/images/elastic-dashboard.JPG)
+
+
+
+
 
 
 ## Мониторинг серверов
@@ -484,14 +491,12 @@ Ansible устанавливает на веб сервера zabbix-agent, да
 ```
 
 
-Информацию выведем на дашборд.
+Информацию о работе веб-серверов выведем на дашборд.
+
+
+
 
 ![zabbix-dashboard.JPG](https://github.com/elekpow/diplom-sys19/blob/main/images/zabbix-dashboard.JPG)
-
-
-
-
-
 
 
 
