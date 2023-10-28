@@ -484,6 +484,8 @@ Ansible устанавливает на веб сервера zabbix-agent, да
 ```
 
 
+Информацию выведем на дашборд.
+
 ![zabbix-dashboard.JPG](https://github.com/elekpow/diplom-sys19/blob/main/images/zabbix-dashboard.JPG)
 
 
