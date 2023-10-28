@@ -15,9 +15,23 @@ zabbix_hosts:
     
     
 item_response:
-  - name: "cpu localization"
-    key: "system.cpu.util[,user]"
-  - name: "Interface eth"
-    key: "net.if.in[\"eth0\"]" 
+  - name: "fs free"
+    key: "vfs.fs.size[/,free]" 
+    
+  - name: "Memory size"
+    key: "vm.memory.size[available]"
+    
+  - name: "net in"   
+    key: "net.if.total[eth0,bytes]"
+    
   - name: "Total memory"
-    key: "vm.memory.size[total]"       
+    key: "vm.memory.size[total]" 
+    
+  - name: "cpu util"
+    key: "system.cpu.util[,user,avg5]"
+    
+  - name: "http load"    
+    key: "web.page.perf[http://localhost]"
+    
+    
+    
