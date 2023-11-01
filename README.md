@@ -374,10 +374,10 @@ ssh -i ~/.ssh/id_ed25519 -J bastion@51.250.84.74 igor@websrv-elvm-1
 `curl -v 158.160.129.4` проверяем ответ от веб серверов, через **load balancer**
 
 
-<title>websrv-elvm-1</title>
+`<title>websrv-elvm-1</title>`
 ![installing_complete.JPG](https://github.com/elekpow/diplom-sys19/blob/main/images/installing_complete.JPG)
 
-<title>websrv-elvm-2</title>
+`<title>websrv-elvm-2</title>`
 ![installing_complete2.JPG](https://github.com/elekpow/diplom-sys19/blob/main/images/installing_complete2.JPG)
 
 
